@@ -1,0 +1,85 @@
+﻿using MySql.Data.MySqlClient;
+using ql_diemrenluyen.DTO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ql_diemrenluyen.DAO
+{
+    public class AccountDAO
+    {
+        // Lấy tất cả tài khoản
+        public static List<AccountDTO> GetAllAccounts()
+        {
+            List<AccountDTO> accounts = new List<AccountDTO>();
+            string sql = "SELECT * FROM account"; // Thay đổi câu lệnh SQL nếu cần
+
+            List<List<object>> result = DBConnection.ExecuteReader(sql);
+
+            foreach (var row in result)
+            {
+                AccountDTO account = new AccountDTO
+                {
+                    Id = Convert.ToInt64(row[0]), // id
+                    Role = Convert.ToInt32(row[1]), // Role
+                    Password = Convert.ToString(row[2]), // Password
+                    RememberToken = Convert.ToString(row[3]), // RememberToken
+                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // CreatedAt
+                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null, // UpdatedAt
+                    Status = Convert.ToInt32(row[6]) // Status
+                };
+
+                accounts.Add(account);
+            }
+
+            return accounts;
+        }
+
+        // Thêm tài khoản mới
+        public static bool AddAccount(AccountDTO account)
+        {
+            string sql = $"INSERT INTO account (Role, Password, RememberToken, CreatedAt, UpdatedAt, Status) " +
+                         $"VALUES (@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@role", account.Role);
+            cmd.Parameters.AddWithValue("@password", account.Password);
+            cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken);
+            cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt);
+            cmd.Parameters.AddWithValue("@updatedAt", account.UpdatedAt);
+            cmd.Parameters.AddWithValue("@status", account.Status);
+
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+
+        // Cập nhật thông tin tài khoản
+        public static bool UpdateAccount(AccountDTO account)
+        {
+            string sql = $"UPDATE account SET Role = @role, Password = @password, RememberToken = @rememberToken, " +
+                         $"CreatedAt = @createdAt, UpdatedAt = @updatedAt, Status = @status WHERE Id = @id";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@id", account.Id);
+            cmd.Parameters.AddWithValue("@role", account.Role);
+            cmd.Parameters.AddWithValue("@password", account.Password);
+            cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken);
+            cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt);
+            cmd.Parameters.AddWithValue("@updatedAt", account.UpdatedAt);
+            cmd.Parameters.AddWithValue("@status", account.Status);
+
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+
+        // Xóa tài khoản
+        public static bool DeleteAccount(long id)
+        {
+            string sql = $"DELETE FROM account WHERE Id = @id";
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+    }
+}
