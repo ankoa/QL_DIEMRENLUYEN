@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -11,7 +9,7 @@ namespace ql_diemrenluyen.DAO
         public static List<DotChamDiemDTO> GetAllDotChamDiem()
         {
             List<DotChamDiemDTO> dotChamDiems = new List<DotChamDiemDTO>();
-            string sql = "SELECT * FROM dot_cham_diem"; // Thay đổi câu lệnh SQL nếu cần
+            string sql = "SELECT * FROM dotchamdiem"; // Thay đổi câu lệnh SQL nếu cần
 
             List<List<object>> result = DBConnection.ExecuteReader(sql);
 
@@ -35,7 +33,7 @@ namespace ql_diemrenluyen.DAO
         // Thêm đợt chấm điểm mới
         public static bool AddDotChamDiem(DotChamDiemDTO dotChamDiem)
         {
-            string sql = $"INSERT INTO dot_cham_diem (HocKiId, StartDate, EndDate, Name) " +
+            string sql = $"INSERT INTO dotchamdiem (HocKiId, StartDate, EndDate, Name) " +
                          $"VALUES (@hocKiId, @startDate, @endDate, @name)";
 
             var cmd = new MySqlCommand(sql);
@@ -50,7 +48,7 @@ namespace ql_diemrenluyen.DAO
         // Cập nhật thông tin đợt chấm điểm
         public static bool UpdateDotChamDiem(DotChamDiemDTO dotChamDiem)
         {
-            string sql = $"UPDATE dot_cham_diem SET HocKiId = @hocKiId, StartDate = @startDate, " +
+            string sql = $"UPDATE dotchamdiem SET HocKiId = @hocKiId, StartDate = @startDate, " +
                          $"EndDate = @endDate, Name = @name WHERE Id = @id";
 
             var cmd = new MySqlCommand(sql);
@@ -66,7 +64,7 @@ namespace ql_diemrenluyen.DAO
         // Xóa đợt chấm điểm
         public static bool DeleteDotChamDiem(int id)
         {
-            string sql = $"DELETE FROM dot_cham_diem WHERE Id = @id";
+            string sql = $"DELETE FROM dotchamdiem WHERE Id = @id";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", id);
 

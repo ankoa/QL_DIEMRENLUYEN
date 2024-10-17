@@ -1,15 +1,20 @@
-﻿using System.Collections.Generic;
-using ql_diemrenluyen.DAO;
+﻿using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.BUS
 {
     public class SinhVienBUS
     {
-        // Lấy danh sách tất cả sinh viên
+        // Lấy tất cả sinh viên
         public static List<SinhVienDTO> GetAllStudents()
         {
             return SinhVienDAO.GetAllStudents();
+        }
+
+        // Lấy sinh viên theo ID
+        public static SinhVienDTO GetStudentById(long id)
+        {
+            return SinhVienDAO.GetStudentById(id);
         }
 
         // Thêm sinh viên mới
