@@ -86,5 +86,30 @@ namespace ql_diemrenluyen.BUS
 
             return true;
         }
+
+        public static List<ThongTinDotChamDiemDTO> GetDotChamDiemCuaSinhVienTheoId(int sinhVienId)
+        {
+            var thongTinDotChamDiem = DotChamDiemDAO.GetDotChamDiemCuaSinhVienTheoId(sinhVienId);
+            if (thongTinDotChamDiem == null) return new List<ThongTinDotChamDiemDTO>(); // Trả về danh sách rỗng
+
+            // Thiết lập trạng thái hoàn thành thành chuỗi
+            thongTinDotChamDiem.HoanThanh = thongTinDotChamDiem.HoanThanh.Equals("0")
+                ? "Chưa hoàn thành"
+                : "Hoàn thành";
+
+            // Bọc kết quả vào danh sách
+            return new List<ThongTinDotChamDiemDTO> { thongTinDotChamDiem };
+        }
+
+        public static List<ThongTinDotChamDiemDTO> GetDotChamDiemCuaCoVanTheoId(int coVanId)
+        {
+            var thongTinDotChamDiem = DotChamDiemDAO.GetDotChamDiemCuaCoVanTheoId(coVanId);
+            if (thongTinDotChamDiem == null) return new List<ThongTinDotChamDiemDTO>(); // Trả về danh sách rỗng
+
+            // Bọc kết quả vào danh sách
+            return new List<ThongTinDotChamDiemDTO> { thongTinDotChamDiem };
+        }
+
+
     }
 }

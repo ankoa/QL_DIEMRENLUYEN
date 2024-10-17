@@ -47,7 +47,6 @@ namespace ql_diemrenluyen.DAO
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@name", student.Name);
-            cmd.Parameters.AddWithValue("@maSv", student.MaSv);
             cmd.Parameters.AddWithValue("@ngaySinh", student.NgaySinh);
             cmd.Parameters.AddWithValue("@email", student.Email);
             cmd.Parameters.AddWithValue("@gioiTinh", student.GioiTinh);
@@ -68,7 +67,6 @@ namespace ql_diemrenluyen.DAO
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", student.Id);
             cmd.Parameters.AddWithValue("@name", student.Name);
-            cmd.Parameters.AddWithValue("@maSv", student.MaSv);
             cmd.Parameters.AddWithValue("@ngaySinh", student.NgaySinh);
             cmd.Parameters.AddWithValue("@email", student.Email);
             cmd.Parameters.AddWithValue("@gioiTinh", student.GioiTinh);
@@ -96,14 +94,13 @@ namespace ql_diemrenluyen.DAO
             {
                 Id = Convert.ToInt64(row[0]),
                 Name = Convert.ToString(row[1]),
-                MaSv = Convert.ToString(row[2]),
-                NgaySinh = Convert.ToDateTime(row[3]),
-                Email = Convert.ToString(row[4]),
-                GioiTinh = Convert.ToInt32(row[5]),
-                LopId = Convert.ToInt64(row[6]),
-                ChucVu = Convert.ToInt32(row[7]),
-                CreatedAt = Convert.ToDateTime(row[8]),
-                UpdatedAt = Convert.ToDateTime(row[9])
+                NgaySinh = Convert.ToDateTime(row[2]),
+                Email = Convert.ToString(row[3]),
+                GioiTinh = Convert.ToInt32(row[4]),
+                LopId = Convert.ToInt64(row[5]),
+                ChucVu = Convert.ToInt32(row[6]),
+                CreatedAt = Convert.ToDateTime(row[7]),
+                UpdatedAt = Convert.ToDateTime(row[8])
             };
         }
     }

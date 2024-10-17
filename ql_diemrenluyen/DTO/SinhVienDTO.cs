@@ -4,7 +4,6 @@
     {
         private long id;
         private string name;
-        private string maSv;
         private DateTime ngaySinh;  // Đổi thành DateTime
         private string email;
         private int gioiTinh;
@@ -20,7 +19,6 @@
         {
             this.id = id;
             this.name = name;
-            this.maSv = maSv;
             this.ngaySinh = ngaySinh;
             this.email = email;
             this.gioiTinh = gioiTinh;
@@ -33,7 +31,6 @@
         // Getters và Setters
         public long Id { get { return id; } set { id = value; } }
         public string Name { get { return name; } set { name = value; } }
-        public string MaSv { get { return maSv; } set { maSv = value; } }
         public DateTime NgaySinh { get { return ngaySinh; } set { ngaySinh = value; } }
         public string Email { get { return email; } set { email = value; } }
         public int GioiTinh { get { return gioiTinh; } set { gioiTinh = value; } }

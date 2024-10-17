@@ -70,5 +70,105 @@ namespace ql_diemrenluyen.DAO
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
+
+        public static ThongTinDotChamDiemDTO GetDotChamDiemCuaSinhVienTheoId(int sinhVienId)
+        {
+            // Lấy giờ hiện tại theo múi giờ Việt Nam (UTC+7)
+            TimeZoneInfo vnTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+            DateTime ngayHienTai = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, vnTimeZone);
+
+            string sql = @"
+        SELECT hk.Name AS HocKy, 
+               dcd.name AS DotChamDiem, 
+               dcd.startDate AS NgayBatDau, 
+               dcd.endDate AS NgayKetThuc, 
+               ttdcd.hoanthanh AS HoanThanh
+        FROM hocky hk
+        JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
+        JOIN thongtindotchamdiem ttdcd ON dcd.id = ttdcd.dotchamdiem_id
+        WHERE ttdcd.sinhvien_id = @sinhVienId 
+          AND dcd.name = 'Sinh viên'
+          AND dcd.startDate <= @ngayHienTai 
+          AND dcd.endDate >= @ngayHienTai
+        LIMIT 1"; // Giới hạn chỉ lấy 1 kết quả
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@sinhVienId", sinhVienId);
+            cmd.Parameters.AddWithValue("@ngayHienTai", ngayHienTai); // Gán ngày hiện tại theo giờ VN
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Nếu không có kết quả trả về, trả về null
+            if (result.Count == 0) return null;
+
+            // Nếu có kết quả, chuyển đổi dòng đầu tiên thành đối tượng DTO
+            var row = result[0];
+            ThongTinDotChamDiemDTO thongTinDotChamDiem = new ThongTinDotChamDiemDTO
+            {
+                HocKy = Convert.ToString(row[0]),
+                DotChamDiem = Convert.ToString(row[1]),
+                NgayBatDau = Convert.ToDateTime(row[2]),
+                NgayKetThuc = Convert.ToDateTime(row[3]),
+                HoanThanh = Convert.ToString(row[4])
+            };
+            Console.WriteLine(thongTinDotChamDiem.ToString());
+            return thongTinDotChamDiem;
+        }
+        public static ThongTinDotChamDiemDTO GetDotChamDiemCuaCoVanTheoId(int coVanId)
+        {
+            // Lấy giờ hiện tại theo múi giờ Việt Nam (UTC+7)
+            TimeZoneInfo vnTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+            DateTime ngayHienTai = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, vnTimeZone);
+
+            string sql = @"
+    SELECT hk.Name AS HocKy, 
+           dcd.name AS DotChamDiem, 
+           dcd.startDate AS NgayBatDau, 
+           dcd.endDate AS NgayKetThuc, 
+           (SUM(CASE WHEN ttdcd.hoanthanh = 0 THEN 1 ELSE 0 END) / COUNT(ttdcd.hoanthanh)) * 100 AS HoanThanh
+    FROM hocky hk
+    JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
+    JOIN thongtindotchamdiem ttdcd ON dcd.id = ttdcd.dotchamdiem_id
+    WHERE ttdcd.covan_id = @coVanId 
+      AND dcd.name = 'Cố vấn'
+      AND dcd.startDate <= @ngayHienTai 
+      AND dcd.endDate >= @ngayHienTai
+    GROUP BY hk.Name, dcd.name, dcd.startDate, dcd.endDate
+    LIMIT 1"; // Giới hạn chỉ lấy 1 kết quả
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@coVanId", coVanId);
+            cmd.Parameters.AddWithValue("@ngayHienTai", ngayHienTai); // Gán ngày hiện tại theo giờ VN
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Nếu không có kết quả trả về, trả về null
+            if (result.Count == 0) return null;
+
+            // Nếu có kết quả, chuyển đổi dòng đầu tiên thành đối tượng DTO
+            var row = result[0];
+            ThongTinDotChamDiemDTO thongTinDotChamDiem = new ThongTinDotChamDiemDTO
+            {
+                HocKy = Convert.ToString(row[0]),
+                DotChamDiem = Convert.ToString(row[1]),
+                NgayBatDau = Convert.ToDateTime(row[2]),
+                NgayKetThuc = Convert.ToDateTime(row[3]),
+                HoanThanh = Convert.ToString(row[4]) + "%" // Thay đổi để gán giá trị phần trăm hoàn thành
+            };
+            Console.WriteLine(thongTinDotChamDiem.ToString());
+            return thongTinDotChamDiem;
+        }
+
     }
+
+
+    public class ThongTinDotChamDiemDTO
+    {
+        public string HocKy { get; set; }
+        public string DotChamDiem { get; set; }
+        public DateTime NgayBatDau { get; set; }
+        public DateTime NgayKetThuc { get; set; }
+        public string HoanThanh { get; set; }
+    }
+
 }

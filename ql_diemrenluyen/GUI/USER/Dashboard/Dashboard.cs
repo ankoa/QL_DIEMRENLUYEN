@@ -1,16 +1,28 @@
 ﻿using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DAO;
 using System.Data;
 
 namespace ql_diemrenluyen.GUI.USER
 {
     public partial class Dashboard : Form
     {
+        public static string nguoidung_id = "1";
+        public static string role = "Cố vấn";
         public Dashboard()
         {
             InitializeComponent();
             LoadStudentInfo();
-            LoadDrlHocKi();
-            LoadDotChamDiem();
+            if (role.Equals("Sinh viên"))
+            {
+                LoadDrlHocKi(1);
+                LoadDotChamDiemSinhVien(1, role);
+            }
+            else if (role.Equals("Cố vấn"))
+            {
+                LoadDrlHocKi(1);
+                LoadDotChamDiemSinhVien(1, role);
+            }
+
             //CustomizeDataGridView();
             //CustomizeSpecificColumns();
         }
@@ -23,7 +35,7 @@ namespace ql_diemrenluyen.GUI.USER
                 // Sau này đổi thành bus
                 var student = SinhVienBUS.GetStudentById(1);
 
-                lbMaSV.Text = student.MaSv;
+                lbMaSV.Text = student.Id.ToString();
                 lbEmail.Text = student.Email;
                 lbHovaTen.Text = student.Name;
                 lbNgaySinh.Text = student.NgaySinh.ToString();
@@ -38,22 +50,81 @@ namespace ql_diemrenluyen.GUI.USER
             }
         }
 
-        private void LoadDotChamDiem()
+        private void LoadDotChamDiemSinhVien(int sinhVienId, string role)
         {
+            // Cấu hình các cột trong DataGridView
+            dataGridView2.AutoGenerateColumns = false;
+
+            // Đảm bảo chỉ thêm cột một lần
+            if (dataGridView2.Columns.Count == 0)
+            {
+                dataGridView2.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Học kì",
+                    DataPropertyName = "HocKy",
+                    Name = "HocKy"
+                });
+
+                dataGridView2.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Tên Đợt",
+                    DataPropertyName = "DotChamDiem",
+                    Name = "DotChamDiem"
+                });
+
+                dataGridView2.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Ngày bắt đầu",
+                    DataPropertyName = "NgayBatDau",
+                    Name = "NgayBatDau"
+                });
+
+                dataGridView2.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Ngày kết thúc",
+                    DataPropertyName = "NgayKetThuc",
+                    Name = "NgayKetThuc"
+                });
+
+                dataGridView2.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Tiến độ",
+                    DataPropertyName = "HoanThanh",
+                    Name = "HoanThanh"
+                });
+            }
+
             try
             {
-                var dotchamdiems = DotChamDiemBUS.GetAllDotChamDiem();
-                dataGridView2.DataSource = dotchamdiems;
+                List<ThongTinDotChamDiemDTO> dotChamDiemList; // Khai báo biến
+
+                if (role.Equals("Sinh viên"))
+                {
+                    dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaSinhVienTheoId(sinhVienId);
+                }
+                else if (role.Equals("Cố vấn")) // Giả sử bạn đang kiểm tra vai trò "Cố vấn"
+                {
+                    dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaCoVanTheoId(sinhVienId);
+                }
+                else
+                {
+                    // Xử lý trường hợp vai trò không hợp lệ nếu cần
+                    MessageBox.Show("Vai trò không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                dataGridView2.DataSource = dotChamDiemList; // Gán nguồn dữ liệu cho DataGridView
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi tải sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void LoadDrlHocKi()
+
+
+        private void LoadDrlHocKi(int sinhVienId)
         {
-            int sinhVienId = 1; // Ví dụ: ID sinh viên cần lấy dữ liệu
             var diemRenLuyenChiTiet = DiemRenLuyenBUS.GetDiemRenLuyenChiTiet(sinhVienId);
 
             // Chuyển đổi danh sách thành DataTable
