@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ql_diemrenluyen
-build_property.ProjectDir = C:\Users\huhuh\OneDrive\Máy tính\Code\QLDiemrenluyen\ql_diemrenluyen\
+build_property.ProjectDir = D:\Code\QLDiemrenluyen\ql_diemrenluyen\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
