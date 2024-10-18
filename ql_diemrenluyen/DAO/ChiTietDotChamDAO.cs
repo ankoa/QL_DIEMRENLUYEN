@@ -19,16 +19,11 @@ namespace ql_diemrenluyen.DAO
             {
                 ChiTietDotChamDTO chiTietDotCham = new ChiTietDotChamDTO(
                     Convert.ToInt64(row[0]), // Id
-                    Convert.ToInt32(row[1]), // Diem
-                    Convert.ToInt32(row[2]), // DotChamId
-                    Convert.ToInt64(row[3]), // ChiTietTieuChiId
-                    Convert.ToInt64(row[4]), // SinhVienId
-                    Convert.ToInt64(row[5]), // CoVanId
-                    Convert.ToInt64(row[6]), // KhoaId
-                    Convert.ToInt32(row[7]), // Final
-                    Convert.ToInt32(row[8]), // HocKiId
-                    row[9] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[9]) : null, // CreatedAt
-                    row[10] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[10]) : null // UpdatedAt
+                    Convert.ToInt32(row[2]), // Diem
+                    Convert.ToInt64(row[1]), // ThongTinDotChamDiemId
+                    Convert.ToInt64(row[3]), // TieuchiDanhgiaId
+                    row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // CreatedAt
+                    row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null // UpdatedAt
                 );
 
                 chiTietDotChams.Add(chiTietDotCham);
@@ -40,18 +35,13 @@ namespace ql_diemrenluyen.DAO
         // Thêm chi tiết đợt chấm mới
         public static bool AddChiTietDotCham(ChiTietDotChamDTO chiTietDotCham)
         {
-            string sql = $"INSERT INTO chitietdotcham (Diem, DotChamId, ChiTietTieuChiId, SinhVienId, CoVanId, KhoaId, Final, HocKiId, CreatedAt, UpdatedAt) " +
-                         $"VALUES (@diem, @dotChamId, @chiTietTieuChiId, @sinhVienId, @coVanId, @khoaId, @final, @hocKiId, @createdAt, @updatedAt)";
+            string sql = "INSERT INTO chitietdotcham (diem, thongtindotchamdiem_id, tieuchidanhgia_id, created_at, updated_at) " +
+                         "VALUES (@diem, @thongTinDotChamDiemId, @tieuchiDanhgiaId, @createdAt, @updatedAt)";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@diem", chiTietDotCham.Diem);
-            cmd.Parameters.AddWithValue("@dotChamId", chiTietDotCham.DotChamId);
-            cmd.Parameters.AddWithValue("@chiTietTieuChiId", chiTietDotCham.ChiTietTieuChiId);
-            cmd.Parameters.AddWithValue("@sinhVienId", chiTietDotCham.SinhVienId);
-            cmd.Parameters.AddWithValue("@coVanId", chiTietDotCham.CoVanId);
-            cmd.Parameters.AddWithValue("@khoaId", chiTietDotCham.KhoaId);
-            cmd.Parameters.AddWithValue("@final", chiTietDotCham.Final);
-            cmd.Parameters.AddWithValue("@hocKiId", chiTietDotCham.HocKiId);
+            cmd.Parameters.AddWithValue("@thongTinDotChamDiemId", chiTietDotCham.ThongTinDotChamDiemId);
+            cmd.Parameters.AddWithValue("@tieuchiDanhgiaId", chiTietDotCham.TieuchiDanhgiaId);
             cmd.Parameters.AddWithValue("@createdAt", chiTietDotCham.CreatedAt);
             cmd.Parameters.AddWithValue("@updatedAt", chiTietDotCham.UpdatedAt);
 
@@ -61,20 +51,14 @@ namespace ql_diemrenluyen.DAO
         // Cập nhật thông tin chi tiết đợt chấm
         public static bool UpdateChiTietDotCham(ChiTietDotChamDTO chiTietDotCham)
         {
-            string sql = $"UPDATE chitietdotcham SET Diem = @diem, DotChamId = @dotChamId, ChiTietTieuChiId = @chiTietTieuChiId, " +
-                         $"SinhVienId = @sinhVienId, CoVanId = @coVanId, KhoaId = @khoaId, Final = @final, HocKiId = @hocKiId, " +
-                         $"CreatedAt = @createdAt, UpdatedAt = @updatedAt WHERE Id = @id";
+            string sql = "UPDATE chitietdotcham SET diem = @diem, thongtindotchamdiem_id = @thongTinDotChamDiemId, " +
+                         "tieuchidanhgia_id = @tieuchiDanhgiaId, created_at = @createdAt, updated_at = @updatedAt WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", chiTietDotCham.Id);
             cmd.Parameters.AddWithValue("@diem", chiTietDotCham.Diem);
-            cmd.Parameters.AddWithValue("@dotChamId", chiTietDotCham.DotChamId);
-            cmd.Parameters.AddWithValue("@chiTietTieuChiId", chiTietDotCham.ChiTietTieuChiId);
-            cmd.Parameters.AddWithValue("@sinhVienId", chiTietDotCham.SinhVienId);
-            cmd.Parameters.AddWithValue("@coVanId", chiTietDotCham.CoVanId);
-            cmd.Parameters.AddWithValue("@khoaId", chiTietDotCham.KhoaId);
-            cmd.Parameters.AddWithValue("@final", chiTietDotCham.Final);
-            cmd.Parameters.AddWithValue("@hocKiId", chiTietDotCham.HocKiId);
+            cmd.Parameters.AddWithValue("@thongTinDotChamDiemId", chiTietDotCham.ThongTinDotChamDiemId);
+            cmd.Parameters.AddWithValue("@tieuchiDanhgiaId", chiTietDotCham.TieuchiDanhgiaId);
             cmd.Parameters.AddWithValue("@createdAt", chiTietDotCham.CreatedAt);
             cmd.Parameters.AddWithValue("@updatedAt", chiTietDotCham.UpdatedAt);
 
@@ -84,7 +68,7 @@ namespace ql_diemrenluyen.DAO
         // Xóa chi tiết đợt chấm
         public static bool DeleteChiTietDotCham(long id)
         {
-            string sql = $"DELETE FROM chitietdotcham WHERE Id = @id";
+            string sql = "DELETE FROM chitietdotcham WHERE id = @id";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", id);
 

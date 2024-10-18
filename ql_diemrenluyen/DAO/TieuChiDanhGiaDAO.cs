@@ -35,8 +35,8 @@ namespace ql_diemrenluyen.DAO
         // Thêm tiêu chí đánh giá mới
         public static bool AddTieuChiDanhGia(TieuChiDanhGiaDTO tieuChi)
         {
-            string sql = "INSERT INTO tieu_chi_danh_gia (Name, DiemMax, ParentId, CreatedAt, UpdatedAt) VALUES (@name, @diemMax, @parentId, @createdAt, @updatedAt)";
-
+            string sql = "INSERT INTO `sinhvien` (`name`, `ngaysinh`, `email`, `gioitinh`, `lop_id`, `chucvu`, `created_at`, `updated_at`) " +
+                                           "VALUES (@name, @birthDate, @email, @gender, @classId, @position, @createdAt, @updatedAt);";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@name", tieuChi.Name);
             cmd.Parameters.AddWithValue("@diemMax", tieuChi.DiemMax);
