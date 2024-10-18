@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ql_diemrenluyen.DTO
 {
     public class AccountDTO
     {
         public long Id { get; set; }
-        public int Role { get; set; }
+        public string Role { get; set; }
         public string Password { get; set; }
         public string RememberToken { get; set; }
         public DateTime? CreatedAt { get; set; }
@@ -19,10 +14,10 @@ namespace ql_diemrenluyen.DTO
 
         public AccountDTO() { }
 
-        public AccountDTO(long id, int vaiTro, string password, string rememberToken, DateTime? createdAt, DateTime? updatedAt, int status)
+        public AccountDTO(long id, string role, string password, string rememberToken, DateTime? createdAt, DateTime? updatedAt, int status)
         {
             this.Id = id;
-            this.Role = Role;
+            this.Role = role;
             this.Password = password;
             this.RememberToken = rememberToken;
             this.CreatedAt = createdAt;

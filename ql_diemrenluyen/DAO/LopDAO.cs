@@ -23,8 +23,8 @@ namespace ql_diemrenluyen.DAO
                     TenLop = Convert.ToString(row[1]),
                     KhoaId = Convert.ToInt64(row[2]),
                     HeDaoTao = Convert.ToInt32(row[3]),
-                    CreatedAt = row[4] != null ? (DateTime?)Convert.ToDateTime(row[4]) : null,
-                    UpdatedAt = row[5] != null ? (DateTime?)Convert.ToDateTime(row[5]) : null
+                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
+                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null
                 };
 
                 lopList.Add(lop);
@@ -36,7 +36,7 @@ namespace ql_diemrenluyen.DAO
         // Thêm lớp mới
         public static bool AddLop(LopDTO lop)
         {
-            string sql = "INSERT INTO lop (TenLop, KhoaId, HeDaoTao, CreatedAt, UpdatedAt) VALUES (@tenLop, @khoaId, @heDaoTao, @createdAt, @updatedAt)";
+            string sql = "INSERT INTO lop (tenlop, khoa_id, hedaotao, created_at, updated_at) VALUES (@tenLop, @khoaId, @heDaoTao, @createdAt, @updatedAt)";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@tenLop", lop.TenLop);
@@ -51,7 +51,7 @@ namespace ql_diemrenluyen.DAO
         // Cập nhật thông tin lớp
         public static bool UpdateLop(LopDTO lop)
         {
-            string sql = "UPDATE lop SET TenLop = @tenLop, KhoaId = @khoaId, HeDaoTao = @heDaoTao, CreatedAt = @createdAt, UpdatedAt = @updatedAt WHERE Id = @id";
+            string sql = "UPDATE lop SET tenlop = @tenLop, khoa_id = @khoaId, hedaotao = @heDaoTao, created_at = @createdAt, updated_at = @updatedAt WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", lop.Id);
@@ -67,7 +67,7 @@ namespace ql_diemrenluyen.DAO
         // Xóa lớp
         public static bool DeleteLop(long id)
         {
-            string sql = "DELETE FROM lop WHERE Id = @id";
+            string sql = "DELETE FROM lop WHERE id = @id";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", id);
 

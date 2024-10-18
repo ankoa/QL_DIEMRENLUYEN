@@ -4,10 +4,10 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string namhoc { get; set; }
+        public int namhoc { get; set; }
         public HocKyDTO() { }
 
-        public HocKyDTO(int id, string name, string namhoc)
+        public HocKyDTO(int id, string name, int namhoc)
         {
             this.Id = id;
             this.Name = name;

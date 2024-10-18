@@ -2,9 +2,6 @@
 using ql_diemrenluyen.DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -23,12 +20,12 @@ namespace ql_diemrenluyen.DAO
                 AccountDTO account = new AccountDTO
                 {
                     Id = Convert.ToInt64(row[0]), // id
-                    Role = Convert.ToInt32(row[1]), // Role
-                    Password = Convert.ToString(row[2]), // Password
-                    RememberToken = Convert.ToString(row[3]), // RememberToken
-                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // CreatedAt
-                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null, // UpdatedAt
-                    Status = Convert.ToInt32(row[6]) // Status
+                    Role = Convert.ToString(row[1]), // vaitro
+                    Password = Convert.ToString(row[2]), // password
+                    RememberToken = row[3] != DBNull.Value ? Convert.ToString(row[3]) : null, // remember_token
+                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // created_at
+                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null, // updated_at
+                    Status = Convert.ToInt32(row[6]) // status
                 };
 
                 accounts.Add(account);
@@ -40,7 +37,7 @@ namespace ql_diemrenluyen.DAO
         // Thêm tài khoản mới
         public static bool AddAccount(AccountDTO account)
         {
-            string sql = $"INSERT INTO account (Role, Password, RememberToken, CreatedAt, UpdatedAt, Status) " +
+            string sql = $"INSERT INTO account (vaitro, password, remember_token, created_at, updated_at, status) " +
                          $"VALUES (@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
 
             var cmd = new MySqlCommand(sql);
@@ -57,8 +54,8 @@ namespace ql_diemrenluyen.DAO
         // Cập nhật thông tin tài khoản
         public static bool UpdateAccount(AccountDTO account)
         {
-            string sql = $"UPDATE account SET Role = @role, Password = @password, RememberToken = @rememberToken, " +
-                         $"CreatedAt = @createdAt, UpdatedAt = @updatedAt, Status = @status WHERE Id = @id";
+            string sql = $"UPDATE account SET vaitro = @role, password = @password, remember_token = @rememberToken, " +
+                         $"created_at = @createdAt, updated_at = @updatedAt, status = @status WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", account.Id);
@@ -75,7 +72,7 @@ namespace ql_diemrenluyen.DAO
         // Xóa tài khoản
         public static bool DeleteAccount(long id)
         {
-            string sql = $"DELETE FROM account WHERE Id = @id";
+            string sql = $"DELETE FROM account WHERE id = @id";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", id);
 

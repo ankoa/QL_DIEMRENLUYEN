@@ -18,7 +18,6 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runti
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.AssemblyReference.cache
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.Form1.resources
-D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Form1.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.GenerateResource.cache
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GeneratedMSBuildEditorConfig.editorconfig
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.AssemblyInfoInputs.cache
@@ -99,3 +98,7 @@ C:\Users\huhuh\OneDrive\Máy tính\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug
 C:\Users\huhuh\OneDrive\Máy tính\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.genruntimeconfig.cache
 C:\Users\huhuh\OneDrive\Máy tính\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ref\ql_diemrenluyen.dll
 D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Login.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Login.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.USER.Dashboard.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.Properties.Resources.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.sourcelink.json
