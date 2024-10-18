@@ -35,9 +35,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(207, 126);
+            button1.Location = new Point(181, 94);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(67, 32);
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
@@ -45,28 +46,32 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(449, 196);
+            textBox1.Location = new Point(393, 147);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
+            textBox1.Size = new Size(110, 23);
             textBox1.TabIndex = 1;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // listBoxStudents
             // 
             listBoxStudents.FormattingEnabled = true;
-            listBoxStudents.Location = new Point(202, 278);
+            listBoxStudents.ItemHeight = 15;
+            listBoxStudents.Location = new Point(177, 208);
+            listBoxStudents.Margin = new Padding(3, 2, 3, 2);
             listBoxStudents.Name = "listBoxStudents";
-            listBoxStudents.Size = new Size(271, 44);
+            listBoxStudents.Size = new Size(238, 34);
             listBoxStudents.TabIndex = 2;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(listBoxStudents);
             Controls.Add(textBox1);
             Controls.Add(button1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);

@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -22,7 +20,7 @@ namespace ql_diemrenluyen.DAO
                     Id = Convert.ToInt32(row[0]),
                     SinhVienId = row[1] != null ? (int?)Convert.ToInt32(row[1]) : null,
                     SemesterId = row[2] != null ? (int?)Convert.ToInt32(row[2]) : null,
-                    Score = row[3] != null ? (decimal?)Convert.ToDecimal(row[3]) : null,
+                    Score = row[3] != null ? (int?)Convert.ToInt32(row[3]) : null,
                     Comments = Convert.ToString(row[4])
                 };
 
@@ -66,11 +64,41 @@ namespace ql_diemrenluyen.DAO
         // Xóa điểm rèn luyện sinh viên
         public static bool DeleteDiemRenLuyen(int id)
         {
-            string sql = $"DELETE FROM diem_ren_luyen_sinh_vien WHERE Id = @id";
+            string sql = $"DELETE FROM diemrenluyensinhvien WHERE Id = @id";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", id);
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
+
+        // Tìm điểm rèn luyện theo SinhVienId
+        public static List<DiemRenLuyenSinhVienDTO> GetDiemRenLuyenBySinhVienId(int sinhVienId)
+        {
+            List<DiemRenLuyenSinhVienDTO> diemRenLuyens = new List<DiemRenLuyenSinhVienDTO>();
+
+            string sql = "SELECT * FROM diemrenluyensinhvien WHERE sinhvien_id = @sinhVienId";
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@sinhVienId", sinhVienId);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            foreach (var row in result)
+            {
+                DiemRenLuyenSinhVienDTO diemRenLuyen = new DiemRenLuyenSinhVienDTO
+                {
+                    Id = Convert.ToInt32(row[0]),
+                    SinhVienId = row[1] != null ? (int?)Convert.ToInt32(row[1]) : null,
+                    SemesterId = row[2] != null ? (int?)Convert.ToInt32(row[2]) : null,
+                    Score = row[3] != null ? (int?)Convert.ToInt32(row[3]) : null,
+                    Comments = Convert.ToString(row[4])
+                };
+
+                diemRenLuyens.Add(diemRenLuyen);
+            }
+
+            return diemRenLuyens;
+        }
+
+
     }
 }

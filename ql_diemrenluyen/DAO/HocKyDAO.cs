@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -11,7 +9,7 @@ namespace ql_diemrenluyen.DAO
         public static List<HocKyDTO> GetAllHocKy()
         {
             List<HocKyDTO> hocKys = new List<HocKyDTO>();
-            string sql = "SELECT * FROM hoc_ky"; // Thay đổi câu lệnh SQL nếu cần
+            string sql = "SELECT * FROM hocky"; // Thay đổi câu lệnh SQL nếu cần
 
             List<List<object>> result = DBConnection.ExecuteReader(sql);
 
@@ -20,7 +18,8 @@ namespace ql_diemrenluyen.DAO
                 HocKyDTO hocKy = new HocKyDTO
                 {
                     Id = Convert.ToInt32(row[0]),
-                    Name = Convert.ToString(row[1])
+                    Name = Convert.ToString(row[1]),
+                    namhoc = Convert.ToString(row[2])
                 };
 
                 hocKys.Add(hocKy);
