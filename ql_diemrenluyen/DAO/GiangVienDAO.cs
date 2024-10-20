@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -77,6 +75,36 @@ namespace ql_diemrenluyen.DAO
             cmd.Parameters.AddWithValue("@id", id);
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+
+        // Lấy sinh viên theo ID
+        public static GiangVienDTO GetGiangVienByEmail(string email)
+        {
+            string sql = "SELECT * FROM giangvien WHERE email = @email";
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@email", email);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0)
+            {
+                return MapToGiangVienDTO(result[0]);
+            }
+
+            return null; // Trả về null nếu không tìm thấy giảng viên
+        }
+
+        private static GiangVienDTO MapToGiangVienDTO(List<object> row)
+        {
+            return new GiangVienDTO
+            {
+                Id = Convert.ToInt64(row[1]),
+                Name = row[2].ToString(),
+                Email = row[3].ToString(),
+                Position = row[4]?.ToString(),
+                CreatedAt = row[5] as DateTime?,
+                UpdatedAt = row[6] as DateTime?
+            };
         }
     }
 }

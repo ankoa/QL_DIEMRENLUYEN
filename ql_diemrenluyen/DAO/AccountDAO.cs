@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -37,22 +32,37 @@ namespace ql_diemrenluyen.DAO
             return accounts;
         }
 
-        // Thêm tài khoản mới
         public static bool AddAccount(AccountDTO account)
         {
-            string sql = $"INSERT INTO account (Role, Password, RememberToken, CreatedAt, UpdatedAt, Status) " +
-                         $"VALUES (@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
+            try
+            {
+                string sql = "INSERT INTO account (vaitro, password, remember_token, created_at, updated_at, status) " +
+                             "VALUES (@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
 
-            var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@role", account.Role);
-            cmd.Parameters.AddWithValue("@password", account.Password);
-            cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken);
-            cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt);
-            cmd.Parameters.AddWithValue("@updatedAt", account.UpdatedAt);
-            cmd.Parameters.AddWithValue("@status", account.Status);
+                string hashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(account.Password, 13); // Hash password
 
-            return DBConnection.ExecuteNonQuery(cmd) > 0;
+                using (var cmd = new MySqlCommand(sql))
+                {
+                    cmd.Parameters.AddWithValue("@role", account.Role);
+                    cmd.Parameters.AddWithValue("@password", hashedPassword);
+                    cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken ?? (object)DBNull.Value); // Handle null
+                    cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt ?? DateTime.Now); // Set default if null
+                    cmd.Parameters.AddWithValue("@updatedAt", account.UpdatedAt ?? DateTime.Now); // Set default if null
+                    cmd.Parameters.AddWithValue("@status", account.Status);
+
+                    return DBConnection.ExecuteNonQuery(cmd) > 0; // Return true if success
+                }
+            }
+            catch (MySqlException ex)
+            {
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
+
 
         // Cập nhật thông tin tài khoản
         public static bool UpdateAccount(AccountDTO account)
@@ -72,6 +82,8 @@ namespace ql_diemrenluyen.DAO
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
 
+
+
         // Xóa tài khoản
         public static bool DeleteAccount(long id)
         {
@@ -81,5 +93,39 @@ namespace ql_diemrenluyen.DAO
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
+
+        public static AccountDTO Login(string username, string plainPassword)
+        {
+            string sql = $"SELECT * FROM account WHERE id = @username";
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@username", username);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0)
+            {
+                var row = result[0];
+                string hashedPassword = Convert.ToString(row[2]);
+
+                // Kiểm tra mật khẩu đã mã hóa với mật khẩu người dùng nhập.
+                //if (BCrypt.Net.BCrypt.Verify(plainPassword, hashedPassword))
+                //{
+                return new AccountDTO
+                {
+                    Id = Convert.ToInt64(row[0]),
+                    Role = Convert.ToInt32(row[1]),
+                    Password = hashedPassword,
+                    RememberToken = Convert.ToString(row[3]),
+                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
+                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
+                    Status = Convert.ToInt32(row[6])
+                };
+                //}
+            }
+
+            return null; // Trả về null nếu đăng nhập không thành công.
+        }
+
+
     }
 }

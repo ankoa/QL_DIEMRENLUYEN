@@ -30,18 +30,18 @@
         {
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            textBox1 = new TextBox();
+            inputUser = new TextBox();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             label1 = new Label();
             label2 = new Label();
             label4 = new Label();
             label3 = new Label();
             pictureBox3 = new PictureBox();
-            textBox2 = new TextBox();
+            inputPass = new TextBox();
             pictureBox4 = new PictureBox();
             label6 = new Label();
             pictureBox5 = new PictureBox();
-            button1 = new Button();
+            btnLogin = new Button();
             label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -72,17 +72,17 @@
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
-            // textBox1
+            // inputUser
             // 
-            textBox1.BackColor = Color.SkyBlue;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Cascadia Code", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(68, 320);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(347, 23);
-            textBox1.TabIndex = 2;
-            textBox1.TextChanged += textBox1_TextChanged;
+            inputUser.BackColor = Color.SkyBlue;
+            inputUser.BorderStyle = BorderStyle.None;
+            inputUser.Font = new Font("Cascadia Code", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            inputUser.ForeColor = Color.White;
+            inputUser.Location = new Point(68, 320);
+            inputUser.Name = "inputUser";
+            inputUser.Size = new Size(347, 23);
+            inputUser.TabIndex = 2;
+            inputUser.TextChanged += textBox1_TextChanged;
             // 
             // mySqlCommand1
             // 
@@ -144,16 +144,17 @@
             pictureBox3.TabIndex = 8;
             pictureBox3.TabStop = false;
             // 
-            // textBox2
+            // inputPass
             // 
-            textBox2.BackColor = Color.SkyBlue;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Cascadia Code", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(68, 420);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(306, 23);
-            textBox2.TabIndex = 9;
+            inputPass.BackColor = Color.SkyBlue;
+            inputPass.BorderStyle = BorderStyle.None;
+            inputPass.Font = new Font("Cascadia Code", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            inputPass.ForeColor = Color.White;
+            inputPass.Location = new Point(68, 420);
+            inputPass.Name = "inputPass";
+            inputPass.PasswordChar = '●';
+            inputPass.Size = new Size(306, 23);
+            inputPass.TabIndex = 9;
             // 
             // pictureBox4
             // 
@@ -184,21 +185,22 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 13;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
-            // button1
+            // btnLogin
             // 
-            button1.BackColor = SystemColors.Highlight;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Cascadia Code", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(117, 507);
-            button1.Name = "button1";
-            button1.Size = new Size(240, 75);
-            button1.TabIndex = 14;
-            button1.Text = "Đăng nhập";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnLogin.BackColor = SystemColors.Highlight;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Font = new Font("Cascadia Code", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(117, 507);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(240, 75);
+            btnLogin.TabIndex = 14;
+            btnLogin.Text = "Đăng nhập";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += button1_Click;
             // 
             // label5
             // 
@@ -218,12 +220,12 @@
             BackColor = Color.SkyBlue;
             ClientSize = new Size(484, 661);
             Controls.Add(label5);
-            Controls.Add(button1);
+            Controls.Add(btnLogin);
             Controls.Add(pictureBox5);
-            Controls.Add(textBox2);
+            Controls.Add(inputPass);
             Controls.Add(pictureBox4);
             Controls.Add(label6);
-            Controls.Add(textBox1);
+            Controls.Add(inputUser);
             Controls.Add(pictureBox3);
             Controls.Add(label3);
             Controls.Add(label4);
@@ -248,18 +250,18 @@
 
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private TextBox textBox1;
+        private TextBox inputUser;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private Label label1;
         private Label label2;
         private Label label4;
         private Label label3;
         private PictureBox pictureBox3;
-        private TextBox textBox2;
+        private TextBox inputPass;
         private PictureBox pictureBox4;
         private Label label6;
         private PictureBox pictureBox5;
-        private Button button1;
+        private Button btnLogin;
         private Label label5;
     }
 }

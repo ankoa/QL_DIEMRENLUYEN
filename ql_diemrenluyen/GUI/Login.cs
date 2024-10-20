@@ -1,10 +1,13 @@
-﻿using System.Drawing.Drawing2D;
+﻿using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DTO;
+using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
 namespace ql_diemrenluyen.GUI
 {
     public partial class Login : Form
     {
+        private bool isPasswordHidden = true;
         public Login()
         {
             InitializeComponent();
@@ -55,12 +58,42 @@ namespace ql_diemrenluyen.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            var username = inputUser.Text;
+            var password = inputPass.Text;
+            AccountDTO accountLogin = AccountBUS.Login(username, password);
+            if (accountLogin == null)
+            {
+                MessageBox.Show("ko");
+            }
+            else
+            {
+                MessageBox.Show("ok");
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            isPasswordHidden = !isPasswordHidden;
+
+            if (isPasswordHidden)
+            {
+                // Ẩn mật khẩu
+                inputPass.PasswordChar = '●';
+                pictureBox5.Image = Properties.Resources.hidden;
+            }
+            else
+            {
+                // Hiện mật khẩu
+                inputPass.PasswordChar = '\0';
+                pictureBox5.Image = Properties.Resources.view;
+            }
+        }
+
     }
 }

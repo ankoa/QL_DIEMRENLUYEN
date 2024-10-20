@@ -1,10 +1,5 @@
 ﻿using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ql_diemrenluyen.BUS
 {
@@ -33,5 +28,31 @@ namespace ql_diemrenluyen.BUS
         {
             return AccountDAO.DeleteAccount(id);
         }
+
+        //Login
+        public static AccountDTO Login(string username, string plainPassword)
+        {
+            return AccountDAO.Login(username, plainPassword);
+        }
+
+        public static Object findAccountByEmail(string email)
+        {
+            if (email == null)
+            {
+                return null;
+            }
+            SinhVienDTO sv = SinhVienDAO.GetStudentByEmail(email);
+            if (sv != null)
+            {
+                return sv;
+            }
+            GiangVienDTO gv = GiangVienDAO.GetGiangVienByEmail(email);
+            if (gv != null)
+            {
+                return sv;
+            }
+            return null;
+        }
+
     }
 }

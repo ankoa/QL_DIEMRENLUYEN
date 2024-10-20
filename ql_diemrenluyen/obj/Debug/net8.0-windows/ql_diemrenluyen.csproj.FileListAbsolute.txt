@@ -99,3 +99,4 @@ C:\Users\huhuh\OneDrive\Máy tính\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug
 C:\Users\huhuh\OneDrive\Máy tính\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.genruntimeconfig.cache
 C:\Users\huhuh\OneDrive\Máy tính\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ref\ql_diemrenluyen.dll
 D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Login.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
