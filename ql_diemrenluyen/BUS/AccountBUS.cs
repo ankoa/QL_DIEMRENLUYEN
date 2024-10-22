@@ -35,23 +35,26 @@ namespace ql_diemrenluyen.BUS
             return AccountDAO.Login(username, plainPassword);
         }
 
-        public static Object findAccountByEmail(string email)
+        public static (object account, string accountType) findAccountByEmail(string email)
         {
             if (email == null)
             {
-                return null;
+                return (null, null);
             }
+
             SinhVienDTO sv = SinhVienDAO.GetStudentByEmail(email);
             if (sv != null)
             {
-                return sv;
+                return (sv, "Sinh viên");
             }
+
             GiangVienDTO gv = GiangVienDAO.GetGiangVienByEmail(email);
             if (gv != null)
             {
-                return sv;
+                return (gv, "Giảng viên");
             }
-            return null;
+
+            return (null, null);
         }
 
     }
