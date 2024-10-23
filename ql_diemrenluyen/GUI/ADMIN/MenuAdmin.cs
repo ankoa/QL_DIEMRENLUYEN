@@ -9,40 +9,73 @@ namespace ql_diemrenluyen.GUI.ADMIN
     {
         HomePage form_home;
         TaiKhoan form_taikhoan;
+
         public MenuAdmin()
         {
             InitializeComponent();
             mdiProp();
             this.ControlBox = false;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.Resize += MenuAdmin_Resize;
+            //this.Resize += MenuAdmin_Resize;
             this.WindowState = FormWindowState.Maximized;
-            this.Resize += MenuAdmin_Resize;
+            this.Activated += MenuAdmin_Activated; // Thêm sự kiện Activated
         }
+
         private void MenuAdmin_Resize(object sender, EventArgs e)
         {
-            UpdateChildFormSize(); 
-        }
-        private void UpdateChildFormSize()
-        {
-            
-            if (form_home != null && !form_home.IsDisposed)
+            if (this.WindowState == FormWindowState.Normal)
             {
-                form_home.Size = this.ClientSize; 
-                form_home.PerformLayout();
+                UpdateChildFormSize();
+            }
+            else if (this.WindowState == FormWindowState.Minimized)
+            {
+                // Khi thu nhỏ, đặt padding trái và phải là 50 pixel
+                int padding = 50;
+
+                foreach (Form childForm in this.MdiChildren)
+                {
+                    childForm.Size = new Size(this.ClientSize.Width - (padding * 2), this.ClientSize.Height);
+                    childForm.Location = new Point(padding, 0); // Đặt vị trí để tạo padding
+                }
             }
         }
+
+
+        private void MenuAdmin_Activated(object sender, EventArgs e)
+        {
+            UpdateChildFormSize(); // Cập nhật kích thước khi cửa sổ được khôi phục
+        }
+
+        private void UpdateChildFormSize()
+        {
+            // Tính toán kích thước còn lại của vùng MDI
+            var clientSize = this.ClientSize;
+
+            // Nếu có form_home, cập nhật kích thước
+            if (form_home != null && !form_home.IsDisposed)
+            {
+                form_home.Size = clientSize;
+                form_home.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
+                form_home.PerformLayout();
+            }
+
+            // Nếu có form_taikhoan, cập nhật kích thước
+            if (form_taikhoan != null && !form_taikhoan.IsDisposed)
+            {
+                form_taikhoan.Size = clientSize;
+                form_taikhoan.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
+                form_taikhoan.PerformLayout();
+            }
+        }
+
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
-            sidebar.Width = 99; 
+            sidebar.Width = 99;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             sideBarTransiton.Start();
         }
-
-        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -52,15 +85,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void mdiProp()
         {
             this.SetBevel(false);
-            var mdiClient = this.Controls.OfType<MdiClient>().FirstOrDefault(); // Tìm MdiClient
+            var mdiClient = this.Controls.OfType<MdiClient>().FirstOrDefault();
             if (mdiClient != null)
             {
-                mdiClient.BackColor = Color.FromArgb(255, 232, 232, 232); // Màu nền MDI
+                mdiClient.BackColor = Color.FromArgb(255, 232, 232, 232);
             }
         }
+
         private void ClearMdiForms()
         {
-            // Duyệt qua tất cả các form con trong MDI parent và đóng chúng
             foreach (Form childForm in this.MdiChildren)
             {
                 childForm.Close();
@@ -68,29 +101,34 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
         bool sideBarExpand = false;
+        
+
         private void sideBarTransiton_Tick(object sender, EventArgs e)
         {
-            // Điều chỉnh chiều rộng sidebar để mở rộng hoặc thu hẹp
-            if (sideBarExpand)
+            int formMinWidth = 1200;
+            if (this.Width >formMinWidth)
             {
-                sidebar.Width -= 20;
-                if (sidebar.Width <= 99)
+                if (sideBarExpand)
                 {
-                    sideBarExpand = false;
-                    sideBarTransiton.Stop();
+                    sidebar.Width -= 20;
+                    if (sidebar.Width <= 99)
+                    {
+                        sideBarExpand = false;
+                        sideBarTransiton.Stop();
+                    }
                 }
-            }
-            else
-            {
-                sidebar.Width += 20;
-                if (sidebar.Width >= 300)
+                else
                 {
-                    sideBarExpand = true;
-                    sideBarTransiton.Stop();
+                    sidebar.Width += 20;
+                    if (sidebar.Width >= 300)
+                    {
+                        sideBarExpand = true;
+                        sideBarTransiton.Stop();
+                    }
                 }
+                UpdateButtonWidths();
             }
-            // Cập nhật chiều rộng cho các nút
-            UpdateButtonWidths();
+            
         }
 
         private void UpdateButtonWidths()
@@ -104,9 +142,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             btnClass.Width = sidebar.Width;
             btnLogOut.Width = sidebar.Width;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            ClearMdiForms(); // Đóng tất cả các form con hiện tại trước khi mở form mới
+            ClearMdiForms();
 
             if (form_home == null)
             {
@@ -116,7 +155,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_home.ControlBox = false;
                 form_home.MdiParent = this;
                 form_home.Location = new Point(0, 0);
-                form_home.Size = this.ClientSize;
+                form_home.Size = this.ClientSize; // Kích thước form_home bằng kích thước vùng MDI
+
                 form_home.Show();
             }
             else
@@ -129,19 +169,19 @@ namespace ql_diemrenluyen.GUI.ADMIN
         {
             form_home = null;
         }
+
         private void btnUser_Click(object sender, EventArgs e) // Nút quản lý người dùng
         {
-            ClearMdiForms(); // Đóng tất cả các form con hiện tại trước khi mở form mới
+            ClearMdiForms();
 
             if (form_taikhoan == null)
             {
                 form_taikhoan = new TaiKhoan();
-                form_taikhoan.FormClosed += HomePage_FormClosed;
-                form_taikhoan.FormBorderStyle = FormBorderStyle.None; // Xóa viền
-                form_taikhoan.ControlBox = false; // Ẩn thanh điều khiển
-                form_taikhoan.MdiParent = this; // Đặt form parent là MenuAdmin
-
-                form_taikhoan.Dock = DockStyle.Fill; // Đặt form con tự động vừa khít toàn bộ MDI parent
+                form_taikhoan.FormClosed += TaiKhoan_FormClosed;
+                form_taikhoan.FormBorderStyle = FormBorderStyle.None;
+                form_taikhoan.ControlBox = false;
+                form_taikhoan.MdiParent = this;
+                form_taikhoan.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
                 form_taikhoan.Show();
             }
             else
@@ -150,11 +190,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             }
         }
 
-
         private void TaiKhoan_FormClosed(object sender, EventArgs e)
         {
-            form_home = null;
+            form_taikhoan = null; // Đặt biến thành null khi form bị đóng
         }
+
         private void btnStudent_Click(object sender, EventArgs e) // Nút quản lý sinh viên
         {
             // TODO: Thêm chức năng cho nút quản lý sinh viên

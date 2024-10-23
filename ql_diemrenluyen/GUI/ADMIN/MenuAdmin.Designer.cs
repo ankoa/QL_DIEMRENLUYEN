@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAdmin));
             panel1 = new Panel();
+            controlBox1 = new ReaLTaiizor.Controls.ControlBox();
             label1 = new Label();
             btnHam = new PictureBox();
             sidebar = new FlowLayoutPanel();
@@ -52,7 +53,6 @@
             panel7 = new Panel();
             btnLogOut = new Button();
             sideBarTransiton = new System.Windows.Forms.Timer(components);
-            controlBox1 = new ReaLTaiizor.Controls.ControlBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnHam).BeginInit();
             sidebar.SuspendLayout();
@@ -76,8 +76,26 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1713, 83);
+            panel1.Size = new Size(1600, 83);
             panel1.TabIndex = 0;
+            // 
+            // controlBox1
+            // 
+            controlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            controlBox1.BackColor = Color.White;
+            controlBox1.CloseHoverColor = Color.FromArgb(230, 17, 35);
+            controlBox1.DefaultLocation = true;
+            controlBox1.EnableHoverHighlight = true;
+            controlBox1.EnableMaximizeButton = true;
+            controlBox1.EnableMinimizeButton = true;
+            controlBox1.ForeColor = Color.FromArgb(155, 155, 155);
+            controlBox1.Location = new Point(1500, 18);
+            controlBox1.MaximizeHoverColor = Color.FromArgb(74, 74, 74);
+            controlBox1.MinimizeHoverColor = Color.FromArgb(63, 63, 65);
+            controlBox1.Name = "controlBox1";
+            controlBox1.Size = new Size(90, 25);
+            controlBox1.TabIndex = 4;
+            controlBox1.Text = "controlBox1";
             // 
             // label1
             // 
@@ -374,28 +392,11 @@
             sideBarTransiton.Interval = 10;
             sideBarTransiton.Tick += sideBarTransiton_Tick;
             // 
-            // controlBox1
-            // 
-            controlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            controlBox1.BackColor = Color.White;
-            controlBox1.CloseHoverColor = Color.FromArgb(230, 17, 35);
-            controlBox1.DefaultLocation = true;
-            controlBox1.EnableHoverHighlight = true;
-            controlBox1.EnableMaximizeButton = true;
-            controlBox1.EnableMinimizeButton = true;
-            controlBox1.ForeColor = Color.FromArgb(155, 155, 155);
-            controlBox1.Location = new Point(1611, 28);
-            controlBox1.MaximizeHoverColor = Color.FromArgb(74, 74, 74);
-            controlBox1.MinimizeHoverColor = Color.FromArgb(63, 63, 65);
-            controlBox1.Name = "controlBox1";
-            controlBox1.Size = new Size(90, 25);
-            controlBox1.TabIndex = 4;
-            controlBox1.Text = "controlBox1";
-            // 
             // MenuAdmin
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1713, 839);
+            BackColor = Color.RoyalBlue;
+            ClientSize = new Size(1600, 839);
             Controls.Add(sidebar);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
