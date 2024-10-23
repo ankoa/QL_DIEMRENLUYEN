@@ -17,6 +17,31 @@ namespace ql_diemrenluyen.GUI
             oldColor = btnLogin.BackColor;
         }
 
+        public async Task RunImageAnalysis(string imagePath)
+        {
+            try
+            {
+                List<string> labels = await ImageAnalysisService.AnalyzeImage(imagePath);
+
+                // Chỉ hiển thị thông báo nếu labels là null hoặc rỗng
+                if (labels == null || labels.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy nhãn nào.");
+                    return; // Thoát sớm nếu không có nhãn
+                }
+
+                string result = string.Join(", ", labels);
+                MessageBox.Show($"Nội dung ảnh: {result}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi: {ex.Message}");
+                MessageBox.Show($"Lỗi: {ex.Message}"); // Hiển thị lỗi cụ thể
+            }
+        }
+
+
+
         Color oldColor;
         Color newColor = Color.FromArgb(0, Color.MediumAquamarine);  // your pick, including Black
         int alpha = 0;
@@ -83,7 +108,7 @@ namespace ql_diemrenluyen.GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             var username = inputUser.Text;
             var password = inputPass.Text;
@@ -96,6 +121,17 @@ namespace ql_diemrenluyen.GUI
             {
                 MessageBox.Show("ok");
             }
+            //OpenFileDialog openFileDialog = new OpenFileDialog
+            //{
+            //    Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+            //};
+
+            //if (openFileDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    string imagePath = openFileDialog.FileName;
+            //    MessageBox.Show(imagePath);
+            //    await RunImageAnalysis(imagePath);
+            //}
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

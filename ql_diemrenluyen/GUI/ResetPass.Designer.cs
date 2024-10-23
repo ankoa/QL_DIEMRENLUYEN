@@ -54,10 +54,9 @@
             // 
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Properties.Resources.close;
-            pictureBox1.Location = new Point(483, 29);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(423, 22);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(45, 43);
+            pictureBox1.Size = new Size(39, 32);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -66,10 +65,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.sgu_logo;
-            pictureBox2.Location = new Point(143, 31);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Location = new Point(125, 23);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(265, 253);
+            pictureBox2.Size = new Size(232, 190);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -78,12 +76,12 @@
             // 
             inputUser.BackColor = Color.SkyBlue;
             inputUser.BorderStyle = BorderStyle.None;
+            inputUser.Enabled = false;
             inputUser.Font = new Font("Cascadia Code", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             inputUser.ForeColor = Color.White;
-            inputUser.Location = new Point(63, 365);
-            inputUser.Margin = new Padding(3, 4, 3, 4);
+            inputUser.Location = new Point(55, 274);
             inputUser.Name = "inputUser";
-            inputUser.Size = new Size(420, 28);
+            inputUser.Size = new Size(368, 23);
             inputUser.TabIndex = 2;
             inputUser.TextChanged += textBox1_TextChanged;
             // 
@@ -98,9 +96,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(43, 378);
+            label1.Location = new Point(38, 284);
             label1.Name = "label1";
-            label1.Size = new Size(462, 28);
+            label1.Size = new Size(370, 21);
             label1.TabIndex = 3;
             label1.Text = "..........................................................................................";
             // 
@@ -109,9 +107,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Cascadia Code", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(105, 317);
+            label2.Location = new Point(92, 238);
             label2.Name = "label2";
-            label2.Size = new Size(84, 32);
+            label2.Size = new Size(67, 25);
             label2.TabIndex = 4;
             label2.Text = "Email";
             label2.Click += label2_Click;
@@ -121,19 +119,18 @@
             label4.AutoSize = true;
             label4.Font = new Font("Cascadia Code", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(93, 223);
+            label4.Location = new Point(81, 167);
             label4.Name = "label4";
-            label4.Size = new Size(389, 58);
+            label4.Size = new Size(314, 46);
             label4.TabIndex = 6;
             label4.Text = "RESET MẬT KHẨU";
             // 
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.user;
-            pictureBox3.Location = new Point(62, 301);
-            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Location = new Point(54, 226);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(39, 49);
+            pictureBox3.Size = new Size(34, 37);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 8;
             pictureBox3.TabStop = false;
@@ -145,10 +142,9 @@
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Cascadia Code", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(134, 673);
-            btnLogin.Margin = new Padding(3, 4, 3, 4);
+            btnLogin.Location = new Point(117, 505);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(274, 100);
+            btnLogin.Size = new Size(240, 75);
             btnLogin.TabIndex = 14;
             btnLogin.Text = "Xác nhận";
             btnLogin.UseVisualStyleBackColor = false;
@@ -157,10 +153,9 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.user;
-            pictureBox4.Location = new Point(62, 427);
-            pictureBox4.Margin = new Padding(3, 4, 3, 4);
+            pictureBox4.Location = new Point(54, 320);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(39, 49);
+            pictureBox4.Size = new Size(34, 37);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 18;
             pictureBox4.TabStop = false;
@@ -170,9 +165,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Cascadia Code", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(105, 443);
+            label3.Location = new Point(92, 332);
             label3.Name = "label3";
-            label3.Size = new Size(98, 32);
+            label3.Size = new Size(78, 25);
             label3.TabIndex = 17;
             label3.Text = "Mã OTP";
             // 
@@ -180,18 +175,17 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(62, 504);
+            label5.Location = new Point(54, 378);
             label5.Name = "label5";
-            label5.Size = new Size(0, 28);
+            label5.Size = new Size(0, 21);
             label5.TabIndex = 16;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Location = new Point(83, 504);
-            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            flowLayoutPanel1.Location = new Point(73, 378);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(352, 68);
+            flowLayoutPanel1.Size = new Size(308, 51);
             flowLayoutPanel1.TabIndex = 19;
             // 
             // label6
@@ -199,9 +193,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Cascadia Code", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(345, 605);
+            label6.Location = new Point(302, 454);
             label6.Name = "label6";
-            label6.Size = new Size(154, 32);
+            label6.Size = new Size(122, 25);
             label6.TabIndex = 17;
             label6.Text = "Gửi lại mã";
             label6.Click += label6_Click;
@@ -209,20 +203,19 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.refresh_icon_removebg_preview;
-            pictureBox5.Location = new Point(305, 599);
-            pictureBox5.Margin = new Padding(3, 4, 3, 4);
+            pictureBox5.Location = new Point(267, 449);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(39, 49);
+            pictureBox5.Size = new Size(34, 37);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 18;
             pictureBox5.TabStop = false;
             // 
             // ResetPass
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(553, 881);
+            ClientSize = new Size(484, 661);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
@@ -238,7 +231,6 @@
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ResetPass";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

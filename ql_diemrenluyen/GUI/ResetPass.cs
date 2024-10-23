@@ -1,4 +1,6 @@
-﻿using ql_diemrenluyen.DTO;
+﻿using AuthService.Helper;
+using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DTO;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
@@ -214,9 +216,39 @@ namespace ql_diemrenluyen.GUI
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private async void label6_Click(object sender, EventArgs e)
         {
+            var username = inputUser.Text;
+            var (account, accountType) = AccountBUS.findAccountByEmail(username);
 
+            if (account == null)
+            {
+                MessageBox.Show("Không tìm thấy user");
+            }
+            else
+            {
+                pictureBox4.Visible = true;
+                try
+                {
+                    var codeReset = RNG.GenerateSixDigitNumber().ToString();
+                    await SendMail.SendPasswordResetEmailAsync(username, codeReset);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}");
+                }
+                finally
+                {
+                    //pictureBox4.Visible = false;
+                    //this.Dispose();  // Ẩn form hiện tại
+                    //                 // Chuyển sang OTPForm và truyền username
+                    //ResetPass otpForm = new ResetPass(account, accountType);
+                    //otpForm.Show();  // Hiển thị form mới
+
+                }
+
+
+            }
         }
     }
 }
