@@ -40,7 +40,8 @@ namespace ql_diemrenluyen.GUI
                     MaxLength = 1,
                     TextAlign = HorizontalAlignment.Center,
                     Font = new Font("Arial", 16),
-                    Margin = new Padding(10)
+                    Margin = new Padding(10),
+                    BackColor = Color.SkyBlue,
                 };
 
                 txt.TextChanged += TextBox_TextChanged;
@@ -181,7 +182,7 @@ namespace ql_diemrenluyen.GUI
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
 

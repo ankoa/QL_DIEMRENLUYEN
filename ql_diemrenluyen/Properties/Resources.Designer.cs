@@ -93,6 +93,16 @@ namespace ql_diemrenluyen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loading_spinner {
+            get {
+                object obj = ResourceManager.GetObject("loading-spinner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap padlock {
             get {
                 object obj = ResourceManager.GetObject("padlock", resourceCulture);
@@ -116,6 +126,26 @@ namespace ql_diemrenluyen.Properties {
         internal static System.Drawing.Bitmap refresh_icon_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("refresh_icon-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rolling_1x_1_0s_200px_200px {
+            get {
+                object obj = ResourceManager.GetObject("Rolling@1x-1.0s-200px-200px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rolling_1x_11 {
+            get {
+                object obj = ResourceManager.GetObject("Rolling@1x-11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

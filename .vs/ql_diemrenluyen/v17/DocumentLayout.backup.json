@@ -1,30 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Code\\QLDiemrenluyen\\",
+  "WorkspaceRootPath": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\dao\\sinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\sinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\resetpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\resetpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\resetpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\resetpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\findemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\findemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\findemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\findemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\findemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\findemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\bus\\accountbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\accountbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\gui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\findemail.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\findemail.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +38,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 857,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 10,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -62,79 +70,90 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SinhVienDAO.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAwwGsAAAAHAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "FindEmail.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\FindEmail.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\FindEmail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:13:10.914Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\Program.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:12:45.484Z",
+              "WhenOpened": "2024-10-23T06:25:23.832Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AccountBUS.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\BUS\\AccountBUS.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\AccountBUS.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\BUS\\AccountBUS.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\BUS\\AccountBUS.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAwwCUAAAAIAAAAAAAAAA==",
+              "Title": "Login.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\Login.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\Login.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\Login.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:00:52.59Z",
+              "WhenOpened": "2024-10-23T06:25:09.499Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\Login.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\Login.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\Login.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\Login.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwBEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T06:25:12.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ResetPass.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ResetPass.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ResetPass.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ResetPass.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ResetPass.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T07:47:45.322Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ResetPass.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ResetPass.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ResetPass.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ResetPass.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ResetPass.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T08:27:09.618Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "FindEmail.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\FindEmail.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.cs [Design]",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.cs [Design]",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\FindEmail.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T13:56:18.526Z",
+              "WhenOpened": "2024-10-23T07:42:28.23Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FindEmail.Designer.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.Designer.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\FindEmail.Designer.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.Designer.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\FindEmail.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\Program.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T13:55:44.504Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FindEmail.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\FindEmail.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\FindEmail.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\FindEmail.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAA8wEgAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T13:50:42.493Z",
+              "WhenOpened": "2024-10-23T06:31:53.498Z",
               "EditorCaption": ""
             }
           ]

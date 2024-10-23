@@ -1,4 +1,5 @@
-﻿using ql_diemrenluyen.BUS;
+﻿using AuthService.Helper;
+using ql_diemrenluyen.BUS;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
@@ -6,7 +7,6 @@ namespace ql_diemrenluyen.GUI
 {
     public partial class FindEmail : Form
     {
-        private TextBox[] otpInputs;
         private bool isPasswordHidden = true;
         public FindEmail()
         {
@@ -58,7 +58,7 @@ namespace ql_diemrenluyen.GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             var username = inputUser.Text;
             var (account, accountType) = AccountBUS.findAccountByEmail(username);
@@ -69,16 +69,33 @@ namespace ql_diemrenluyen.GUI
             }
             else
             {
-                this.Dispose();  // Ẩn form hiện tại
-                // Chuyển sang OTPForm và truyền username
-                ResetPass otpForm = new ResetPass(account, accountType);
-                otpForm.Show();  // Hiển thị form mới
+                pictureBox4.Visible = true;
+                try
+                {
+                    var codeReset = RNG.GenerateSixDigitNumber().ToString();
+                    await SendMail.SendPasswordResetEmailAsync(username, codeReset);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}");
+                }
+                finally
+                {
+                    pictureBox4.Visible = false;
+                    this.Dispose();  // Ẩn form hiện tại
+                                     // Chuyển sang OTPForm và truyền username
+                    ResetPass otpForm = new ResetPass(account, accountType);
+                    otpForm.Show();  // Hiển thị form mới
+
+                }
+
+
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
 
@@ -113,6 +130,35 @@ namespace ql_diemrenluyen.GUI
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            if (lbl != null)
+            {
+                lbl.Font = new Font(lbl.Font, FontStyle.Underline); // Thêm gạch dưới
+            }
+        }
+
+        private void label5_MouseLeave(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            if (lbl != null)
+            {
+                lbl.Font = new Font(lbl.Font, FontStyle.Regular); // Bỏ gạch dưới
+            }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            this.Hide();  // Ẩn form hiện tại
+            Login otpForm = new Login();
+
+            // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
+            //otpForm.FormClosed += (s, args) => this.Show();
+
+            otpForm.Show();  // Hiển thị form mới
         }
     }
 }

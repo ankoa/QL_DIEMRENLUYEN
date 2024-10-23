@@ -32,6 +32,32 @@ namespace ql_diemrenluyen.DAO
             return accounts;
         }
 
+        //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
+        //AIzaSyCh9ySK3dqjXAvbWZ-rcukKsjY5oBuCar8
+        public static List<TieuChiDanhGiaDTO> XuatAllTieuChiDanhGia()
+        {
+            List<TieuChiDanhGiaDTO> tieuChiList = new List<TieuChiDanhGiaDTO>();
+            string sql = "SELECT \r\n    CASE \r\n        WHEN tc1.parent_id IS NULL THEN \r\n            CONCAT(tc1.id, '. ', tc1.name)  -- Đánh số la mã hoặc số nguyên cho mục cha\r\n        ELSE \r\n            CONCAT(tc1.parent_id, '.', tc1.id, ' ', tc1.name)  -- Đánh số thập phân cho mục con\r\n    END AS name,\r\n    tc1.diem_max AS diem_max,\r\n    tc1.id AS id,\r\n    tc1.parent_id AS parent_id\r\nFROM tieuchidanhgia tc1\r\nORDER BY COALESCE(tc1.parent_id, tc1.id), tc1.parent_id, tc1.id;\r\n"; // Câu lệnh SQL
+
+            List<List<object>> result = DBConnection.ExecuteReader(sql);
+
+            foreach (var row in result)
+            {
+                TieuChiDanhGiaDTO tieuChi = new TieuChiDanhGiaDTO(
+                    Convert.ToInt64(row[0]),
+                    Convert.ToString(row[1]),
+                    Convert.ToInt32(row[2]),
+                    Convert.ToInt64(row[3]),
+                    row[4] != null ? (DateTime?)Convert.ToDateTime(row[4]) : null,
+                    row[5] != null ? (DateTime?)Convert.ToDateTime(row[5]) : null
+                );
+
+                tieuChiList.Add(tieuChi);
+            }
+
+            return tieuChiList;
+        }
+
         public static bool AddAccount(AccountDTO account)
         {
             try
