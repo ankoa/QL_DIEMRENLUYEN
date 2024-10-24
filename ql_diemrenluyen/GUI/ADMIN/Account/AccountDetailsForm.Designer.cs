@@ -169,6 +169,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             btnClose.TabIndex = 14;
             btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // btnEdit
             // 
@@ -234,6 +235,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Margin = new Padding(3, 4, 3, 4);
             Name = "AccountDetailsForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Chi tiết tài khoản";
             ResumeLayout(false);
             PerformLayout();

@@ -23,7 +23,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Student
 
         private void AdminStudentTest_Load(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Maximized;
+            this.Dock = DockStyle.Fill;
         }
     }
 }

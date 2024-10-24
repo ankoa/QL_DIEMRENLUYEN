@@ -62,39 +62,46 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            // Thực hiện cập nhật tài khoản ngay khi nhấn nút Sửa
-            AccountDTO account = new AccountDTO
+            // Hiển thị hộp thoại xác nhận trước khi cập nhật tài khoản
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật tài khoản không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
             {
-                Id = currentAccountId,
-                Password = txtPassword.Text,
-                Status = (comboBox1.SelectedItem.ToString() == "Hoạt động") ? 1 : 0,
-                CreatedAt = dtpCreatedAt.Value,
-                UpdatedAt = DateTime.Now
-            };
+                // Thực hiện cập nhật tài khoản ngay khi nhấn nút Sửa
+                AccountDTO account = new AccountDTO
+                {
+                    Id = currentAccountId,
+                    Password = txtPassword.Text,
+                    Status = (comboBox1.SelectedItem.ToString() == "Hoạt động") ? 1 : 0,
+                    CreatedAt = dtpCreatedAt.Value,
+                    UpdatedAt = DateTime.Now
+                };
 
-            // Gọi phương thức cập nhật tài khoản
-            bool result = AccountBUS.UpdateAccount(account);
+                // Gọi phương thức cập nhật tài khoản
+                bool result = AccountBUS.UpdateAccount(account);
 
-            if (result)
-            {
-                MessageBox.Show("Cập nhật tài khoản thành công!");
+                if (result)
+                {
+                    MessageBox.Show("Cập nhật tài khoản thành công!");
 
-                // Gọi phương thức để tải lại bảng trong TaiKhoan
-                TaiKhoan.LoadAccountList(table); // Gọi qua tên lớp
+                    // Gọi phương thức để tải lại bảng trong TaiKhoan
+                    TaiKhoan.LoadAccountList(table); // Gọi qua tên lớp
 
-                this.Close(); // Đóng form sau khi cập nhật thành công
-            }
-            else
-            {
-                MessageBox.Show("Cập nhật tài khoản không thành công. Vui lòng kiểm tra lại!");
+                    this.Close(); // Đóng form sau khi cập nhật thành công
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật tài khoản không thành công. Vui lòng kiểm tra lại!");
+                }
             }
         }
 
 
 
+
         private void btnClose_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

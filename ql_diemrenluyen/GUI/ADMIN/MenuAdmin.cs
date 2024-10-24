@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ql_diemrenluyen.GUI.ADMIN.Student;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -9,7 +10,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
     {
         HomePage form_home;
         TaiKhoan form_taikhoan;
-
+        AdminStudentTest form_student;
         public MenuAdmin()
         {
             InitializeComponent();
@@ -64,6 +65,14 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_taikhoan.Size = clientSize;
                 form_taikhoan.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
                 form_taikhoan.PerformLayout();
+            }
+
+            // Nếu có form_student, cập nhật kích thước
+            if (form_student != null && !form_student.IsDisposed)
+            {
+                form_student.Size = clientSize;
+                form_student.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
+                form_student.PerformLayout();
             }
         }
 
@@ -197,9 +206,27 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void btnStudent_Click(object sender, EventArgs e) // Nút quản lý sinh viên
         {
-            // TODO: Thêm chức năng cho nút quản lý sinh viên
-        }
+            ClearMdiForms();
 
+            if (form_student == null)
+            {
+                form_student = new AdminStudentTest();
+                form_student.FormClosed += TaiKhoan_FormClosed;
+                form_student.FormBorderStyle = FormBorderStyle.None;
+                form_student.ControlBox = false;
+                form_student.MdiParent = this;
+                form_student.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_student.Show();
+            }
+            else
+            {
+                form_student.Activate();
+            }
+        }
+        private void AdminStudentTest_FormClosed(object sender, EventArgs e)
+        {
+            form_student = null; // Đặt biến thành null khi form bị đóng
+        }
         private void btnTieuChi_Click(object sender, EventArgs e) // Nút tiêu chí
         {
             // TODO: Thêm chức năng cho nút tiêu chí
