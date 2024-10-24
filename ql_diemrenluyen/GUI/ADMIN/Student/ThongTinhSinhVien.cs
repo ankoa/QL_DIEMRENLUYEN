@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace QLDiemRenLuyen
 {
-    public partial class ThongTinhSinhVien : UserControl
+    public partial class ThongTinhSinhVien : Form
     {
         public ThongTinhSinhVien()
         {

@@ -53,7 +53,12 @@ namespace QLDiemRenLuyen
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.ColumnIndex ==dataGridStudent.Columns["MyButtonColumn"].Index && e.RowIndex >= 0)
+            {
+                Console.WriteLine("Button on row {0} clicked", e.RowIndex);
+            }
+            //ThongTinhSinhVien thongtinSVForm = new ThongTinhSinhVien();
+            //thongtinSVForm.ShowDialog();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
