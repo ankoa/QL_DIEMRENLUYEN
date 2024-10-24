@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -90,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 223,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
@@ -103,8 +103,7 @@
               "ViewState": "AgIAALMAAAAAAAAAAADgv5cAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T18:40:05.328Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -146,28 +145,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TaiKhoan.cs [Design]",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T20:14:01.11Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "TaiKhoan.Designer.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.Designer.cs",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.Designer.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.Designer.cs",
-              "ToolTip": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.Designer.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.Designer.cs",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.Designer.cs",
               "ViewState": "AgIAAB4BAAAAAAAAAAAEwCEBAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T20:01:42.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T20:01:42.132Z"
             },
             {
               "$type": "Document",
@@ -192,8 +178,7 @@
               "RelativeToolTip": "ql_diemrenluyen\\DAO\\AccountDAO.cs",
               "ViewState": "AgIAAHUAAAAAAAAAAAAUwFEAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T18:00:31.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-21T18:00:31.742Z"
             },
             {
               "$type": "Document",
@@ -205,8 +190,7 @@
               "RelativeToolTip": "ql_diemrenluyen\\DAO\\DBConnection.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAADwv58AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T19:43:34.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T19:43:34.311Z"
             },
             {
               "$type": "Document",
@@ -223,18 +207,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AccountDetailsForm.cs [Design]",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\AccountDetailsForm.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\AccountDetailsForm.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\AccountDetailsForm.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\AccountDetailsForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T18:39:07.708Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 9,
               "Title": "AccountDTO.cs",
               "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DTO\\AccountDTO.cs",
@@ -243,19 +215,7 @@
               "RelativeToolTip": "ql_diemrenluyen\\DTO\\AccountDTO.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAkwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T18:06:27.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MenuAdmin.cs [Design]",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T13:00:19.521Z"
+              "WhenOpened": "2024-10-21T18:06:27.74Z"
             },
             {
               "$type": "Document",
@@ -296,17 +256,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Form1.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Form1.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Form1.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T18:15:38.887Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 15,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\Program.cs",
@@ -331,17 +280,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AccountBUS.cs [Design]",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\AccountBUS.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\AccountBUS.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\AccountBUS.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\BUS\\AccountBUS.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T17:58:08.06Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 17,
               "Title": "HomePage.cs",
               "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\HomePage.cs",
@@ -352,6 +290,66 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-19T19:59:20.832Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaiKhoan.cs [Design]",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T20:14:01.11Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AccountDetailsForm.cs [Design]",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\AccountDetailsForm.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\AccountDetailsForm.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\AccountDetailsForm.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\AccountDetailsForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T18:39:07.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MenuAdmin.cs [Design]",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T13:00:19.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Form1.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Form1.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Form1.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T18:15:38.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AccountBUS.cs [Design]",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\AccountBUS.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\AccountBUS.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\AccountBUS.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\BUS\\AccountBUS.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T17:58:08.06Z"
             },
             {
               "$type": "Document",
@@ -377,6 +375,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }
