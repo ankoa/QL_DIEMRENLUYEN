@@ -31,6 +31,31 @@ namespace ql_diemrenluyen.DAO
             return khoaList;
         }
 
+        // Lấy đối tượng khoa từ ID của khoa
+        public static KhoaDTO GetKhoaByID(long id)
+        {
+            string sql = "select * from khoa where khoa.id= @id"; // Câu lệnh SQL
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0)
+            {
+                List<object> row = result[0];
+                KhoaDTO khoa = new KhoaDTO
+                {
+                    Id = Convert.ToInt64(row[0]),
+                    TenKhoa = Convert.ToString(row[1]),
+                    CreatedAt = row[2] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[2]) : null,
+                    UpdatedAt = row[3] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[3]) : null
+                };
+                return khoa;
+            }
+
+            return null;
+        }
+
         // Thêm khoa mới
         public static bool AddKhoa(KhoaDTO khoa)
         {

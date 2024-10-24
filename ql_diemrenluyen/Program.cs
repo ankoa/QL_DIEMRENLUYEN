@@ -1,4 +1,5 @@
 ﻿using ql_diemrenluyen.GUI;
+using ql_diemrenluyen.GUI.ADMIN.Student;
 
 namespace ql_diemrenluyen
 {
@@ -13,7 +14,7 @@ namespace ql_diemrenluyen
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login());
+            Application.Run(new AdminStudentTest());
         }
     }
 }

@@ -8,6 +8,7 @@ namespace QLDiemRenLuyen
     {
         private static SinhVienBUS SinhVienBUS = new SinhVienBUS();
         private static List<SinhVienDTO> listStudent = new List<SinhVienDTO>();
+        private static LopBUS LopBUS = new LopBUS();
         public QLSinhVien()
         {
             InitializeComponent();
@@ -16,9 +17,13 @@ namespace QLDiemRenLuyen
                 var index = this.dataGridStudent.Rows.Add();
                 this.dataGridStudent.Rows[index].Cells[0].Value = student.Id;
                 this.dataGridStudent.Rows[index].Cells[1].Value = student.Name;
-                this.dataGridStudent.Rows[index].Cells[2].Value = student.GioiTinh;
-                this.dataGridStudent.Rows[index].Cells[3].Value = student.LopId;
-                this.dataGridStudent.Rows[index].Cells[4].Value = "Baqar";
+                this.dataGridStudent.Rows[index].Cells[2].Value = toStringGender(student.GioiTinh);
+                LopDTO lopDTO = new LopDTO();
+                lopDTO = LopBUS.GetLopByID(student.LopId);
+                this.dataGridStudent.Rows[index].Cells[3].Value = lopDTO.TenLop;
+                KhoaDTO khoaDTO = new KhoaDTO();
+                khoaDTO = KhoaBUS.GetKhoaByID(lopDTO.KhoaId);
+                this.dataGridStudent.Rows[index].Cells[4].Value = khoaDTO.TenKhoa;
             });
 
             
@@ -31,7 +36,11 @@ namespace QLDiemRenLuyen
 
             dataGridStudent.AutoResizeColumn(2);
         }
-
+        private String toStringGender(int gender)
+        {
+            if (gender ==1 ) return "Nam";
+            return "Nữ";
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 

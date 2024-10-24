@@ -7,7 +7,7 @@ namespace ql_diemrenluyen.DAO
         private static readonly string server = "localhost";
         private static readonly string database = "ql_diemrenluyen";
         private static readonly string user = "root";
-        private static readonly string password = "";
+        private static readonly string password = "1234";
         private static MySqlConnection conn;
 
         // Mở kết nối

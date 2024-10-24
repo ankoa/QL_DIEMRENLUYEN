@@ -1607,19 +1607,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\CSharpProject\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
       "projectName": "ql_diemrenluyen",
-      "projectPath": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\obj\\",
+      "projectPath": "C:\\Users\\ADMIN\\Documents\\CSharpProject\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ADMIN\\Documents\\CSharpProject\\QL_DiemRenLuyen\\ql_diemrenluyen\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1627,7 +1627,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
