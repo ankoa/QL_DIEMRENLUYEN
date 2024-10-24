@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
+using System;
+using System.Collections.Generic;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -18,12 +20,12 @@ namespace ql_diemrenluyen.DAO
                 AccountDTO account = new AccountDTO
                 {
                     Id = Convert.ToInt64(row[0]), // id
-                    Role = Convert.ToInt32(row[1]), // Role
-                    Password = Convert.ToString(row[2]), // Password
-                    RememberToken = Convert.ToString(row[3]), // RememberToken
-                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // CreatedAt
-                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null, // UpdatedAt
-                    Status = Convert.ToInt32(row[6]) // Status
+                    Role = Convert.ToString(row[1]), // vaitro
+                    Password = Convert.ToString(row[2]), // password
+                    RememberToken = row[3] != DBNull.Value ? Convert.ToString(row[3]) : null, // remember_token
+                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // created_at
+                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null, // updated_at
+                    Status = Convert.ToInt32(row[6]) // status
                 };
 
                 accounts.Add(account);
@@ -60,6 +62,7 @@ namespace ql_diemrenluyen.DAO
 
         public static bool AddAccount(AccountDTO account)
         {
+
             try
             {
                 string sql = "INSERT INTO account (vaitro, password, remember_token, created_at, updated_at, status) " +
@@ -93,8 +96,8 @@ namespace ql_diemrenluyen.DAO
         // Cập nhật thông tin tài khoản
         public static bool UpdateAccount(AccountDTO account)
         {
-            string sql = $"UPDATE account SET Role = @role, Password = @password, RememberToken = @rememberToken, " +
-                         $"CreatedAt = @createdAt, UpdatedAt = @updatedAt, Status = @status WHERE Id = @id";
+            string sql = $"UPDATE account SET vaitro = @role, password = @password, remember_token = @rememberToken, " +
+                         $"created_at = @createdAt, updated_at = @updatedAt, status = @status WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", account.Id);
@@ -113,12 +116,77 @@ namespace ql_diemrenluyen.DAO
         // Xóa tài khoản
         public static bool DeleteAccount(long id)
         {
-            string sql = $"DELETE FROM account WHERE Id = @id";
+            string sql = $"DELETE FROM account WHERE id = @id";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", id);
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
+        // Tìm kiếm tài khoản theo nhiều tiêu chí
+        public static List<AccountDTO> SearchAccounts(string role, int? status, string search)
+        {
+            List<AccountDTO> accounts = new List<AccountDTO>();
+
+            string sql = @"
+                SELECT * FROM account
+                WHERE
+                    (@role IS NULL OR vaitro = @role)
+                    AND (@status IS NULL OR status = @status)
+                    AND (
+                        id LIKE @search
+                        OR password LIKE @search
+                        OR remember_token LIKE @search
+                    )";
+
+            using (var cmd = new MySqlCommand(sql))
+            {
+                cmd.Parameters.AddWithValue("@role", string.IsNullOrEmpty(role) ? (object)DBNull.Value : role);
+                cmd.Parameters.AddWithValue("@status", status.HasValue ? (object)status : DBNull.Value);
+                cmd.Parameters.AddWithValue("@search", $"%{search}%");
+
+                List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+                foreach (var row in result)
+                {
+                    AccountDTO account = new AccountDTO
+                    {
+                        Id = Convert.ToInt64(row[0]), // id
+                        Role = Convert.ToString(row[1]), // vaitro
+                        Password = Convert.ToString(row[2]), // password
+                        RememberToken = row[3] != DBNull.Value ? Convert.ToString(row[3]) : null, // remember_token
+                        CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // created_at
+                        UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null, // updated_at
+                        Status = Convert.ToInt32(row[6]) // status
+                    };
+
+                    accounts.Add(account);
+                }
+            }
+
+            return accounts;
+        }
+
+        public static void PrintAllAccounts()
+        {
+            List<AccountDTO> accounts = GetAllAccounts(); // Lấy tất cả tài khoản
+
+            // Kiểm tra nếu danh sách không rỗng
+            if (accounts.Count > 0)
+            {
+                foreach (var account in accounts)
+                {
+                    // In thông tin tài khoản ra console
+                    Console.WriteLine($"ID: {account.Id}, Role: {account.Role}, Password: {account.Password}, " +
+                                      $"Remember Token: {account.RememberToken}, Created At: {account.CreatedAt}, " +
+                                      $"Updated At: {account.UpdatedAt}, Status: {account.Status}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Không có tài khoản nào trong cơ sở dữ liệu.");
+            }
+        }
+
 
         public static AccountDTO Login(string username, string plainPassword)
         {
@@ -139,7 +207,7 @@ namespace ql_diemrenluyen.DAO
                 return new AccountDTO
                 {
                     Id = Convert.ToInt64(row[0]),
-                    Role = Convert.ToInt32(row[1]),
+                    Role = Convert.ToString(row[1]),
                     Password = hashedPassword,
                     RememberToken = Convert.ToString(row[3]),
                     CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,

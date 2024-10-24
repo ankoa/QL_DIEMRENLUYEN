@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\resetpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\resetpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\gui\\resetpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\resetpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\menuadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\menuadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\changepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\changepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 857,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,27 +62,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ResetPass.cs",
-              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ResetPass.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ResetPass.cs",
-              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ResetPass.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ResetPass.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAcwFIAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "MenuAdmin.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.Designer.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.Designer.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.Designer.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.Designer.cs",
+              "ViewState": "AgIAALcBAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T02:31:11.125Z",
+              "WhenOpened": "2024-10-24T09:15:42.11Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ResetPass.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ResetPass.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ResetPass.cs",
-              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ResetPass.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ResetPass.cs [Design]",
+              "Title": "MenuAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAkwLAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T02:31:09.011Z"
+              "WhenOpened": "2024-10-24T09:15:32.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MenuAdmin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T09:15:01.436Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\Program.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T09:14:32.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ChangePassword.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ChangePassword.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ChangePassword.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ChangePassword.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ChangePassword.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T09:14:18.11Z",
+              "EditorCaption": " [Design]"
             }
           ]
         },

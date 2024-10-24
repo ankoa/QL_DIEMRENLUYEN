@@ -61,6 +61,10 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "ReaLTaiizor": {
+              "target": "Package",
+              "version": "[3.8.0.7, )"
             }
           },
           "imports": [

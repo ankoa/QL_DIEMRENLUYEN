@@ -41,5 +41,6 @@ namespace ql_diemrenluyen.BUS
         {
             return PasswordResetDAO.MarkOTPAsUsed(id); // Trả về true nếu cập nhật thành công
         }
+
     }
 }

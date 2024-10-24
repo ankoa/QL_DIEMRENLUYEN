@@ -11,7 +11,7 @@ namespace ql_diemrenluyen.DAO
         public static List<KhoaDTO> GetAllKhoa()
         {
             List<KhoaDTO> khoaList = new List<KhoaDTO>();
-            string sql = "SELECT * FROM khoa"; // Câu lệnh SQL
+            string sql = "SELECT * FROM khoa"; 
 
             List<List<object>> result = DBConnection.ExecuteReader(sql);
 
@@ -21,8 +21,8 @@ namespace ql_diemrenluyen.DAO
                 {
                     Id = Convert.ToInt64(row[0]),
                     TenKhoa = Convert.ToString(row[1]),
-                    CreatedAt = row[2] != null ? (DateTime?)Convert.ToDateTime(row[2]) : null,
-                    UpdatedAt = row[3] != null ? (DateTime?)Convert.ToDateTime(row[3]) : null
+                    CreatedAt = row[2] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[2]) : null,
+                    UpdatedAt = row[3] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[3]) : null
                 };
 
                 khoaList.Add(khoa);
@@ -34,7 +34,7 @@ namespace ql_diemrenluyen.DAO
         // Thêm khoa mới
         public static bool AddKhoa(KhoaDTO khoa)
         {
-            string sql = "INSERT INTO khoa (TenKhoa, CreatedAt, UpdatedAt) VALUES (@tenKhoa, @createdAt, @updatedAt)";
+            string sql = "INSERT INTO khoa (tenkhoa, created_at, updated_at) VALUES (@tenKhoa, @createdAt, @updatedAt)";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@tenKhoa", khoa.TenKhoa);
@@ -47,7 +47,7 @@ namespace ql_diemrenluyen.DAO
         // Cập nhật thông tin khoa
         public static bool UpdateKhoa(KhoaDTO khoa)
         {
-            string sql = "UPDATE khoa SET TenKhoa = @tenKhoa, CreatedAt = @createdAt, UpdatedAt = @updatedAt WHERE Id = @id";
+            string sql = "UPDATE khoa SET tenkhoa = @tenKhoa, created_at = @createdAt, updated_at = @updatedAt WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", khoa.Id);
@@ -61,7 +61,7 @@ namespace ql_diemrenluyen.DAO
         // Xóa khoa
         public static bool DeleteKhoa(long id)
         {
-            string sql = "DELETE FROM khoa WHERE Id = @id";
+            string sql = "DELETE FROM khoa WHERE id = @id";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", id);
 
