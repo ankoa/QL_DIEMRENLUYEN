@@ -77,7 +77,7 @@ namespace ql_diemrenluyen.DAO
         }
 
         // Xác thực mã thông báo đặt lại mật khẩu
-        /*public static PasswordResetDTO VerifyPasswordResetToken(string token)
+        public static PasswordResetDTO VerifyPasswordResetToken(string token)
         {
             string sql = "SELECT * FROM PasswordResets WHERE Token = @token AND IsUsed = 0 AND ExpiredAt > @currentTime";
             var cmd = new MySqlCommand(sql);
@@ -102,6 +102,6 @@ namespace ql_diemrenluyen.DAO
             }
 
             return null; // Trả về null nếu không tìm thấy
-        }*/
+        }
     }
 }
