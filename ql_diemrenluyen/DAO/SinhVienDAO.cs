@@ -39,6 +39,23 @@ namespace ql_diemrenluyen.DAO
             return null; // Trả về null nếu không tìm thấy sinh viên
         }
 
+        // Lấy sinh viên theo ID
+        public static SinhVienDTO GetStudentByEmail(string email)
+        {
+            string sql = "SELECT * FROM sinhvien WHERE email = @email";
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@email", email);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0)
+            {
+                return MapToSinhVienDTO(result[0]);
+            }
+
+            return null; // Trả về null nếu không tìm thấy sinh viên
+        }
+
         // Thêm sinh viên mới
         public static bool AddStudent(SinhVienDTO student)
         {

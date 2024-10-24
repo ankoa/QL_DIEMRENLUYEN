@@ -1,5 +1,6 @@
 ﻿using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
+
 using System;
 using System.Collections.Generic;
 
@@ -79,6 +80,34 @@ namespace ql_diemrenluyen.BUS
                 Console.WriteLine($"Error searching accounts: {ex.Message}");
                 return new List<AccountDTO>();
             }
+
+        }
+        //Login
+        public static AccountDTO Login(string username, string plainPassword)
+        {
+            return AccountDAO.Login(username, plainPassword);
+        }
+
+        public static (object account, string accountType) findAccountByEmail(string email)
+        {
+            if (email == null)
+            {
+                return (null, null);
+            }
+
+            SinhVienDTO sv = SinhVienDAO.GetStudentByEmail(email);
+            if (sv != null)
+            {
+                return (sv, "Sinh viên");
+            }
+
+            GiangVienDTO gv = GiangVienDAO.GetGiangVienByEmail(email);
+            if (gv != null)
+            {
+                return (gv, "Giảng viên");
+            }
+
+            return (null, null);
         }
 
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {}
+    "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {}
   },
   "projects": {
-    "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {
+    "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+        "projectUniqueName": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
         "projectName": "ql_diemrenluyen",
-        "projectPath": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+        "projectPath": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\obj\\",
+        "outputPath": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,14 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Google.Cloud.Vision.V1": {
+              "target": "Package",
+              "version": "[3.7.0, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[9.0.0, )"
