@@ -73,7 +73,8 @@ namespace ql_diemrenluyen.GUI
                 try
                 {
                     var codeReset = RNG.GenerateSixDigitNumber().ToString();
-                    await SendMail.SendPasswordResetEmailAsync(username, codeReset);
+                    //await SendMail.SendPasswordResetEmailAsync(username, codeReset);
+                    PasswordResetBUS.AddPasswordReset(username, codeReset);
                 }
                 catch (Exception ex)
                 {
@@ -83,13 +84,11 @@ namespace ql_diemrenluyen.GUI
                 {
                     pictureBox4.Visible = false;
                     this.Dispose();  // Ẩn form hiện tại
-                                     // Chuyển sang OTPForm và truyền username
+                    // Chuyển sang OTPForm và truyền username
                     ResetPass otpForm = new ResetPass(account, accountType);
                     otpForm.Show();  // Hiển thị form mới
 
                 }
-
-
             }
         }
 

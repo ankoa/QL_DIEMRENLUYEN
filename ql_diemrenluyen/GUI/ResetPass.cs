@@ -18,13 +18,13 @@ namespace ql_diemrenluyen.GUI
         public ResetPass(Object user, string accountType)
         {
             InitializeComponent();
-            loadUser();
             InitializeOTPInputs();
             this.FormBorderStyle = FormBorderStyle.None;
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
             this.Region = new Region(CreateRoundedRectanglePath(this.ClientRectangle, 30));
             this.user = user;
             this.accountType = accountType;
+            loadUser();
             this.inputUser.Enabled = false;
         }
 
@@ -44,6 +44,7 @@ namespace ql_diemrenluyen.GUI
                     Font = new Font("Arial", 16),
                     Margin = new Padding(10),
                     BackColor = Color.SkyBlue,
+                    Enabled = false
                 };
 
                 txt.TextChanged += TextBox_TextChanged;
@@ -53,6 +54,7 @@ namespace ql_diemrenluyen.GUI
             }
 
             otpInputs[0].Focus(); // Đặt focus vào ô đầu tiên
+            otpInputs[0].Enabled = true;
         }
 
         // Khi nhập xong 1 ký tự, tự chuyển sang ô tiếp theo
@@ -64,6 +66,7 @@ namespace ql_diemrenluyen.GUI
             if (!string.IsNullOrEmpty(currentTextBox.Text) && index < otpInputs.Length - 1)
             {
                 otpInputs[index + 1].Focus();
+                otpInputs[index + 1].Enabled = true;
             }
         }
 
@@ -76,6 +79,7 @@ namespace ql_diemrenluyen.GUI
             if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(currentTextBox.Text) && index > 0)
             {
                 otpInputs[index - 1].Focus();
+                otpInputs[index].Enabled = false;
                 otpInputs[index - 1].SelectAll();
             }
         }
@@ -137,6 +141,8 @@ namespace ql_diemrenluyen.GUI
                 if (user is SinhVienDTO sinhVien)
                 {
                     this.sinhvien = sinhVien;
+                    MessageBox.Show(sinhVien.Email);
+                    MessageBox.Show(sinhvien.Email);
                     this.inputUser.Text = this.sinhvien.Email;
                 }
                 else if (user is GiangVienDTO giangVien)
@@ -147,37 +153,36 @@ namespace ql_diemrenluyen.GUI
             }
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            //if (user != null)
-            //{
-            //    // Gán giá trị cho biến user dựa trên kiểu tài khoản
-            //    if (accountType == "Sinh viên")
-            //    {
-            //        user = user as SinhVienDTO;
-            //    }
-            //    else if (accountType == "Giảng viên")
-            //    {
-            //        user = user as GiangVienDTO;
-            //    }
+            string otp = string.Join("", otpInputs.Select(input => input.Text));
+            if (otp.Length != 6)
+            {
+                MessageBox.Show("Vui lòng nhập đủ 6 ký tự OTP.");
+                return;
+            }
+            string email = inputUser.Text;
 
-            //    // Gửi email reset mật khẩu
-            //    string otp = RNG.GenerateSixDigitNumber().ToString();
-            //    if (user is SinhVienDTO sinhVien)
-            //    {
-            //        await SendMail.SendPasswordResetEmailAsync(sinhVien.Email, otp);
-            //    }
-            //    else if (user is GiangVienDTO giangVien)
-            //    {
-            //        await SendMail.SendPasswordResetEmailAsync(giangVien.Email, otp);
-            //    }
+            try
+            {
+                var passwordReset = PasswordResetBUS.VerifyToken(email, otp);
 
-            //    MessageBox.Show("Email đã được gửi thành công!");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Không tìm thấy tài khoản với email đã nhập.");
-            //}
+                if (passwordReset != null)
+                {
+                    if (PasswordResetBUS.MarkOTPAsUsed(passwordReset.Id))
+                        MessageBox.Show("OTP hợp lệ! Bạn có thể đặt lại mật khẩu.");
+                    else
+                        MessageBox.Show("Lỗi khi xác thực OTP");
+                }
+                else
+                {
+                    MessageBox.Show("OTP không hợp lệ hoặc đã hết hạn.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
+            }
         }
 
 
@@ -227,7 +232,7 @@ namespace ql_diemrenluyen.GUI
             }
             else
             {
-                pictureBox4.Visible = true;
+                //pictureBox4.Visible = true;
                 try
                 {
                     var codeReset = RNG.GenerateSixDigitNumber().ToString();
