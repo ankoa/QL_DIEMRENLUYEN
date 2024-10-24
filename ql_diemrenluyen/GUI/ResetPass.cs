@@ -14,6 +14,7 @@ namespace ql_diemrenluyen.GUI
         private SinhVienDTO sinhvien;
         private GiangVienDTO giangvien;
         private readonly string accountType;
+        private string id;
 
         public ResetPass(Object user, string accountType)
         {
@@ -65,8 +66,8 @@ namespace ql_diemrenluyen.GUI
 
             if (!string.IsNullOrEmpty(currentTextBox.Text) && index < otpInputs.Length - 1)
             {
-                otpInputs[index + 1].Focus();
                 otpInputs[index + 1].Enabled = true;
+                otpInputs[index + 1].Focus();
             }
         }
 
@@ -141,14 +142,14 @@ namespace ql_diemrenluyen.GUI
                 if (user is SinhVienDTO sinhVien)
                 {
                     this.sinhvien = sinhVien;
-                    MessageBox.Show(sinhVien.Email);
-                    MessageBox.Show(sinhvien.Email);
+                    this.id = sinhvien.Id.ToString();
                     this.inputUser.Text = this.sinhvien.Email;
                 }
                 else if (user is GiangVienDTO giangVien)
                 {
                     this.giangvien = giangVien;
                     this.inputUser.Text = this.giangvien.Email;
+                    this.id = giangvien.Id.ToString();
                 }
             }
         }
@@ -170,7 +171,13 @@ namespace ql_diemrenluyen.GUI
                 if (passwordReset != null)
                 {
                     if (PasswordResetBUS.MarkOTPAsUsed(passwordReset.Id))
-                        MessageBox.Show("OTP hợp lệ! Bạn có thể đặt lại mật khẩu.");
+                    {
+                        this.Dispose();  // Ẩn form hiện tại
+                                         // Chuyển sang OTPForm và truyền username
+                        ChangePassword otpForm = new ChangePassword(id);
+                        otpForm.Show();  // Hiển thị form mới
+                    }
+
                     else
                         MessageBox.Show("Lỗi khi xác thực OTP");
                 }

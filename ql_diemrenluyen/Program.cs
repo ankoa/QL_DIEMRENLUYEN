@@ -1,4 +1,4 @@
-﻿using ql_diemrenluyen.GUI.ADMIN;
+﻿using ql_diemrenluyen.GUI;
 namespace ql_diemrenluyen
 {
     internal static class Program
@@ -15,7 +15,7 @@ namespace ql_diemrenluyen
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new TaiKhoan());
-            Application.Run(new MenuAdmin());
+            Application.Run(new Login());
 
         }
     }

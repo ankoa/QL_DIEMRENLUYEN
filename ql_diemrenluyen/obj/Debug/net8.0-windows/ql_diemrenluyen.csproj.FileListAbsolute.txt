@@ -233,3 +233,14 @@ C:\Users\huhuh\Downloads\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows
 C:\Users\huhuh\Downloads\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.TimKiemSinhVien.resources
 C:\Users\huhuh\Downloads\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ReaLTaiizor.dll
 C:\Users\huhuh\Downloads\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ChangePassword.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.BUS.AccountBUS.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AccountDetailsForm.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TaiKhoan.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.HomePage.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.MenuAdmin.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Student.AdminStudentTest.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.QLSinhVien.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThongTinhSinhVien.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.TimKiemSinhVien.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ChangePassword.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ReaLTaiizor.dll

@@ -1,9 +1,6 @@
 ﻿using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
-using System;
-using System.Collections.Generic;
-
 namespace ql_diemrenluyen.BUS
 {
     public class AccountBUS
@@ -108,6 +105,11 @@ namespace ql_diemrenluyen.BUS
             }
 
             return (null, null);
+        }
+
+        public static bool ChangePassword(long userId, string oldPassword, string newPassword)
+        {
+            return AccountDAO.ChangePassword(userId, oldPassword, newPassword);
         }
 
     }

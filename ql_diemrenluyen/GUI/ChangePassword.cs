@@ -8,6 +8,7 @@ namespace ql_diemrenluyen.GUI
     public partial class ChangePassword : Form
     {
         private bool isPasswordHidden = true;
+        string id;
         public ChangePassword(string id)
         {
             InitializeComponent();
@@ -15,6 +16,7 @@ namespace ql_diemrenluyen.GUI
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
             this.Region = new Region(CreateRoundedRectanglePath(this.ClientRectangle, 30));
             oldColor = btnLogin.BackColor;
+            this.id = id;
         }
 
         public async Task RunImageAnalysis(string imagePath)
@@ -113,27 +115,33 @@ namespace ql_diemrenluyen.GUI
             var oldpass = inputUser.Text;
             var newpass = inputPass.Text;
             var passconfirm = inputConfirm.Text;
-            AccountDTO accountLogin = AccountBUS.Login(username, password);
+
+            // Kiểm tra tài khoản với mật khẩu cũ
+            AccountDTO accountLogin = AccountBUS.Login(id, oldpass);
             if (accountLogin == null)
             {
-                MessageBox.Show("ko");
+                MessageBox.Show("Mật khẩu cũ sai");
+                return;
             }
-            else
-            {
-                MessageBox.Show("ok");
-            }
-            //OpenFileDialog openFileDialog = new OpenFileDialog
-            //{
-            //    Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
-            //};
 
-            //if (openFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    string imagePath = openFileDialog.FileName;
-            //    MessageBox.Show(imagePath);
-            //    await RunImageAnalysis(imagePath);
-            //}
+            // Kiểm tra xác nhận mật khẩu mới
+            if (newpass != passconfirm)
+            {
+                MessageBox.Show("Xác nhận mật khẩu sai");
+                return;
+            }
+
+            // Thực hiện đổi mật khẩu
+            bool isChanged = AccountBUS.ChangePassword(Convert.ToInt64(id), oldpass, newpass);
+            if (!isChanged)
+            {
+                MessageBox.Show("Có lỗi khi đổi mật khẩu");
+                return;
+            }
+
+            MessageBox.Show("Đổi mật khẩu thành công");
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

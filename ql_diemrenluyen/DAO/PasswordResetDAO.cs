@@ -120,9 +120,7 @@ namespace ql_diemrenluyen.DAO
                     ExpiredAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
                     IsUsed = Convert.ToInt32(row[5])
                 };
-                MessageBox.Show("ok code");
             }
-            MessageBox.Show("ko ok code");
             return null; // Trả về null nếu không tìm thấy
         }
     }
