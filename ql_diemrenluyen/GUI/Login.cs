@@ -11,11 +11,38 @@ namespace ql_diemrenluyen.GUI
         public Login()
         {
             InitializeComponent();
+            //TestAddAccount();
             this.FormBorderStyle = FormBorderStyle.None;
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
             this.Region = new Region(CreateRoundedRectanglePath(this.ClientRectangle, 30));
             oldColor = btnLogin.BackColor;
         }
+
+        public static void TestAddAccount()
+        {
+            // Tạo một tài khoản mẫu
+            var account = new AccountDTO
+            {
+                Role = "user", // Vai trò của tài khoản
+                Password = "123", // Mật khẩu cho tài khoản
+                RememberToken = "", // Token nhớ đăng nhập (có thể null)
+                CreatedAt = DateTime.Now, // Thời gian tạo
+                UpdatedAt = DateTime.Now, // Thời gian cập nhật
+                Status = 1 // Trạng thái của tài khoản
+            };
+
+            // Gọi hàm AddAccount và kiểm tra kết quả
+            bool isAdded = AccountBUS.AddAccount(account);
+            if (isAdded)
+            {
+                Console.WriteLine("Account added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add account.");
+            }
+        }
+
 
         public async Task RunImageAnalysis(string imagePath)
         {

@@ -200,7 +200,7 @@ namespace ql_diemrenluyen.DAO
                 string hashedPassword = Convert.ToString(row[2]);
 
                 //Kiểm tra mật khẩu đã mã hóa với mật khẩu người dùng nhập.
-                if (BCrypt.Net.BCrypt.Verify(plainPassword, hashedPassword))
+                if (BCrypt.Net.BCrypt.EnhancedVerify(plainPassword, hashedPassword))
                 {
                     return new AccountDTO
                     {
@@ -223,28 +223,6 @@ namespace ql_diemrenluyen.DAO
         {
             try
             {
-                // Kiểm tra mật khẩu cũ từ DB
-                string sql = "SELECT password FROM account WHERE id = @userId";
-                var cmd = new MySqlCommand(sql);
-                cmd.Parameters.AddWithValue("@userId", userId);
-
-                List<List<object>> result = DBConnection.ExecuteReader(cmd);
-
-                if (result.Count == 0)
-                {
-                    MessageBox.Show("Không tìm thấy tài khoản");
-                    return false;
-                }
-
-                string hashedPassword = Convert.ToString(result[0][0]);
-
-                // Kiểm tra mật khẩu cũ
-                if (!BCrypt.Net.BCrypt.Verify(oldPassword, hashedPassword))
-                {
-                    MessageBox.Show("Mật khẩu cũ không chính xác");
-                    return false;
-                }
-
                 // Hash mật khẩu mới
                 string newHashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(newPassword, 13);
 

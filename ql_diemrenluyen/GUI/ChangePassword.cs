@@ -115,15 +115,16 @@ namespace ql_diemrenluyen.GUI
             var oldpass = inputUser.Text;
             var newpass = inputPass.Text;
             var passconfirm = inputConfirm.Text;
-
             // Kiểm tra tài khoản với mật khẩu cũ
             AccountDTO accountLogin = AccountBUS.Login(id, oldpass);
+            MessageBox.Show("Thuc hien xac thuc mk cu");
             if (accountLogin == null)
             {
                 MessageBox.Show("Mật khẩu cũ sai");
                 return;
             }
 
+            MessageBox.Show("Thuc hien xac thuc mk moi");
             // Kiểm tra xác nhận mật khẩu mới
             if (newpass != passconfirm)
             {
@@ -131,6 +132,7 @@ namespace ql_diemrenluyen.GUI
                 return;
             }
 
+            MessageBox.Show("Thuc hien thay doi mat khau");
             // Thực hiện đổi mật khẩu
             bool isChanged = AccountBUS.ChangePassword(Convert.ToInt64(id), oldpass, newpass);
             if (!isChanged)
