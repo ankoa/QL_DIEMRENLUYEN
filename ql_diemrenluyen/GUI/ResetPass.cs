@@ -174,7 +174,7 @@ namespace ql_diemrenluyen.GUI
                     {
                         this.Dispose();  // Ẩn form hiện tại
                                          // Chuyển sang OTPForm và truyền username
-                        ChangePassword otpForm = new ChangePassword(id);
+                        CreateNewPass otpForm = new CreateNewPass(id);
                         otpForm.Show();  // Hiển thị form mới
                     }
 

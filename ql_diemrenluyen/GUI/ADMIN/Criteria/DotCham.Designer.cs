@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
-    partial class TaiKhoan
+    partial class DotCham
     {
         /// <summary>
         /// Required designer variable.
@@ -149,6 +149,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableTK.Size = new Size(1118, 365);
             tableTK.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             tableTK.TabIndex = 5;
+            tableTK.CellContentClick += tableTK_CellContentClick;
             tableTK.CellDoubleClick += tableTK_CellDoubleClick_1;
             // 
             // dataGridViewTextBoxColumn1
@@ -319,7 +320,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel3.Size = new Size(1154, 37);
             panel3.TabIndex = 31;
             // 
-            // TaiKhoan
+            // DotCham
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -333,7 +334,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
-            Name = "TaiKhoan";
+            Name = "DotCham";
             Padding = new Padding(44, 15, 44, 75);
             Text = "Tài Khoản";
             panel1.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using ql_diemrenluyen.GUI.ADMIN.Student;
+using ql_diemrenluyen.Helper;
 using System.Runtime.InteropServices;
 
 namespace ql_diemrenluyen.GUI.ADMIN
@@ -8,6 +9,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         HomePage form_home;
         TaiKhoan form_taikhoan;
         AdminStudentTest form_student;
+        private PictureBox loading;
 
         [DllImport("user32.dll")]
         private static extern void ReleaseCapture();
@@ -28,6 +30,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             this.WindowState = FormWindowState.Maximized;
             this.Activated += MenuAdmin_Activated; // Thêm sự kiện Activated
             this.MouseDown += Form_MouseDown;
+            // Khởi tạo PictureBox loading
+            loading = Loading.CreateLoadingControl(this);
         }
 
         private void Form_MouseDown(object sender, MouseEventArgs e)

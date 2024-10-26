@@ -219,7 +219,7 @@ namespace ql_diemrenluyen.DAO
         }
 
         //Đổi mật khẩu
-        public static bool ChangePassword(long userId, string oldPassword, string newPassword)
+        public static bool ChangePassword(long userId, string newPassword)
         {
             try
             {

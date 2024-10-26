@@ -107,9 +107,9 @@ namespace ql_diemrenluyen.BUS
             return (null, null);
         }
 
-        public static bool ChangePassword(long userId, string oldPassword, string newPassword)
+        public static bool ChangePassword(long userId, string newPassword)
         {
-            return AccountDAO.ChangePassword(userId, oldPassword, newPassword);
+            return AccountDAO.ChangePassword(userId, newPassword);
         }
 
     }

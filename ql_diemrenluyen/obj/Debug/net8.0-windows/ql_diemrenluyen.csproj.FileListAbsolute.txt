@@ -244,3 +244,4 @@ D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.T
 D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.TimKiemSinhVien.resources
 D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ChangePassword.resources
 D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ReaLTaiizor.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.CreateNewPass.resources

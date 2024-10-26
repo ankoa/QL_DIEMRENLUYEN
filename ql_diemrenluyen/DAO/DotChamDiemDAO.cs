@@ -159,8 +159,61 @@ namespace ql_diemrenluyen.DAO
             return thongTinDotChamDiem;
         }
 
-    }
+        public static List<DotChamDiemDTO> GetAllDotChamDiemVoiHocKiVaNamHoc(int coVanId)
+        {
+            // Lấy giờ hiện tại theo múi giờ Việt Nam (UTC+7)
+            TimeZoneInfo vnTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+            DateTime ngayHienTai = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, vnTimeZone);
 
+            string sql = @"
+        SELECT dcd.Id, 
+               dcd.hocki_id AS HocKiId, 
+               dcd.Name, 
+               dcd.StartDate, 
+               dcd.EndDate, 
+               hk.namhoc AS NamHoc
+        FROM dotchamdiem dcd
+        JOIN hocki hk ON dcd.hocki_id = hk.Id
+        WHERE dcd.StartDate <= @ngayHienTai 
+          AND dcd.EndDate >= @ngayHienTai
+          AND EXISTS (
+              SELECT 1 FROM thongtindotchamdiem ttdcd 
+              WHERE ttdcd.dotchamdiem_id = dcd.Id 
+                AND ttdcd.covan_id = @coVanId
+          )
+        ORDER BY hk.namhoc, hk.Name, dcd.StartDate";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@coVanId", coVanId);
+            cmd.Parameters.AddWithValue("@ngayHienTai", ngayHienTai);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Nếu không có kết quả, trả về danh sách rỗng
+            if (result.Count == 0) return new List<DotChamDiemDTO>();
+
+            // Chuyển đổi kết quả thành List<DotChamDiemDTO>
+            var danhSachDotChamDiem = new List<DotChamDiemDTO>();
+
+            foreach (var row in result)
+            {
+                var dotChamDiem = new DotChamDiemDTO
+                {
+                    Id = Convert.ToInt32(row[0]),
+                    HocKiId = Convert.ToInt32(row[1]),
+                    Name = Convert.ToString(row[2]),
+                    StartDate = Convert.ToDateTime(row[3]),
+                    EndDate = Convert.ToDateTime(row[4])
+                };
+
+                Console.WriteLine($"Id: {dotChamDiem.Id}, Name: {dotChamDiem.Name}, NamHoc: {row[5]}");
+                danhSachDotChamDiem.Add(dotChamDiem);
+            }
+
+            return danhSachDotChamDiem;
+        }
+
+    }
 
     public class ThongTinDotChamDiemDTO
     {

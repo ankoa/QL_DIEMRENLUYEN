@@ -1,15 +1,14 @@
 ﻿using ql_diemrenluyen.BUS;
-using ql_diemrenluyen.DTO;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
 namespace ql_diemrenluyen.GUI
 {
-    public partial class ChangePassword : Form
+    public partial class CreateNewPass : Form
     {
         private bool isPasswordHidden = true;
         string id;
-        public ChangePassword(string id)
+        public CreateNewPass(string id)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -112,17 +111,8 @@ namespace ql_diemrenluyen.GUI
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            var oldpass = inputUser.Text;
             var newpass = inputPass.Text;
             var passconfirm = inputConfirm.Text;
-            // Kiểm tra tài khoản với mật khẩu cũ
-            AccountDTO accountLogin = AccountBUS.Login(id, oldpass);
-            MessageBox.Show("Thuc hien xac thuc mk cu");
-            if (accountLogin == null)
-            {
-                MessageBox.Show("Mật khẩu cũ sai");
-                return;
-            }
 
             MessageBox.Show("Thuc hien xac thuc mk moi");
             // Kiểm tra xác nhận mật khẩu mới
