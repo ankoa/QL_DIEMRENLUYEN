@@ -159,59 +159,55 @@ namespace ql_diemrenluyen.DAO
             return thongTinDotChamDiem;
         }
 
-        public static List<DotChamDiemDTO> GetAllDotChamDiemVoiHocKiVaNamHoc(int coVanId)
+        public static List<ThongTinDotChamDiemDTO> GetAllDotChamDiemVoiHocKiVaNamHoc()
         {
             // Lấy giờ hiện tại theo múi giờ Việt Nam (UTC+7)
             TimeZoneInfo vnTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
             DateTime ngayHienTai = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, vnTimeZone);
 
             string sql = @"
-        SELECT dcd.Id, 
-               dcd.hocki_id AS HocKiId, 
-               dcd.Name, 
-               dcd.StartDate, 
-               dcd.EndDate, 
+        SELECT hk.Name AS HocKy, 
+               dcd.name AS DotChamDiem, 
+               dcd.startDate AS NgayBatDau, 
+               dcd.endDate AS NgayKetThuc, 
+               ttdcd.hoanthanh AS HoanThanh,
                hk.namhoc AS NamHoc
-        FROM dotchamdiem dcd
-        JOIN hocki hk ON dcd.hocki_id = hk.Id
-        WHERE dcd.StartDate <= @ngayHienTai 
-          AND dcd.EndDate >= @ngayHienTai
-          AND EXISTS (
-              SELECT 1 FROM thongtindotchamdiem ttdcd 
-              WHERE ttdcd.dotchamdiem_id = dcd.Id 
-                AND ttdcd.covan_id = @coVanId
-          )
-        ORDER BY hk.namhoc, hk.Name, dcd.StartDate";
+        FROM hocky hk
+        JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
+        JOIN thongtindotchamdiem ttdcd ON dcd.id = ttdcd.dotchamdiem_id
+        WHERE dcd.startDate <= @ngayHienTai 
+          AND dcd.endDate >= @ngayHienTai";
 
             var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@coVanId", coVanId);
             cmd.Parameters.AddWithValue("@ngayHienTai", ngayHienTai);
 
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
 
             // Nếu không có kết quả, trả về danh sách rỗng
-            if (result.Count == 0) return new List<DotChamDiemDTO>();
+            if (result.Count == 0) return new List<ThongTinDotChamDiemDTO>();
 
-            // Chuyển đổi kết quả thành List<DotChamDiemDTO>
-            var danhSachDotChamDiem = new List<DotChamDiemDTO>();
+            // Chuyển đổi kết quả thành List<ThongTinDotChamDiemDTO>
+            var danhSachDotChamDiem = new List<ThongTinDotChamDiemDTO>();
 
             foreach (var row in result)
             {
-                var dotChamDiem = new DotChamDiemDTO
+                var dotChamDiem = new ThongTinDotChamDiemDTO
                 {
-                    Id = Convert.ToInt32(row[0]),
-                    HocKiId = Convert.ToInt32(row[1]),
-                    Name = Convert.ToString(row[2]),
-                    StartDate = Convert.ToDateTime(row[3]),
-                    EndDate = Convert.ToDateTime(row[4])
+                    HocKy = Convert.ToString(row[0]), // Chỉnh sửa: HocKy là kiểu string
+                    DotChamDiem = Convert.ToString(row[1]), // Lấy tên Đợt Chấm Điểm
+                    NgayBatDau = Convert.ToDateTime(row[2]), // Ngày Bắt Đầu
+                    NgayKetThuc = Convert.ToDateTime(row[3]), // Ngày Kết Thúc
+                    HoanThanh = Convert.ToString(row[4]), // Hoàn Thành
+                    NamHoc = Convert.ToString(row[5]) // Gán NamHoc
                 };
 
-                Console.WriteLine($"Id: {dotChamDiem.Id}, Name: {dotChamDiem.Name}, NamHoc: {row[5]}");
+                Console.WriteLine($"HocKy: {dotChamDiem.HocKy}, DotChamDiem: {dotChamDiem.DotChamDiem}, NamHoc: {dotChamDiem.NamHoc}");
                 danhSachDotChamDiem.Add(dotChamDiem);
             }
 
             return danhSachDotChamDiem;
         }
+
 
     }
 
@@ -222,6 +218,8 @@ namespace ql_diemrenluyen.DAO
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
         public string HoanThanh { get; set; }
+        public string NamHoc { get; set; } // Thêm thuộc tính NamHoc
     }
+
 
 }
