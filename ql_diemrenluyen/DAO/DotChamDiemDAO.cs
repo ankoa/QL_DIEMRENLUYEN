@@ -161,26 +161,17 @@ namespace ql_diemrenluyen.DAO
 
         public static List<ThongTinDotChamDiemDTO> GetAllDotChamDiemVoiHocKiVaNamHoc()
         {
-            // Lấy giờ hiện tại theo múi giờ Việt Nam (UTC+7)
-            TimeZoneInfo vnTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
-            DateTime ngayHienTai = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, vnTimeZone);
-
             string sql = @"
-        SELECT hk.Name AS HocKy, 
-               dcd.name AS DotChamDiem, 
-               dcd.startDate AS NgayBatDau, 
-               dcd.endDate AS NgayKetThuc, 
-               ttdcd.hoanthanh AS HoanThanh,
-               hk.namhoc AS NamHoc
-        FROM hocky hk
-        JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
-        JOIN thongtindotchamdiem ttdcd ON dcd.id = ttdcd.dotchamdiem_id
-        WHERE dcd.startDate <= @ngayHienTai 
-          AND dcd.endDate >= @ngayHienTai";
+            SELECT dcd.id AS Id,
+                   hk.Name AS HocKy, 
+                   dcd.name AS DotChamDiem, 
+                   dcd.startDate AS NgayBatDau, 
+                   dcd.endDate AS NgayKetThuc, 
+                   hk.namhoc AS NamHoc
+            FROM hocky hk
+            JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id";
 
             var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@ngayHienTai", ngayHienTai);
-
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
 
             // Nếu không có kết quả, trả về danh sách rỗng
@@ -193,33 +184,29 @@ namespace ql_diemrenluyen.DAO
             {
                 var dotChamDiem = new ThongTinDotChamDiemDTO
                 {
-                    HocKy = Convert.ToString(row[0]), // Chỉnh sửa: HocKy là kiểu string
-                    DotChamDiem = Convert.ToString(row[1]), // Lấy tên Đợt Chấm Điểm
-                    NgayBatDau = Convert.ToDateTime(row[2]), // Ngày Bắt Đầu
-                    NgayKetThuc = Convert.ToDateTime(row[3]), // Ngày Kết Thúc
-                    HoanThanh = Convert.ToString(row[4]), // Hoàn Thành
+                    Id = Convert.ToInt32(row[0]),
+                    HocKy = Convert.ToString(row[1]), // Chỉnh sửa: HocKy là kiểu string
+                    DotChamDiem = Convert.ToString(row[2]), // Lấy tên Đợt Chấm Điểm
+                    NgayBatDau = Convert.ToDateTime(row[3]), // Ngày Bắt Đầu
+                    NgayKetThuc = Convert.ToDateTime(row[4]), // Ngày Kết Thúc
                     NamHoc = Convert.ToString(row[5]) // Gán NamHoc
                 };
 
                 Console.WriteLine($"HocKy: {dotChamDiem.HocKy}, DotChamDiem: {dotChamDiem.DotChamDiem}, NamHoc: {dotChamDiem.NamHoc}");
                 danhSachDotChamDiem.Add(dotChamDiem);
             }
-
             return danhSachDotChamDiem;
         }
-
-
     }
 
     public class ThongTinDotChamDiemDTO
     {
+        public int Id { get; set; }
         public string HocKy { get; set; }
         public string DotChamDiem { get; set; }
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
-        public string HoanThanh { get; set; }
+        public string? HoanThanh { get; set; }
         public string NamHoc { get; set; } // Thêm thuộc tính NamHoc
     }
-
-
 }

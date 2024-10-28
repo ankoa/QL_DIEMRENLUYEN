@@ -1,46 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Code\\QLDiemrenluyen\\",
+  "WorkspaceRootPath": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\dao\\diemrenluyensinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\diemrenluyensinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\dao\\dotchamdiemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\dotchamdiemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\dto\\dotchamdiemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dto\\dotchamdiemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\criteria\\adddotcham.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\criteria\\adddotcham.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\bus\\dotchamdiembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\dotchamdiembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\criteria\\adddotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\criteria\\adddotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\dao\\dotchamdiemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\dotchamdiemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\criteria\\adddotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\criteria\\adddotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\downloads\\qldiemrenluyen\\ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,8 +30,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 857,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -78,129 +62,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dashboard.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAAAH8AAABYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T03:20:16.614Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Dashboard.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T03:20:12.315Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DotChamDiemDTO.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DTO\\DotChamDiemDTO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DTO\\DotChamDiemDTO.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DTO\\DotChamDiemDTO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DTO\\DotChamDiemDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T03:12:13.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DiemRenLuyenSinhVienDAO.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T03:04:03.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "DotChamDiemDAO.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAAAMkAAAATAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\Program.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T02:58:47.377Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DotCham.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAAFsAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T02:54:21.002Z",
+              "WhenOpened": "2024-10-28T02:40:37.765Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DotCham.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs [Design]",
+              "Title": "DotChamDiemBUS.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\BUS\\DotChamDiemBUS.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\DotChamDiemBUS.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\BUS\\DotChamDiemBUS.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\BUS\\DotChamDiemBUS.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAswHYAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T02:25:55.839Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AddDotCham.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T02:29:18.289Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AddDotCham.Designer.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.Designer.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.Designer.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.Designer.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T02:29:14.37Z",
+              "WhenOpened": "2024-10-28T02:31:12.687Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AddDotCham.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\AddDotCham.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "DotCham.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBoAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T02:29:09.138Z",
+              "WhenOpened": "2024-10-28T02:16:14.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DotCham.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T02:16:03.36Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DotChamDiemDAO.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "ToolTip": "C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAkwKIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T01:54:17.722Z",
               "EditorCaption": ""
             }
           ]

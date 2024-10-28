@@ -110,6 +110,14 @@ namespace ql_diemrenluyen.BUS
             return new List<ThongTinDotChamDiemDTO> { thongTinDotChamDiem };
         }
 
+        public static List<ThongTinDotChamDiemDTO> GetAllDotChamDiemVoiHocKiVaNamHoc()
+        {
+            var thongTinDotChamDiem = DotChamDiemDAO.GetAllDotChamDiemVoiHocKiVaNamHoc();
+            if (thongTinDotChamDiem == null) return new List<ThongTinDotChamDiemDTO>(); // Trả về danh sách rỗng
+
+            // Bọc kết quả vào danh sách
+            return thongTinDotChamDiem;
+        }
 
     }
 }

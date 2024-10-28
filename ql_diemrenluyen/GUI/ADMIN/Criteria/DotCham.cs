@@ -1,4 +1,5 @@
 ﻿using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.GUI.ADMIN
@@ -13,39 +14,96 @@ namespace ql_diemrenluyen.GUI.ADMIN
             this.MaximizeBox = false;
             cbbRole.SelectedItem = "Mặc định";
             cbbStatus.SelectedItem = "Mặc định";
-            LoadAccountList();
+            LoadDotChamDiemList();
 
             if (this.Width < 1200)
             {
                 pnContent.Padding = new Padding(50);
                 pnContent.Dock = DockStyle.Fill;
             }
+
+            int leftMargin = (tableLayoutPanel1.ClientSize.Width - pnInput.Width) / 2;
+
+            pnInput.Margin = new Padding(leftMargin, 3, 0, 0);
         }
 
         private void TaiKhoan_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             this.Dock = DockStyle.Fill;
-            LoadAccountList();
+            LoadDotChamDiemList();
         }
 
-        private void LoadAccountList()
+        //private void LoadAccountList()
+        //{
+        //    try
+        //    {
+        //        List<AccountDTO> accounts = AccountBUS.GetAllAccounts();
+        //        tableTK.Rows.Clear();
+
+        //        foreach (var account in accounts)
+        //        {
+        //            tableTK.Rows.Add(
+        //                account.Id,
+        //                account.Password,
+        //                account.Role,
+        //                account.RememberToken,
+        //                account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
+        //                account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
+        //                account.Status == 1 ? "Hoạt động" : "Không hoạt động"
+        //            );
+        //        }
+
+        //        ApplyTableStyles();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi khi tải danh sách đợt chấm: " + ex.Message);
+        //    }
+        //}
+        //public static void LoadAccountList(DataGridView table)
+        //{
+        //    try
+        //    {
+        //        List<AccountDTO> accounts = AccountBUS.GetAllAccounts();
+        //        table.Rows.Clear();
+
+        //        foreach (var account in accounts)
+        //        {
+        //            table.Rows.Add(
+        //                account.Id,
+        //                account.Password,
+        //                account.Role,
+        //                account.RememberToken,
+        //                account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
+        //                account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
+        //                account.Status == 1 ? "Hoạt động" : "Không hoạt động"
+        //            );
+        //        }
+
+        //        ApplyTableStyles(table); // Gọi phương thức để áp dụng kiểu dáng
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi khi tải danh sách tài khoản: " + ex.Message);
+        //    }
+        //}
+        private void LoadDotChamDiemList()
         {
             try
             {
-                List<AccountDTO> accounts = AccountBUS.GetAllAccounts();
+                List<ThongTinDotChamDiemDTO> dotChamDiemList = DotChamDiemBUS.GetAllDotChamDiemVoiHocKiVaNamHoc();
                 tableTK.Rows.Clear();
 
-                foreach (var account in accounts)
+                foreach (var dotChamDiem in dotChamDiemList)
                 {
                     tableTK.Rows.Add(
-                        account.Id,
-                        account.Password,
-                        account.Role,
-                        account.RememberToken,
-                        account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
-                        account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
-                        account.Status == 1 ? "Hoạt động" : "Không hoạt động"
+                         dotChamDiem.Id,
+                        dotChamDiem.NamHoc,
+                        dotChamDiem.HocKy,
+                        dotChamDiem.DotChamDiem,
+                        dotChamDiem.NgayBatDau.ToString("dd/MM/yyyy"),
+                        dotChamDiem.NgayKetThuc.ToString("dd/MM/yyyy")
                     );
                 }
 
@@ -53,34 +111,33 @@ namespace ql_diemrenluyen.GUI.ADMIN
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải danh sách tài khoản: " + ex.Message);
+                MessageBox.Show("Lỗi khi tải danh sách đợt chấm: " + ex.Message);
             }
         }
-        public static void LoadAccountList(DataGridView table)
+        public static void LoadDotChamDiemList(DataGridView table)
         {
             try
             {
-                List<AccountDTO> accounts = AccountBUS.GetAllAccounts();
+                List<ThongTinDotChamDiemDTO> dotChamDiemList = DotChamDiemBUS.GetAllDotChamDiemVoiHocKiVaNamHoc();
                 table.Rows.Clear();
 
-                foreach (var account in accounts)
+                foreach (var dotChamDiem in dotChamDiemList)
                 {
                     table.Rows.Add(
-                        account.Id,
-                        account.Password,
-                        account.Role,
-                        account.RememberToken,
-                        account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
-                        account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
-                        account.Status == 1 ? "Hoạt động" : "Không hoạt động"
+                        dotChamDiem.Id,
+                        dotChamDiem.NamHoc,
+                        dotChamDiem.HocKy,
+                        dotChamDiem.DotChamDiem,
+                        dotChamDiem.NgayBatDau.ToString("dd/MM/yyyy"),
+                        dotChamDiem.NgayKetThuc.ToString("dd/MM/yyyy")
                     );
                 }
 
-                ApplyTableStyles(table); // Gọi phương thức để áp dụng kiểu dáng
+                ApplyTableStyles(table); // Gọi hàm áp dụng kiểu cho bảng nếu có
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải danh sách tài khoản: " + ex.Message);
+                MessageBox.Show("Lỗi khi tải danh sách đợt chấm điểm: " + ex.Message);
             }
         }
 
@@ -137,7 +194,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 if (string.IsNullOrEmpty(search))
                 {
                     // Nếu ô tìm kiếm trống, tải lại danh sách tài khoản mặc định
-                    LoadAccountList(tableTK); // Gọi phương thức tải danh sách tài khoản mặc định
+                    LoadDotChamDiemList(tableTK); // Gọi phương thức tải danh sách tài khoản mặc định
                     return; // Kết thúc phương thức
                 }
 
@@ -173,24 +230,24 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void tableTK_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                var selectedRow = tableTK.Rows[e.RowIndex];
+            //if (e.RowIndex >= 0)
+            //{
+            //    var selectedRow = tableTK.Rows[e.RowIndex];
 
-                long id = (long)selectedRow.Cells["dataGridViewTextBoxColumn1"].Value;
-                string password = selectedRow.Cells["dataGridViewTextBoxColumn5"].Value?.ToString() ?? "";
-                string role = selectedRow.Cells["dataGridViewTextBoxColumn3"].Value?.ToString() ?? "";
-                string rememberToken = selectedRow.Cells["dataGridViewTextBoxColumn6"].Value?.ToString() ?? "";
-                string status = selectedRow.Cells["dataGridViewTextBoxColumn4"].Value?.ToString() ?? "";
+            //    long id = (long)selectedRow.Cells["dataGridViewTextBoxColumn1"].Value;
+            //    string password = selectedRow.Cells["dataGridViewTextBoxColumn5"].Value?.ToString() ?? "";
+            //    string role = selectedRow.Cells["dataGridViewTextBoxColumn3"].Value?.ToString() ?? "";
+            //    string rememberToken = selectedRow.Cells["dataGridViewTextBoxColumn6"].Value?.ToString() ?? "";
+            //    string status = selectedRow.Cells["dataGridViewTextBoxColumn4"].Value?.ToString() ?? "";
 
-                DateTime createdAt = DateTime.TryParse(selectedRow.Cells["dataGridViewTextBoxColumn7"].Value?.ToString(), out DateTime tempCreatedAt)
-                    ? tempCreatedAt : DateTime.MinValue;
-                DateTime updatedAt = DateTime.TryParse(selectedRow.Cells["dataGridViewTextBoxColumn8"].Value?.ToString(), out DateTime tempUpdatedAt)
-                    ? tempUpdatedAt : DateTime.MinValue;
+            //    DateTime createdAt = DateTime.TryParse(selectedRow.Cells["dataGridViewTextBoxColumn7"].Value?.ToString(), out DateTime tempCreatedAt)
+            //        ? tempCreatedAt : DateTime.MinValue;
+            //    DateTime updatedAt = DateTime.TryParse(selectedRow.Cells["dataGridViewTextBoxColumn8"].Value?.ToString(), out DateTime tempUpdatedAt)
+            //        ? tempUpdatedAt : DateTime.MinValue;
 
-                //AccountDetailsForm detailsForm = new AccountDetailsForm(id, password, role, rememberToken, createdAt, updatedAt, status, tableTK, this);
-                //detailsForm.Show();
-            }
+            //    //AccountDetailsForm detailsForm = new AccountDetailsForm(id, password, role, rememberToken, createdAt, updatedAt, status, tableTK, this);
+            //    //detailsForm.Show();
+            //}
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -211,6 +268,16 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
         private void tableTK_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnTop_Paint(object sender, PaintEventArgs e)
         {
 
         }
