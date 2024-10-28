@@ -23,8 +23,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             }
 
             int leftMargin = (tableLayoutPanel1.ClientSize.Width - pnInput.Width) / 2;
-
             pnInput.Margin = new Padding(leftMargin, 3, 0, 0);
+            label5.Margin = new Padding(leftMargin, 3, 0, 0);
+            label2.Margin = new Padding(leftMargin - 120, 3, 0, 0);
         }
 
         private void TaiKhoan_Load(object sender, EventArgs e)

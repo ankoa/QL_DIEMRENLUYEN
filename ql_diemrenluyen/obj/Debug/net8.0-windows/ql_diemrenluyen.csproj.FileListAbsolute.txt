@@ -248,3 +248,5 @@ D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.
 C:\Users\huhuh\Downloads\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AddDotCham.resources
 C:\Users\huhuh\Downloads\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.DotCham.resources
 C:\Users\huhuh\Downloads\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.CreateNewPass.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AddDotCham.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.DotCham.resources
