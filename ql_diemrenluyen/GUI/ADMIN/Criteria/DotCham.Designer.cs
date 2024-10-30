@@ -32,15 +32,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
         // Thêm cột cho DataGridView trong InitializeComponent
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pnContent = new Panel();
             tableTK = new ReaLTaiizor.Controls.PoisonDataGridView();
@@ -54,19 +54,14 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label2 = new Label();
-            cbbRole = new ComboBox();
+            cbbHocKi = new ComboBox();
             label3 = new Label();
-            cbbStatus = new ComboBox();
+            cbbNamHoc = new ComboBox();
             label4 = new Label();
-            comboBox1 = new ComboBox();
-            pnInput = new Panel();
-            txtSearch = new TextBox();
-            label1 = new Label();
+            cbbNguoiCham = new ComboBox();
             flowLayoutPanel2 = new FlowLayoutPanel();
             label5 = new Label();
-            comboBox2 = new ComboBox();
             label6 = new Label();
-            comboBox3 = new ComboBox();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             panel1.SuspendLayout();
@@ -75,7 +70,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnTop.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            pnInput.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -85,11 +79,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel1.Controls.Add(pnContent);
             panel1.Controls.Add(pnTop);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(44, 15);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(50, 20);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(0, 15, 0, 0);
-            panel1.Size = new Size(1154, 560);
+            panel1.Padding = new Padding(0, 20, 0, 0);
+            panel1.Size = new Size(1319, 747);
             panel1.TabIndex = 5;
             // 
             // pnContent
@@ -98,66 +91,67 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnContent.BackColor = SystemColors.ControlLightLight;
             pnContent.Controls.Add(tableTK);
             pnContent.Dock = DockStyle.Fill;
-            pnContent.Location = new Point(0, 210);
+            pnContent.Location = new Point(0, 250);
             pnContent.Margin = new Padding(0);
             pnContent.Name = "pnContent";
-            pnContent.Padding = new Padding(18, 38, 18, 0);
-            pnContent.Size = new Size(1154, 350);
+            pnContent.Padding = new Padding(0, 51, 0, 0);
+            pnContent.Size = new Size(1319, 497);
             pnContent.TabIndex = 8;
             // 
             // tableTK
             // 
-            tableTK.AllowDrop = true;
-            tableTK.AllowUserToOrderColumns = true;
+            tableTK.AllowUserToAddRows = false;
+            tableTK.AllowUserToDeleteRows = false;
+            tableTK.AllowUserToResizeColumns = false;
             tableTK.AllowUserToResizeRows = false;
             tableTK.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tableTK.BackgroundColor = Color.FromArgb(255, 255, 255);
             tableTK.BorderStyle = BorderStyle.None;
             tableTK.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tableTK.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(111, 226, 255);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            tableTK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(111, 226, 255);
+            dataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            tableTK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             tableTK.ColumnHeadersHeight = 70;
             tableTK.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
             tableTK.Cursor = Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(111, 226, 255);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            tableTK.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle17.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle17.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(111, 226, 255);
+            dataGridViewCellStyle17.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.False;
+            tableTK.DefaultCellStyle = dataGridViewCellStyle17;
             tableTK.Dock = DockStyle.Fill;
             tableTK.EnableHeadersVisualStyles = false;
             tableTK.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tableTK.GridColor = Color.FromArgb(255, 255, 255);
             tableTK.HighLightPercentage = 1F;
-            tableTK.Location = new Point(18, 38);
-            tableTK.Margin = new Padding(0, 0, 0, 22);
+            tableTK.Location = new Point(0, 51);
+            tableTK.Margin = new Padding(0, 0, 0, 29);
             tableTK.MultiSelect = false;
             tableTK.Name = "tableTK";
             tableTK.ReadOnly = true;
             tableTK.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(111, 226, 255);
-            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            tableTK.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle18.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle18.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(111, 226, 255);
+            dataGridViewCellStyle18.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.True;
+            tableTK.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             tableTK.RowHeadersVisible = false;
             tableTK.RowHeadersWidth = 51;
             tableTK.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tableTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableTK.Size = new Size(1118, 312);
+            tableTK.Size = new Size(1319, 446);
             tableTK.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             tableTK.TabIndex = 5;
             tableTK.CellContentClick += tableTK_CellContentClick;
@@ -165,8 +159,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
             dataGridViewTextBoxColumn1.HeaderText = "ID";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -174,8 +168,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle12;
             dataGridViewTextBoxColumn5.HeaderText = "Năm học";
             dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -183,8 +177,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle13;
             dataGridViewTextBoxColumn3.HeaderText = "Học kì";
             dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -192,8 +186,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             // dataGridViewTextBoxColumn8
             // 
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle14;
             dataGridViewTextBoxColumn8.HeaderText = "Người chấm";
             dataGridViewTextBoxColumn8.MinimumWidth = 6;
             dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
@@ -201,8 +195,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle15;
             dataGridViewTextBoxColumn6.HeaderText = "Ngày bắt đầu";
             dataGridViewTextBoxColumn6.MinimumWidth = 6;
             dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -210,8 +204,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle16;
             dataGridViewTextBoxColumn7.HeaderText = "Ngày kết thúc";
             dataGridViewTextBoxColumn7.MinimumWidth = 6;
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
@@ -223,11 +217,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnTop.BackgroundImageLayout = ImageLayout.None;
             pnTop.Controls.Add(tableLayoutPanel1);
             pnTop.Dock = DockStyle.Top;
-            pnTop.Location = new Point(0, 15);
-            pnTop.Margin = new Padding(18, 0, 18, 0);
+            pnTop.Location = new Point(0, 20);
+            pnTop.Margin = new Padding(21, 0, 21, 0);
             pnTop.Name = "pnTop";
-            pnTop.Padding = new Padding(0, 38, 0, 38);
-            pnTop.Size = new Size(1154, 195);
+            pnTop.Padding = new Padding(0, 51, 0, 20);
+            pnTop.Size = new Size(1319, 230);
             pnTop.TabIndex = 9;
             pnTop.Paint += pnTop_Paint;
             // 
@@ -235,33 +229,30 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 1);
-            tableLayoutPanel1.Controls.Add(pnInput, 0, 0);
-            tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 0, 2);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 38);
-            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel1.Location = new Point(0, 51);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.34F));
-            tableLayoutPanel1.Size = new Size(1154, 119);
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(1319, 159);
             tableLayoutPanel1.TabIndex = 35;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(label2);
-            flowLayoutPanel1.Controls.Add(cbbRole);
+            flowLayoutPanel1.Controls.Add(cbbHocKi);
             flowLayoutPanel1.Controls.Add(label3);
-            flowLayoutPanel1.Controls.Add(cbbStatus);
+            flowLayoutPanel1.Controls.Add(cbbNamHoc);
             flowLayoutPanel1.Controls.Add(label4);
-            flowLayoutPanel1.Controls.Add(comboBox1);
+            flowLayoutPanel1.Controls.Add(cbbNguoiCham);
             flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(3, 41);
-            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1148, 35);
+            flowLayoutPanel1.Size = new Size(1313, 73);
             flowLayoutPanel1.TabIndex = 36;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
@@ -272,112 +263,75 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(58, 21);
+            label2.Size = new Size(72, 28);
             label2.TabIndex = 32;
             label2.Text = "Học kì";
             // 
-            // cbbRole
+            // cbbHocKi
             // 
-            cbbRole.Cursor = Cursors.Hand;
-            cbbRole.FormattingEnabled = true;
-            cbbRole.Items.AddRange(new object[] { "Mặc định", "Sinh viên", "Giảng viên", "Cố vấn học tập", "Quản lý Khoa", "Quản lý Trường" });
-            cbbRole.Location = new Point(67, 2);
-            cbbRole.Margin = new Padding(3, 2, 3, 2);
-            cbbRole.Name = "cbbRole";
-            cbbRole.Size = new Size(126, 23);
-            cbbRole.TabIndex = 25;
-            cbbRole.SelectedIndexChanged += cbbRole_SelectedIndexChanged;
+            cbbHocKi.Cursor = Cursors.Hand;
+            cbbHocKi.FormattingEnabled = true;
+            cbbHocKi.Items.AddRange(new object[] { "Chọn học kì", "Học kì 1", "Học kì 2" });
+            cbbHocKi.Location = new Point(81, 3);
+            cbbHocKi.Name = "cbbHocKi";
+            cbbHocKi.Size = new Size(143, 28);
+            cbbHocKi.TabIndex = 25;
+            cbbHocKi.SelectedIndexChanged += cbbHocKi_SelectedIndexChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(248, 0);
-            label3.Margin = new Padding(52, 0, 3, 0);
+            label3.Location = new Point(286, 0);
+            label3.Margin = new Padding(59, 0, 3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(79, 21);
+            label3.Size = new Size(97, 28);
             label3.TabIndex = 33;
             label3.Text = "Năm học";
             // 
-            // cbbStatus
+            // cbbNamHoc
             // 
-            cbbStatus.Cursor = Cursors.Hand;
-            cbbStatus.FormattingEnabled = true;
-            cbbStatus.Items.AddRange(new object[] { "Mặc định", "Hoạt động", "Không hoạt động" });
-            cbbStatus.Location = new Point(333, 2);
-            cbbStatus.Margin = new Padding(3, 2, 3, 2);
-            cbbStatus.Name = "cbbStatus";
-            cbbStatus.Size = new Size(123, 23);
-            cbbStatus.TabIndex = 26;
-            cbbStatus.SelectedIndexChanged += cbbStatus_SelectedIndexChanged;
+            cbbNamHoc.Cursor = Cursors.Hand;
+            cbbNamHoc.FormattingEnabled = true;
+            cbbNamHoc.Items.AddRange(new object[] { "Chọn năm học" });
+            cbbNamHoc.Location = new Point(389, 3);
+            cbbNamHoc.Name = "cbbNamHoc";
+            cbbNamHoc.Size = new Size(140, 28);
+            cbbNamHoc.TabIndex = 26;
+            cbbNamHoc.SelectedIndexChanged += cbbNamHoc_SelectedIndexChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(511, 0);
-            label4.Margin = new Padding(52, 0, 3, 0);
+            label4.Location = new Point(591, 0);
+            label4.Margin = new Padding(59, 0, 3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(105, 21);
+            label4.Size = new Size(129, 28);
             label4.TabIndex = 35;
             label4.Text = "Người chấm";
             // 
-            // comboBox1
+            // cbbNguoiCham
             // 
-            comboBox1.Cursor = Cursors.Hand;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Mặc định", "Sinh viên", "Giảng viên", "Cố vấn học tập", "Quản lý Khoa", "Quản lý Trường" });
-            comboBox1.Location = new Point(622, 2);
-            comboBox1.Margin = new Padding(3, 2, 3, 2);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(126, 23);
-            comboBox1.TabIndex = 34;
-            // 
-            // pnInput
-            // 
-            pnInput.Controls.Add(txtSearch);
-            pnInput.Controls.Add(label1);
-            pnInput.Location = new Point(3, 2);
-            pnInput.Margin = new Padding(3, 2, 3, 2);
-            pnInput.Name = "pnInput";
-            pnInput.Size = new Size(587, 22);
-            pnInput.TabIndex = 31;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Cursor = Cursors.Hand;
-            txtSearch.Dock = DockStyle.Right;
-            txtSearch.Location = new Point(84, 0);
-            txtSearch.Margin = new Padding(3, 2, 3, 2);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(503, 23);
-            txtSearch.TabIndex = 34;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(-1, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(81, 21);
-            label1.TabIndex = 33;
-            label1.Text = "Tìm kiếm";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            cbbNguoiCham.Cursor = Cursors.Hand;
+            cbbNguoiCham.FormattingEnabled = true;
+            cbbNguoiCham.Items.AddRange(new object[] { "Chọn người chấm", "Sinh viên", "Cố vấn", "Khoa", "Trường" });
+            cbbNguoiCham.Location = new Point(726, 3);
+            cbbNguoiCham.Name = "cbbNguoiCham";
+            cbbNguoiCham.Size = new Size(143, 28);
+            cbbNguoiCham.TabIndex = 34;
             // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.Controls.Add(label5);
-            flowLayoutPanel2.Controls.Add(comboBox2);
             flowLayoutPanel2.Controls.Add(label6);
-            flowLayoutPanel2.Controls.Add(comboBox3);
             flowLayoutPanel2.Dock = DockStyle.Fill;
-            flowLayoutPanel2.Location = new Point(3, 81);
+            flowLayoutPanel2.Location = new Point(3, 83);
+            flowLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1148, 35);
+            flowLayoutPanel2.Size = new Size(1313, 72);
             flowLayoutPanel2.TabIndex = 37;
             // 
             // label5
@@ -388,43 +342,21 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label5.Location = new Point(0, 0);
             label5.Margin = new Padding(0, 0, 3, 0);
             label5.Name = "label5";
-            label5.Size = new Size(113, 21);
+            label5.Size = new Size(141, 28);
             label5.TabIndex = 37;
             label5.Text = "Ngày bắt đầu";
-            // 
-            // comboBox2
-            // 
-            comboBox2.Cursor = Cursors.Hand;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Mặc định", "Sinh viên", "Giảng viên", "Cố vấn học tập", "Quản lý Khoa", "Quản lý Trường" });
-            comboBox2.Location = new Point(119, 2);
-            comboBox2.Margin = new Padding(3, 2, 3, 2);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(126, 23);
-            comboBox2.TabIndex = 36;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.ControlLightLight;
-            label6.Location = new Point(300, 0);
-            label6.Margin = new Padding(52, 0, 3, 0);
+            label6.Location = new Point(203, 0);
+            label6.Margin = new Padding(59, 0, 3, 0);
             label6.Name = "label6";
-            label6.Size = new Size(117, 21);
+            label6.Size = new Size(146, 28);
             label6.TabIndex = 39;
             label6.Text = "Ngày kết thúc";
-            // 
-            // comboBox3
-            // 
-            comboBox3.Cursor = Cursors.Hand;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "Mặc định", "Sinh viên", "Giảng viên", "Cố vấn học tập", "Quản lý Khoa", "Quản lý Trường" });
-            comboBox3.Location = new Point(423, 2);
-            comboBox3.Margin = new Padding(3, 2, 3, 2);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(126, 23);
-            comboBox3.TabIndex = 38;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -435,28 +367,27 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // panel3
             // 
             panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(44, 15);
-            panel3.Margin = new Padding(3, 15, 3, 2);
+            panel3.Location = new Point(50, 20);
+            panel3.Margin = new Padding(3, 20, 3, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1154, 37);
+            panel3.Size = new Size(1319, 49);
             panel3.TabIndex = 31;
             // 
             // DotCham
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
             BackColor = SystemColors.ControlLightLight;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1242, 650);
+            ClientSize = new Size(1419, 867);
             ControlBox = false;
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "DotCham";
-            Padding = new Padding(44, 15, 44, 75);
+            Padding = new Padding(50, 20, 50, 100);
             Text = "Tài Khoản";
             panel1.ResumeLayout(false);
             pnContent.ResumeLayout(false);
@@ -465,8 +396,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
-            pnInput.ResumeLayout(false);
-            pnInput.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
             ResumeLayout(false);
@@ -487,18 +416,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private Panel pnContent;
         private ReaLTaiizor.Controls.PoisonDataGridView tableTK;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private Panel pnInput;
         private Panel panel3;
         private Panel pnTop;
-        private TextBox txtSearch;
-        private Label label1;
-        private ComboBox cbbStatus;
-        private ComboBox cbbRole;
+        private ComboBox cbbNamHoc;
+        private ComboBox cbbHocKi;
         private Label label2;
         private Label label3;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label4;
-        private ComboBox comboBox1;
+        private ComboBox cbbNguoiCham;
         private TableLayoutPanel tableLayoutPanel1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
@@ -508,8 +434,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label label5;
-        private ComboBox comboBox2;
         private Label label6;
-        private ComboBox comboBox3;
     }
 }

@@ -197,6 +197,89 @@ namespace ql_diemrenluyen.DAO
             }
             return danhSachDotChamDiem;
         }
+
+        public static List<ThongTinDotChamDiemDTO> TimKiemDotChamDiem(string hocKy = null, string namHoc = null, string dotChamDiem = null, DateTime? ngayBatDau = null, DateTime? ngayKetThuc = null)
+        {
+            List<ThongTinDotChamDiemDTO> danhSachDotChamDiem = new List<ThongTinDotChamDiemDTO>();
+
+            // Khởi tạo câu lệnh SQL cơ bản
+            string sql = @"
+    SELECT dcd.id AS Id,
+           hk.Name AS HocKy, 
+           dcd.name AS DotChamDiem, 
+           dcd.startDate AS NgayBatDau, 
+           dcd.endDate AS NgayKetThuc, 
+           hk.namhoc AS NamHoc
+    FROM hocky hk
+    JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
+    WHERE 1 = 1"; // Điều kiện luôn đúng
+
+            // Khởi tạo danh sách tham số
+            List<MySqlParameter> parameters = new List<MySqlParameter>();
+
+            // Thêm điều kiện tìm kiếm nếu có
+            if (!string.IsNullOrEmpty(hocKy))
+            {
+                sql += " AND hk.Name = @hocKy";
+                parameters.Add(new MySqlParameter("@hocKy", hocKy));
+            }
+
+            if (!string.IsNullOrEmpty(namHoc))
+            {
+                sql += " AND hk.namhoc = @namHoc";
+                parameters.Add(new MySqlParameter("@namHoc", namHoc));
+            }
+
+            if (!string.IsNullOrEmpty(dotChamDiem))
+            {
+                sql += " AND dcd.name = @dotChamDiem";
+                parameters.Add(new MySqlParameter("@dotChamDiem", dotChamDiem));
+            }
+
+            if (ngayBatDau.HasValue)
+            {
+                sql += " AND dcd.startDate >= @ngayBatDau";
+                parameters.Add(new MySqlParameter("@ngayBatDau", ngayBatDau.Value));
+            }
+
+            if (ngayKetThuc.HasValue)
+            {
+                sql += " AND dcd.endDate <= @ngayKetThuc";
+                parameters.Add(new MySqlParameter("@ngayKetThuc", ngayKetThuc.Value));
+            }
+
+            var cmd = new MySqlCommand(sql);
+
+            // Thêm các tham số vào lệnh
+            foreach (var param in parameters)
+            {
+                cmd.Parameters.Add(param);
+            }
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Nếu không có kết quả, trả về danh sách rỗng
+            if (result.Count == 0) return danhSachDotChamDiem;
+
+            // Chuyển đổi kết quả thành List<ThongTinDotChamDiemDTO>
+            foreach (var row in result)
+            {
+                var dotChamDiem1 = new ThongTinDotChamDiemDTO
+                {
+                    Id = Convert.ToInt32(row[0]),
+                    HocKy = Convert.ToString(row[1]),
+                    DotChamDiem = Convert.ToString(row[2]),
+                    NgayBatDau = Convert.ToDateTime(row[3]),
+                    NgayKetThuc = Convert.ToDateTime(row[4]),
+                    NamHoc = Convert.ToString(row[5])
+                };
+
+                danhSachDotChamDiem.Add(dotChamDiem1);
+            }
+
+            return danhSachDotChamDiem;
+        }
+
     }
 
     public class ThongTinDotChamDiemDTO

@@ -67,9 +67,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             lblPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblPassword.Location = new Point(57, 118);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(80, 20);
+            lblPassword.Size = new Size(56, 20);
             lblPassword.TabIndex = 2;
-            lblPassword.Text = "Password:";
+            lblPassword.Text = "Học kì:";
             // 
             // txtPassword
             // 
@@ -88,9 +88,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             lblRole.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblRole.Location = new Point(57, 176);
             lblRole.Name = "lblRole";
-            lblRole.Size = new Size(44, 20);
+            lblRole.Size = new Size(76, 20);
             lblRole.TabIndex = 4;
-            lblRole.Text = "Role:";
+            lblRole.Text = "Năm học:";
             // 
             // txtRole
             // 
@@ -108,9 +108,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             lblRememberToken.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblRememberToken.Location = new Point(57, 233);
             lblRememberToken.Name = "lblRememberToken";
-            lblRememberToken.Size = new Size(136, 20);
+            lblRememberToken.Size = new Size(99, 20);
             lblRememberToken.TabIndex = 6;
-            lblRememberToken.Text = "Remember Token:";
+            lblRememberToken.Text = "Người chấm:";
             // 
             // txtRememberToken
             // 
@@ -128,9 +128,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             lblCreatedAt.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblCreatedAt.Location = new Point(57, 296);
             lblCreatedAt.Name = "lblCreatedAt";
-            lblCreatedAt.Size = new Size(88, 20);
+            lblCreatedAt.Size = new Size(107, 20);
             lblCreatedAt.TabIndex = 8;
-            lblCreatedAt.Text = "Created At:";
+            lblCreatedAt.Text = "Ngày bắt đầu:";
             // 
             // lblUpdatedAt
             // 
@@ -138,9 +138,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             lblUpdatedAt.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblUpdatedAt.Location = new Point(57, 356);
             lblUpdatedAt.Name = "lblUpdatedAt";
-            lblUpdatedAt.Size = new Size(94, 20);
+            lblUpdatedAt.Size = new Size(111, 20);
             lblUpdatedAt.TabIndex = 10;
-            lblUpdatedAt.Text = "Updated At:";
+            lblUpdatedAt.Text = "Ngày kết thúc:";
             // 
             // dtpUpdatedAt
             // 
@@ -208,7 +208,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             comboBox1.Size = new Size(228, 28);
             comboBox1.TabIndex = 20;
             // 
-            // AccountDetailsForm
+            // AddDotCham
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -234,7 +234,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             Controls.Add(lblId);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AccountDetailsForm";
+            Name = "AddDotCham";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Chi tiết tài khoản";
             ResumeLayout(false);

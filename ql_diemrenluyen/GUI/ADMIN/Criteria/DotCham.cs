@@ -1,20 +1,56 @@
-﻿using ql_diemrenluyen.BUS;
+﻿using CustomControls.RJControls;
+using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DAO;
-using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
     public partial class DotCham : Form
     {
+        RJDatePicker rjDatePickerStart, rjDatePickerEnd;
         public DotCham()
         {
             InitializeComponent();
             this.ControlBox = false;
             this.FormBorderStyle = FormBorderStyle.None;
             this.MaximizeBox = false;
-            cbbRole.SelectedItem = "Mặc định";
-            cbbStatus.SelectedItem = "Mặc định";
+            LoadNamHocCBB();
             LoadDotChamDiemList();
+            cbbHocKi.SelectedItem = "Chọn học kì";
+            cbbNamHoc.SelectedItem = "Mặc định";
+            cbbNguoiCham.SelectedItem = "Chọn người chấm";
+
+            rjDatePickerStart = new RJDatePicker
+            {
+                //Location = new System.Drawing.Point(50, 50), // Vị trí trên form
+                SkinColor = System.Drawing.Color.LightBlue,
+                TextColor = System.Drawing.Color.White,
+                BorderColor = System.Drawing.Color.Gray,
+                BorderSize = 2,
+                Width = 260,
+                Height = 27,
+                Format = DateTimePickerFormat.Custom,
+                CustomFormat = "dd/MM/yyyy",
+                Value = DateTime.Now
+            };
+
+            rjDatePickerEnd = new RJDatePicker
+            {
+                //Location = new System.Drawing.Point(50, 50), // Vị trí trên form
+                SkinColor = System.Drawing.Color.LightBlue,
+                TextColor = System.Drawing.Color.White,
+                BorderColor = System.Drawing.Color.Gray,
+                BorderSize = 2,
+                Width = 260,
+                Height = 27,
+                Format = DateTimePickerFormat.Custom,
+                CustomFormat = "dd/MM/yyyy",
+                Value = DateTime.Now
+            };
+
+            flowLayoutPanel2.Controls.Add(label5);
+            flowLayoutPanel2.Controls.Add(rjDatePickerStart);
+            flowLayoutPanel2.Controls.Add(label6);
+            flowLayoutPanel2.Controls.Add(rjDatePickerEnd);
 
             if (this.Width < 1200)
             {
@@ -22,10 +58,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 pnContent.Dock = DockStyle.Fill;
             }
 
-            int leftMargin = (tableLayoutPanel1.ClientSize.Width - pnInput.Width) / 2;
-            pnInput.Margin = new Padding(leftMargin, 3, 0, 0);
-            label5.Margin = new Padding(leftMargin, 3, 0, 0);
-            label2.Margin = new Padding(leftMargin - 120, 3, 0, 0);
+            //int leftMargin = (tableLayoutPanel1.ClientSize.Width - pnInput.Width) / 2;
+            //pnInput.Margin = new Padding(leftMargin, 3, 0, 0);
+            //label5.Margin = new Padding(leftMargin, 3, 0, 0);
+            //label2.Margin = new Padding(leftMargin - 120, 3, 0, 0);
         }
 
         private void TaiKhoan_Load(object sender, EventArgs e)
@@ -35,60 +71,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             LoadDotChamDiemList();
         }
 
-        //private void LoadAccountList()
-        //{
-        //    try
-        //    {
-        //        List<AccountDTO> accounts = AccountBUS.GetAllAccounts();
-        //        tableTK.Rows.Clear();
-
-        //        foreach (var account in accounts)
-        //        {
-        //            tableTK.Rows.Add(
-        //                account.Id,
-        //                account.Password,
-        //                account.Role,
-        //                account.RememberToken,
-        //                account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
-        //                account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
-        //                account.Status == 1 ? "Hoạt động" : "Không hoạt động"
-        //            );
-        //        }
-
-        //        ApplyTableStyles();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi khi tải danh sách đợt chấm: " + ex.Message);
-        //    }
-        //}
-        //public static void LoadAccountList(DataGridView table)
-        //{
-        //    try
-        //    {
-        //        List<AccountDTO> accounts = AccountBUS.GetAllAccounts();
-        //        table.Rows.Clear();
-
-        //        foreach (var account in accounts)
-        //        {
-        //            table.Rows.Add(
-        //                account.Id,
-        //                account.Password,
-        //                account.Role,
-        //                account.RememberToken,
-        //                account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
-        //                account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
-        //                account.Status == 1 ? "Hoạt động" : "Không hoạt động"
-        //            );
-        //        }
-
-        //        ApplyTableStyles(table); // Gọi phương thức để áp dụng kiểu dáng
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi khi tải danh sách tài khoản: " + ex.Message);
-        //    }
-        //}
         private void LoadDotChamDiemList()
         {
             try
@@ -181,47 +163,75 @@ namespace ql_diemrenluyen.GUI.ADMIN
             table.DefaultCellStyle.SelectionForeColor = Color.Black;
         }
 
+        private void LoadNamHocCBB()
+        {
+            try
+            {
+                // Lấy danh sách năm học từ phương thức GetAllNamHoc
+                List<string> danhSachNamHoc = HocKyBUS.GetAllNamHoc();
+
+                // Thêm từng năm học vào ComboBox
+                foreach (var namHoc in danhSachNamHoc)
+                {
+                    cbbNamHoc.Items.Add(namHoc);
+                }
+
+                // Chọn mục đầu tiên (nếu danh sách không rỗng)
+                if (cbbNamHoc.Items.Count > 0)
+                {
+                    cbbNamHoc.SelectedIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ nếu có lỗi trong quá trình load dữ liệu
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         // Hàm tìm kiếm tài khoản theo role, status và search term
 
         private void SearchAccountList()
         {
             try
             {
-                string role = cbbRole.SelectedItem?.ToString() ?? "";
-                int status = cbbStatus.SelectedItem != null ? (cbbStatus.SelectedIndex == 0 ? 1 : 0) : 0; // Giá trị mặc định là 0
-                string search = txtSearch.Text.Trim();
+                string hocki = cbbHocKi.SelectedItem?.ToString() ?? ""; // Sử dụng toán tử null-coalescing
+                string namhoc = cbbNamHoc.SelectedItem?.ToString() ?? "";
+                string nguoicham = cbbNguoiCham.SelectedItem?.ToString() ?? "";
 
-                // Kiểm tra nếu ô tìm kiếm trống
-                if (string.IsNullOrEmpty(search))
+                if (string.IsNullOrEmpty(hocki) || string.IsNullOrEmpty(namhoc) || string.IsNullOrEmpty(nguoicham))
                 {
-                    // Nếu ô tìm kiếm trống, tải lại danh sách tài khoản mặc định
-                    LoadDotChamDiemList(tableTK); // Gọi phương thức tải danh sách tài khoản mặc định
-                    return; // Kết thúc phương thức
+                    MessageBox.Show("Vui lòng chọn đầy đủ thông tin trước khi tìm kiếm.");
+                    return; // Dừng lại nếu không có thông tin cần thiết
                 }
 
-                List<AccountDTO> accounts = AccountBUS.SearchAccounts(role, status, search);
+                DateTime selectedDateStart = rjDatePickerStart.Value;
+                DateTime selectedDateEnd = rjDatePickerEnd.Value;
+
+                List<ThongTinDotChamDiemDTO> accounts = DotChamDiemBUS.TimKiemDotChamDiem(hocki, namhoc, nguoicham, selectedDateStart, selectedDateEnd);
                 tableTK.Rows.Clear();
 
-                foreach (var account in accounts)
+                foreach (var dotChamDiem in accounts)
                 {
                     tableTK.Rows.Add(
-                        account.Id,
-                        account.Password,
-                        account.Role,
-                        account.RememberToken,
-                        account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
-                        account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
-                        account.Status == 1 ? "Hoạt động" : "Không hoạt động"
+                        dotChamDiem.Id,
+                        dotChamDiem.NamHoc,
+                        dotChamDiem.HocKy,
+                        dotChamDiem.DotChamDiem,
+                        dotChamDiem.NgayBatDau.ToString("dd/MM/yyyy"),
+                        dotChamDiem.NgayKetThuc.ToString("dd/MM/yyyy")
                     );
                 }
 
-                ApplyTableStyles(); // Nếu phương thức này cần tham số thì hãy truyền tableTK vào đây
+                ApplyTableStyles();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tìm kiếm tài khoản: " + ex.Message);
+                MessageBox.Show("Lỗi khi tìm kiếm đợt chấm: " + ex.Message);
             }
         }
+
 
 
 
@@ -251,19 +261,17 @@ namespace ql_diemrenluyen.GUI.ADMIN
             //}
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-            SearchAccountList();
-
-        }
-
-        private void cbbRole_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbbHocKi_SelectedIndexChanged(object sender, EventArgs e)
         {
             SearchAccountList();
         }
 
-        private void cbbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SearchAccountList();
+        }
+
+        private void cbbNguoiCham_SelectedIndexChanged(object sender, EventArgs e)
         {
             SearchAccountList();
         }
