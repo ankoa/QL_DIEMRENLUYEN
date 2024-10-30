@@ -28,6 +28,12 @@
             this.updatedAt = updatedAt;  // Gán giá trị
         }
 
+        public String toStringGender()
+        {
+            if (gioiTinh == 1) return "Nam";
+            return "Nữ";
+        }
+
         // Getters và Setters
         public long Id { get { return id; } set { id = value; } }
         public string Name { get { return name; } set { name = value; } }

@@ -17,7 +17,7 @@ namespace QLDiemRenLuyen
                 var index = this.dataGridStudent.Rows.Add();
                 this.dataGridStudent.Rows[index].Cells[0].Value = student.Id;
                 this.dataGridStudent.Rows[index].Cells[1].Value = student.Name;
-                this.dataGridStudent.Rows[index].Cells[2].Value = toStringGender(student.GioiTinh);
+                this.dataGridStudent.Rows[index].Cells[2].Value = student.toStringGender();
                 LopDTO lopDTO = new LopDTO();
                 lopDTO = LopBUS.GetLopByID(student.LopId);
                 this.dataGridStudent.Rows[index].Cells[3].Value = lopDTO.TenLop;
@@ -36,11 +36,7 @@ namespace QLDiemRenLuyen
 
             dataGridStudent.AutoResizeColumn(2);
         }
-        private String toStringGender(int gender)
-        {
-            if (gender ==1 ) return "Nam";
-            return "Nữ";
-        }
+        
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -53,12 +49,13 @@ namespace QLDiemRenLuyen
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex ==dataGridStudent.Columns["MyButtonColumn"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex ==dataGridStudent.Columns["btnXemTT"].Index && e.RowIndex >= 0)
             {
-                Console.WriteLine("Button on row {0} clicked", e.RowIndex);
+                long maSV = (long)dataGridStudent.Rows[e.RowIndex].Cells[0].Value;
+                ThongTinhSinhVien thongtinSVForm = new ThongTinhSinhVien(maSV);
+                thongtinSVForm.ShowDialog();
             }
-            //ThongTinhSinhVien thongtinSVForm = new ThongTinhSinhVien();
-            //thongtinSVForm.ShowDialog();
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
