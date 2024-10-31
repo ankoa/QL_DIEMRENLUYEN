@@ -4,7 +4,8 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-
+using ql_diemrenluyen.Helper;
+using System.Runtime.InteropServices;
 namespace ql_diemrenluyen.GUI.ADMIN
 {
     public partial class MenuAdmin : Form
@@ -13,14 +14,40 @@ namespace ql_diemrenluyen.GUI.ADMIN
         TaiKhoan form_taikhoan;
         AdminStudentTest form_student;
         Form1  form_TieuChi;
+        private PictureBox loading;
+
+        [DllImport("user32.dll")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll")]
+        private static extern void SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HT_CAPTION = 0x2;
+
         public MenuAdmin()
         {
             InitializeComponent();
-            mdiProp();
+            //mdiProp();
+            this.FormBorderStyle = FormBorderStyle.None;
             this.ControlBox = false;
             //this.Resize += MenuAdmin_Resize;
             this.WindowState = FormWindowState.Maximized;
             this.Activated += MenuAdmin_Activated; // Thêm sự kiện Activated
+            this.MouseDown += Form_MouseDown;
+            // Khởi tạo PictureBox loading
+            loading = Loading.CreateLoadingControl(this);
+        }
+
+        private void Form_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                // Giải phóng chuột để form nhận sự kiện kéo
+                ReleaseCapture();
+                // Gửi thông báo kéo form đến Windows
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
         private void MenuAdmin_Resize(object sender, EventArgs e)

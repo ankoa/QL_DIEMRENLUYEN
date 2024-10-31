@@ -1,5 +1,7 @@
 ﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
+using ql_diemrenluyen.GUI.ADMIN;
+using ql_diemrenluyen.Helper;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
@@ -8,14 +10,44 @@ namespace ql_diemrenluyen.GUI
     public partial class Login : Form
     {
         private bool isPasswordHidden = true;
+        private PictureBox loading;
         public Login()
         {
             InitializeComponent();
+            //TestAddAccount();
             this.FormBorderStyle = FormBorderStyle.None;
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
             this.Region = new Region(CreateRoundedRectanglePath(this.ClientRectangle, 30));
             oldColor = btnLogin.BackColor;
+            // Khởi tạo PictureBox loading
+            loading = Loading.CreateLoadingControl(this);
         }
+
+        public static void TestAddAccount()
+        {
+            // Tạo một tài khoản mẫu
+            var account = new AccountDTO
+            {
+                Role = "user", // Vai trò của tài khoản
+                Password = "123", // Mật khẩu cho tài khoản
+                RememberToken = "", // Token nhớ đăng nhập (có thể null)
+                CreatedAt = DateTime.Now, // Thời gian tạo
+                UpdatedAt = DateTime.Now, // Thời gian cập nhật
+                Status = 1 // Trạng thái của tài khoản
+            };
+
+            // Gọi hàm AddAccount và kiểm tra kết quả
+            bool isAdded = AccountBUS.AddAccount(account);
+            if (isAdded)
+            {
+                Console.WriteLine("Account added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add account.");
+            }
+        }
+
 
         public async Task RunImageAnalysis(string imagePath)
         {
@@ -108,31 +140,43 @@ namespace ql_diemrenluyen.GUI
 
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            var username = inputUser.Text;
-            var password = inputPass.Text;
-            AccountDTO accountLogin = AccountBUS.Login(username, password);
-            if (accountLogin == null)
-            {
-                MessageBox.Show("ko");
-            }
-            else
-            {
-                MessageBox.Show("ok");
-            }
-            //OpenFileDialog openFileDialog = new OpenFileDialog
-            //{
-            //    Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
-            //};
+            // Tạo loading animation
+            var loading = Loading.CreateLoadingControl(this);
+            Helper.Loading.ShowLoading(loading);
 
-            //if (openFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    string imagePath = openFileDialog.FileName;
-            //    MessageBox.Show(imagePath);
-            //    await RunImageAnalysis(imagePath);
-            //}
+            // Chạy tác vụ nặng trong Task để không khóa giao diện
+            Task.Run(() =>
+            {
+                var username = inputUser.Text;
+                var password = inputPass.Text;
+                var accountLogin = AccountBUS.Login(username, password); // Không phải async
+
+                // Cập nhật giao diện phải thực hiện trên UI thread
+                this.Invoke(new Action(() =>
+                {
+                    Loading.HideLoading(loading); // Ẩn loading
+
+                    if (accountLogin == null)
+                    {
+                        MessageBox.Show("Sai thông tin đăng nhập");
+                    }
+                    else
+                    {
+                        this.Hide();  // Ẩn form hiện tại
+                        MenuAdmin otpForm = new MenuAdmin();
+
+
+                        // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
+                        //otpForm.FormClosed += (s, args) => this.Show();
+
+                        otpForm.Show();  // Hiển thị form mới
+                    }
+                }));
+            });
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

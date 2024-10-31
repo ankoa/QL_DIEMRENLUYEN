@@ -75,10 +75,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel1.Controls.Add(pnContent);
             panel1.Controls.Add(pnTop);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(50, 20);
+            panel1.Location = new Point(44, 15);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(0, 20, 0, 0);
-            panel1.Size = new Size(1319, 746);
+            panel1.Padding = new Padding(0, 15, 0, 0);
+            panel1.Size = new Size(1154, 560);
             panel1.TabIndex = 5;
             // 
             // pnContent
@@ -87,11 +88,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnContent.BackColor = SystemColors.ControlLightLight;
             pnContent.Controls.Add(tableTK);
             pnContent.Dock = DockStyle.Fill;
-            pnContent.Location = new Point(0, 210);
+            pnContent.Location = new Point(0, 157);
             pnContent.Margin = new Padding(0);
             pnContent.Name = "pnContent";
-            pnContent.Padding = new Padding(20, 50, 20, 0);
-            pnContent.Size = new Size(1319, 536);
+            pnContent.Padding = new Padding(18, 38, 18, 0);
+            pnContent.Size = new Size(1154, 403);
             pnContent.TabIndex = 8;
             // 
             // tableTK
@@ -128,8 +129,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableTK.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tableTK.GridColor = Color.FromArgb(255, 255, 255);
             tableTK.HighLightPercentage = 1F;
-            tableTK.Location = new Point(20, 50);
-            tableTK.Margin = new Padding(0, 0, 0, 30);
+            tableTK.Location = new Point(18, 38);
+            tableTK.Margin = new Padding(0, 0, 0, 22);
             tableTK.MultiSelect = false;
             tableTK.Name = "tableTK";
             tableTK.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -145,7 +146,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableTK.RowHeadersWidth = 51;
             tableTK.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tableTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableTK.Size = new Size(1279, 486);
+            tableTK.Size = new Size(1118, 365);
             tableTK.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             tableTK.TabIndex = 5;
             tableTK.CellDoubleClick += tableTK_CellDoubleClick_1;
@@ -216,11 +217,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnTop.Controls.Add(cbbStatus);
             pnTop.Controls.Add(cbbRole);
             pnTop.Dock = DockStyle.Top;
-            pnTop.Location = new Point(0, 20);
-            pnTop.Margin = new Padding(20, 0, 20, 0);
+            pnTop.Location = new Point(0, 15);
+            pnTop.Margin = new Padding(18, 0, 18, 0);
             pnTop.Name = "pnTop";
-            pnTop.Padding = new Padding(0, 50, 0, 50);
-            pnTop.Size = new Size(1319, 190);
+            pnTop.Padding = new Padding(0, 38, 0, 38);
+            pnTop.Size = new Size(1154, 142);
             pnTop.TabIndex = 9;
             // 
             // label3
@@ -228,9 +229,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(305, 141);
+            label3.Location = new Point(267, 106);
             label3.Name = "label3";
-            label3.Size = new Size(111, 28);
+            label3.Size = new Size(89, 21);
             label3.TabIndex = 33;
             label3.Text = "Tình trạng";
             // 
@@ -239,9 +240,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(20, 137);
+            label2.Location = new Point(18, 103);
             label2.Name = "label2";
-            label2.Size = new Size(73, 28);
+            label2.Size = new Size(60, 21);
             label2.TabIndex = 32;
             label2.Text = "Quyền";
             // 
@@ -250,18 +251,20 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnInput.BorderStyle = BorderStyle.FixedSingle;
             pnInput.Controls.Add(txtSearch);
             pnInput.Controls.Add(label1);
-            pnInput.Location = new Point(20, 78);
+            pnInput.Location = new Point(18, 58);
+            pnInput.Margin = new Padding(3, 2, 3, 2);
             pnInput.Name = "pnInput";
-            pnInput.Size = new Size(358, 29);
+            pnInput.Size = new Size(314, 22);
             pnInput.TabIndex = 31;
             // 
             // txtSearch
             // 
             txtSearch.Cursor = Cursors.Hand;
             txtSearch.Dock = DockStyle.Right;
-            txtSearch.Location = new Point(108, 0);
+            txtSearch.Location = new Point(94, 0);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(248, 27);
+            txtSearch.Size = new Size(218, 23);
             txtSearch.TabIndex = 34;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
@@ -272,7 +275,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(-1, 0);
             label1.Name = "label1";
-            label1.Size = new Size(100, 28);
+            label1.Size = new Size(81, 21);
             label1.TabIndex = 33;
             label1.Text = "Tìm kiếm";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -282,9 +285,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             cbbStatus.Cursor = Cursors.Hand;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Mặc định", "Hoạt động", "Không hoạt động" });
-            cbbStatus.Location = new Point(422, 145);
+            cbbStatus.Location = new Point(369, 109);
+            cbbStatus.Margin = new Padding(3, 2, 3, 2);
             cbbStatus.Name = "cbbStatus";
-            cbbStatus.Size = new Size(140, 28);
+            cbbStatus.Size = new Size(123, 23);
             cbbStatus.TabIndex = 26;
             cbbStatus.SelectedIndexChanged += cbbStatus_SelectedIndexChanged;
             // 
@@ -293,9 +297,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             cbbRole.Cursor = Cursors.Hand;
             cbbRole.FormattingEnabled = true;
             cbbRole.Items.AddRange(new object[] { "Mặc định", "Sinh viên", "Giảng viên", "Cố vấn học tập", "Quản lý Khoa", "Quản lý Trường" });
-            cbbRole.Location = new Point(99, 141);
+            cbbRole.Location = new Point(87, 106);
+            cbbRole.Margin = new Padding(3, 2, 3, 2);
             cbbRole.Name = "cbbRole";
-            cbbRole.Size = new Size(144, 28);
+            cbbRole.Size = new Size(126, 23);
             cbbRole.TabIndex = 25;
             cbbRole.SelectedIndexChanged += cbbRole_SelectedIndexChanged;
             // 
@@ -308,27 +313,28 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // panel3
             // 
             panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(50, 20);
-            panel3.Margin = new Padding(3, 20, 3, 3);
+            panel3.Location = new Point(44, 15);
+            panel3.Margin = new Padding(3, 15, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1319, 49);
+            panel3.Size = new Size(1154, 37);
             panel3.TabIndex = 31;
             // 
             // TaiKhoan
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
             BackColor = SystemColors.ControlLightLight;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1419, 866);
+            ClientSize = new Size(1242, 650);
             ControlBox = false;
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "TaiKhoan";
-            Padding = new Padding(50, 20, 50, 100);
+            Padding = new Padding(44, 15, 44, 75);
             Text = "Tài Khoản";
             panel1.ResumeLayout(false);
             pnContent.ResumeLayout(false);
