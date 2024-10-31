@@ -46,9 +46,21 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Google.Cloud.Vision.V1": {
+              "target": "Package",
+              "version": "[3.7.0, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "ReaLTaiizor": {
+              "target": "Package",
+              "version": "[3.8.0.7, )"
             }
           },
           "imports": [
