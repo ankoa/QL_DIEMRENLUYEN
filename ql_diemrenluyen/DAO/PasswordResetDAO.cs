@@ -77,31 +77,6 @@ namespace ql_diemrenluyen.DAO
         }
 
         // Xác thực mã thông báo đặt lại mật khẩu
-        public static PasswordResetDTO VerifyPasswordResetToken(string token)
-        {
-            string sql = "SELECT * FROM PasswordResets WHERE Token = @token AND IsUsed = 0 AND ExpiredAt > @currentTime";
-            var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@token", token);
-            cmd.Parameters.AddWithValue("@currentTime", DateTime.UtcNow); // Thời gian hiện tại
-
-            List<List<object>> result = DBConnection.ExecuteReader(cmd);
-
-            if (result.Count > 0)
-            {
-                var row = result[0];
-                return new PasswordResetDTO
-                {
-                    Id = Convert.ToInt64(row[0]),
-                    Email = Convert.ToString(row[1]),
-                    Token = Convert.ToString(row[2]),
-                    CreatedAt = row[3] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[3]) : null,
-                    UpdatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
-                    ExpiredAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
-                    IsUsed = Convert.ToInt32(row[6])
-                };
-            }
-
-            return null; // Trả về null nếu không tìm thấy
-        }
+        
     }
 }

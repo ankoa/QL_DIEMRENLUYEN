@@ -55,26 +55,26 @@
             label1.BackColor = SystemColors.MenuHighlight;
             label1.Font = new Font("Segoe UI Black", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(0, 9);
+            label1.Location = new Point(0, 12);
             label1.Name = "label1";
-            label1.Size = new Size(270, 41);
+            label1.Size = new Size(331, 50);
             label1.TabIndex = 0;
             label1.Text = "Quản lý sinh viên";
             label1.Click += label1_Click;
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlLight;
+            panel1.BackColor = SystemColors.ControlLightLight;
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(btnSearch);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(dataGridStudent);
+            panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1165, 493);
+            panel1.Size = new Size(1079, 599);
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             // 
@@ -83,9 +83,8 @@
             panel2.BackColor = SystemColors.MenuHighlight;
             panel2.Controls.Add(label1);
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(962, 53);
+            panel2.Size = new Size(1099, 71);
             panel2.TabIndex = 6;
             panel2.Paint += panel2_Paint;
             // 
@@ -94,9 +93,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(64, 68);
+            label2.Location = new Point(73, 91);
             label2.Name = "label2";
-            label2.Size = new Size(230, 32);
+            label2.Size = new Size(288, 41);
             label2.TabIndex = 5;
             label2.Text = "Danh sách sinh viên";
             label2.Click += label2_Click;
@@ -105,10 +104,9 @@
             // 
             button2.BackColor = SystemColors.ButtonFace;
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(732, 68);
-            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Location = new Point(837, 91);
             button2.Name = "button2";
-            button2.Size = new Size(79, 38);
+            button2.Size = new Size(90, 51);
             button2.TabIndex = 4;
             button2.UseVisualStyleBackColor = false;
             // 
@@ -116,10 +114,9 @@
             // 
             btnSearch.BackColor = SystemColors.ButtonFace;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(683, 68);
-            btnSearch.Margin = new Padding(3, 2, 3, 2);
+            btnSearch.Location = new Point(781, 91);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(45, 38);
+            btnSearch.Size = new Size(51, 51);
             btnSearch.TabIndex = 3;
             btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += button1_Click;
@@ -128,10 +125,9 @@
             // 
             textBox1.BackColor = SystemColors.ButtonFace;
             textBox1.Font = new Font("Segoe UI", 18F);
-            textBox1.Location = new Point(395, 68);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
+            textBox1.Location = new Point(451, 91);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(333, 39);
+            textBox1.Size = new Size(380, 47);
             textBox1.TabIndex = 2;
             textBox1.Text = "\r\n";
             textBox1.TextChanged += textBox1_TextChanged;
@@ -140,13 +136,12 @@
             // 
             dataGridStudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridStudent.Columns.AddRange(new DataGridViewColumn[] { maSV, Column1, gioiTinh, lop, khoa, btnXemTT, btnXemDiem });
-            dataGridStudent.Location = new Point(14, 110);
-            dataGridStudent.Margin = new Padding(3, 2, 3, 2);
+            dataGridStudent.Location = new Point(16, 147);
             dataGridStudent.MultiSelect = false;
             dataGridStudent.Name = "dataGridStudent";
             dataGridStudent.ReadOnly = true;
             dataGridStudent.RowHeadersWidth = 51;
-            dataGridStudent.Size = new Size(933, 370);
+            dataGridStudent.Size = new Size(1066, 493);
             dataGridStudent.TabIndex = 0;
             dataGridStudent.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -212,12 +207,11 @@
             // 
             // QLSinhVien
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1079, 599);
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "QLSinhVien";
-            Size = new Size(962, 496);
             Load += QLSinhVien_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

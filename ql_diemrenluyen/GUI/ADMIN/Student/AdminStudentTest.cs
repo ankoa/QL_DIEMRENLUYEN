@@ -19,12 +19,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.Student
             QLSinhVien qLSinhVien = new QLSinhVien();
             qLSinhVien.Dock = DockStyle.Fill;
             this.Controls.Add(qLSinhVien);
+            this.ControlBox = false;
+            this.Dock = DockStyle.Fill;
         }
 
         private void AdminStudentTest_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             this.Dock = DockStyle.Fill;
+            this.ControlBox = false;
+
         }
     }
 }

@@ -39,7 +39,7 @@ namespace QLDiemRenLuyen
 
         private void QLSinhVien_Load(object sender, EventArgs e)
         {
-
+            this.Dock = DockStyle.Fill;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

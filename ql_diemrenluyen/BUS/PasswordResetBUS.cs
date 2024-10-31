@@ -31,9 +31,9 @@ namespace ql_diemrenluyen.BUS
         }
 
          //Xác thực mã thông báo đặt lại mật khẩu
-        public PasswordResetDTO VerifyToken(string token)
+       /* public PasswordResetDTO VerifyToken(string token)
         {
             return PasswordResetDAO.VerifyPasswordResetToken(token);
-        }
+        }*/
     }
 }

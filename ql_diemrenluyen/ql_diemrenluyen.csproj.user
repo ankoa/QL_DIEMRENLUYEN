@@ -28,6 +28,9 @@
     <Compile Update="GUI\ADMIN\Student\TimKiemSinhVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="GUI\ADMIN\TieuChi\FormTieuChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\Login.cs">
       <SubType>Form</SubType>
     </Compile>

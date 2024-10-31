@@ -17,7 +17,7 @@
             this.Email = email;
             this.Token = token;
             this.CreatedAt = createdAt;
-            this.UpdatedAt = updatedAt;*/
+            /*this.UpdatedAt = updatedAt;*/
             this.IsUsed = isUsed;
         }
     }
