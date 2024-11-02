@@ -48,8 +48,8 @@ namespace ql_diemrenluyen.DAO
         // Cập nhật thông tin đợt chấm điểm
         public static bool UpdateDotChamDiem(DotChamDiemDTO dotChamDiem)
         {
-            string sql = $"UPDATE dotchamdiem SET HocKiId = @hocKiId, StartDate = @startDate, " +
-                         $"EndDate = @endDate, Name = @name WHERE Id = @id";
+            string sql = $"UPDATE dotchamdiem SET hocki_id = @hocKiId, startDate = @startDate, " +
+                         $"endDate = @endDate, name = @name WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", dotChamDiem.Id);
@@ -204,48 +204,63 @@ namespace ql_diemrenluyen.DAO
 
             // Khởi tạo câu lệnh SQL cơ bản
             string sql = @"
-    SELECT dcd.id AS Id,
-           hk.Name AS HocKy, 
-           dcd.name AS DotChamDiem, 
-           dcd.startDate AS NgayBatDau, 
-           dcd.endDate AS NgayKetThuc, 
-           hk.namhoc AS NamHoc
-    FROM hocky hk
-    JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
-    WHERE 1 = 1"; // Điều kiện luôn đúng
+                SELECT dcd.id AS Id,
+                       hk.Name AS HocKy, 
+                       dcd.name AS DotChamDiem, 
+                       dcd.startDate AS NgayBatDau, 
+                       dcd.endDate AS NgayKetThuc, 
+                       hk.namhoc AS NamHoc
+                FROM hocky hk
+                JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
+                WHERE 1 = 1"; // Điều kiện luôn đúng
 
             // Khởi tạo danh sách tham số
             List<MySqlParameter> parameters = new List<MySqlParameter>();
 
             // Thêm điều kiện tìm kiếm nếu có
-            if (!string.IsNullOrEmpty(hocKy))
+            if (!string.IsNullOrEmpty(hocKy) && hocKy != "Chọn học kì")
             {
                 sql += " AND hk.Name = @hocKy";
                 parameters.Add(new MySqlParameter("@hocKy", hocKy));
+                //MessageBox.Show(hocKy);
             }
 
-            if (!string.IsNullOrEmpty(namHoc))
+            if (!string.IsNullOrEmpty(namHoc) && namHoc != "Chọn năm học")
             {
                 sql += " AND hk.namhoc = @namHoc";
                 parameters.Add(new MySqlParameter("@namHoc", namHoc));
+                //MessageBox.Show(namHoc);
             }
 
-            if (!string.IsNullOrEmpty(dotChamDiem))
+            if (!string.IsNullOrEmpty(dotChamDiem) && dotChamDiem != "Chọn người chấm")
             {
                 sql += " AND dcd.name = @dotChamDiem";
                 parameters.Add(new MySqlParameter("@dotChamDiem", dotChamDiem));
+                //MessageBox.Show(dotChamDiem);
             }
 
-            if (ngayBatDau.HasValue)
+            if (ngayBatDau.HasValue && ngayKetThuc.HasValue)
             {
                 sql += " AND dcd.startDate >= @ngayBatDau";
-                parameters.Add(new MySqlParameter("@ngayBatDau", ngayBatDau.Value));
-            }
-
-            if (ngayKetThuc.HasValue)
-            {
                 sql += " AND dcd.endDate <= @ngayKetThuc";
-                parameters.Add(new MySqlParameter("@ngayKetThuc", ngayKetThuc.Value));
+                parameters.Add(new MySqlParameter("@ngayBatDau", ngayBatDau.Value.ToString("yyyy/MM/dd")));
+                parameters.Add(new MySqlParameter("@ngayKetThuc", ngayKetThuc.Value.ToString("yyyy/MM/dd")));
+            }
+            else
+            {
+                if (ngayBatDau.HasValue)
+                {
+                    sql += " AND dcd.startDate = @ngayBatDau";
+                    parameters.Add(new MySqlParameter("@ngayBatDau", ngayBatDau.Value.ToString("yyyy/MM/dd")));
+                    //MessageBox.Show(ngayBatDau.ToString());
+                }
+
+                if (ngayKetThuc.HasValue)
+                {
+                    sql += " AND dcd.endDate = @ngayKetThuc";
+                    parameters.Add(new MySqlParameter("@ngayKetThuc", ngayKetThuc.Value.ToString("yyyy/MM/dd")));
+                    //MessageBox.Show(ngayKetThuc.ToString());
+                }
             }
 
             var cmd = new MySqlCommand(sql);
@@ -280,7 +295,38 @@ namespace ql_diemrenluyen.DAO
             return danhSachDotChamDiem;
         }
 
+        // Lấy đợt chấm điểm theo ID
+        public static DotChamDiemDTO GetDotChamDiemById(int id)
+        {
+            DotChamDiemDTO dotChamDiem = null;
+            string sql = "SELECT * FROM dotchamdiem WHERE id = @id"; // Câu lệnh SQL
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@id", id); // Thêm tham số cho câu lệnh SQL
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Nếu có kết quả, chuyển đổi dòng đầu tiên thành đối tượng DTO
+            if (result.Count > 0)
+            {
+                var row = result[0];
+                dotChamDiem = new DotChamDiemDTO
+                {
+                    Id = Convert.ToInt32(row[0]),
+                    HocKiId = Convert.ToInt32(row[1]),
+                    StartDate = Convert.ToDateTime(row[2]),
+                    EndDate = Convert.ToDateTime(row[3]),
+                    Name = Convert.ToString(row[4])
+                };
+            }
+
+            return dotChamDiem; // Trả về đối tượng DotChamDiemDTO hoặc null nếu không tìm thấy
+        }
+
+
     }
+
+
 
     public class ThongTinDotChamDiemDTO
     {

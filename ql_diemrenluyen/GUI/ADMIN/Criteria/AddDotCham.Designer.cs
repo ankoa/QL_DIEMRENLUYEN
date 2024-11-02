@@ -54,6 +54,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // txtId
             // 
             txtId.BorderStyle = BorderStyle.FixedSingle;
+            txtId.Enabled = false;
             txtId.Location = new Point(201, 63);
             txtId.Margin = new Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
@@ -74,13 +75,13 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // txtPassword
             // 
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtPassword.Enabled = false;
             txtPassword.Location = new Point(201, 118);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.ReadOnly = true;
             txtPassword.Size = new Size(228, 27);
             txtPassword.TabIndex = 3;
-            txtPassword.UseSystemPasswordChar = true;
             // 
             // lblRole
             // 
@@ -95,6 +96,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // txtRole
             // 
             txtRole.BorderStyle = BorderStyle.FixedSingle;
+            txtRole.Enabled = false;
             txtRole.Location = new Point(201, 176);
             txtRole.Margin = new Padding(3, 4, 3, 4);
             txtRole.Name = "txtRole";
@@ -115,6 +117,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // txtRememberToken
             // 
             txtRememberToken.BorderStyle = BorderStyle.FixedSingle;
+            txtRememberToken.Enabled = false;
             txtRememberToken.Location = new Point(201, 233);
             txtRememberToken.Margin = new Padding(3, 4, 3, 4);
             txtRememberToken.Name = "txtRememberToken";
@@ -144,6 +147,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // dtpUpdatedAt
             // 
+            dtpUpdatedAt.Format = DateTimePickerFormat.Short;
             dtpUpdatedAt.Location = new Point(201, 356);
             dtpUpdatedAt.Margin = new Padding(3, 4, 3, 4);
             dtpUpdatedAt.Name = "dtpUpdatedAt";
@@ -162,7 +166,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(264, 502);
+            btnClose.Location = new Point(279, 502);
             btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(114, 40);
@@ -173,7 +177,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(79, 502);
+            btnEdit.Location = new Point(94, 502);
             btnEdit.Margin = new Padding(3, 4, 3, 4);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(103, 40);
@@ -194,6 +198,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // dtpCreatedAt
             // 
+            dtpCreatedAt.Format = DateTimePickerFormat.Short;
             dtpCreatedAt.Location = new Point(201, 296);
             dtpCreatedAt.Name = "dtpCreatedAt";
             dtpCreatedAt.Size = new Size(228, 27);
