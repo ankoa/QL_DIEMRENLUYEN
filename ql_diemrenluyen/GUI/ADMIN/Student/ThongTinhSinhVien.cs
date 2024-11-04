@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLDiemRenLuyen
 {
@@ -17,6 +19,7 @@ namespace QLDiemRenLuyen
         private static SinhVienBUS SinhVienBUS = new SinhVienBUS();
         //private static List<SinhVienDTO> listStudent = new List<SinhVienDTO>();
         private static LopBUS LopBUS = new LopBUS();
+        private static KhoaBUS KhoaBUS = new KhoaBUS();
         public ThongTinhSinhVien(long idSV)
         {
             InitializeComponent();
@@ -24,16 +27,43 @@ namespace QLDiemRenLuyen
             sinhVien = SinhVienBUS.GetStudentById(idSV);
             txtMaSV.Text = sinhVien.Id.ToString();
             txtHoTen.Text = sinhVien.Name;
-            txtGioiTinh.Text = sinhVien.toStringGender();
-            txtNgaySinh.Text = sinhVien.NgaySinh.ToString();
+
+            dPNgaySinh.Value = sinhVien.NgaySinh;
             txtEmail.Text = sinhVien.Email;
             txtChucVu.Text = sinhVien.ChucVu.ToString();
             LopDTO lopDTO = new LopDTO();
             lopDTO = LopBUS.GetLopByID(sinhVien.LopId);
             KhoaDTO khoaDTO = new KhoaDTO();
             khoaDTO = KhoaBUS.GetKhoaByID(lopDTO.KhoaId);
-            txtLop.Text = lopDTO.TenLop;
-            txtKhoa.Text = khoaDTO.TenKhoa;
+            //txtLop.Text = lopDTO.TenLop;
+            //txtKhoa.Text = khoaDTO.TenKhoa;
+            Dictionary<string, long> dict = new Dictionary<string, long>()
+            {
+                 {"Nữ",0 },
+                 {"Nam",1 }
+
+            };
+
+            cBGioiTinh.DataSource = new BindingSource(dict, null);
+            cBGioiTinh.DisplayMember = "Key";
+            cBGioiTinh.ValueMember = "Value";
+            cBGioiTinh.SelectedIndex = sinhVien.GioiTinh;
+            cBGioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            var dataSource = new List<LopDTO>();
+            dataSource = LopBUS.GetAllLop();
+            cBLop.DataSource = dataSource;
+            cBLop.DisplayMember = "TenLop";
+            cBLop.ValueMember = "Id";
+            cBLop.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBLop.SelectedValue = lopDTO.Id;
+
+            KhoaDTO khoaDto = new KhoaDTO();
+            khoaDto = KhoaBUS.GetKhoaByID(lopDTO.Id);
+            txtKhoa.Text = khoaDto.TenKhoa;
+
+
+
 
         }
 
@@ -54,6 +84,21 @@ namespace QLDiemRenLuyen
 
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void txtNgaySinh_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cBLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KhoaDTO khoaDto = new KhoaDTO();
+            LopDTO lopDTO = new LopDTO();
+            lopDTO = cBLop.SelectedItem as LopDTO;
+            khoaDto = KhoaBUS.GetKhoaByID(lopDTO.KhoaId);
+            txtKhoa.Text = khoaDto.TenKhoa;
 
         }
     }

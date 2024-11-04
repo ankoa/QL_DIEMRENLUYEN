@@ -15,5 +15,7 @@ namespace ql_diemrenluyen.BUS
         {
             return LopDAO.GetLopByID(idLop);
         }
+        public static List<LopDTO> GetAllLop()
+        { return LopDAO.GetAllLop(); }
     }
 }

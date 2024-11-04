@@ -14,5 +14,9 @@ namespace ql_diemrenluyen.BUS
         {
             return KhoaDAO.GetKhoaByID(id);
         }
+        public static List<KhoaDTO> GetAllKhoa()
+        {
+            return KhoaDAO.GetAllKhoa();
+        }
     }
 }
