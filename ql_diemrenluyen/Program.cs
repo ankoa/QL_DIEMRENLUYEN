@@ -1,4 +1,5 @@
 ﻿using ql_diemrenluyen.GUI.ADMIN;
+
 namespace ql_diemrenluyen
 {
     internal static class Program
@@ -15,6 +16,7 @@ namespace ql_diemrenluyen
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new TaiKhoan());
+            //MessageBox.Show(DotChamDiemBUS.TimKiemDotChamDiem("1", null, "Khoa", null, null).Count().ToString());
             Application.Run(new DotCham());
 
         }

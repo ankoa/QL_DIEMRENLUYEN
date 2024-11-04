@@ -6,9 +6,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
     public partial class AddDotCham : Form
     {
         private long currentAccountId;
-        private TaiKhoan mainForm;
+        private DotCham mainForm;
         private DataGridView table;
-        public AddDotCham(long id, string password, string role, string rememberToken, DateTime createdAt, DateTime updatedAt, string status, DataGridView dataGridView, TaiKhoan tkform)
+        public AddDotCham(int id, string hocky, string namhoc, string nguoicham, DateTime createdAt, DateTime updatedAt, DataGridView dataGridView, DotCham tkform)
         {
             table = dataGridView;
             mainForm = tkform;
@@ -16,40 +16,40 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
             // Set the values for the form fields
             txtId.Text = id.ToString();
-            txtPassword.Text = password;
-            txtRole.Text = role;
-            txtRememberToken.Text = rememberToken;
+            txtPassword.Text = hocky;
+            txtRole.Text = namhoc;
+            txtRememberToken.Text = nguoicham;
+            //MessageBox.Show(createdAt.ToString());
 
             DateTime minValidDate = dtpCreatedAt.MinDate;
-
-            if (createdAt >= minValidDate)
-            {
-                dtpCreatedAt.Value = createdAt;
-            }
-            else
-            {
-                dtpCreatedAt.Value = DateTime.Now;
-            }
-            dtpCreatedAt.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            dtpCreatedAt.Value = createdAt;
+            //if (createdAt >= minValidDate)
+            //{
+            //    dtpCreatedAt.Value = createdAt;
+            //}
+            //else
+            //{
+            //    dtpCreatedAt.Value = DateTime.Now;
+            //}
+            dtpCreatedAt.CustomFormat = "yyyy-MM-dd";
             dtpCreatedAt.Format = DateTimePickerFormat.Custom;
 
             // Configure DateTimePicker for UpdatedAt
-            if (updatedAt >= minValidDate)
-            {
-                dtpUpdatedAt.Value = updatedAt;
-            }
-            else
-            {
-                dtpUpdatedAt.Value = DateTime.Now; // Fallback to current date if the value is invalid
-            }
-            dtpUpdatedAt.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            dtpUpdatedAt.Value = updatedAt;
+            //if (updatedAt >= minValidDate)
+            //{
+            //    dtpUpdatedAt.Value = updatedAt;
+            //}
+            //else
+            //{
+            //    dtpUpdatedAt.Value = DateTime.Now; // Fallback to current date if the value is invalid
+            //}
+            dtpUpdatedAt.CustomFormat = "yyyy-MM-dd";
             dtpUpdatedAt.Format = DateTimePickerFormat.Custom;
 
             // Load status into ComboBox
-            comboBox1.SelectedItem = status;
+            //comboBox1.SelectedItem = status;
 
-            dtpCreatedAt.Enabled = false; // Chỉ cho phép chọn trường CreatedAt
-            txtPassword.ReadOnly = false; // Cho phép chỉnh sửa trường mật khẩu
             comboBox1.Enabled = true; // Cho phép chọn trạng thái
 
             // Lưu ID của tài khoản hiện tại để sử dụng khi cập nhật
@@ -61,35 +61,30 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         private void btnEdit_Click(object sender, EventArgs e)
         {
             // Hiển thị hộp thoại xác nhận trước khi cập nhật tài khoản
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật tài khoản không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật đợt chấm không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
                 // Thực hiện cập nhật tài khoản ngay khi nhấn nút Sửa
-                AccountDTO account = new AccountDTO
-                {
-                    Id = currentAccountId,
-                    Password = txtPassword.Text,
-                    Status = (comboBox1.SelectedItem.ToString() == "Hoạt động") ? 1 : 0,
-                    CreatedAt = dtpCreatedAt.Value,
-                    UpdatedAt = DateTime.Now
-                };
+                DotChamDiemDTO dotcham = DotChamDiemBUS.GetDotChamDiemById((int)currentAccountId);
+                dotcham.StartDate = dtpCreatedAt.Value;
+                dotcham.EndDate = dtpUpdatedAt.Value;
 
                 // Gọi phương thức cập nhật tài khoản
-                bool result = AccountBUS.UpdateAccount(account);
+                bool result = DotChamDiemBUS.UpdateDotChamDiem(dotcham);
 
                 if (result)
                 {
-                    MessageBox.Show("Cập nhật tài khoản thành công!");
+                    MessageBox.Show("Cập nhật đợt chấm thành công!");
 
                     // Gọi phương thức để tải lại bảng trong TaiKhoan
-                    TaiKhoan.LoadAccountList(table); // Gọi qua tên lớp
+                    DotCham.LoadDotChamDiemList(table); // Gọi qua tên lớp
 
                     this.Close(); // Đóng form sau khi cập nhật thành công
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật tài khoản không thành công. Vui lòng kiểm tra lại!");
+                    MessageBox.Show("Cập nhật đợt chấm không thành công. Vui lòng kiểm tra lại!");
                 }
             }
         }
