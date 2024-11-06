@@ -98,5 +98,11 @@ namespace ql_diemrenluyen.BUS
             }
             return true;
         }
+
+        // Lấy học kỳ theo tên và năm học
+        public static HocKyDTO GetHocKyByNameAndYear(string name, int namhoc)
+        {
+            return HocKyDAO.GetHocKyByNameAndYear(name, namhoc);
+        }
     }
 }

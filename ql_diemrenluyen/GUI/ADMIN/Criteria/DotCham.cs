@@ -61,7 +61,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             LoadNamHocCBB();
             LoadDotChamDiemList();
             cbbHocKi.SelectedItem = "Chọn học kì";
-            cbbNamHoc.SelectedItem = "Mặc định";
+            cbbNamHoc.SelectedItem = "Chọn năm học";
             cbbNguoiCham.SelectedItem = "Chọn người chấm";
 
 
@@ -81,7 +81,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
             int leftMargin = (tableLayoutPanel1.ClientSize.Width - label2.Width - label3.Width - label4.Width - cbbHocKi.Width - cbbNamHoc.Width - cbbNguoiCham.Width - 59 * 2) / 2;
             int leftMarginReset = (tableLayoutPanel1.ClientSize.Width - panel2.Width * 2 - 59) / 2;
-            //pnInput.Margin = new Padding(leftMargin, 3, 0, 0);
+            int leftMarginBtnAdd = (this.ClientSize.Width - btnAdd.Width * 2) / 2;
+            btnAdd.Margin = new Padding(leftMarginBtnAdd, 3, 0, 0);
             label5.Margin = new Padding(leftMargin, 3, 0, 0);
             label2.Margin = new Padding(leftMargin, 3, 0, 0);
             panel2.Margin = new Padding(leftMarginReset, 3, 0, 0);
@@ -115,7 +116,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void button1_Click(object sender, EventArgs e)
         {
             cbbHocKi.SelectedItem = "Chọn học kì";
-            cbbNamHoc.SelectedItem = "Mặc định";
+            cbbNamHoc.SelectedItem = "Chọn năm học";
             cbbNguoiCham.SelectedItem = "Chọn người chấm";
             rjDatePickerStart = new RJDatePicker
             {
@@ -299,17 +300,17 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         // Hàm tìm kiếm tài khoản theo role, status và search term
 
-        private void SearchAccountList()
+        public void SearchAccountList()
         {
             try
             {
-                string hocki = cbbHocKi.SelectedItem?.ToString() ?? ""; // Sử dụng toán tử null-coalescing
+                string hocki = cbbHocKi.SelectedItem?.ToString() ?? "";
                 string namhoc = cbbNamHoc.SelectedItem?.ToString() ?? "";
                 string nguoicham = cbbNguoiCham.SelectedItem?.ToString() ?? "";
 
                 if (string.IsNullOrEmpty(hocki) || string.IsNullOrEmpty(namhoc) || string.IsNullOrEmpty(nguoicham))
                 {
-                    return; // Dừng lại nếu không có thông tin cần thiết
+                    return;
                 }
 
                 DateTime? selectedDateStart = selectStart ? (DateTime?)rjDatePickerStart.Value : null;
@@ -320,13 +321,22 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
                 foreach (var dotChamDiem in accounts)
                 {
+                    string statusText = dotChamDiem.Status switch
+                    {
+                        1 => "Active",
+                        0 => "Unactive",
+                        -1 => "Delete",
+                        _ => "Unknown"
+                    };
+
                     tableTK.Rows.Add(
                         dotChamDiem.Id,
                         dotChamDiem.NamHoc,
                         dotChamDiem.HocKy,
                         dotChamDiem.DotChamDiem,
                         dotChamDiem.NgayBatDau.ToString("dd/MM/yyyy"),
-                        dotChamDiem.NgayKetThuc.ToString("dd/MM/yyyy")
+                        dotChamDiem.NgayKetThuc.ToString("dd/MM/yyyy"),
+                        statusText
                     );
                 }
 
@@ -337,6 +347,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 MessageBox.Show("Lỗi khi tìm kiếm đợt chấm: " + ex.Message);
             }
         }
+
 
 
         // Hàm tìm kiếm khi thay đổi nội dung trong các textbox hoặc combobox
@@ -443,6 +454,35 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //int id = (int)selectedRow.Cells["dataGridViewTextBoxColumn1"].Value;
+            //string hocky = selectedRow.Cells["dataGridViewTextBoxColumn3"].Value?.ToString() ?? "";
+            //string namhoc = selectedRow.Cells["dataGridViewTextBoxColumn5"].Value?.ToString() ?? "";
+            //string nguoicham = selectedRow.Cells["dataGridViewTextBoxColumn8"].Value?.ToString() ?? "";
+
+            //DateTime createdAt = DateTime.TryParseExact(
+            //    selectedRow.Cells["dataGridViewTextBoxColumn6"].Value?.ToString(),
+            //    "dd/MM/yyyy",
+            //    CultureInfo.InvariantCulture,
+            //    DateTimeStyles.None,
+            //    out DateTime tempCreatedAt
+            //) ? tempCreatedAt : DateTime.MinValue;
+
+            //DateTime updatedAt = DateTime.TryParseExact(
+            //    selectedRow.Cells["dataGridViewTextBoxColumn7"].Value?.ToString(),
+            //    "dd/MM/yyyy",
+            //    CultureInfo.InvariantCulture,
+            //    DateTimeStyles.None,
+            //    out DateTime tempUpdatedAt
+            //) ? tempUpdatedAt : DateTime.MinValue;
+
+
+            ThemDotCham detailsForm = new ThemDotCham(tableTK, this);
+            detailsForm.ShowDialog();
 
         }
     }

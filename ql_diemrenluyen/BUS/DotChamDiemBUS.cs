@@ -88,7 +88,7 @@ namespace ql_diemrenluyen.BUS
 
             if (dotChamDiem.StartDate >= dotChamDiem.EndDate)
             {
-                MessageBox.Show("StartDate must be before EndDate.");
+                MessageBox.Show("Ngày bắt đầu phải trước ngày kết thúc");
                 MessageBox.Show(dotChamDiem.StartDate.ToString());
                 MessageBox.Show(dotChamDiem.EndDate.ToString());
                 return false;
@@ -179,5 +179,98 @@ namespace ql_diemrenluyen.BUS
                 return new List<ThongTinDotChamDiemDTO>();
             }
         }
+
+        public static bool CheckValidDotChamDiem(string hocKy, int namHoc, string nguoiCham, DateTime startDate, DateTime endDate)
+        {
+            // Lấy danh sách các đợt chấm điểm theo học kỳ và năm học
+            List<DotChamDiemDTO> dotChamDiems = DotChamDiemDAO.GetDotChamDiemByHocKyAndNamHoc(hocKy, namHoc);
+
+            // Kiểm tra xem có đợt chấm nào trùng người chấm và thời gian giao nhau không
+            foreach (var dotCham in dotChamDiems)
+            {
+                // Kiểm tra nếu người chấm trùng và thời gian giao nhau
+                if (dotCham.Name == nguoiCham)
+                {
+                    MessageBox.Show("Đợt chấm điểm " + nguoiCham + " đã tồn tại trong học kì " + hocKy + " năm học " + namHoc);
+                    return false;
+                }
+
+                // Kiểm tra thứ tự chấm điểm
+                if (!IsValidOrder(nguoiCham, dotCham.Name, startDate, dotCham.StartDate, endDate, dotCham.EndDate))
+                {
+                    return false; // Thứ tự không hợp lệ
+                }
+            }
+
+            return true;
+        }
+
+        public static bool CheckValidDotChamDiemUpdate(string hocKy, int namHoc, string nguoiCham, DateTime startDate, DateTime endDate)
+        {
+            // Lấy danh sách các đợt chấm điểm theo học kỳ và năm học
+            List<DotChamDiemDTO> dotChamDiems = DotChamDiemDAO.GetDotChamDiemByHocKyAndNamHoc(hocKy, namHoc);
+
+            // Kiểm tra xem có đợt chấm nào trùng người chấm và thời gian giao nhau không
+            foreach (var dotCham in dotChamDiems)
+            {
+                // Kiểm tra thứ tự chấm điểm
+                if (!IsValidOrder(nguoiCham, dotCham.Name, startDate, dotCham.StartDate, endDate, dotCham.EndDate))
+                {
+                    return false; // Thứ tự không hợp lệ
+                }
+            }
+
+            return true;
+        }
+
+
+        // Hàm kiểm tra thứ tự hợp lệ giữa các đợt chấm
+        private static bool IsValidOrder(string newDotChamType, string existingDotChamType, DateTime newStartDate, DateTime existingStartDate, DateTime newEndDate, DateTime existingEndDate)
+        {
+            {
+                // Định nghĩa thứ tự hợp lệ
+                var order = new Dictionary<string, int>
+                {
+                    { "Sinh viên", 1 },
+                    { "Cố vấn", 2 },
+                    { "Khoa", 3 },
+                    { "Trường", 4 }
+                };
+
+                // Kiểm tra thứ tự
+                if (order.ContainsKey(newDotChamType) && order.ContainsKey(existingDotChamType))
+                {
+                    int newOrder = order[newDotChamType];
+                    int existingOrder = order[existingDotChamType];
+
+                    // Kiểm tra điều kiện thứ tự và thời gian không được giao nhau
+                    if (newOrder < existingOrder)
+                    {
+                        // Đợt chấm mới phải diễn ra trước và kết thúc trước đợt chấm hiện có
+                        if (newEndDate > existingStartDate)
+                        {
+                            MessageBox.Show("Đợt chấm điểm của " + newDotChamType + " phải kết thúc trước khi đợt chấm điểm của " + existingDotChamType + " bắt đầu.");
+                            return false; // Thứ tự không hợp lệ hoặc bị giao nhau
+                        }
+                    }
+                    else if (newOrder > existingOrder)
+                    {
+                        // Đợt chấm mới phải diễn ra sau và bắt đầu sau đợt chấm hiện có
+                        if (newStartDate < existingEndDate)
+                        {
+                            MessageBox.Show("Đợt chấm điểm của " + newDotChamType + " phải bắt đầu sau khi đợt chấm điểm của " + existingDotChamType + " kết thúc.");
+                            return false; // Thứ tự không hợp lệ hoặc bị giao nhau
+                        }
+                    }
+                }
+
+                return true; // Thứ tự và thời gian hợp lệ
+            }
+
+        }
+
+
+
+
     }
 }

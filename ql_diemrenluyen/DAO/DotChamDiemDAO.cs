@@ -21,7 +21,8 @@ namespace ql_diemrenluyen.DAO
                     HocKiId = Convert.ToInt32(row[1]),
                     StartDate = Convert.ToDateTime(row[2]),
                     EndDate = Convert.ToDateTime(row[3]),
-                    Name = Convert.ToString(row[4])
+                    Name = Convert.ToString(row[4]),
+                    Status = Convert.ToInt32(row[5])
                 };
 
                 dotChamDiems.Add(dotChamDiem);
@@ -33,7 +34,7 @@ namespace ql_diemrenluyen.DAO
         // Thêm đợt chấm điểm mới
         public static bool AddDotChamDiem(DotChamDiemDTO dotChamDiem)
         {
-            string sql = $"INSERT INTO dotchamdiem (HocKiId, StartDate, EndDate, Name) " +
+            string sql = $"INSERT INTO dotchamdiem (hocki_id, startDate, endDate, name) " +
                          $"VALUES (@hocKiId, @startDate, @endDate, @name)";
 
             var cmd = new MySqlCommand(sql);
@@ -49,7 +50,7 @@ namespace ql_diemrenluyen.DAO
         public static bool UpdateDotChamDiem(DotChamDiemDTO dotChamDiem)
         {
             string sql = $"UPDATE dotchamdiem SET hocki_id = @hocKiId, startDate = @startDate, " +
-                         $"endDate = @endDate, name = @name WHERE id = @id";
+                         $"endDate = @endDate, name = @name, status = @status WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", dotChamDiem.Id);
@@ -57,9 +58,11 @@ namespace ql_diemrenluyen.DAO
             cmd.Parameters.AddWithValue("@startDate", dotChamDiem.StartDate);
             cmd.Parameters.AddWithValue("@endDate", dotChamDiem.EndDate);
             cmd.Parameters.AddWithValue("@name", dotChamDiem.Name);
+            cmd.Parameters.AddWithValue("@status", dotChamDiem.Status);
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
+
 
         // Xóa đợt chấm điểm
         public static bool DeleteDotChamDiem(int id)
@@ -90,6 +93,7 @@ namespace ql_diemrenluyen.DAO
           AND dcd.name = 'Sinh viên'
           AND dcd.startDate <= @ngayHienTai 
           AND dcd.endDate >= @ngayHienTai
+            AND dcd.status=1
         LIMIT 1"; // Giới hạn chỉ lấy 1 kết quả
 
             var cmd = new MySqlCommand(sql);
@@ -109,7 +113,7 @@ namespace ql_diemrenluyen.DAO
                 DotChamDiem = Convert.ToString(row[1]),
                 NgayBatDau = Convert.ToDateTime(row[2]),
                 NgayKetThuc = Convert.ToDateTime(row[3]),
-                HoanThanh = Convert.ToString(row[4])
+                HoanThanh = Convert.ToString(row[4]),
             };
             Console.WriteLine(thongTinDotChamDiem.ToString());
             return thongTinDotChamDiem;
@@ -133,6 +137,7 @@ namespace ql_diemrenluyen.DAO
       AND dcd.name = 'Cố vấn'
       AND dcd.startDate <= @ngayHienTai 
       AND dcd.endDate >= @ngayHienTai
+AND dcd.status=1
     GROUP BY hk.Name, dcd.name, dcd.startDate, dcd.endDate
     LIMIT 1"; // Giới hạn chỉ lấy 1 kết quả
 
@@ -162,14 +167,15 @@ namespace ql_diemrenluyen.DAO
         public static List<ThongTinDotChamDiemDTO> GetAllDotChamDiemVoiHocKiVaNamHoc()
         {
             string sql = @"
-            SELECT dcd.id AS Id,
-                   hk.Name AS HocKy, 
-                   dcd.name AS DotChamDiem, 
-                   dcd.startDate AS NgayBatDau, 
-                   dcd.endDate AS NgayKetThuc, 
-                   hk.namhoc AS NamHoc
-            FROM hocky hk
-            JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id";
+                SELECT dcd.id AS Id,
+                       hk.Name AS HocKy, 
+                       dcd.name AS DotChamDiem, 
+                       dcd.startDate AS NgayBatDau, 
+                       dcd.endDate AS NgayKetThuc, 
+                       hk.namhoc AS NamHoc,
+                       dcd.status AS Status
+                FROM hocky hk
+                JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id";
 
             var cmd = new MySqlCommand(sql);
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
@@ -177,7 +183,6 @@ namespace ql_diemrenluyen.DAO
             // Nếu không có kết quả, trả về danh sách rỗng
             if (result.Count == 0) return new List<ThongTinDotChamDiemDTO>();
 
-            // Chuyển đổi kết quả thành List<ThongTinDotChamDiemDTO>
             var danhSachDotChamDiem = new List<ThongTinDotChamDiemDTO>();
 
             foreach (var row in result)
@@ -185,18 +190,19 @@ namespace ql_diemrenluyen.DAO
                 var dotChamDiem = new ThongTinDotChamDiemDTO
                 {
                     Id = Convert.ToInt32(row[0]),
-                    HocKy = Convert.ToString(row[1]), // Chỉnh sửa: HocKy là kiểu string
-                    DotChamDiem = Convert.ToString(row[2]), // Lấy tên Đợt Chấm Điểm
-                    NgayBatDau = Convert.ToDateTime(row[3]), // Ngày Bắt Đầu
-                    NgayKetThuc = Convert.ToDateTime(row[4]), // Ngày Kết Thúc
-                    NamHoc = Convert.ToString(row[5]) // Gán NamHoc
+                    HocKy = Convert.ToString(row[1]),
+                    DotChamDiem = Convert.ToString(row[2]),
+                    NgayBatDau = Convert.ToDateTime(row[3]),
+                    NgayKetThuc = Convert.ToDateTime(row[4]),
+                    NamHoc = Convert.ToString(row[5]),
+                    Status = Convert.ToInt32(row[6]) // Thêm Status
                 };
 
-                Console.WriteLine($"HocKy: {dotChamDiem.HocKy}, DotChamDiem: {dotChamDiem.DotChamDiem}, NamHoc: {dotChamDiem.NamHoc}");
                 danhSachDotChamDiem.Add(dotChamDiem);
             }
             return danhSachDotChamDiem;
         }
+
 
         public static List<ThongTinDotChamDiemDTO> TimKiemDotChamDiem(string hocKy = null, string namHoc = null, string dotChamDiem = null, DateTime? ngayBatDau = null, DateTime? ngayKetThuc = null)
         {
@@ -209,7 +215,8 @@ namespace ql_diemrenluyen.DAO
                        dcd.name AS DotChamDiem, 
                        dcd.startDate AS NgayBatDau, 
                        dcd.endDate AS NgayKetThuc, 
-                       hk.namhoc AS NamHoc
+                       hk.namhoc AS NamHoc,
+                        dcd.status
                 FROM hocky hk
                 JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
                 WHERE 1 = 1"; // Điều kiện luôn đúng
@@ -262,6 +269,8 @@ namespace ql_diemrenluyen.DAO
                     //MessageBox.Show(ngayKetThuc.ToString());
                 }
             }
+            // Thêm mệnh đề ORDER BY để sắp xếp theo NgayBatDau
+            sql += " ORDER BY dcd.startDate ASC";
 
             var cmd = new MySqlCommand(sql);
 
@@ -286,7 +295,8 @@ namespace ql_diemrenluyen.DAO
                     DotChamDiem = Convert.ToString(row[2]),
                     NgayBatDau = Convert.ToDateTime(row[3]),
                     NgayKetThuc = Convert.ToDateTime(row[4]),
-                    NamHoc = Convert.ToString(row[5])
+                    NamHoc = Convert.ToString(row[5]),
+                    Status = Convert.ToInt32(row[6])
                 };
 
                 danhSachDotChamDiem.Add(dotChamDiem1);
@@ -294,6 +304,7 @@ namespace ql_diemrenluyen.DAO
 
             return danhSachDotChamDiem;
         }
+
 
         // Lấy đợt chấm điểm theo ID
         public static DotChamDiemDTO GetDotChamDiemById(int id)
@@ -323,6 +334,41 @@ namespace ql_diemrenluyen.DAO
             return dotChamDiem; // Trả về đối tượng DotChamDiemDTO hoặc null nếu không tìm thấy
         }
 
+        // Lấy đợt chấm điểm theo học kỳ và năm học
+        public static List<DotChamDiemDTO> GetDotChamDiemByHocKyAndNamHoc(string hocKy, int namHoc)
+        {
+            List<DotChamDiemDTO> dotChamDiems = new List<DotChamDiemDTO>();
+
+            string sql = @"
+        SELECT dcd.id, dcd.hocki_id, dcd.startDate, dcd.endDate, dcd.name
+        FROM dotchamdiem dcd
+        JOIN hocky hk ON dcd.hocki_id = hk.id
+        WHERE hk.Name = @hocKy AND hk.namhoc = @namHoc";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@hocKy", hocKy);
+            cmd.Parameters.AddWithValue("@namHoc", namHoc);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            foreach (var row in result)
+            {
+                DotChamDiemDTO dotChamDiem = new DotChamDiemDTO
+                {
+                    Id = Convert.ToInt32(row[0]),
+                    HocKiId = Convert.ToInt32(row[1]),
+                    StartDate = Convert.ToDateTime(row[2]),
+                    EndDate = Convert.ToDateTime(row[3]),
+                    Name = Convert.ToString(row[4])
+                };
+
+                dotChamDiems.Add(dotChamDiem);
+            }
+
+            return dotChamDiems;
+        }
+
+
 
     }
 
@@ -337,5 +383,6 @@ namespace ql_diemrenluyen.DAO
         public DateTime NgayKetThuc { get; set; }
         public string? HoanThanh { get; set; }
         public string NamHoc { get; set; } // Thêm thuộc tính NamHoc
+        public int Status { get; set; }
     }
 }

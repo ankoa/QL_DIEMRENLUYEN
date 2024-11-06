@@ -3,47 +3,33 @@ using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.GUI.ADMIN.Account
 {
-    public partial class AddDotCham : Form
+    public partial class ThemDotCham : Form
     {
         private long currentAccountId;
         private DotCham mainForm;
         private DataGridView table;
-        public AddDotCham(int id, string hocky, string namhoc, string nguoicham, DateTime createdAt, DateTime updatedAt, DataGridView dataGridView, DotCham tkform)
+        public ThemDotCham(DataGridView dataGridView, DotCham tkform)
         {
             table = dataGridView;
             mainForm = tkform;
             InitializeComponent();
+            LoadYearsToComboBox();
 
             // Set the values for the form fields
-            txtId.Text = id.ToString();
-            txtPassword.Text = hocky;
-            txtRole.Text = namhoc;
-            txtRememberToken.Text = nguoicham;
+            cbbhocki.SelectedItem = "Chọn học kì";
+            cbbnamhoc.SelectedItem = "Chọn năm học";
+            cbbnguoicham.SelectedItem = "Chọn người chấm";
+
             //MessageBox.Show(createdAt.ToString());
 
-            DateTime minValidDate = dtpCreatedAt.MinDate;
-            dtpCreatedAt.Value = createdAt;
-            //if (createdAt >= minValidDate)
-            //{
-            //    dtpCreatedAt.Value = createdAt;
-            //}
-            //else
-            //{
-            //    dtpCreatedAt.Value = DateTime.Now;
-            //}
+            dtpCreatedAt.Value = DateTime.Now;
+
             dtpCreatedAt.CustomFormat = "dd-MM-yyyy";
             dtpCreatedAt.Format = DateTimePickerFormat.Custom;
 
             // Configure DateTimePicker for UpdatedAt
-            dtpUpdatedAt.Value = updatedAt;
-            //if (updatedAt >= minValidDate)
-            //{
-            //    dtpUpdatedAt.Value = updatedAt;
-            //}
-            //else
-            //{
-            //    dtpUpdatedAt.Value = DateTime.Now; // Fallback to current date if the value is invalid
-            //}
+            dtpCreatedAt.Value = DateTime.Now;
+
             dtpUpdatedAt.CustomFormat = "dd-MM-yyyy";
             dtpUpdatedAt.Format = DateTimePickerFormat.Custom;
 
@@ -52,8 +38,22 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
             comboBox1.Enabled = true; // Cho phép chọn trạng thái
 
-            // Lưu ID của tài khoản hiện tại để sử dụng khi cập nhật
-            currentAccountId = id;
+
+        }
+
+        public void LoadYearsToComboBox()
+        {
+            int currentYear = DateTime.Now.Year;
+
+            // Duyệt từ năm hiện tại đến 10 năm sau
+            for (int year = currentYear; year <= currentYear + 10; year++)
+            {
+                // Kiểm tra nếu năm chưa có trong ComboBox thì thêm vào
+                if (!cbbnamhoc.Items.Contains(year))
+                {
+                    cbbnamhoc.Items.Add(year);
+                }
+            }
         }
 
         public bool checkDate()
@@ -79,7 +79,29 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             return true;
         }
 
-
+        public bool checkValidData()
+        {
+            if (cbbhocki.SelectedIndex == 0)
+            {
+                MessageBox.Show("Chọn học kì");
+                return false;
+            }
+            if (cbbnamhoc.SelectedIndex == 0)
+            {
+                MessageBox.Show("Chọn năm học");
+                return false;
+            }
+            if (cbbnguoicham.SelectedIndex == 0)
+            {
+                MessageBox.Show("Chọn người chấm");
+                return false;
+            }
+            if (!checkDate())
+            {
+                return false;
+            }
+            return true;
+        }
 
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -91,27 +113,48 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             {
                 return;
             }
-            string hocki = txtPassword.Text;
-            string nguoicham = txtRememberToken.Text;
-            int namhoc = Convert.ToInt32(txtRole.Text);
 
-            if (!checkDate())
+            if (!checkValidData())
             {
                 return;
             }
 
-            if (!DotChamDiemBUS.CheckValidDotChamDiemUpdate(hocki, namhoc, nguoicham, dtpCreatedAt.Value, dtpUpdatedAt.Value))
+            string hocki = cbbhocki.SelectedItem.ToString();
+            int namehoc = Convert.ToInt32(cbbnamhoc.SelectedItem);
+            HocKyDTO hockidto = HocKyBUS.GetHocKyByNameAndYear(hocki, namehoc);
+
+            if (hockidto == null)
+            {
+                hockidto = new HocKyDTO
+                {
+                    Name = hocki,
+                    namhoc = namehoc,
+                };
+                if (!HocKyBUS.AddHocKy(hockidto))
+                {
+                    MessageBox.Show("Có lỗi xảy ra");
+                    return;
+                }
+            }
+
+            string nguoicham = cbbnguoicham.SelectedItem.ToString();
+
+            if (!DotChamDiemBUS.CheckValidDotChamDiem(hocki, namehoc, nguoicham, dtpCreatedAt.Value, dtpUpdatedAt.Value))
             {
                 return;
             }
 
             // Thực hiện cập nhật tài khoản ngay khi nhấn nút Sửa
-            DotChamDiemDTO dotcham = DotChamDiemBUS.GetDotChamDiemById((int)currentAccountId);
-            dotcham.StartDate = dtpCreatedAt.Value;
-            dotcham.EndDate = dtpUpdatedAt.Value;
+            DotChamDiemDTO dotcham = new DotChamDiemDTO
+            {
+                HocKiId = hockidto.Id,
+                Name = nguoicham,
+                EndDate = dtpUpdatedAt.Value,
+                StartDate = dtpCreatedAt.Value,
+            };
 
             // Gọi phương thức cập nhật tài khoản
-            bool result = DotChamDiemBUS.UpdateDotChamDiem(dotcham);
+            bool result = DotChamDiemBUS.AddDotChamDiem(dotcham);
 
             if (result)
             {
@@ -119,8 +162,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
                 // Gọi phương thức để tải lại bảng trong TaiKhoan
                 mainForm.SearchAccountList(); // Gọi qua tên lớp
-                this.Close(); // Đóng form sau khi cập nhật thành công
 
+                this.Close(); // Đóng form sau khi cập nhật thành công
             }
             else
             {

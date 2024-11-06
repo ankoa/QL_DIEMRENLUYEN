@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ql_diemrenluyen.GUI.ADMIN.Account
 {
-    partial class AddDotCham
+    partial class ThemDotCham
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -36,9 +36,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             dtpCreatedAt = new DateTimePicker();
             comboBox1 = new ComboBox();
-            txtRememberToken = new TextBox();
-            txtRole = new TextBox();
-            txtPassword = new TextBox();
+            cbbhocki = new ComboBox();
+            cbbnamhoc = new ComboBox();
+            cbbnguoicham = new ComboBox();
             SuspendLayout();
             // 
             // lblId
@@ -153,11 +153,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(96, 9);
+            label2.Location = new Point(117, 9);
             label2.Name = "label2";
-            label2.Size = new Size(218, 30);
+            label2.Size = new Size(176, 30);
             label2.TabIndex = 18;
-            label2.Text = "Thông tin đợt chấm";
+            label2.Text = "Thêm đợt chấm";
             // 
             // dtpCreatedAt
             // 
@@ -178,43 +178,46 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             comboBox1.Size = new Size(200, 23);
             comboBox1.TabIndex = 20;
             // 
-            // txtRememberToken
+            // cbbhocki
             // 
-            txtRememberToken.BorderStyle = BorderStyle.FixedSingle;
-            txtRememberToken.Enabled = false;
-            txtRememberToken.Location = new Point(176, 175);
-            txtRememberToken.Name = "txtRememberToken";
-            txtRememberToken.ReadOnly = true;
-            txtRememberToken.Size = new Size(200, 23);
-            txtRememberToken.TabIndex = 7;
+            cbbhocki.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbhocki.FormattingEnabled = true;
+            cbbhocki.Items.AddRange(new object[] { "Chọn học kì", "1", "2" });
+            cbbhocki.Location = new Point(176, 88);
+            cbbhocki.Name = "cbbhocki";
+            cbbhocki.Size = new Size(200, 23);
+            cbbhocki.TabIndex = 21;
             // 
-            // txtRole
+            // cbbnamhoc
             // 
-            txtRole.BorderStyle = BorderStyle.FixedSingle;
-            txtRole.Enabled = false;
-            txtRole.Location = new Point(176, 132);
-            txtRole.Name = "txtRole";
-            txtRole.ReadOnly = true;
-            txtRole.Size = new Size(200, 23);
-            txtRole.TabIndex = 5;
+            cbbnamhoc.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbnamhoc.FormattingEnabled = true;
+            cbbnamhoc.Items.AddRange(new object[] { "Chọn năm học" });
+            cbbnamhoc.Location = new Point(176, 132);
+            cbbnamhoc.Name = "cbbnamhoc";
+            cbbnamhoc.Size = new Size(200, 23);
+            cbbnamhoc.TabIndex = 22;
             // 
-            // txtPassword
+            // cbbnguoicham
             // 
-            txtPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtPassword.Enabled = false;
-            txtPassword.Location = new Point(176, 88);
-            txtPassword.Name = "txtPassword";
-            txtPassword.ReadOnly = true;
-            txtPassword.Size = new Size(200, 23);
-            txtPassword.TabIndex = 3;
+            cbbnguoicham.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbnguoicham.FormattingEnabled = true;
+            cbbnguoicham.Items.AddRange(new object[] { "Chọn người chấm", "Sinh viên", "Cố vấn", "Khoa", "Trường" });
+            cbbnguoicham.Location = new Point(176, 175);
+            cbbnguoicham.Name = "cbbnguoicham";
+            cbbnguoicham.Size = new Size(200, 23);
+            cbbnguoicham.TabIndex = 23;
             // 
-            // AddDotCham
+            // ThemDotCham
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(422, 490);
             ControlBox = false;
+            Controls.Add(cbbnguoicham);
+            Controls.Add(cbbnamhoc);
+            Controls.Add(cbbhocki);
             Controls.Add(comboBox1);
             Controls.Add(dtpCreatedAt);
             Controls.Add(label2);
@@ -224,16 +227,13 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             Controls.Add(dtpUpdatedAt);
             Controls.Add(lblUpdatedAt);
             Controls.Add(lblCreatedAt);
-            Controls.Add(txtRememberToken);
             Controls.Add(lblRememberToken);
-            Controls.Add(txtRole);
             Controls.Add(lblRole);
-            Controls.Add(txtPassword);
             Controls.Add(lblPassword);
             Controls.Add(txtId);
             Controls.Add(lblId);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            Name = "AddDotCham";
+            Name = "ThemDotCham";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Chi tiết tài khoản";
             ResumeLayout(false);
@@ -258,8 +258,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private DateTimePicker dtpCreatedAt;
         private ComboBox comboBox1;
-        private TextBox txtRememberToken;
-        private TextBox txtRole;
-        private TextBox txtPassword;
+        private ComboBox cbbhocki;
+        private ComboBox cbbnamhoc;
+        private ComboBox cbbnguoicham;
     }
 }
