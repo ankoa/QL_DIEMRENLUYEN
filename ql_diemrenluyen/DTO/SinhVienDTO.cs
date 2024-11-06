@@ -11,11 +11,12 @@
         private int chucVu;
         private DateTime? createdAt; // Thay đổi thành DateTime?
         private DateTime? updatedAt; // Thay đổi thành DateTime?
+        public int status { get; set; }
 
         // Constructor
         public SinhVienDTO() { }
 
-        public SinhVienDTO(long id, string name, DateTime ngaySinh, string email, int gioiTinh, long lopId, int chucVu, DateTime? createdAt, DateTime? updatedAt)
+        public SinhVienDTO(long id, string name, DateTime ngaySinh, string email, int gioiTinh, long lopId, int chucVu, DateTime? createdAt, DateTime? updatedAt, int status)
         {
             this.id = id;
             this.name = name;
@@ -26,6 +27,7 @@
             this.chucVu = chucVu;
             this.createdAt = createdAt;  // Gán giá trị
             this.updatedAt = updatedAt;  // Gán giá trị
+            this.status = status;
         }
 
         public String toStringGender()
@@ -44,5 +46,6 @@
         public int ChucVu { get { return chucVu; } set { chucVu = value; } }
         public DateTime? CreatedAt { get { return createdAt; } set { createdAt = value; } }  // Sử dụng DateTime? cho nullable
         public DateTime? UpdatedAt { get { return updatedAt; } set { updatedAt = value; } }  // Sử dụng DateTime? cho nullable
+
     }
 }

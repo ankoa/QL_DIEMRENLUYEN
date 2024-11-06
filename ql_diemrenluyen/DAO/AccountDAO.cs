@@ -51,6 +51,24 @@ namespace ql_diemrenluyen.DAO
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
 
+        // Thêm tài khoản mới khi thêm sinh viên
+        public static bool AddAccountSV(AccountDTO account)
+        {
+            string sql = $"INSERT INTO account (id, vaitro, password, remember_token, created_at, updated_at, status) " +
+                         $"VALUES (@id, @role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@id", account.Id);
+            cmd.Parameters.AddWithValue("@role", "Sinh viên");
+            cmd.Parameters.AddWithValue("@password", account.Password);
+            cmd.Parameters.AddWithValue("@rememberToken", null);
+            cmd.Parameters.AddWithValue("@createdAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@status", 1);
+
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+
         // Cập nhật thông tin tài khoản
         public static bool UpdateAccount(AccountDTO account)
         {

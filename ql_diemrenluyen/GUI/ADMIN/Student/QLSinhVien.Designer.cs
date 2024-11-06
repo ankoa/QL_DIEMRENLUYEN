@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLSinhVien));
             label1 = new Label();
             panel1 = new Panel();
+            btnThemSV = new Button();
             panel2 = new Panel();
             label2 = new Label();
             button2 = new Button();
@@ -43,7 +44,7 @@
             lop = new DataGridViewTextBoxColumn();
             khoa = new DataGridViewTextBoxColumn();
             btnXemTT = new DataGridViewButtonColumn();
-            btnXemDiem = new DataGridViewButtonColumn();
+            btnXoa = new DataGridViewButtonColumn();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridStudent).BeginInit();
@@ -65,6 +66,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLight;
+            panel1.Controls.Add(btnThemSV);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(button2);
@@ -77,6 +79,19 @@
             panel1.Size = new Size(1165, 493);
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
+            // 
+            // btnThemSV
+            // 
+            btnThemSV.BackColor = SystemColors.Highlight;
+            btnThemSV.Font = new Font("Segoe UI Emoji", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemSV.ForeColor = SystemColors.ControlLightLight;
+            btnThemSV.Location = new Point(806, 63);
+            btnThemSV.Name = "btnThemSV";
+            btnThemSV.Size = new Size(125, 40);
+            btnThemSV.TabIndex = 7;
+            btnThemSV.Text = "Thêm Sinh Viên";
+            btnThemSV.UseVisualStyleBackColor = false;
+            btnThemSV.Click += btnThemSV_Click;
             // 
             // panel2
             // 
@@ -94,7 +109,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(64, 68);
+            label2.Location = new Point(14, 65);
             label2.Name = "label2";
             label2.Size = new Size(230, 32);
             label2.TabIndex = 5;
@@ -105,21 +120,22 @@
             // 
             button2.BackColor = SystemColors.ButtonFace;
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(732, 68);
+            button2.Location = new Point(691, 64);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
             button2.Size = new Size(79, 38);
             button2.TabIndex = 4;
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // btnSearch
             // 
             btnSearch.BackColor = SystemColors.ButtonFace;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(683, 68);
+            btnSearch.Location = new Point(631, 65);
             btnSearch.Margin = new Padding(3, 2, 3, 2);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(45, 38);
+            btnSearch.Size = new Size(54, 37);
             btnSearch.TabIndex = 3;
             btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += button1_Click;
@@ -128,7 +144,7 @@
             // 
             textBox1.BackColor = SystemColors.ButtonFace;
             textBox1.Font = new Font("Segoe UI", 18F);
-            textBox1.Location = new Point(395, 68);
+            textBox1.Location = new Point(292, 65);
             textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(333, 39);
@@ -138,8 +154,9 @@
             // 
             // dataGridStudent
             // 
+            dataGridStudent.AllowUserToAddRows = false;
             dataGridStudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridStudent.Columns.AddRange(new DataGridViewColumn[] { maSV, Column1, gioiTinh, lop, khoa, btnXemTT, btnXemDiem });
+            dataGridStudent.Columns.AddRange(new DataGridViewColumn[] { maSV, Column1, gioiTinh, lop, khoa, btnXemTT, btnXoa });
             dataGridStudent.Location = new Point(14, 110);
             dataGridStudent.Margin = new Padding(3, 2, 3, 2);
             dataGridStudent.MultiSelect = false;
@@ -200,15 +217,15 @@
             btnXemTT.UseColumnTextForButtonValue = true;
             btnXemTT.Width = 125;
             // 
-            // btnXemDiem
+            // btnXoa
             // 
-            btnXemDiem.HeaderText = "Xem / Sửa điểm";
-            btnXemDiem.MinimumWidth = 6;
-            btnXemDiem.Name = "btnXemDiem";
-            btnXemDiem.ReadOnly = true;
-            btnXemDiem.Text = "Xem";
-            btnXemDiem.UseColumnTextForButtonValue = true;
-            btnXemDiem.Width = 125;
+            btnXoa.HeaderText = "Xóa";
+            btnXoa.MinimumWidth = 6;
+            btnXoa.Name = "btnXoa";
+            btnXoa.ReadOnly = true;
+            btnXoa.Text = "Xóa ";
+            btnXoa.UseColumnTextForButtonValue = true;
+            btnXoa.Width = 125;
             // 
             // QLSinhVien
             // 
@@ -237,12 +254,13 @@
         private Label label2;
         private Panel panel2;
         private DataGridView dataGridStudent;
+        private Button btnThemSV;
         private DataGridViewTextBoxColumn maSV;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn gioiTinh;
         private DataGridViewTextBoxColumn lop;
         private DataGridViewTextBoxColumn khoa;
         private DataGridViewButtonColumn btnXemTT;
-        private DataGridViewButtonColumn btnXemDiem;
+        private DataGridViewButtonColumn btnXoa;
     }
 }
