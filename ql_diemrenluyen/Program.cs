@@ -15,7 +15,7 @@ namespace ql_diemrenluyen
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new TaiKhoan());
-            Application.Run(new DotCham());
+            Application.Run(new TaiKhoan());
 
         }
     }

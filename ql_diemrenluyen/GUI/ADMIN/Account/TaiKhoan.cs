@@ -134,21 +134,31 @@ namespace ql_diemrenluyen.GUI.ADMIN
         {
             try
             {
-                string role = cbbRole.SelectedItem?.ToString() ?? "";
-                int status = cbbStatus.SelectedItem != null ? (cbbStatus.SelectedIndex == 0 ? 1 : 0) : 0; // Giá trị mặc định là 0
+                // Lấy vai trò từ cbbRole, chỉ lấy giá trị nếu không phải "Mặc định"
+                string role = cbbRole.SelectedItem?.ToString() == "Mặc định" ? "" : cbbRole.SelectedItem?.ToString();
+
+                // Lấy trạng thái từ cbbStatus
+                // 1 cho "Hoạt động", 0 cho "Không hoạt động", -1 nếu "Mặc định"
+                int status = cbbStatus.SelectedItem?.ToString() == "Mặc định" ? -1 :
+                             (cbbStatus.SelectedItem?.ToString() == "Hoạt động" ? 1 : 0);
+
+                // Lấy giá trị tìm kiếm từ ô txtSearch
                 string search = txtSearch.Text.Trim();
 
-                // Kiểm tra nếu ô tìm kiếm trống
-                if (string.IsNullOrEmpty(search))
+                // Kiểm tra nếu không có điều kiện nào được nhập, tải danh sách tài khoản mặc định
+                if (string.IsNullOrEmpty(role) && status == -1 && string.IsNullOrEmpty(search))
                 {
-                    // Nếu ô tìm kiếm trống, tải lại danh sách tài khoản mặc định
-                    LoadAccountList(tableTK); // Gọi phương thức tải danh sách tài khoản mặc định
-                    return; // Kết thúc phương thức
+                    LoadAccountList(tableTK);
+                    return;
                 }
 
+                // Gọi hàm SearchAccounts với các điều kiện phù hợp
                 List<AccountDTO> accounts = AccountBUS.SearchAccounts(role, status, search);
+
+                // Xóa các hàng cũ trong table
                 tableTK.Rows.Clear();
 
+                // Đổ dữ liệu vào bảng
                 foreach (var account in accounts)
                 {
                     tableTK.Rows.Add(
@@ -169,6 +179,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 MessageBox.Show("Lỗi khi tìm kiếm tài khoản: " + ex.Message);
             }
         }
+
+
+
 
 
 

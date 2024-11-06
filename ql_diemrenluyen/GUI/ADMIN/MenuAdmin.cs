@@ -14,6 +14,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         TaiKhoan form_taikhoan;
         AdminStudentTest form_student;
         Form1  form_TieuChi;
+        DotCham form_DotCham;
         private PictureBox loading;
 
         [DllImport("user32.dll")]
@@ -72,12 +73,12 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void MenuAdmin_Activated(object sender, EventArgs e)
         {
-           /* UpdateChildFormSize(); // Cập nhật kích thước khi cửa sổ được khôi phục*/
+            UpdateChildFormSize(); // Cập nhật kích thước khi cửa sổ được khôi phục
         }
 
         private void UpdateChildFormSize()
         {
-            /*// Tính toán kích thước còn lại của vùng MDI
+            // Tính toán kích thước còn lại của vùng MDI
             var clientSize = this.ClientSize;
 
             // Nếu có form_home, cập nhật kích thước
@@ -109,7 +110,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_student.Size = clientSize;
                 form_student.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
                 form_student.PerformLayout();
-            }*/
+            }
         }
 
         private void MenuAdmin_Load(object sender, EventArgs e)
@@ -147,7 +148,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         bool sideBarExpand = false;
 
-
+        //Thanh sidebar menu
         private void sideBarTransiton_Tick(object sender, EventArgs e)
         {
             int formMinWidth = 1200;
@@ -189,7 +190,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {/*
+        {
             ClearMdiForms();
 
             if (form_home == null)
@@ -207,7 +208,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             else
             {
                 form_home.Activate();
-            }*/
+            }
         }
 
         private void HomePage_FormClosed(object sender, EventArgs e)
@@ -293,9 +294,27 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void btnDotCham_Click(object sender, EventArgs e) // Nút đợt chấm
         {
-            // TODO: Thêm chức năng cho nút đợt chấm
-        }
+            ClearMdiForms();
 
+            if (form_DotCham == null)
+            {
+                form_DotCham = new DotCham();
+                form_DotCham.FormClosed += DotCham_FormClosed; // Gán sự kiện FormClosed cho form_DotCham
+                form_DotCham.FormBorderStyle = FormBorderStyle.None;
+                form_DotCham.ControlBox = false;
+                form_DotCham.MdiParent = this;
+                form_DotCham.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_DotCham.Show();
+            }
+            else
+            {
+                form_DotCham.Activate();
+            }
+        }
+        private void DotCham_FormClosed(object sender, EventArgs e)
+        {
+            form_DotCham = null; // Đặt form_DotCham về null khi form bị đóng
+        }
         private void btnClass_Click(object sender, EventArgs e) // Nút quản lý lớp
         {
             // TODO: Thêm chức năng cho nút quản lý lớp

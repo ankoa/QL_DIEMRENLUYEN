@@ -20,7 +20,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Student
             qLSinhVien.Dock = DockStyle.Fill;
             this.Controls.Add(qLSinhVien);
             this.ControlBox = false;
-            this.Dock = DockStyle.Fill;
+            //this.Dock = DockStyle.Fill;
         }
 
         private void AdminStudentTest_Load(object sender, EventArgs e)

@@ -121,29 +121,31 @@ namespace ql_diemrenluyen.DAO
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
         // Tìm kiếm tài khoản theo nhiều tiêu chí
-        public static List<AccountDTO> SearchAccounts(string role, int? status, string search)
+        public static List<AccountDTO> SearchAccounts(string role, int status, string search)
         {
             List<AccountDTO> accounts = new List<AccountDTO>();
 
             string sql = @"
-                SELECT * FROM account
-                WHERE
-                    (@role IS NULL OR vaitro = @role)
-                    AND (@status IS NULL OR status = @status)
-                    AND (
-                        id LIKE @search
-                        OR password LIKE @search
-                        OR remember_token LIKE @search
-                    )";
+        SELECT * FROM account
+        WHERE
+            (@role = '' OR vaitro = @role)
+            AND (@status = -1 OR status = @status)
+            AND (
+                id LIKE @search
+                OR vaitro LIKE @search
+            )";
 
             using (var cmd = new MySqlCommand(sql))
             {
-                cmd.Parameters.AddWithValue("@role", string.IsNullOrEmpty(role) ? (object)DBNull.Value : role);
-                cmd.Parameters.AddWithValue("@status", status.HasValue ? (object)status : DBNull.Value);
+                // Thêm giá trị cho các tham số truy vấn
+                cmd.Parameters.AddWithValue("@role", string.IsNullOrEmpty(role) ? "" : role);
+                cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@search", $"%{search}%");
 
+                // Sử dụng ExecuteReader để thực thi truy vấn và lấy kết quả
                 List<List<object>> result = DBConnection.ExecuteReader(cmd);
 
+                // Duyệt qua từng dòng kết quả và ánh xạ sang đối tượng `AccountDTO`
                 foreach (var row in result)
                 {
                     AccountDTO account = new AccountDTO
@@ -163,6 +165,9 @@ namespace ql_diemrenluyen.DAO
 
             return accounts;
         }
+
+
+
 
         public static void PrintAllAccounts()
         {

@@ -327,6 +327,7 @@
             btnDotCham.TabIndex = 3;
             btnDotCham.Text = "Đợt chấm";
             btnDotCham.UseVisualStyleBackColor = false;
+            btnDotCham.Click += btnDotCham_Click;
             // 
             // panel6
             // 

@@ -20,7 +20,7 @@ namespace QLDiemRenLuyen
                 this.dataGridStudent.Rows[index].Cells[3].Value = student.LopId;
                 this.dataGridStudent.Rows[index].Cells[4].Value = "Baqar";
             });
-
+            this.Dock = DockStyle.Fill;
             
             //dataGridStudent.DataSource = listStudent;
             //autoresize each column
