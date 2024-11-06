@@ -29,5 +29,14 @@ namespace ql_diemrenluyen.BUS
         {
             return GiangVienDAO.DeleteGiangVien(id);
         }
+        public static GiangVienDTO GetGiangVienById(long id)
+        {
+            return GiangVienDAO.GetGiangVienById(id);
+        }
+        public static List<GiangVienDTO> SearchGiangVien(string searchTerm)
+        {
+            return GiangVienDAO.SearchGiangVien(searchTerm);
+        }
+
     }
 }
