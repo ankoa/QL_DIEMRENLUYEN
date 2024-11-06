@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -201,24 +199,59 @@ namespace ql_diemrenluyen.DAO
                 var row = result[0];
                 string hashedPassword = Convert.ToString(row[2]);
 
-                // Kiểm tra mật khẩu đã mã hóa với mật khẩu người dùng nhập.
-                //if (BCrypt.Net.BCrypt.Verify(plainPassword, hashedPassword))
-                //{
-                return new AccountDTO
+                //Kiểm tra mật khẩu đã mã hóa với mật khẩu người dùng nhập.
+                if (BCrypt.Net.BCrypt.EnhancedVerify(plainPassword, hashedPassword))
                 {
-                    Id = Convert.ToInt64(row[0]),
-                    Role = Convert.ToString(row[1]),
-                    Password = hashedPassword,
-                    RememberToken = Convert.ToString(row[3]),
-                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
-                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
-                    Status = Convert.ToInt32(row[6])
-                };
-                //}
+                    return new AccountDTO
+                    {
+                        Id = Convert.ToInt64(row[0]),
+                        Role = Convert.ToString(row[1]),
+                        Password = hashedPassword,
+                        RememberToken = Convert.ToString(row[3]),
+                        CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
+                        UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
+                        Status = Convert.ToInt32(row[6])
+                    };
+                }
             }
 
             return null; // Trả về null nếu đăng nhập không thành công.
         }
+
+        //Đổi mật khẩu
+        public static bool ChangePassword(long userId, string newPassword)
+        {
+            try
+            {
+                // Hash mật khẩu mới
+                string newHashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(newPassword, 13);
+
+                // Cập nhật mật khẩu mới
+                string updateSql = "UPDATE account SET password = @newPassword, updated_at = @updatedAt WHERE id = @userId";
+                var updateCmd = new MySqlCommand(updateSql);
+                updateCmd.Parameters.AddWithValue("@newPassword", newHashedPassword);
+                updateCmd.Parameters.AddWithValue("@updatedAt", DateTime.Now);
+                updateCmd.Parameters.AddWithValue("@userId", userId);
+
+                int rowsAffected = DBConnection.ExecuteNonQuery(updateCmd);
+
+                if (rowsAffected > 0)
+                {
+                    return true; // Đổi mật khẩu thành công
+                }
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật mật khẩu");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
+                return false;
+            }
+        }
+
 
 
     }

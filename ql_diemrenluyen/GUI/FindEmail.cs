@@ -1,5 +1,6 @@
 ﻿using AuthService.Helper;
 using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.Helper;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
@@ -8,12 +9,16 @@ namespace ql_diemrenluyen.GUI
     public partial class FindEmail : Form
     {
         private bool isPasswordHidden = true;
+        private PictureBox loading;
         public FindEmail()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
             this.Region = new Region(CreateRoundedRectanglePath(this.ClientRectangle, 30));
+
+            // Khởi tạo PictureBox loading
+            loading = Loading.CreateLoadingControl(this);
         }
 
 
@@ -69,11 +74,13 @@ namespace ql_diemrenluyen.GUI
             }
             else
             {
-                pictureBox4.Visible = true;
+                //pictureBox4.Visible = true;
                 try
                 {
+                    Loading.ShowLoading(loading);
                     var codeReset = RNG.GenerateSixDigitNumber().ToString();
                     await SendMail.SendPasswordResetEmailAsync(username, codeReset);
+                    PasswordResetBUS.AddPasswordReset(username, codeReset);
                 }
                 catch (Exception ex)
                 {
@@ -81,15 +88,14 @@ namespace ql_diemrenluyen.GUI
                 }
                 finally
                 {
-                    pictureBox4.Visible = false;
+                    //pictureBox4.Visible = false;
+                    Loading.HideLoading(loading);
                     this.Dispose();  // Ẩn form hiện tại
-                                     // Chuyển sang OTPForm và truyền username
+                    // Chuyển sang OTPForm và truyền username
                     ResetPass otpForm = new ResetPass(account, accountType);
                     otpForm.Show();  // Hiển thị form mới
 
                 }
-
-
             }
         }
 

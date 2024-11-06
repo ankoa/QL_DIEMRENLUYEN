@@ -28,6 +28,12 @@
     <Compile Update="GUI\ADMIN\Student\TimKiemSinhVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="GUI\ADMIN\Teacher\GiangVienDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Teacher\QLGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\ADMIN\TieuChi\FormTieuChi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -36,6 +42,9 @@
     </Compile>
     <Compile Update="GUI\USER\Dashboard\Dashboard.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Util\Custom-DateTimePicker-WinForm-main\RJDatePicker.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Update="Util\RoundedPanelBase .cs">
       <SubType>Component</SubType>
