@@ -67,5 +67,10 @@ namespace ql_diemrenluyen
         {
             // Xử lý khi nội dung textbox thay đổi (nếu cần)
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

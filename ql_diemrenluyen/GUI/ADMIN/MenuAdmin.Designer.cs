@@ -238,6 +238,7 @@
             btnStudent.TabIndex = 3;
             btnStudent.Text = "Sinh viên";
             btnStudent.UseVisualStyleBackColor = false;
+            btnStudent.Click += btnStudent_Click;
             // 
             // panel5
             // 
@@ -356,6 +357,7 @@
             btnTieuChi.TabIndex = 3;
             btnTieuChi.Text = "             Tiêu chí đánh giá";
             btnTieuChi.UseVisualStyleBackColor = false;
+            btnTieuChi.Click += btnTieuChi_Click;
             // 
             // panel7
             // 

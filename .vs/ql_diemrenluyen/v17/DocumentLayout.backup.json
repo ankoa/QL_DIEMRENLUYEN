@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\Code\\cha\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\cha\\ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\cha\\ql_diemrenluyen\\dao\\passwordresetdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\passwordresetdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\cha\\ql_diemrenluyen\\bus\\passwordresetbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\passwordresetbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\cha\\ql_diemrenluyen\\bus\\dotchamdiembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\dotchamdiembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -67,6 +79,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MenuAdmin.cs",
+              "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "ToolTip": "D:\\Code\\cha\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T17:00:15.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PasswordResetDAO.cs",
+              "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\DAO\\PasswordResetDAO.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\PasswordResetDAO.cs",
+              "ToolTip": "D:\\Code\\cha\\ql_diemrenluyen\\DAO\\PasswordResetDAO.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\DAO\\PasswordResetDAO.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAxwFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T16:59:57.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PasswordResetBUS.cs",
+              "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\BUS\\PasswordResetBUS.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\PasswordResetBUS.cs",
+              "ToolTip": "D:\\Code\\cha\\ql_diemrenluyen\\BUS\\PasswordResetBUS.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\BUS\\PasswordResetBUS.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAIA9wCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T16:58:37.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "DotChamDiemBUS.cs",
               "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\BUS\\DotChamDiemBUS.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\DotChamDiemBUS.cs",
@@ -79,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "HocKyBUS.cs",
               "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\BUS\\HocKyBUS.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\HocKyBUS.cs",
@@ -91,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "HocKyDAO.cs",
               "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\DAO\\HocKyDAO.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\HocKyDAO.cs",
@@ -103,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ThemDotCham.cs",
               "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\ThemDotCham.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\ThemDotCham.cs",
@@ -116,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ThemDotCham.cs [Design]",
               "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\ThemDotCham.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\ThemDotCham.cs",
@@ -127,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "DotCham.cs",
               "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
@@ -140,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "DotCham.cs [Design]",
               "DocumentMoniker": "D:\\Code\\cha\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",

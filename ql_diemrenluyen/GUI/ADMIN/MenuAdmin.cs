@@ -20,6 +20,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
+        Form1 form_TieuChi;
+
         public MenuAdmin()
         {
             InitializeComponent();
@@ -67,12 +69,12 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void MenuAdmin_Activated(object sender, EventArgs e)
         {
-            UpdateChildFormSize(); // Cập nhật kích thước khi cửa sổ được khôi phục
+            /* UpdateChildFormSize(); // Cập nhật kích thước khi cửa sổ được khôi phục*/
         }
 
         private void UpdateChildFormSize()
         {
-            // Tính toán kích thước còn lại của vùng MDI
+            /*// Tính toán kích thước còn lại của vùng MDI
             var clientSize = this.ClientSize;
 
             // Nếu có form_home, cập nhật kích thước
@@ -98,6 +100,13 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_student.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
                 form_student.PerformLayout();
             }
+            // Nếu có form_student, cập nhật kích thước
+            if (form_student != null && !form_student.IsDisposed)
+            {
+                form_student.Size = clientSize;
+                form_student.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
+                form_student.PerformLayout();
+            }*/
         }
 
         private void MenuAdmin_Load(object sender, EventArgs e)
@@ -177,7 +186,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {/*
             ClearMdiForms();
 
             if (form_home == null)
@@ -195,7 +204,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             else
             {
                 form_home.Activate();
-            }
+            }*/
         }
 
         private void HomePage_FormClosed(object sender, EventArgs e)
@@ -253,9 +262,27 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         private void btnTieuChi_Click(object sender, EventArgs e) // Nút tiêu chí
         {
-            // TODO: Thêm chức năng cho nút tiêu chí
-        }
+            ClearMdiForms();
 
+            if (form_TieuChi == null)
+            {
+                form_TieuChi = new Form1();
+                form_TieuChi.FormClosed += FormTieuChi_FormClosed; // Gán sự kiện FormClosed cho form_TieuChi
+                form_TieuChi.FormBorderStyle = FormBorderStyle.None;
+                form_TieuChi.ControlBox = false;
+                form_TieuChi.MdiParent = this;
+                form_TieuChi.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_TieuChi.Show();
+            }
+            else
+            {
+                form_TieuChi.Activate();
+            }
+        }
+        private void FormTieuChi_FormClosed(object sender, EventArgs e)
+        {
+            form_TieuChi = null; // Đặt form_TieuChi về null khi form bị đóng
+        }
         private void btnGiangVien_Click(object sender, EventArgs e) // Nút quản lý giảng viên
         {
             // TODO: Thêm chức năng cho nút quản lý giảng viên
@@ -275,5 +302,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
         {
             // TODO: Thêm chức năng cho nút đăng xuất
         }
+
     }
 }
