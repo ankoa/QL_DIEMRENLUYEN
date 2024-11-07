@@ -28,6 +28,12 @@
     <Compile Update="GUI\ADMIN\Student\TimKiemSinhVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="GUI\ADMIN\Teacher\GiangVienDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Teacher\QLGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\ADMIN\TieuChi\FormTieuChi.cs">
       <SubType>Form</SubType>
     </Compile>

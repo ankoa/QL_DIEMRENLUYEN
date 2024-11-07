@@ -50,6 +50,8 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_di
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.QLSinhVien.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThongTinhSinhVien.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.TimKiemSinhVien.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Teacher.GiangVienDetailForm.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.QLGiangVien.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TieuChi.FormTieuChi.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ChangePassword.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.CreateNewPass.resources
