@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ql_diemrenluyen.DTO
+﻿namespace ql_diemrenluyen.DTO
 {
     public class DotChamDiemDTO
     {
@@ -13,19 +7,21 @@ namespace ql_diemrenluyen.DTO
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Name { get; set; }
+        public int Status { get; set; }
 
         // Constructor
-        public DotChamDiemDTO(int id, int hocKiId, DateTime startDate, DateTime endDate, string name)
+        public DotChamDiemDTO(int id, int hocKiId, DateTime startDate, DateTime endDate, string name, int status)
         {
             Id = id;
             HocKiId = hocKiId;
             StartDate = startDate;
             EndDate = endDate;
             Name = name;
+            Status = status;
         }
         public DotChamDiemDTO()
         {
-            
+
         }
     }
 }

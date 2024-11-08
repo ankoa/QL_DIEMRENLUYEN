@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ql_diemrenluyen.Helper;
 using System.Runtime.InteropServices;
+
 namespace ql_diemrenluyen.GUI.ADMIN
 {
     public partial class MenuAdmin : Form
@@ -15,6 +16,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         AdminStudentTest form_student;
         Form1  form_TieuChi;
         DotCham form_DotCham;
+
         private PictureBox loading;
 
         [DllImport("user32.dll")]
@@ -25,6 +27,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
+
 
         public MenuAdmin()
         {
@@ -73,7 +76,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void MenuAdmin_Activated(object sender, EventArgs e)
         {
+
             UpdateChildFormSize(); // Cập nhật kích thước khi cửa sổ được khôi phục
+
         }
 
         private void UpdateChildFormSize()

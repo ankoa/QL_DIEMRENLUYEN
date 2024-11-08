@@ -273,6 +273,16 @@ namespace ql_diemrenluyen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reset_14435 {
+            get {
+                object obj = ResourceManager.GetObject("reset-14435", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Rolling_1x_1_0s_200px_200px {
             get {
                 object obj = ResourceManager.GetObject("Rolling@1x-1.0s-200px-200px", resourceCulture);

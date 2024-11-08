@@ -68,7 +68,7 @@ namespace ql_diemrenluyen.DAO
         public static List<string> GetAllNamHoc()
         {
             List<string> namhoc = new List<string>();
-            string sql = "SELECT DISTINCT(namhoc) FROM hocky";
+            string sql = "SELECT DISTINCT namhoc \r\nFROM hocky\r\nORDER BY namhoc ASC;\r\n";
 
             List<List<object>> result = DBConnection.ExecuteReader(sql);
 
@@ -78,6 +78,31 @@ namespace ql_diemrenluyen.DAO
             }
 
             return namhoc;
+        }
+
+        // Lấy học kỳ theo tên và năm học
+        public static HocKyDTO GetHocKyByNameAndYear(string name, int namhoc)
+        {
+            string sql = "SELECT * FROM hocky WHERE Name = @name AND namhoc = @namhoc";
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@namhoc", namhoc);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0)
+            {
+                var row = result[0];
+                HocKyDTO hocKy = new HocKyDTO
+                {
+                    Id = Convert.ToInt32(row[0]),
+                    Name = Convert.ToString(row[1]),
+                    namhoc = Convert.ToInt32(row[2]),
+                };
+                return hocKy;
+            }
+
+            return null;
         }
 
     }

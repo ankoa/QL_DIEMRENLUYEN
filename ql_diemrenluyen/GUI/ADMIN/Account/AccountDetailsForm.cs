@@ -51,7 +51,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             comboBox1.SelectedItem = status;
 
             dtpCreatedAt.Enabled = false; // Chỉ cho phép chọn trường CreatedAt
-            txtPassword.ReadOnly = false; // Cho phép chỉnh sửa trường mật khẩu
             comboBox1.Enabled = true; // Cho phép chọn trạng thái
 
             // Lưu ID của tài khoản hiện tại để sử dụng khi cập nhật
