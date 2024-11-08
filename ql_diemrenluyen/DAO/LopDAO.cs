@@ -33,6 +33,34 @@ namespace ql_diemrenluyen.DAO
             return lopList;
         }
 
+        // Lấy đối tượng lớp từ ID của lớp
+        public static LopDTO GetLopByID(long idLop)
+        {
+            string sql = "select * from lop where lop.id= @idLop"; // Câu lệnh SQL
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@idLop", idLop);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0)
+            {
+                List<object> row = result[0];
+                LopDTO lop = new LopDTO
+                {
+                    Id = Convert.ToInt64(row[0]),
+                    TenLop = Convert.ToString(row[1]),
+                    KhoaId = Convert.ToInt64(row[2]),
+                    HeDaoTao = Convert.ToInt32(row[3]),
+                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
+                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null
+
+                };
+                return lop;
+            }
+           
+            return null;
+        }
+
         // Thêm lớp mới
         public static bool AddLop(LopDTO lop)
         {

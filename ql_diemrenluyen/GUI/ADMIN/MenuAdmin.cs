@@ -14,7 +14,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
         HomePage form_home;
         TaiKhoan form_taikhoan;
         AdminStudentTest form_student;
-        Form1  form_TieuChi;
         DotCham form_DotCham;
 
         private PictureBox loading;
@@ -253,7 +252,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             if (form_student == null)
             {
                 form_student = new AdminStudentTest();
-                form_student.FormClosed += TaiKhoan_FormClosed;
+                form_student.FormClosed += AdminStudentTest_FormClosed;
                 form_student.FormBorderStyle = FormBorderStyle.None;
                 form_student.ControlBox = false;
                 form_student.MdiParent = this;
@@ -270,7 +269,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             form_student = null; // Đặt biến thành null khi form bị đóng
         }
         private void btnTieuChi_Click(object sender, EventArgs e) // Nút tiêu chí
-        {
+        {/*
             ClearMdiForms();
 
             if (form_TieuChi == null)
@@ -286,11 +285,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             else
             {
                 form_TieuChi.Activate();
-            }
+            }*/
         }
         private void FormTieuChi_FormClosed(object sender, EventArgs e)
         {
-            form_TieuChi = null; // Đặt form_TieuChi về null khi form bị đóng
+            /*form_TieuChi = null; // Đặt form_TieuChi về null khi form bị đóng*/
         }
         private void btnGiangVien_Click(object sender, EventArgs e) // Nút quản lý giảng viên
         {

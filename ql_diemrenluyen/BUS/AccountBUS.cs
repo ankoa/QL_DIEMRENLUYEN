@@ -35,6 +35,12 @@ namespace ql_diemrenluyen.BUS
             }
         }
 
+        // Thêm tài khoản mới khi thêm sinh viên
+        public static bool AddAccountSV(AccountDTO account)
+        {
+            return AccountDAO.AddAccountSV(account);
+        }
+
         // Cập nhật thông tin tài khoản
         public static bool UpdateAccount(AccountDTO account)
         {

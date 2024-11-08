@@ -11,7 +11,7 @@ namespace ql_diemrenluyen.DAO
         private static MySqlConnection conn;
 
         // Mở kết nối
-        private static bool Open()
+        public static bool Open()
         {
             try
             {

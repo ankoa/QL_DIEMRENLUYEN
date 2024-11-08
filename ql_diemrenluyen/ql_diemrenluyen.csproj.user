@@ -7,9 +7,6 @@
     <Compile Update="GUI\ADMIN\Account\TaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\ADMIN\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="GUI\ADMIN\HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -37,6 +34,21 @@
     <Compile Update="GUI\ADMIN\TieuChi\FormTieuChi.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\ADMIN\Student\AdminStudentTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\QLSinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\ThongTinhSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\TimKiemSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -51,6 +63,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="GUI\ADMIN\Student\QLSinhVien.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

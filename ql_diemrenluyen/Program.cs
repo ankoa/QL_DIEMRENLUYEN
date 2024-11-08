@@ -1,4 +1,6 @@
-﻿using ql_diemrenluyen.GUI.ADMIN;
+using ql_diemrenluyen.GUI;
+using ql_diemrenluyen.GUI.ADMIN;
+using ql_diemrenluyen.GUI.ADMIN.Student;
 
 namespace ql_diemrenluyen
 {
@@ -6,6 +8,7 @@ namespace ql_diemrenluyen
     {
         public static string nguoidung_id = "1";
         public static string role = "Cố vấn";
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -15,10 +18,7 @@ namespace ql_diemrenluyen
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new TaiKhoan());
-            //MessageBox.Show(DotChamDiemBUS.TimKiemDotChamDiem("1", null, "Khoa", null, null).Count().ToString());
-            Application.Run(new TaiKhoan());
-
+            Application.Run(new Form1()); // or Application.Run(new AdminStudentTest());
         }
     }
 }
