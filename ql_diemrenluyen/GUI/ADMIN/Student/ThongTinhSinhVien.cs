@@ -27,6 +27,8 @@ namespace QLDiemRenLuyen
         public ThongTinhSinhVien(List<SinhVienDTO> listStudent)
         {
             InitializeComponent();
+            dPNgaySinh.MaxDate = DateTime.Today.AddYears(-18);
+            dPNgaySinh.MinDate = DateTime.Today.AddYears(-25);
             this.listStudent = listStudent;
             txtMaSV.ReadOnly = false;
             Dictionary<string, long> dict1 = new Dictionary<string, long>()
@@ -148,8 +150,8 @@ namespace QLDiemRenLuyen
             foreach (SinhVienDTO sinhVien in this.listStudent)
             {
                 if (sinhVien.Email.Equals(email))
-                    if (sinhVienEdit==null)       //Nếu là thêm sinh viên 
-                         return true;
+                    if (sinhVienEdit == null)       //Nếu là thêm sinh viên 
+                        return true;
                     else                       //Nếu là sửa sinh viên
                     {
                         if (sinhVienEdit.Email.Equals(email) == false) return true;       // Nếu email được sửa lại trùng với email đã có và không phải là email trước khi sửa 
@@ -202,7 +204,7 @@ namespace QLDiemRenLuyen
             }
             else
             {
-                if ((sinhVienEdit==null)&(checkExistMaSV(long.Parse(txtMaSV.Text.Trim()))==true))        // Nếu là Thêm và mã sinh viên có tồn tại
+                if ((sinhVienEdit == null) & (checkExistMaSV(long.Parse(txtMaSV.Text.Trim())) == true))        // Nếu là Thêm và mã sinh viên có tồn tại
                 {
                     MessageBox.Show("Mã số sinh viên tồn tại trong hệ thống ");
                     return;
@@ -255,7 +257,7 @@ namespace QLDiemRenLuyen
 
 
 
-            Boolean status=false;
+            Boolean status = false;
             if (sinhVienEdit == null)              // Nếu là thêm mới sinh viên
             {
                 status = SinhVienBUS.AddStudent(sinhVienAction);
@@ -268,12 +270,12 @@ namespace QLDiemRenLuyen
             }
             else
             {
-                status=SinhVienBUS.UpdateStudent(sinhVienAction);
+                status = SinhVienBUS.UpdateStudent(sinhVienAction);
             }
             if (status == true)
-            MessageBox.Show(btnThem.Text + " thông tin sinh viên thành công !");
+                MessageBox.Show(btnThem.Text + " thông tin sinh viên thành công !");
             else
-            MessageBox.Show(btnThem.Text + " thông tin sinh viên không thành công !");
+                MessageBox.Show(btnThem.Text + " thông tin sinh viên không thành công !");
             this.Dispose();
         }
 
@@ -283,6 +285,16 @@ namespace QLDiemRenLuyen
             {
                 e.Handled = true; // Ngăn không cho ký tự không hợp lệ được nhập vào
             }
+        }
+
+        private void ThongTinhSinhVien_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
