@@ -19,6 +19,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Student
             QLSinhVien qLSinhVien = new QLSinhVien();
             qLSinhVien.Dock = DockStyle.Fill;
             this.Controls.Add(qLSinhVien);
+            this.FormBorderStyle = FormBorderStyle.None;
             this.ControlBox = false;
             //this.Dock = DockStyle.Fill;
         }
@@ -26,6 +27,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Student
         private void AdminStudentTest_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+
             this.Dock = DockStyle.Fill;
             this.ControlBox = false;
 

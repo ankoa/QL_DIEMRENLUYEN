@@ -298,6 +298,7 @@
             btnGiangVien.TabIndex = 3;
             btnGiangVien.Text = "Giảng viên";
             btnGiangVien.UseVisualStyleBackColor = false;
+            btnGiangVien.Click += btnGiangVien_Click;
             // 
             // panel8
             // 

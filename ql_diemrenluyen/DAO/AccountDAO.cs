@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
+using System.Data;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -18,7 +19,7 @@ namespace ql_diemrenluyen.DAO
                 AccountDTO account = new AccountDTO
                 {
                     Id = Convert.ToInt64(row[0]), // id
-                    Role = Convert.ToString(row[1]), // vaitro
+                    Role = Convert.ToInt32(row[1]), // vaitro: Chuyển thành int
                     Password = Convert.ToString(row[2]), // password
                     RememberToken = row[3] != DBNull.Value ? Convert.ToString(row[3]) : null, // remember_token
                     CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // created_at
@@ -31,6 +32,7 @@ namespace ql_diemrenluyen.DAO
 
             return accounts;
         }
+
 
         ////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
         ////AIzaSyCh9ySK3dqjXAvbWZ-rcukKsjY5oBuCar8
@@ -60,7 +62,6 @@ namespace ql_diemrenluyen.DAO
 
         public static bool AddAccount(AccountDTO account)
         {
-
             try
             {
                 string sql = "INSERT INTO account (vaitro, password, remember_token, created_at, updated_at, status) " +
@@ -70,7 +71,7 @@ namespace ql_diemrenluyen.DAO
 
                 using (var cmd = new MySqlCommand(sql))
                 {
-                    cmd.Parameters.AddWithValue("@role", account.Role);
+                    cmd.Parameters.AddWithValue("@role", account.Role); // role là int
                     cmd.Parameters.AddWithValue("@password", hashedPassword);
                     cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken ?? (object)DBNull.Value); // Handle null
                     cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt ?? DateTime.Now); // Set default if null
@@ -89,6 +90,7 @@ namespace ql_diemrenluyen.DAO
                 return false;
             }
         }
+
 
 
         // Thêm tài khoản mới khi thêm sinh viên
@@ -117,7 +119,7 @@ namespace ql_diemrenluyen.DAO
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", account.Id);
-            cmd.Parameters.AddWithValue("@role", account.Role);
+            cmd.Parameters.AddWithValue("@role", account.Role); // role là int
             cmd.Parameters.AddWithValue("@password", account.Password);
             cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken);
             cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt);
@@ -139,28 +141,27 @@ namespace ql_diemrenluyen.DAO
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
         // Tìm kiếm tài khoản theo nhiều tiêu chí
-        public static List<AccountDTO> SearchAccounts(string role, int status, string search)
+        public static List<AccountDTO> SearchAccounts(int vaitro, int status, string search)
         {
             List<AccountDTO> accounts = new List<AccountDTO>();
-
+            // Câu truy vấn SQL: tìm kiếm theo vaitro, status, và search trên id hoặc vaitro
             string sql = @"
-        SELECT * FROM account
-        WHERE
-            (@role = '' OR vaitro = @role)
-            AND (@status = -1 OR status = @status)
-            AND (
-                id LIKE @search
-                OR vaitro LIKE @search
-            )";
+SELECT * FROM account
+WHERE
+    (@vaitro IS NULL OR vaitro = @vaitro)
+    AND (@status IS NULL OR status = @status)
+    AND (@search IS NULL OR password LIKE CONCAT('%', @search, '%') OR id LIKE CONCAT('%', @search, '%'))";
 
-            using (var cmd = new MySqlCommand(sql))
+            // Khởi tạo kết nối và câu lệnh SQL
+            MySqlCommand cmd = new MySqlCommand(sql);
+            try
             {
-                // Thêm giá trị cho các tham số truy vấn
-                cmd.Parameters.AddWithValue("@role", string.IsNullOrEmpty(role) ? "" : role);
-                cmd.Parameters.AddWithValue("@status", status);
-                cmd.Parameters.AddWithValue("@search", $"%{search}%");
+                // Thêm các tham số vào câu lệnh SQL
+                cmd.Parameters.AddWithValue("@vaitro", vaitro == -1 ? (object)DBNull.Value : vaitro);
+                cmd.Parameters.AddWithValue("@status", status == -1 ? (object)DBNull.Value : status);
+                cmd.Parameters.AddWithValue("@search", string.IsNullOrEmpty(search) ? (object)DBNull.Value : $"%{search}%");
 
-                // Sử dụng ExecuteReader để thực thi truy vấn và lấy kết quả
+                // Sử dụng phương thức ExecuteReader từ DBConnection để thực thi truy vấn và lấy kết quả
                 List<List<object>> result = DBConnection.ExecuteReader(cmd);
 
                 // Duyệt qua từng dòng kết quả và ánh xạ sang đối tượng `AccountDTO`
@@ -169,7 +170,7 @@ namespace ql_diemrenluyen.DAO
                     AccountDTO account = new AccountDTO
                     {
                         Id = Convert.ToInt64(row[0]), // id
-                        Role = Convert.ToString(row[1]), // vaitro
+                        Role = Convert.ToInt32(row[1]), // vaitro
                         Password = Convert.ToString(row[2]), // password
                         RememberToken = row[3] != DBNull.Value ? Convert.ToString(row[3]) : null, // remember_token
                         CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // created_at
@@ -180,9 +181,25 @@ namespace ql_diemrenluyen.DAO
                     accounts.Add(account);
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi tìm kiếm tài khoản: " + ex.Message);
+            }
+            finally
+            {
+                // Đóng kết nối và giải phóng tài nguyên
+                if (cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+                cmd.Dispose();
+            }
 
             return accounts;
         }
+
+
+
 
 
 
@@ -228,7 +245,7 @@ namespace ql_diemrenluyen.DAO
                     return new AccountDTO
                     {
                         Id = Convert.ToInt64(row[0]),
-                        Role = Convert.ToString(row[1]),
+                        Role = Convert.ToInt32(row[1]), // role là int
                         Password = hashedPassword,
                         RememberToken = Convert.ToString(row[3]),
                         CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
@@ -240,6 +257,7 @@ namespace ql_diemrenluyen.DAO
 
             return null; // Trả về null nếu đăng nhập không thành công.
         }
+
 
         //Đổi mật khẩu
         public static bool ChangePassword(long userId, string newPassword)
