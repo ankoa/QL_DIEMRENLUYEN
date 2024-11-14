@@ -1,6 +1,4 @@
-using ql_diemrenluyen.GUI;
 using ql_diemrenluyen.GUI.ADMIN;
-using ql_diemrenluyen.GUI.ADMIN.Student;
 
 namespace ql_diemrenluyen
 {

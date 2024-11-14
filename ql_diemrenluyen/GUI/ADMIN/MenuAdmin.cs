@@ -1,12 +1,8 @@
-﻿using ql_diemrenluyen.GUI.ADMIN.Student;
+﻿using ql_diemrenluyen.GUI.ADMIN.KhoaLop;
+using ql_diemrenluyen.GUI.ADMIN.Student;
 using ql_diemrenluyen.GUI.ADMIN.TieuChi;
-using System;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 using ql_diemrenluyen.Helper;
 using System.Runtime.InteropServices;
-using ql_diemrenluyen.GUI.ADMIN.KhoaLop;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
@@ -35,8 +31,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         {
             InitializeComponent();
             //mdiProp();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.ControlBox = false;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.ControlBox = false;
             //this.Resize += MenuAdmin_Resize;
             this.WindowState = FormWindowState.Maximized;
             this.Activated += MenuAdmin_Activated; // Thêm sự kiện Activated
@@ -45,13 +41,14 @@ namespace ql_diemrenluyen.GUI.ADMIN
             loading = Loading.CreateLoadingControl(this);
         }
 
+
+
+        // Hàm để di chuyển form khi người dùng nhấn và kéo
         private void Form_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                // Giải phóng chuột để form nhận sự kiện kéo
                 ReleaseCapture();
-                // Gửi thông báo kéo form đến Windows
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
@@ -122,7 +119,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
-            sidebar.Width = 99;
+            sidebar.Width = 300;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -153,7 +150,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             }
         }
 
-        bool sideBarExpand = false;
+        bool sideBarExpand = true;
 
         //Thanh sidebar menu
         private void sideBarTransiton_Tick(object sender, EventArgs e)
@@ -227,20 +224,38 @@ namespace ql_diemrenluyen.GUI.ADMIN
         {
             ClearMdiForms();
 
-            if (form_taikhoan == null)
+            // Tạo loading animation
+            var loading = Loading.CreateLoadingControl(this);
+            Helper.Loading.ShowLoading(loading);
+
+            Task.Run(() =>
             {
-                form_taikhoan = new TaiKhoan();
-                form_taikhoan.FormClosed += TaiKhoan_FormClosed;
-                form_taikhoan.FormBorderStyle = FormBorderStyle.None;
-                form_taikhoan.ControlBox = false;
-                form_taikhoan.MdiParent = this;
-                form_taikhoan.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
-                form_taikhoan.Show();
-            }
-            else
-            {
-                form_taikhoan.Activate();
-            }
+                if (form_taikhoan == null)
+                {
+                    form_taikhoan = new TaiKhoan();
+                    // Tạo form tài khoản trên UI thread
+                    this.Invoke(new Action(() =>
+                    {
+
+                        form_taikhoan.FormClosed += TaiKhoan_FormClosed;
+                        form_taikhoan.FormBorderStyle = FormBorderStyle.None;
+                        form_taikhoan.ControlBox = false;
+                        form_taikhoan.MdiParent = this;
+                        form_taikhoan.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                        form_taikhoan.Show();
+
+                        Loading.HideLoading(loading); // Ẩn loading sau khi form hiển thị
+                    }));
+                }
+                else
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        form_taikhoan.Activate();
+                        Loading.HideLoading(loading); // Ẩn loading nếu form đã tồn tại
+                    }));
+                }
+            });
         }
 
         private void TaiKhoan_FormClosed(object sender, EventArgs e)
@@ -259,7 +274,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_student.FormBorderStyle = FormBorderStyle.None;
                 form_student.ControlBox = false;
                 form_student.MdiParent = this;
-                form_student.Dock = DockStyle.Fill; 
+                form_student.Dock = DockStyle.Fill;
                 form_student.Show();
             }
             else

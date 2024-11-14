@@ -104,7 +104,7 @@
             label1.ForeColor = Color.RoyalBlue;
             label1.Location = new Point(110, 28);
             label1.Name = "label1";
-            label1.Size = new Size(634, 38);
+            label1.Size = new Size(495, 30);
             label1.TabIndex = 2;
             label1.Text = "PHẦN MỀM QUẢN LÝ CHẤM ĐIỂM RÈN LUYỆN";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -404,12 +404,14 @@
             ClientSize = new Size(1600, 839);
             Controls.Add(sidebar);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             IsMdiContainer = true;
             Name = "MenuAdmin";
             SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuAdmin";
             Load += MenuAdmin_Load;
+            MouseDown += Form_MouseDown;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnHam).EndInit();

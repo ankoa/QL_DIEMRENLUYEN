@@ -11,11 +11,56 @@ namespace ql_diemrenluyen.DAO
         private static MySqlConnection conn;
 
         // Mở kết nối
+        //mysql://qldiemrenluyen_luckcannot:5b5da6800d9ca2e6965a15512aa00a8d8ff3216c@r3qqk.h.filess.io:3307/qldiemrenluyen_luckcannot
+        //private static readonly string uri = "mysql://qldiemrenluyen_luckcannot:5b5da6800d9ca2e6965a15512aa00a8d8ff3216c@r3qqk.h.filess.io:3307/qldiemrenluyen_luckcannot";
+        //private static MySqlConnection conn;
+
+        //// Mở kết nối
+        //public static bool Open()
+        //{
+        //    try
+        //    {
+        //        // Tách chuỗi URI thành các thành phần cấu hình
+        //        var builder = new MySqlConnectionStringBuilder
+        //        {
+        //            Server = "r3qqk.h.filess.io",
+        //            Database = "qldiemrenluyen_luckcannot",
+        //            UserID = "qldiemrenluyen_luckcannot",
+        //            Password = "5b5da6800d9ca2e6965a15512aa00a8d8ff3216c",
+        //            Port = 3307,
+        //            AllowPublicKeyRetrieval = true, // Cho phép lấy khóa công khai
+        //            SslMode = MySqlSslMode.None      // Tùy chọn SSL nếu cần
+        //        };
+
+        //        conn = new MySqlConnection(builder.ConnectionString);
+        //        conn.Open();
+        //        return true;
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        Console.WriteLine("Error opening connection: " + ex.Message);
+        //        return false;
+        //    }
+        //}
+
+        //// Đóng kết nối
+        //private static void Close()
+        //{
+        //    try
+        //    {
+        //        conn?.Close();
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        Console.WriteLine("Error closing connection: " + ex.Message);
+        //    }
+        //}
+
         public static bool Open()
         {
             try
             {
-                string connstring = $"Server={server}; Database={database}; UID={user}; Password={password}; Port=3307; Convert Zero Datetime = true";
+                string connstring = $"Server={server}; Database={database}; UID={user}; Password={password}; Port=3306; Convert Zero Datetime = true";
                 conn = new MySqlConnection(connstring);
                 conn.Open();
                 return true;
