@@ -10,6 +10,36 @@
     <Compile Update="GUI\ADMIN\HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\AddHeHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\AddKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\AddLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\QuanLyKhoaLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UpdateHeHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UpdateKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UpdateLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UserControl3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="GUI\ADMIN\MenuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -10,13 +10,15 @@ namespace ql_diemrenluyen.DTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int status { get; set; }
 
         public HeHocDTO() { }
 
-        public HeHocDTO(int id, string name)
+        public HeHocDTO(int id, string name, int status)
         {
             this.Id = id;
             this.Name = name;
+            this.status = status;
         }
     }
 }

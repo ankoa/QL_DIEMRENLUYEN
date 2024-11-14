@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ql_diemrenluyen.Helper;
 using System.Runtime.InteropServices;
+using ql_diemrenluyen.GUI.ADMIN.KhoaLop;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
@@ -17,6 +18,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         DotCham form_DotCham;
         FormTieuChi form_TieuChi;
         QLGiangVien form_GiangVien;
+        QuanLyKhoaLop form_QuanLyKhoaLop;
         private PictureBox loading;
 
         [DllImport("user32.dll")]
@@ -340,9 +342,27 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         private void btnClass_Click(object sender, EventArgs e) // Nút quản lý lớp
         {
-            // TODO: Thêm chức năng cho nút quản lý lớp
-        }
+            ClearMdiForms();
 
+            if (form_QuanLyKhoaLop == null)
+            {
+                form_QuanLyKhoaLop = new QuanLyKhoaLop();
+                form_QuanLyKhoaLop.FormClosed += QuanLyKhoaLop_FormClosed; // Gán sự kiện FormClosed cho form_QuanLyKhoaLop
+                form_QuanLyKhoaLop.FormBorderStyle = FormBorderStyle.None;
+                form_QuanLyKhoaLop.ControlBox = false;
+                form_QuanLyKhoaLop.MdiParent = this;
+                form_QuanLyKhoaLop.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_QuanLyKhoaLop.Show();
+            }
+            else
+            {
+                form_QuanLyKhoaLop.Activate();
+            }
+        }
+        private void QuanLyKhoaLop_FormClosed(object sender, EventArgs e)
+        {
+            form_QuanLyKhoaLop = null; // Đặt form_DotCham về null khi form bị đóng
+        }
         private void btnLogOut_Click(object sender, EventArgs e) // Nút đăng xuất
         {
             // TODO: Thêm chức năng cho nút đăng xuất

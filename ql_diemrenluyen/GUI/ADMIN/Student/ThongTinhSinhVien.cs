@@ -59,7 +59,7 @@ namespace QLDiemRenLuyen
             cBGioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
 
             var dataSource = new List<LopDTO>();
-            dataSource = LopBUS.GetAllLop();
+            dataSource = LopBUS.getAllLop();
             cBLop.DataSource = dataSource;
             cBLop.DisplayMember = "TenLop";
             cBLop.ValueMember = "Id";
@@ -122,7 +122,7 @@ namespace QLDiemRenLuyen
             cBGioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
 
             var dataSource = new List<LopDTO>();
-            dataSource = LopBUS.GetAllLop();
+            dataSource = LopBUS.getAllLop();
             cBLop.DataSource = dataSource;
             cBLop.DisplayMember = "TenLop";
             cBLop.ValueMember = "Id";

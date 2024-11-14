@@ -34,7 +34,7 @@ namespace QLDiemRenLuyen
             LopDTO lopTatCa = new LopDTO();
             lopTatCa.Id = -1;
             lopTatCa.TenLop = "Tất cả";
-            listLop = LopBUS.GetAllLop();
+            listLop = LopBUS.getAllLop();
             listLop.Insert(0, lopTatCa);
             dataSource = listLop;
             cBLop.DataSource = dataSource;

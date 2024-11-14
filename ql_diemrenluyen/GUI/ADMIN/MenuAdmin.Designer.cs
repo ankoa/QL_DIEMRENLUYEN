@@ -268,6 +268,7 @@
             btnClass.TabIndex = 3;
             btnClass.Text = "Khoa, lớp";
             btnClass.UseVisualStyleBackColor = false;
+            btnClass.Click += btnClass_Click;
             // 
             // panel9
             // 

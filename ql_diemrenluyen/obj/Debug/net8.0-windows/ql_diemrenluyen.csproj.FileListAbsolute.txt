@@ -6,6 +6,16 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_di
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.DotCham.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.ThemDotCham.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.HomePage.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddHeHoc.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddKhoa.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddLop.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.QuanLyKhoaLop.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateHeHoc.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateKhoa.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateLop.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl1.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl2.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl3.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.MenuAdmin.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Student.AdminStudentTest.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.QLSinhVien.resources

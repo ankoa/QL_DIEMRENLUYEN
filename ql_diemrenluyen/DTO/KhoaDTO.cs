@@ -12,15 +12,17 @@ namespace ql_diemrenluyen.DTO
         public string TenKhoa { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        public int status { get; set; }
 
         public KhoaDTO() { }
 
-        public KhoaDTO(long id, string tenKhoa, DateTime? createdAt, DateTime? updatedAt)
+        public KhoaDTO(long id, string tenKhoa, DateTime? createdAt, DateTime? updatedAt, int status)
         {
             this.Id = id;
             this.TenKhoa = tenKhoa;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
+            this.status = status;
         }
     }
 }
