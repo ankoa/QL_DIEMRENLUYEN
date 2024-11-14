@@ -1,6 +1,12 @@
 ﻿using ql_diemrenluyen.GUI.ADMIN.Student;
+using ql_diemrenluyen.GUI.ADMIN.TieuChi;
+using System;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 using ql_diemrenluyen.Helper;
 using System.Runtime.InteropServices;
+using ql_diemrenluyen.GUI.ADMIN.KhoaLop;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
@@ -9,6 +15,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
         HomePage form_home;
         TaiKhoan form_taikhoan;
         AdminStudentTest form_student;
+        DotCham form_DotCham;
+        FormTieuChi form_TieuChi;
+        QLGiangVien form_GiangVien;
+        QuanLyKhoaLop form_QuanLyKhoaLop;
         private PictureBox loading;
 
         [DllImport("user32.dll")]
@@ -20,7 +30,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
-        Form1 form_TieuChi;
 
         public MenuAdmin()
         {
@@ -69,12 +78,14 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void MenuAdmin_Activated(object sender, EventArgs e)
         {
-            /* UpdateChildFormSize(); // Cập nhật kích thước khi cửa sổ được khôi phục*/
+
+            UpdateChildFormSize(); // Cập nhật kích thước khi cửa sổ được khôi phục
+
         }
 
         private void UpdateChildFormSize()
         {
-            /*// Tính toán kích thước còn lại của vùng MDI
+            // Tính toán kích thước còn lại của vùng MDI
             var clientSize = this.ClientSize;
 
             // Nếu có form_home, cập nhật kích thước
@@ -106,7 +117,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_student.Size = clientSize;
                 form_student.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
                 form_student.PerformLayout();
-            }*/
+            }
         }
 
         private void MenuAdmin_Load(object sender, EventArgs e)
@@ -144,7 +155,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         bool sideBarExpand = false;
 
-
+        //Thanh sidebar menu
         private void sideBarTransiton_Tick(object sender, EventArgs e)
         {
             int formMinWidth = 1200;
@@ -186,7 +197,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {/*
+        {
             ClearMdiForms();
 
             if (form_home == null)
@@ -204,7 +215,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             else
             {
                 form_home.Activate();
-            }*/
+            }
         }
 
         private void HomePage_FormClosed(object sender, EventArgs e)
@@ -244,11 +255,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             if (form_student == null)
             {
                 form_student = new AdminStudentTest();
-                form_student.FormClosed += TaiKhoan_FormClosed;
+                form_student.FormClosed += AdminStudentTest_FormClosed;
                 form_student.FormBorderStyle = FormBorderStyle.None;
                 form_student.ControlBox = false;
                 form_student.MdiParent = this;
-                form_student.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_student.Dock = DockStyle.Fill; 
                 form_student.Show();
             }
             else
@@ -266,7 +277,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
             if (form_TieuChi == null)
             {
-                form_TieuChi = new Form1();
+                form_TieuChi = new FormTieuChi();
                 form_TieuChi.FormClosed += FormTieuChi_FormClosed; // Gán sự kiện FormClosed cho form_TieuChi
                 form_TieuChi.FormBorderStyle = FormBorderStyle.None;
                 form_TieuChi.ControlBox = false;
@@ -285,19 +296,73 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         private void btnGiangVien_Click(object sender, EventArgs e) // Nút quản lý giảng viên
         {
-            // TODO: Thêm chức năng cho nút quản lý giảng viên
-        }
+            ClearMdiForms();
 
+            if (form_GiangVien == null)
+            {
+                form_GiangVien = new QLGiangVien();
+                form_GiangVien.FormClosed += QLGiangVien_FormClosed; // Gán sự kiện FormClosed cho form_GiangVien
+                form_GiangVien.FormBorderStyle = FormBorderStyle.None;
+                form_GiangVien.ControlBox = false;
+                form_GiangVien.MdiParent = this;
+                form_GiangVien.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_GiangVien.Show();
+            }
+            else
+            {
+                form_GiangVien.Activate();
+            }
+        }
+        private void QLGiangVien_FormClosed(object sender, EventArgs e)
+        {
+            form_GiangVien = null; // Đặt form_DotCham về null khi form bị đóng
+        }
         private void btnDotCham_Click(object sender, EventArgs e) // Nút đợt chấm
         {
-            // TODO: Thêm chức năng cho nút đợt chấm
-        }
+            ClearMdiForms();
 
+            if (form_DotCham == null)
+            {
+                form_DotCham = new DotCham();
+                form_DotCham.FormClosed += DotCham_FormClosed; // Gán sự kiện FormClosed cho form_DotCham
+                form_DotCham.FormBorderStyle = FormBorderStyle.None;
+                form_DotCham.ControlBox = false;
+                form_DotCham.MdiParent = this;
+                form_DotCham.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_DotCham.Show();
+            }
+            else
+            {
+                form_DotCham.Activate();
+            }
+        }
+        private void DotCham_FormClosed(object sender, EventArgs e)
+        {
+            form_DotCham = null; // Đặt form_DotCham về null khi form bị đóng
+        }
         private void btnClass_Click(object sender, EventArgs e) // Nút quản lý lớp
         {
-            // TODO: Thêm chức năng cho nút quản lý lớp
-        }
+            ClearMdiForms();
 
+            if (form_QuanLyKhoaLop == null)
+            {
+                form_QuanLyKhoaLop = new QuanLyKhoaLop();
+                form_QuanLyKhoaLop.FormClosed += QuanLyKhoaLop_FormClosed; // Gán sự kiện FormClosed cho form_QuanLyKhoaLop
+                form_QuanLyKhoaLop.FormBorderStyle = FormBorderStyle.None;
+                form_QuanLyKhoaLop.ControlBox = false;
+                form_QuanLyKhoaLop.MdiParent = this;
+                form_QuanLyKhoaLop.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_QuanLyKhoaLop.Show();
+            }
+            else
+            {
+                form_QuanLyKhoaLop.Activate();
+            }
+        }
+        private void QuanLyKhoaLop_FormClosed(object sender, EventArgs e)
+        {
+            form_QuanLyKhoaLop = null; // Đặt form_DotCham về null khi form bị đóng
+        }
         private void btnLogOut_Click(object sender, EventArgs e) // Nút đăng xuất
         {
             // TODO: Thêm chức năng cho nút đăng xuất

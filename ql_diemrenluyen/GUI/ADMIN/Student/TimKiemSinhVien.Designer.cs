@@ -31,16 +31,16 @@
             panel1 = new Panel();
             label1 = new Label();
             panel3 = new Panel();
-            textBox1 = new TextBox();
+            txtMaSV = new TextBox();
             label2 = new Label();
             panel2 = new Panel();
-            textBox2 = new TextBox();
+            txtHoTen = new TextBox();
             label3 = new Label();
             panel4 = new Panel();
+            cBLop = new ComboBox();
             label4 = new Label();
-            comboBox1 = new ComboBox();
             panel5 = new Panel();
-            comboBox2 = new ComboBox();
+            cBKhoa = new ComboBox();
             label5 = new Label();
             button1 = new Button();
             panel1.SuspendLayout();
@@ -58,6 +58,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(678, 81);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
@@ -72,19 +73,21 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(txtMaSV);
             panel3.Controls.Add(label2);
             panel3.Location = new Point(3, 88);
             panel3.Name = "panel3";
             panel3.Size = new Size(544, 53);
             panel3.TabIndex = 1;
             // 
-            // textBox1
+            // txtMaSV
             // 
-            textBox1.Location = new Point(169, 10);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(369, 27);
-            textBox1.TabIndex = 1;
+            txtMaSV.Location = new Point(169, 11);
+            txtMaSV.Name = "txtMaSV";
+            txtMaSV.Size = new Size(369, 27);
+            txtMaSV.TabIndex = 1;
+            txtMaSV.TextChanged += txtMaSV_TextChanged;
+            txtMaSV.KeyPress += txtMaSV_KeyPress;
             // 
             // label2
             // 
@@ -98,19 +101,19 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(textBox2);
+            panel2.Controls.Add(txtHoTen);
             panel2.Controls.Add(label3);
             panel2.Location = new Point(3, 147);
             panel2.Name = "panel2";
             panel2.Size = new Size(544, 53);
             panel2.TabIndex = 2;
             // 
-            // textBox2
+            // txtHoTen
             // 
-            textBox2.Location = new Point(169, 10);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(369, 27);
-            textBox2.TabIndex = 1;
+            txtHoTen.Location = new Point(169, 11);
+            txtHoTen.Name = "txtHoTen";
+            txtHoTen.Size = new Size(369, 27);
+            txtHoTen.TabIndex = 1;
             // 
             // label3
             // 
@@ -124,12 +127,22 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(comboBox1);
+            panel4.Controls.Add(cBLop);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(3, 210);
+            panel4.Location = new Point(3, 211);
             panel4.Name = "panel4";
             panel4.Size = new Size(544, 53);
             panel4.TabIndex = 3;
+            // 
+            // cBLop
+            // 
+            cBLop.FormattingEnabled = true;
+            cBLop.Location = new Point(167, 13);
+            cBLop.Name = "cBLop";
+            cBLop.Size = new Size(371, 28);
+            cBLop.TabIndex = 1;
+            cBLop.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            cBLop.SelectionChangeCommitted += cBLop_SelectionChangeCommitted;
             // 
             // label4
             // 
@@ -141,30 +154,24 @@
             label4.TabIndex = 0;
             label4.Text = "Lớp";
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(167, 13);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(371, 28);
-            comboBox1.TabIndex = 1;
-            // 
             // panel5
             // 
-            panel5.Controls.Add(comboBox2);
+            panel5.Controls.Add(cBKhoa);
             panel5.Controls.Add(label5);
             panel5.Location = new Point(3, 284);
             panel5.Name = "panel5";
             panel5.Size = new Size(544, 53);
             panel5.TabIndex = 4;
             // 
-            // comboBox2
+            // cBKhoa
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(167, 13);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(371, 28);
-            comboBox2.TabIndex = 1;
+            cBKhoa.FormattingEnabled = true;
+            cBKhoa.Location = new Point(167, 13);
+            cBKhoa.Name = "cBKhoa";
+            cBKhoa.Size = new Size(371, 28);
+            cBKhoa.TabIndex = 1;
+            cBKhoa.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            cBKhoa.SelectionChangeCommitted += cBKhoa_SelectionChangeCommitted;
             // 
             // label5
             // 
@@ -181,25 +188,29 @@
             button1.BackColor = SystemColors.HotTrack;
             button1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.HighlightText;
-            button1.Location = new Point(173, 378);
+            button1.Location = new Point(158, 379);
             button1.Name = "button1";
             button1.Size = new Size(223, 71);
             button1.TabIndex = 5;
             button1.Text = "Tìm kiếm";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // TimKiemSinhVien
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(550, 480);
             Controls.Add(button1);
             Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel3);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
             Name = "TimKiemSinhVien";
-            Size = new Size(568, 482);
+            StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
@@ -218,16 +229,16 @@
         private Panel panel1;
         private Label label1;
         private Panel panel3;
-        private TextBox textBox1;
+        private TextBox txtMaSV;
         private Label label2;
         private Panel panel2;
-        private TextBox textBox2;
+        private TextBox txtHoTen;
         private Label label3;
         private Panel panel4;
-        private ComboBox comboBox1;
+        private ComboBox cBLop;
         private Label label4;
         private Panel panel5;
-        private ComboBox comboBox2;
+        private ComboBox cBKhoa;
         private Label label5;
         private Button button1;
     }

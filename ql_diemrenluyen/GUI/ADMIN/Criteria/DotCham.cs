@@ -58,6 +58,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             this.ControlBox = false;
             this.FormBorderStyle = FormBorderStyle.None;
             this.MaximizeBox = false;
+            this.Dock = DockStyle.Fill;
+
             LoadNamHocCBB();
             LoadDotChamDiemList();
             cbbHocKi.SelectedItem = "Chọn học kì";
@@ -437,6 +439,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         }
 
+        private void DotCham_Load(object sender, EventArgs e)
+        {
+            this.Dock = DockStyle.Fill;
+        }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 

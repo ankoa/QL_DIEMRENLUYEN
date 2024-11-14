@@ -35,6 +35,12 @@ namespace ql_diemrenluyen.BUS
             }
         }
 
+        // Thêm tài khoản mới khi thêm sinh viên
+        public static bool AddAccountSV(AccountDTO account)
+        {
+            return AccountDAO.AddAccountSV(account);
+        }
+
         // Cập nhật thông tin tài khoản
         public static bool UpdateAccount(AccountDTO account)
         {
@@ -65,7 +71,7 @@ namespace ql_diemrenluyen.BUS
             }
         }
         // Tìm kiếm tài khoản theo tiêu chí
-        public static List<AccountDTO> SearchAccounts(string role, int status, string keyword)
+        public static List<AccountDTO> SearchAccounts(int role, int status, string keyword)
         {
             try
             {
@@ -110,6 +116,30 @@ namespace ql_diemrenluyen.BUS
         public static bool ChangePassword(long userId, string newPassword)
         {
             return AccountDAO.ChangePassword(userId, newPassword);
+        }
+        public static string IsPasswordValid(string password)
+        {
+            // Kiểm tra mật khẩu có ít nhất 8 ký tự
+            if (password.Length < 8)
+            {
+                return "Mật khẩu phải có ít nhất 8 ký tự.";
+            }
+
+            // Kiểm tra mật khẩu không chứa khoảng cách
+            if (password.Contains(" "))
+            {
+                return "Mật khẩu không được chứa khoảng trắng.";
+            }
+
+            // Kiểm tra mật khẩu không chứa ký tự đặc biệt (dễ dàng mở rộng)
+            var specialChars = "!@#$%^&*()_+=-[]{}|;:'\",.<>?/~";
+            if (password.Any(ch => specialChars.Contains(ch)))
+            {
+                return "Mật khẩu không được chứa ký tự đặc biệt.";
+            }
+
+            // Nếu vượt qua tất cả các kiểm tra, mật khẩu hợp lệ
+            return string.Empty; // Trả về một chuỗi rỗng nghĩa là mật khẩu hợp lệ
         }
 
     }

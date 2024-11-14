@@ -28,7 +28,7 @@ namespace ql_diemrenluyen.GUI
             // Tạo một tài khoản mẫu
             var account = new AccountDTO
             {
-                Role = "user", // Vai trò của tài khoản
+                Role = 1, // Vai trò của tài khoản
                 Password = "123", // Mật khẩu cho tài khoản
                 RememberToken = "", // Token nhớ đăng nhập (có thể null)
                 CreatedAt = DateTime.Now, // Thời gian tạo

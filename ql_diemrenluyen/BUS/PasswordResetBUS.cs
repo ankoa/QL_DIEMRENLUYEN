@@ -30,6 +30,7 @@ namespace ql_diemrenluyen.BUS
             return PasswordResetDAO.DeletePasswordReset(id);
         }
 
+
         public static PasswordResetDTO VerifyToken(string email, string token)
         //Xác thực mã thông báo đặt lại mật khẩu
         {

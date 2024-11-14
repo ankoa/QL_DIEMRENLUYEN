@@ -20,12 +20,13 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
         private void InitializeComponent()
         {
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             lblId = new Label();
             txtId = new TextBox();
             lblPassword = new Label();
             txtPassword = new TextBox();
             lblRole = new Label();
-            txtRole = new TextBox();
             lblRememberToken = new Label();
             txtRememberToken = new TextBox();
             lblCreatedAt = new Label();
@@ -35,17 +36,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             btnClose = new Button();
             btnEdit = new Button();
             label2 = new Label();
-            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             dtpCreatedAt = new DateTimePicker();
             comboBox1 = new ComboBox();
+            cmbRole = new ComboBox();
             SuspendLayout();
             // 
             // lblId
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblId.Location = new Point(57, 63);
+            lblId.Location = new Point(66, 85);
             lblId.Name = "lblId";
             lblId.Size = new Size(29, 20);
             lblId.TabIndex = 0;
@@ -53,8 +53,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // txtId
             // 
+            txtId.BackColor = SystemColors.ControlLightLight;
             txtId.BorderStyle = BorderStyle.FixedSingle;
-            txtId.Location = new Point(201, 63);
+            txtId.Location = new Point(210, 85);
             txtId.Margin = new Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
@@ -65,7 +66,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblPassword.Location = new Point(57, 118);
+            lblPassword.Location = new Point(66, 140);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(80, 20);
             lblPassword.TabIndex = 2;
@@ -73,8 +74,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // txtPassword
             // 
+            txtPassword.BackColor = SystemColors.ControlLightLight;
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtPassword.Location = new Point(201, 118);
+            txtPassword.Location = new Point(210, 140);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.ReadOnly = true;
@@ -86,27 +88,17 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             lblRole.AutoSize = true;
             lblRole.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblRole.Location = new Point(57, 176);
+            lblRole.Location = new Point(66, 198);
             lblRole.Name = "lblRole";
             lblRole.Size = new Size(44, 20);
             lblRole.TabIndex = 4;
             lblRole.Text = "Role:";
             // 
-            // txtRole
-            // 
-            txtRole.BorderStyle = BorderStyle.FixedSingle;
-            txtRole.Location = new Point(201, 176);
-            txtRole.Margin = new Padding(3, 4, 3, 4);
-            txtRole.Name = "txtRole";
-            txtRole.ReadOnly = true;
-            txtRole.Size = new Size(228, 27);
-            txtRole.TabIndex = 5;
-            // 
             // lblRememberToken
             // 
             lblRememberToken.AutoSize = true;
             lblRememberToken.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblRememberToken.Location = new Point(57, 233);
+            lblRememberToken.Location = new Point(66, 255);
             lblRememberToken.Name = "lblRememberToken";
             lblRememberToken.Size = new Size(136, 20);
             lblRememberToken.TabIndex = 6;
@@ -114,8 +106,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // txtRememberToken
             // 
+            txtRememberToken.BackColor = SystemColors.ControlLightLight;
             txtRememberToken.BorderStyle = BorderStyle.FixedSingle;
-            txtRememberToken.Location = new Point(201, 233);
+            txtRememberToken.Location = new Point(210, 255);
             txtRememberToken.Margin = new Padding(3, 4, 3, 4);
             txtRememberToken.Name = "txtRememberToken";
             txtRememberToken.ReadOnly = true;
@@ -126,7 +119,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             lblCreatedAt.AutoSize = true;
             lblCreatedAt.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblCreatedAt.Location = new Point(57, 296);
+            lblCreatedAt.Location = new Point(66, 318);
             lblCreatedAt.Name = "lblCreatedAt";
             lblCreatedAt.Size = new Size(88, 20);
             lblCreatedAt.TabIndex = 8;
@@ -136,7 +129,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             lblUpdatedAt.AutoSize = true;
             lblUpdatedAt.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblUpdatedAt.Location = new Point(57, 356);
+            lblUpdatedAt.Location = new Point(66, 378);
             lblUpdatedAt.Name = "lblUpdatedAt";
             lblUpdatedAt.Size = new Size(94, 20);
             lblUpdatedAt.TabIndex = 10;
@@ -144,7 +137,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // dtpUpdatedAt
             // 
-            dtpUpdatedAt.Location = new Point(201, 356);
+            dtpUpdatedAt.Location = new Point(210, 378);
             dtpUpdatedAt.Margin = new Padding(3, 4, 3, 4);
             dtpUpdatedAt.Name = "dtpUpdatedAt";
             dtpUpdatedAt.Size = new Size(228, 27);
@@ -154,7 +147,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             lblStatus.AutoSize = true;
             lblStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblStatus.Location = new Point(57, 412);
+            lblStatus.Location = new Point(66, 434);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(57, 20);
             lblStatus.TabIndex = 12;
@@ -162,7 +155,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(264, 502);
+            btnClose.Location = new Point(273, 524);
             btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(114, 40);
@@ -173,7 +166,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(79, 502);
+            btnEdit.Location = new Point(88, 524);
             btnEdit.Margin = new Padding(3, 4, 3, 4);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(103, 40);
@@ -186,7 +179,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(101, 9);
+            label2.Location = new Point(109, 9);
             label2.Name = "label2";
             label2.Size = new Size(277, 38);
             label2.TabIndex = 18;
@@ -194,7 +187,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // dtpCreatedAt
             // 
-            dtpCreatedAt.Location = new Point(201, 296);
+            dtpCreatedAt.Location = new Point(210, 318);
             dtpCreatedAt.Name = "dtpCreatedAt";
             dtpCreatedAt.Size = new Size(228, 27);
             dtpCreatedAt.TabIndex = 19;
@@ -203,10 +196,18 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
-            comboBox1.Location = new Point(201, 412);
+            comboBox1.Location = new Point(210, 434);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(228, 28);
             comboBox1.TabIndex = 20;
+            // 
+            // cmbRole
+            // 
+            cmbRole.FormattingEnabled = true;
+            cmbRole.Location = new Point(210, 198);
+            cmbRole.Name = "cmbRole";
+            cmbRole.Size = new Size(228, 28);
+            cmbRole.TabIndex = 21;
             // 
             // AccountDetailsForm
             // 
@@ -214,7 +215,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(482, 653);
-            ControlBox = false;
+            Controls.Add(cmbRole);
             Controls.Add(comboBox1);
             Controls.Add(dtpCreatedAt);
             Controls.Add(label2);
@@ -226,13 +227,12 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             Controls.Add(lblCreatedAt);
             Controls.Add(txtRememberToken);
             Controls.Add(lblRememberToken);
-            Controls.Add(txtRole);
             Controls.Add(lblRole);
             Controls.Add(txtPassword);
             Controls.Add(lblPassword);
             Controls.Add(txtId);
             Controls.Add(lblId);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "AccountDetailsForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -242,25 +242,24 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblRole;
-        private System.Windows.Forms.TextBox txtRole;
-        private System.Windows.Forms.Label lblRememberToken;
-        private System.Windows.Forms.TextBox txtRememberToken;
-        private System.Windows.Forms.Label lblCreatedAt;
-        private System.Windows.Forms.Label lblUpdatedAt;
-        private System.Windows.Forms.DateTimePicker dtpUpdatedAt;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnEdit;
-        private Label label2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private Label lblId;
+        private TextBox txtId;
+        private Label lblPassword;
+        private TextBox txtPassword;
+        private Label lblRole;
+        private Label lblRememberToken;
+        private TextBox txtRememberToken;
+        private Label lblCreatedAt;
+        private Label lblUpdatedAt;
+        private DateTimePicker dtpUpdatedAt;
+        private Label lblStatus;
+        private Button btnClose;
+        private Button btnEdit;
+        private Label label2;
         private DateTimePicker dtpCreatedAt;
         private ComboBox comboBox1;
+        private ComboBox cmbRole;
     }
 }

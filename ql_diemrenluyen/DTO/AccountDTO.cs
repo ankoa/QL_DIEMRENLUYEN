@@ -5,7 +5,7 @@ namespace ql_diemrenluyen.DTO
     public class AccountDTO
     {
         public long Id { get; set; }
-        public string Role { get; set; }
+        public int Role { get; set; }
         public string Password { get; set; }
         public string RememberToken { get; set; }
         public DateTime? CreatedAt { get; set; }
@@ -14,7 +14,7 @@ namespace ql_diemrenluyen.DTO
 
         public AccountDTO() { }
 
-        public AccountDTO(long id, string role, string password, string rememberToken, DateTime? createdAt, DateTime? updatedAt, int status)
+        public AccountDTO(long id, int role, string password, string rememberToken, DateTime? createdAt, DateTime? updatedAt, int status)
         {
             this.Id = id;
             this.Role = role;

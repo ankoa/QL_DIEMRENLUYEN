@@ -32,6 +32,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         // Thêm cột cho DataGridView trong InitializeComponent
         private void InitializeComponent()
         {
+
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
@@ -542,6 +543,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             Padding = new Padding(44, 15, 44, 75);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tài Khoản";
+            Load += DotCham_Load;
             panel1.ResumeLayout(false);
             pnContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tableTK).EndInit();

@@ -268,6 +268,7 @@
             btnClass.TabIndex = 3;
             btnClass.Text = "Khoa, lớp";
             btnClass.UseVisualStyleBackColor = false;
+            btnClass.Click += btnClass_Click;
             // 
             // panel9
             // 
@@ -298,6 +299,7 @@
             btnGiangVien.TabIndex = 3;
             btnGiangVien.Text = "Giảng viên";
             btnGiangVien.UseVisualStyleBackColor = false;
+            btnGiangVien.Click += btnGiangVien_Click;
             // 
             // panel8
             // 
@@ -327,6 +329,7 @@
             btnDotCham.TabIndex = 3;
             btnDotCham.Text = "Đợt chấm";
             btnDotCham.UseVisualStyleBackColor = false;
+            btnDotCham.Click += btnDotCham_Click;
             // 
             // panel6
             // 

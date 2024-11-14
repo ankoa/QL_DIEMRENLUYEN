@@ -11,6 +11,18 @@ namespace ql_diemrenluyen.BUS
             return SinhVienDAO.GetAllStudents();
         }
 
+        // Tìm kiếm sinh viên cơ bản
+        public static List<SinhVienDTO> basicSearch(string str)
+        {
+            return SinhVienDAO.basicSearch(str);
+        }
+
+        // Tìm kiếm sinh viên nâng cao 
+        public List<SinhVienDTO> advancedSearch(string maSV, string hoTen, long lopID, long khoaID)
+        {
+            return SinhVienDAO.advancedSearch(maSV, hoTen, lopID, khoaID);
+        }
+
         // Lấy sinh viên theo ID
         public static SinhVienDTO GetStudentById(long id)
         {

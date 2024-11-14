@@ -11,11 +11,11 @@ namespace ql_diemrenluyen.DAO
         private static MySqlConnection conn;
 
         // Mở kết nối
-        private static bool Open()
+        public static bool Open()
         {
             try
             {
-                string connstring = $"Server={server}; Database={database}; UID={user}; Password={password}; Convert Zero Datetime = true";
+                string connstring = $"Server={server}; Database={database}; UID={user}; Password={password}; Port=3307; Convert Zero Datetime = true";
                 conn = new MySqlConnection(connstring);
                 conn.Open();
                 return true;
