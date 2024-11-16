@@ -43,6 +43,9 @@
     <Compile Update="GUI\ADMIN\MenuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\ADMIN\Statistic\Thongke.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\ADMIN\Student\AdminStudentTest.cs">
       <SubType>Form</SubType>
     </Compile>

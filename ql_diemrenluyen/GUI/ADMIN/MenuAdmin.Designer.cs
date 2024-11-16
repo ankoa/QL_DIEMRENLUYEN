@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAdmin));
             panel1 = new Panel();
-            controlBox1 = new ReaLTaiizor.Controls.ControlBox();
             label1 = new Label();
             btnHam = new PictureBox();
             sidebar = new FlowLayoutPanel();
@@ -70,7 +69,6 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(controlBox1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnHam);
             panel1.Dock = DockStyle.Top;
@@ -79,24 +77,6 @@
             panel1.Size = new Size(1600, 83);
             panel1.TabIndex = 0;
             // 
-            // controlBox1
-            // 
-            controlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            controlBox1.BackColor = Color.White;
-            controlBox1.CloseHoverColor = Color.FromArgb(230, 17, 35);
-            controlBox1.DefaultLocation = true;
-            controlBox1.EnableHoverHighlight = true;
-            controlBox1.EnableMaximizeButton = true;
-            controlBox1.EnableMinimizeButton = true;
-            controlBox1.ForeColor = Color.FromArgb(155, 155, 155);
-            controlBox1.Location = new Point(1500, 18);
-            controlBox1.MaximizeHoverColor = Color.FromArgb(74, 74, 74);
-            controlBox1.MinimizeHoverColor = Color.FromArgb(63, 63, 65);
-            controlBox1.Name = "controlBox1";
-            controlBox1.Size = new Size(90, 25);
-            controlBox1.TabIndex = 4;
-            controlBox1.Text = "controlBox1";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -104,7 +84,7 @@
             label1.ForeColor = Color.RoyalBlue;
             label1.Location = new Point(110, 28);
             label1.Name = "label1";
-            label1.Size = new Size(495, 30);
+            label1.Size = new Size(634, 38);
             label1.TabIndex = 2;
             label1.Text = "PHẦN MỀM QUẢN LÝ CHẤM ĐIỂM RÈN LUYỆN";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -113,6 +93,7 @@
             // 
             btnHam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnHam.BackgroundImageLayout = ImageLayout.Center;
+            btnHam.Cursor = Cursors.Hand;
             btnHam.Image = (Image)resources.GetObject("btnHam.Image");
             btnHam.Location = new Point(21, 12);
             btnHam.Name = "btnHam";
@@ -454,6 +435,5 @@
         private Label label1;
         private Panel panel9;
         private Button btnGiangVien;
-        private ReaLTaiizor.Controls.ControlBox controlBox1;
     }
 }
