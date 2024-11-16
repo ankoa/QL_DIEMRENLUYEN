@@ -410,6 +410,7 @@
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "MenuAdmin";
             Load += MenuAdmin_Load;
+            MouseDown += Form_MouseDown;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnHam).EndInit();

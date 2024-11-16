@@ -11,12 +11,13 @@ namespace ql_diemrenluyen.DTO
         public long Id { get; set; } 
         public string Name { get; set; } 
         public int DiemMax { get; set; } 
-        public long ParentId { get; set; } 
+        public long? ParentId { get; set; } 
         public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; } 
+        public DateTime? UpdatedAt { get; set; }
+        public int status;
 
         // Constructor
-        public TieuChiDanhGiaDTO(long id, string name, int diemMax, long parentId, DateTime? createdAt, DateTime? updatedAt)
+        public TieuChiDanhGiaDTO(long id, string name, int diemMax, long? parentId, DateTime? createdAt, DateTime? updatedAt, int status)
         {
             this.Id = id;
             this.Name = name;
@@ -25,6 +26,7 @@ namespace ql_diemrenluyen.DTO
             this.ParentId = parentId;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
+            this.status = status;
         }
         public TieuChiDanhGiaDTO()
         {

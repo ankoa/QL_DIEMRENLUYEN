@@ -4,6 +4,9 @@
     <Compile Update="GUI\ADMIN\Account\AccountDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\ADMIN\Account\testform.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\ADMIN\Account\TaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -43,6 +46,9 @@
     <Compile Update="GUI\ADMIN\MenuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\ADMIN\Standards\TieuChiDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\ADMIN\Student\AdminStudentTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,7 +67,7 @@
     <Compile Update="GUI\ADMIN\Teacher\QLGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\ADMIN\TieuChi\FormTieuChi.cs">
+    <Compile Update="GUI\ADMIN\Standards\QLTieuChi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\ADMIN\Student\AdminStudentTest.cs">

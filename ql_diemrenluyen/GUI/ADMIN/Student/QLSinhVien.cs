@@ -24,6 +24,7 @@ namespace QLDiemRenLuyen
             listStudent = new List<SinhVienDTO>();
             listStudent = listStudentBUS;
             dataGridStudent.Rows.Clear();
+
             if (listStudent.Count > 0)
             {
                 listStudent.ForEach(student =>
@@ -34,23 +35,45 @@ namespace QLDiemRenLuyen
                         this.dataGridStudent.Rows[index].Cells[0].Value = student.Id;
                         this.dataGridStudent.Rows[index].Cells[1].Value = student.Name;
                         this.dataGridStudent.Rows[index].Cells[2].Value = student.toStringGender();
-                        LopDTO lopDTO = new LopDTO();
-                        lopDTO = LopBUS.GetLopByID(student.LopId);
-                        this.dataGridStudent.Rows[index].Cells[3].Value = lopDTO.TenLop;
-                        KhoaDTO khoaDTO = new KhoaDTO();
-                        khoaDTO = KhoaBUS.GetKhoaByID(lopDTO.KhoaId);
-                        this.dataGridStudent.Rows[index].Cells[4].Value = khoaDTO.TenKhoa;
+
+                        // Lấy lớp
+                        LopDTO lopDTO = LopBUS.GetLopByID(student.LopId);
+                        if (lopDTO != null)
+                        {
+                            this.dataGridStudent.Rows[index].Cells[3].Value = lopDTO.TenLop;
+
+                            // Lấy khoa
+                            KhoaDTO khoaDTO = KhoaBUS.GetKhoaByID(lopDTO.KhoaId);
+                            if (khoaDTO != null)
+                            {
+                                this.dataGridStudent.Rows[index].Cells[4].Value = khoaDTO.TenKhoa;
+                            }
+                            else
+                            {
+                                this.dataGridStudent.Rows[index].Cells[4].Value = "Không tìm thấy khoa";
+                            }
+                        }
+                        else
+                        {
+                            this.dataGridStudent.Rows[index].Cells[3].Value = "Không tìm thấy lớp";
+                            this.dataGridStudent.Rows[index].Cells[4].Value = "Không tìm thấy khoa";
+                        }
                     }
                 });
             }
 
-
-            //dataGridStudent.DataSource = listStudent;
-            //autoresize each column
-
-
+            // Tùy chọn: Auto resize các cột trong DataGridView
+            dataGridStudent.AutoResizeColumns();
         }
-        private void label1_Click(object sender, EventArgs e)
+
+
+
+        //dataGridStudent.DataSource = listStudent;
+        //autoresize each column
+
+
+    
+    private void label1_Click(object sender, EventArgs e)
         {
 
         }

@@ -1,5 +1,6 @@
 ﻿using ql_diemrenluyen.GUI.ADMIN.Student;
 using ql_diemrenluyen.GUI.ADMIN.TieuChi;
+using ql_diemrenluyen.GUI.ADMIN.Account;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         TaiKhoan form_taikhoan;
         AdminStudentTest form_student;
         DotCham form_DotCham;
-        FormTieuChi form_TieuChi;
+        QLTieuChi form_TieuChi;
         QLGiangVien form_GiangVien;
         QuanLyKhoaLop form_QuanLyKhoaLop;
         private PictureBox loading;
@@ -29,6 +30,16 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
 
 
         public MenuAdmin()
@@ -41,8 +52,18 @@ namespace ql_diemrenluyen.GUI.ADMIN
             this.WindowState = FormWindowState.Maximized;
             this.Activated += MenuAdmin_Activated; // Thêm sự kiện Activated
             this.MouseDown += Form_MouseDown;
+            panel1.MouseDown += Panel1_MouseDown; // Gắn sự kiện MouseDown cho panel1
+
             // Khởi tạo PictureBox loading
             loading = Loading.CreateLoadingControl(this);
+        }
+        private void Panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture(); // Giải phóng chuột để nhận sự kiện kéo
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0); // Gửi thông báo kéo đến Windows
+            }
         }
 
         private void Form_MouseDown(object sender, MouseEventArgs e)
@@ -123,6 +144,22 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
             sidebar.Width = 99;
+            this.MouseDown += Form_MouseDown;
+            if (form_home == null)
+            {
+                form_home = new HomePage();
+                form_home.FormClosed += HomePage_FormClosed;
+                form_home.FormBorderStyle = FormBorderStyle.None;
+                form_home.ControlBox = false;
+                form_home.MdiParent = this;
+                form_home.Location = new Point(0, 0);
+                form_home.Size = this.ClientSize; // Kích thước form_home bằng kích thước vùng MDI
+                form_home.Show();
+            }
+            else
+            {
+                form_home.Activate();
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -198,8 +235,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClearMdiForms();
-
+            btnHomepage.BackColor = Color.LightBlue;
             if (form_home == null)
             {
                 form_home = new HomePage();
@@ -208,8 +244,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_home.ControlBox = false;
                 form_home.MdiParent = this;
                 form_home.Location = new Point(0, 0);
-                form_home.Size = this.ClientSize; // Kích thước form_home bằng kích thước vùng MDI
-
+                form_home.Size = this.ClientSize;
                 form_home.Show();
             }
             else
@@ -220,6 +255,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void HomePage_FormClosed(object sender, EventArgs e)
         {
+            btnHomepage.BackColor = Color.RoyalBlue;
             form_home = null;
         }
 
@@ -231,8 +267,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             {
                 form_taikhoan = new TaiKhoan();
                 form_taikhoan.FormClosed += TaiKhoan_FormClosed;
-                form_taikhoan.FormBorderStyle = FormBorderStyle.None;
-                form_taikhoan.ControlBox = false;
                 form_taikhoan.MdiParent = this;
                 form_taikhoan.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
                 form_taikhoan.Show();
@@ -277,7 +311,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
             if (form_TieuChi == null)
             {
-                form_TieuChi = new FormTieuChi();
+                form_TieuChi = new QLTieuChi();
                 form_TieuChi.FormClosed += FormTieuChi_FormClosed; // Gán sự kiện FormClosed cho form_TieuChi
                 form_TieuChi.FormBorderStyle = FormBorderStyle.None;
                 form_TieuChi.ControlBox = false;
@@ -367,6 +401,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         {
             // TODO: Thêm chức năng cho nút đăng xuất
         }
+
 
     }
 }

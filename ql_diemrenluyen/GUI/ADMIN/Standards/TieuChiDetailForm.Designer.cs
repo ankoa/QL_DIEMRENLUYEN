@@ -1,6 +1,6 @@
-﻿namespace ql_diemrenluyen.GUI.ADMIN.Account
+﻿namespace ql_diemrenluyen.GUI.ADMIN.Standards
 {
-    partial class AccountDetailsForm
+    partial class TieuChiDetailForm
     {
         /// <summary>
         /// Required designer variable.
@@ -20,12 +20,6 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -33,20 +27,20 @@
             lblId = new Label();
             txtId = new TextBox();
             lblPassword = new Label();
-            txtPassword = new TextBox();
-            lblRole = new Label();
+            txtNoiDung = new TextBox();
+            lbparentID = new Label();
             lblRememberToken = new Label();
-            txtRememberToken = new TextBox();
+            txtMaxPoint = new TextBox();
             lblCreatedAt = new Label();
             lblUpdatedAt = new Label();
             dtpUpdatedAt = new DateTimePicker();
             lblStatus = new Label();
             btnClose = new Button();
             btnEdit = new Button();
-            label2 = new Label();
+            lbTitle = new Label();
             dtpCreatedAt = new DateTimePicker();
-            comboBox1 = new ComboBox();
-            cmbRole = new ComboBox();
+            cbbStatus = new ComboBox();
+            cbbParentID = new ComboBox();
             btnDelete = new Button();
             SuspendLayout();
             // 
@@ -59,6 +53,7 @@
             lblId.Size = new Size(29, 20);
             lblId.TabIndex = 0;
             lblId.Text = "ID:";
+            lblId.Click += lblId_Click;
             // 
             // txtId
             // 
@@ -67,7 +62,6 @@
             txtId.Location = new Point(210, 85);
             txtId.Margin = new Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
-            txtId.ReadOnly = true;
             txtId.Size = new Size(228, 27);
             txtId.TabIndex = 1;
             // 
@@ -77,30 +71,29 @@
             lblPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblPassword.Location = new Point(66, 140);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(80, 20);
+            lblPassword.Size = new Size(78, 20);
             lblPassword.TabIndex = 2;
-            lblPassword.Text = "Password:";
+            lblPassword.Text = "Nội dung:";
             // 
-            // txtPassword
+            // txtNoiDung
             // 
-            txtPassword.BackColor = SystemColors.ControlLightLight;
-            txtPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtPassword.Location = new Point(210, 140);
-            txtPassword.Margin = new Padding(3, 4, 3, 4);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(228, 27);
-            txtPassword.TabIndex = 3;
-            txtPassword.UseSystemPasswordChar = true;
+            txtNoiDung.BackColor = SystemColors.ControlLightLight;
+            txtNoiDung.BorderStyle = BorderStyle.FixedSingle;
+            txtNoiDung.Location = new Point(210, 140);
+            txtNoiDung.Margin = new Padding(3, 4, 3, 4);
+            txtNoiDung.Name = "txtNoiDung";
+            txtNoiDung.Size = new Size(228, 27);
+            txtNoiDung.TabIndex = 3;
             // 
-            // lblRole
+            // lbparentID
             // 
-            lblRole.AutoSize = true;
-            lblRole.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblRole.Location = new Point(66, 198);
-            lblRole.Name = "lblRole";
-            lblRole.Size = new Size(44, 20);
-            lblRole.TabIndex = 4;
-            lblRole.Text = "Role:";
+            lbparentID.AutoSize = true;
+            lbparentID.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lbparentID.Location = new Point(66, 198);
+            lbparentID.Name = "lbparentID";
+            lbparentID.Size = new Size(75, 20);
+            lbparentID.TabIndex = 4;
+            lbparentID.Text = "ParentID:";
             // 
             // lblRememberToken
             // 
@@ -108,20 +101,20 @@
             lblRememberToken.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblRememberToken.Location = new Point(66, 255);
             lblRememberToken.Name = "lblRememberToken";
-            lblRememberToken.Size = new Size(136, 20);
+            lblRememberToken.Size = new Size(94, 20);
             lblRememberToken.TabIndex = 6;
-            lblRememberToken.Text = "Remember Token:";
+            lblRememberToken.Text = "Điểm tối đa:";
             // 
-            // txtRememberToken
+            // txtMaxPoint
             // 
-            txtRememberToken.BackColor = SystemColors.ControlLightLight;
-            txtRememberToken.BorderStyle = BorderStyle.FixedSingle;
-            txtRememberToken.Location = new Point(210, 255);
-            txtRememberToken.Margin = new Padding(3, 4, 3, 4);
-            txtRememberToken.Name = "txtRememberToken";
-            txtRememberToken.ReadOnly = true;
-            txtRememberToken.Size = new Size(228, 27);
-            txtRememberToken.TabIndex = 7;
+            txtMaxPoint.BackColor = SystemColors.ControlLightLight;
+            txtMaxPoint.BorderStyle = BorderStyle.FixedSingle;
+            txtMaxPoint.Location = new Point(210, 255);
+            txtMaxPoint.Margin = new Padding(3, 4, 3, 4);
+            txtMaxPoint.Name = "txtMaxPoint";
+            txtMaxPoint.Size = new Size(228, 27);
+            txtMaxPoint.TabIndex = 7;
+            txtMaxPoint.TextChanged += txtMaxPoint_TextChanged;
             // 
             // lblCreatedAt
             // 
@@ -145,6 +138,7 @@
             // 
             // dtpUpdatedAt
             // 
+            dtpUpdatedAt.Enabled = false;
             dtpUpdatedAt.Location = new Point(210, 378);
             dtpUpdatedAt.Margin = new Padding(3, 4, 3, 4);
             dtpUpdatedAt.Name = "dtpUpdatedAt";
@@ -163,7 +157,7 @@
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(324, 515);
+            btnClose.Location = new Point(324, 524);
             btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(114, 40);
@@ -174,7 +168,7 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(199, 515);
+            btnEdit.Location = new Point(201, 524);
             btnEdit.Margin = new Padding(3, 4, 3, 4);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(103, 40);
@@ -183,15 +177,15 @@
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
             // 
-            // label2
+            // lbTitle
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(109, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(277, 38);
-            label2.TabIndex = 18;
-            label2.Text = "Thông tin tài khoản";
+            lbTitle.AutoSize = true;
+            lbTitle.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTitle.Location = new Point(109, 9);
+            lbTitle.Name = "lbTitle";
+            lbTitle.Size = new Size(250, 38);
+            lbTitle.TabIndex = 18;
+            lbTitle.Text = "Thông tin tiêu chí";
             // 
             // dtpCreatedAt
             // 
@@ -200,87 +194,88 @@
             dtpCreatedAt.Size = new Size(228, 27);
             dtpCreatedAt.TabIndex = 19;
             // 
-            // comboBox1
+            // cbbStatus
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
-            comboBox1.Location = new Point(210, 434);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(228, 28);
-            comboBox1.TabIndex = 20;
+            cbbStatus.FormattingEnabled = true;
+            cbbStatus.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
+            cbbStatus.Location = new Point(210, 434);
+            cbbStatus.Name = "cbbStatus";
+            cbbStatus.Size = new Size(228, 28);
+            cbbStatus.TabIndex = 20;
             // 
-            // cmbRole
+            // cbbParentID
             // 
-            cmbRole.FormattingEnabled = true;
-            cmbRole.Location = new Point(210, 198);
-            cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(228, 28);
-            cmbRole.TabIndex = 21;
+            cbbParentID.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbParentID.FormattingEnabled = true;
+            cbbParentID.Items.AddRange(new object[] { "ID - Nội dung" });
+            cbbParentID.Location = new Point(210, 198);
+            cbbParentID.Name = "cbbParentID";
+            cbbParentID.Size = new Size(228, 28);
+            cbbParentID.TabIndex = 21;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(66, 515);
+            btnDelete.Location = new Point(66, 524);
             btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(114, 40);
-            btnDelete.TabIndex = 22;
+            btnDelete.TabIndex = 23;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
-            // AccountDetailsForm
+            // TieuChiDetailForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(482, 653);
             Controls.Add(btnDelete);
-            Controls.Add(cmbRole);
-            Controls.Add(comboBox1);
+            Controls.Add(cbbParentID);
+            Controls.Add(cbbStatus);
             Controls.Add(dtpCreatedAt);
-            Controls.Add(label2);
+            Controls.Add(lbTitle);
             Controls.Add(btnEdit);
             Controls.Add(btnClose);
             Controls.Add(lblStatus);
             Controls.Add(dtpUpdatedAt);
             Controls.Add(lblUpdatedAt);
             Controls.Add(lblCreatedAt);
-            Controls.Add(txtRememberToken);
+            Controls.Add(txtMaxPoint);
             Controls.Add(lblRememberToken);
-            Controls.Add(lblRole);
-            Controls.Add(txtPassword);
+            Controls.Add(lbparentID);
+            Controls.Add(txtNoiDung);
             Controls.Add(lblPassword);
             Controls.Add(txtId);
             Controls.Add(lblId);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AccountDetailsForm";
+            Name = "TieuChiDetailForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Chi tiết tài khoản";
             ResumeLayout(false);
             PerformLayout();
         }
 
-        #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private Label lblId;
         private TextBox txtId;
         private Label lblPassword;
-        private TextBox txtPassword;
-        private Label lblRole;
+        private TextBox txtNoiDung;
+        private Label lbparentID;
         private Label lblRememberToken;
-        private TextBox txtRememberToken;
+        private TextBox txtMaxPoint;
         private Label lblCreatedAt;
         private Label lblUpdatedAt;
         private DateTimePicker dtpUpdatedAt;
         private Label lblStatus;
         private Button btnClose;
         private Button btnEdit;
-        private Label label2;
+        private Label lbTitle;
         private DateTimePicker dtpCreatedAt;
-        private ComboBox comboBox1;
-        private ComboBox cmbRole;
+        private ComboBox cbbStatus;
+        private ComboBox cbbParentID;
         private Button btnDelete;
     }
 
