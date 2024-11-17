@@ -3401,24 +3401,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\huhuh\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\duyli\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+      "projectUniqueName": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
       "projectName": "ql_diemrenluyen",
-      "projectPath": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
-      "packagesPath": "C:\\Users\\huhuh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\obj\\",
+      "projectPath": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+      "packagesPath": "C:\\Users\\duyli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\huhuh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\duyli\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3498,7 +3493,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
