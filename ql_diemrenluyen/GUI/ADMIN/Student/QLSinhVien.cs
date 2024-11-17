@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
+using Org.BouncyCastle.Utilities;
 using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace QLDiemRenLuyen
@@ -38,7 +40,7 @@ namespace QLDiemRenLuyen
                         lopDTO = LopBUS.GetLopByID(student.LopId);
                         this.dataGridStudent.Rows[index].Cells[3].Value = lopDTO.TenLop;
                         KhoaDTO khoaDTO = new KhoaDTO();
-                        khoaDTO = KhoaBUS.GetKhoaByID(lopDTO.KhoaId);
+                        khoaDTO = KhoaBUS.GetKhoaByID(lopDTO.Khoa.Id);
                         this.dataGridStudent.Rows[index].Cells[4].Value = khoaDTO.TenKhoa;
                     }
                 });
@@ -81,6 +83,15 @@ namespace QLDiemRenLuyen
                     MessageBox.Show("Xóa sinh viên thành công !");
                     loadSVIntoTable(SinhVienBUS.GetAllStudents());
                 }
+                else if (result == DialogResult.No)
+                {
+                    MessageBox.Show("Xóa không thành công ");
+                }
+                else
+                {
+                    MessageBox.Show("Xóa không thành công ");
+                }
+              
 
             }
 

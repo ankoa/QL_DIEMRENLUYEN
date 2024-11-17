@@ -276,6 +276,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_student.MdiParent = this;
                 form_student.Dock = DockStyle.Fill;
                 form_student.Show();
+                form_student.WindowState = FormWindowState.Normal;
             }
             else
             {
