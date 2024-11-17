@@ -98,5 +98,304 @@ namespace ql_diemrenluyen.DAO
 
             return diemRenLuyens;
         }
+
+        // Lấy điểm rèn luyện trung bình của tất cả sinh viên
+        public static double GetAverageDiemRenLuyen()
+        {
+            double averageScore = 0;
+            string sql = "SELECT AVG(diemrenluyen) AS AverageScore FROM diemrenluyensinhvien WHERE diemrenluyen IS NOT NULL and status =1";
+
+            List<List<object>> result = DBConnection.ExecuteReader(sql);
+
+            if (result.Count > 0 && result[0][0] != DBNull.Value)
+            {
+                averageScore = Convert.ToDouble(result[0][0]);
+            }
+
+            return averageScore;
+        }
+
+        public static double GetAverageDiemRenLuyenByFilter(long? khoaId = null, long? lopId = null)
+        {
+            double averageScore = 0;
+
+            // Câu truy vấn SQL cơ bản
+            string sql = @"
+        SELECT AVG(drl.diemrenluyen) AS AverageScore
+        FROM diemrenluyensinhvien drl
+        JOIN sinhvien sv ON drl.sinhvien_id = sv.id
+        JOIN lop l ON sv.lop_id = l.id
+        JOIN khoa k ON l.khoa_id = k.id
+        WHERE drl.diemrenluyen IS NOT NULL 
+          AND drl.status = 1
+          AND sv.status = 1
+          AND l.status = 1
+          AND k.status = 1";
+
+            // Thêm điều kiện lọc dựa trên `khoaId` và `lopId`
+            if (khoaId.HasValue)
+            {
+                sql += " AND k.id = @khoaId";
+            }
+            if (lopId.HasValue)
+            {
+                sql += " AND l.id = @lopId";
+            }
+
+            // Tạo lệnh SQL
+            var cmd = new MySqlCommand(sql);
+            if (khoaId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@khoaId", khoaId.Value);
+            }
+            if (lopId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@lopId", lopId.Value);
+            }
+
+            // Thực thi câu lệnh
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0 && result[0][0] != DBNull.Value)
+            {
+                averageScore = Convert.ToDouble(result[0][0]);
+            }
+
+            return averageScore;
+        }
+
+        public static int GetSoSinhVienCanhCaoByFilter(int drl, string sosanh, long? khoaId = null, long? lopId = null)
+        {
+            int warningCount = 0;
+
+            // Kiểm tra toán tử so sánh có hợp lệ không
+            string[] validOperators = { "<", "<=", ">", ">=", "=" };
+            if (!validOperators.Contains(sosanh))
+            {
+                throw new ArgumentException("Toán tử so sánh không hợp lệ.");
+            }
+
+            // Câu truy vấn SQL cơ bản
+            string sql = $@"
+        SELECT COUNT(*) AS WarningCount
+        FROM diemrenluyensinhvien drl
+        JOIN sinhvien sv ON drl.sinhvien_id = sv.id
+        JOIN lop l ON sv.lop_id = l.id
+        JOIN khoa k ON l.khoa_id = k.id
+        WHERE drl.diemrenluyen {sosanh} @drl
+          AND drl.diemrenluyen IS NOT NULL
+          AND drl.status = 1
+          AND sv.status = 1
+          AND l.status = 1
+          AND k.status = 1";
+
+            // Thêm điều kiện lọc dựa trên `khoaId` và `lopId`
+            if (khoaId.HasValue)
+            {
+                sql += " AND k.id = @khoaId";
+            }
+            if (lopId.HasValue)
+            {
+                sql += " AND l.id = @lopId";
+            }
+
+            // Tạo lệnh SQL
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@drl", drl);
+
+            if (khoaId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@khoaId", khoaId.Value);
+            }
+            if (lopId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@lopId", lopId.Value);
+            }
+
+            // Thực thi câu lệnh
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0 && result[0][0] != DBNull.Value)
+            {
+                warningCount = Convert.ToInt32(result[0][0]);
+            }
+
+            return warningCount;
+        }
+
+
+
+
+        // Đếm số lượng sinh viên có điểm rèn luyện dưới 50
+        public static int GetSoSinhVienCanhCao(int threshold = 50)
+        {
+            int count = 0;
+            string sql = "SELECT COUNT(*) FROM diemrenluyensinhvien WHERE diemrenluyen < @threshold AND diemrenluyen IS NOT NULL and status = 1";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@threshold", threshold);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0 && result[0][0] != DBNull.Value)
+            {
+                count = Convert.ToInt32(result[0][0]);
+            }
+
+            return count;
+        }
+
+        public static Dictionary<string, double> GetDiemTrungBinhCuaCacKhoa(int? hockiId = null, int? namhocId = null)
+        {
+            var result = new Dictionary<string, double>();
+
+            // Câu truy vấn SQL
+            string sql = @"
+    SELECT k.tenkhoa AS TenKhoa, AVG(drl.diemrenluyen) AS DiemTrungBinh
+    FROM diemrenluyensinhvien drl
+    JOIN sinhvien sv ON drl.sinhvien_id = sv.id
+    JOIN lop l ON sv.lop_id = l.id
+    JOIN khoa k ON l.khoa_id = k.id
+    LEFT JOIN hocky hk ON drl.hocki_id = hk.Id
+    WHERE drl.diemrenluyen IS NOT NULL
+      AND drl.status = 1
+      AND sv.status = 1
+      AND l.status = 1
+      AND k.status = 1";
+
+            // Thêm điều kiện nếu có
+            if (hockiId.HasValue)
+            {
+                sql += " AND drl.hocki_id = @hockiId";
+            }
+            if (namhocId.HasValue)
+            {
+                sql += " AND hk.namhoc = @namhocId";
+            }
+
+            // Nhóm theo khoa
+            sql += " GROUP BY k.id";
+
+            // Tạo lệnh SQL
+            var cmd = new MySqlCommand(sql);
+
+            // Thêm tham số nếu có
+            if (hockiId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@hockiId", hockiId.Value);
+            }
+            if (namhocId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@namhocId", namhocId.Value);
+            }
+
+            // Thực thi câu lệnh và xử lý kết quả
+            List<List<object>> queryResult = DBConnection.ExecuteReader(cmd);
+
+            foreach (var row in queryResult)
+            {
+                try
+                {
+                    string tenKhoa = Convert.ToString(row[0]);  // Lấy tên khoa
+                    double diemTrungBinh = Convert.ToDouble(row[1]); // Lấy điểm trung bình
+
+                    // Thêm vào kết quả
+                    result[tenKhoa] = diemTrungBinh;
+                }
+                catch (Exception ex)
+                {
+                    // Log lỗi nếu cần
+                    Console.WriteLine($"Lỗi khi xử lý dữ liệu: {ex.Message}");
+                }
+            }
+
+            return result;
+        }
+
+        public static Dictionary<string, int> GetXepLoai(long? khoaId = null, long? lopId = null, int? hockiId = null, int? namhocId = null)
+        {
+            var result = new Dictionary<string, int>();
+
+            // Câu truy vấn SQL
+            string sql = @"
+SELECT drl.danhgia AS DanhGia, COUNT(*) AS SoLuong
+FROM diemrenluyensinhvien drl
+JOIN sinhvien sv ON drl.sinhvien_id = sv.id
+JOIN lop l ON sv.lop_id = l.id
+JOIN khoa k ON l.khoa_id = k.id
+LEFT JOIN hocky hk ON drl.hocki_id = hk.Id
+WHERE drl.danhgia IS NOT NULL
+  AND drl.status = 1
+  AND sv.status = 1
+  AND l.status = 1
+  AND k.status = 1";
+
+            // Thêm điều kiện nếu có
+            if (khoaId.HasValue)
+            {
+                sql += " AND k.id = @khoaId";
+            }
+            if (lopId.HasValue)
+            {
+                sql += " AND l.id = @lopId";
+            }
+            if (hockiId.HasValue)
+            {
+                sql += " AND drl.hocki_id = @hockiId";
+            }
+            if (namhocId.HasValue)
+            {
+                sql += " AND hk.namhoc = @namhocId";
+            }
+
+            // Nhóm theo đánh giá
+            sql += " GROUP BY drl.danhgia";
+
+            // Tạo lệnh SQL
+            var cmd = new MySqlCommand(sql);
+
+            // Thêm tham số nếu có
+            if (khoaId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@khoaId", khoaId.Value);
+            }
+            if (lopId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@lopId", lopId.Value);
+            }
+            if (hockiId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@hockiId", hockiId.Value);
+            }
+            if (namhocId.HasValue)
+            {
+                cmd.Parameters.AddWithValue("@namhocId", namhocId.Value);
+            }
+
+            // Thực thi câu lệnh và xử lý kết quả
+            List<List<object>> queryResult = DBConnection.ExecuteReader(cmd);
+
+            foreach (var row in queryResult)
+            {
+                try
+                {
+                    string danhGia = Convert.ToString(row[0]);  // Lấy đánh giá
+                    int soLuong = Convert.ToInt32(row[1]);     // Lấy số lượng
+
+                    // Thêm vào kết quả
+                    result[danhGia] = soLuong;
+                }
+                catch (Exception ex)
+                {
+                    // Log lỗi nếu cần
+                    Console.WriteLine($"Lỗi khi xử lý dữ liệu: {ex.Message}");
+                }
+            }
+
+            return result;
+        }
+
+
+
     }
 }

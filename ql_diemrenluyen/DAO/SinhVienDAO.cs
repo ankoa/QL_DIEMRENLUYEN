@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
+using System.Diagnostics;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -11,6 +11,23 @@ namespace ql_diemrenluyen.DAO
         {
             List<SinhVienDTO> students = new List<SinhVienDTO>();
             string sql = "SELECT * FROM sinhvien  ";
+
+            List<List<object>> result = DBConnection.ExecuteReader(sql);
+
+            foreach (var row in result)
+            {
+                SinhVienDTO student = MapToSinhVienDTO(row);
+                students.Add(student);
+            }
+
+            return students;
+        }
+
+        // Lấy tất cả sinh viên
+        public static List<SinhVienDTO> GetAllStudentsActive()
+        {
+            List<SinhVienDTO> students = new List<SinhVienDTO>();
+            string sql = "SELECT * FROM sinhvien where status=1";
 
             List<List<object>> result = DBConnection.ExecuteReader(sql);
 
