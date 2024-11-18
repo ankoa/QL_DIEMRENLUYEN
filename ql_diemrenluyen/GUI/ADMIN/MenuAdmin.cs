@@ -145,7 +145,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
-            sidebar.Width = 99;
+            //sidebar.Width = 99;
+            sidebar.Width = 300;
             this.MouseDown += Form_MouseDown;
             btnHomepage.BackColor = Color.LightBlue;
             if (form_home == null)
@@ -164,7 +165,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_home.Activate();
             }
 
-            //sidebar.Width = 300;
+           
 
         }
 
