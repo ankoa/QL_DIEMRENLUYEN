@@ -3,72 +3,32 @@
   "WorkspaceRootPath": "D:\\CSharp Project\\QL_DiemRenLuyen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\standards\\qltieuchi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\qltieuchi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\standards\\qltieuchi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\qltieuchi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\standards\\tieuchidetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\tieuchidetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\gui\\admin\\standards\\tieuchidetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\tieuchidetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\standards\\qltieuchi.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\qltieuchi.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\dto\\chuthichtieuchidto .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dto\\chuthichtieuchidto .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\bus\\chuthichtieuchibus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\chuthichtieuchibus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\dao\\chuthichtieuchidao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\chuthichtieuchidao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\dao\\tieuchidanhgiadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\tieuchidanhgiadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\bus\\tieuchidanhgiabus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\tieuchidanhgiabus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\dto\\chuthichtieuchidto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dto\\chuthichtieuchidto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\dao\\chuthichtieuchidao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\chuthichtieuchidao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\bus\\chuthichtieuchibus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\chuthichtieuchibus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\csharp project\\ql_diemrenluyen\\ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\standards\\chuthichdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 857,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -105,218 +65,96 @@
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MenuAdmin.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAQwAIBAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T17:40:41.898Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MenuAdmin.cs [Design]",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T17:40:40.064Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomePage.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\HomePage.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\HomePage.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\HomePage.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\HomePage.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T17:40:33.855Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HomePage.cs [Design]",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\HomePage.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\HomePage.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\HomePage.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\HomePage.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T17:40:32.032Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "QLTieuChi.cs [Design]",
               "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.cs",
               "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.cs [Design]",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T17:16:32.228Z",
+              "WhenOpened": "2024-11-18T19:24:49.312Z",
               "EditorCaption": " [Design]"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TieuChiDetailForm.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\TieuChiDetailForm.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\TieuChiDetailForm.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\TieuChiDetailForm.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\TieuChiDetailForm.cs",
-              "ViewState": "AgIAAPEAAAAAAAAAAAAgwOwAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T20:49:49.2Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ChuThichTieuChiDTO .cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DTO\\ChuThichTieuChiDTO .cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DTO\\ChuThichTieuChiDTO .cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DTO\\ChuThichTieuChiDTO .cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DTO\\ChuThichTieuChiDTO .cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBMAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T20:40:17.458Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChuThichDetailForm.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAAwLkAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T20:27:44.616Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ChuThichDetailForm.Designer.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.Designer.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.Designer.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.Designer.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.Designer.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAYwBYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T20:26:29.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ChuThichTieuChiDAO.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DAO\\ChuThichTieuChiDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\ChuThichTieuChiDAO.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DAO\\ChuThichTieuChiDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\ChuThichTieuChiDAO.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAYwGoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T19:46:55.835Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ChuThichTieuChiBUS.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\ChuThichTieuChiBUS.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\ChuThichTieuChiBUS.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\ChuThichTieuChiBUS.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\BUS\\ChuThichTieuChiBUS.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAkwEYAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T19:46:27.67Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 1,
               "Title": "TieuChiDanhGiaDAO.cs",
               "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DAO\\TieuChiDanhGiaDAO.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\TieuChiDanhGiaDAO.cs",
               "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DAO\\TieuChiDanhGiaDAO.cs",
               "RelativeToolTip": "ql_diemrenluyen\\DAO\\TieuChiDanhGiaDAO.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAswFAAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:34:18.765Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "QLTieuChi.Designer.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.Designer.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.Designer.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.Designer.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.Designer.cs",
-              "ViewState": "AgIAAJUDAAAAAAAAAAAwwKIDAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:22:58.854Z",
+              "WhenOpened": "2024-11-18T19:23:55.633Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "TieuChiDanhGiaBUS.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\TieuChiDanhGiaBUS.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\TieuChiDanhGiaBUS.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\TieuChiDanhGiaBUS.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\BUS\\TieuChiDanhGiaBUS.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAnwCwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ChuThichTieuChiDTO.cs",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DTO\\ChuThichTieuChiDTO.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\DTO\\ChuThichTieuChiDTO.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DTO\\ChuThichTieuChiDTO.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\DTO\\ChuThichTieuChiDTO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:02:52.282Z"
+              "WhenOpened": "2024-11-18T19:19:29.184Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "QLTieuChi.cs",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\QLTieuChi.cs",
-              "ViewState": "AgIAANwAAAAAAAAAAAAAwOYAAAAPAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ChuThichTieuChiDAO.cs",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DAO\\ChuThichTieuChiDAO.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\ChuThichTieuChiDAO.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\DAO\\ChuThichTieuChiDAO.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\DAO\\ChuThichTieuChiDAO.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAowLIAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:01:02.295Z",
+              "WhenOpened": "2024-11-18T19:18:35.294Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "ChuThichTieuChiBUS.cs",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\ChuThichTieuChiBUS.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\ChuThichTieuChiBUS.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\BUS\\ChuThichTieuChiBUS.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\BUS\\ChuThichTieuChiBUS.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAqwFsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:18:30.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChuThichDetailForm.cs",
+              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
+              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
+              "ViewState": "AgIAALYAAAAAAAAAAAAWwMYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:17:32.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ChuThichDetailForm.cs [Design]",
               "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs",
               "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs [Design]",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\ChuThichDetailForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T20:26:22.068Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "TieuChiDetailForm.cs [Design]",
-              "DocumentMoniker": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\TieuChiDetailForm.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\TieuChiDetailForm.cs",
-              "ToolTip": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\GUI\\ADMIN\\Standards\\TieuChiDetailForm.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Standards\\TieuChiDetailForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T15:59:28.884Z",
+              "WhenOpened": "2024-11-18T19:17:31.296Z",
               "EditorCaption": " [Design]"
             }
           ]

@@ -195,10 +195,12 @@
             // 
             // dtpCreatedAt
             // 
+            dtpCreatedAt.Enabled = false;
             dtpCreatedAt.Location = new Point(210, 318);
             dtpCreatedAt.Name = "dtpCreatedAt";
             dtpCreatedAt.Size = new Size(228, 27);
             dtpCreatedAt.TabIndex = 19;
+            dtpCreatedAt.ValueChanged += dtpCreatedAt_ValueChanged;
             // 
             // cbbStatus
             // 

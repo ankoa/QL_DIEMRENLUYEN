@@ -20,6 +20,41 @@ namespace ql_diemrenluyen.BUS
                 return new List<ChuThichTieuChiDTO>(); // Trả về danh sách rỗng nếu có lỗi
             }
         }
+        public static List<ChuThichTieuChiDTO> GetAllChuThichTieuChi2()
+        {
+            try
+            {
+                return ChuThichTieuChiDAO.GetAllChuThichTieuChi2();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy tất cả chú thích tiêu chí: " + ex.Message);
+                return new List<ChuThichTieuChiDTO>(); // Trả về danh sách rỗng nếu có lỗi
+            }
+        }
+        
+        // Hiển thị danh sách chú thích
+        public static void HienThiChuThich(List<ChuThichTieuChiDTO> chuThichList)
+        {
+            foreach (var chuThich in chuThichList)
+            {
+                Console.WriteLine($"ID: {chuThich.Id}, Tên: {chuThich.Name}, Điểm: {chuThich.Diem}, Trạng thái: {chuThich.Status}");
+            }
+        }
+
+        // Lấy danh sách chú thích theo ID tiêu chí
+        public static List<ChuThichTieuChiDTO> GetChuThichByTieuChiId(long tieuChiId)
+        {
+            try
+            {
+                return ChuThichTieuChiDAO.GetChuThichByTieuChiId(tieuChiId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi lấy danh sách chú thích theo tiêu chí ID: {ex.Message}");
+                return new List<ChuThichTieuChiDTO>();
+            }
+        }
 
         // Thêm mới chú thích tiêu chí
         public static bool AddChuThichTieuChi(ChuThichTieuChiDTO chuThich)
@@ -48,23 +83,9 @@ namespace ql_diemrenluyen.BUS
                 return false;
             }
         }
-        public static List<ChuThichTieuChiDTO> SearchChuThich(int? tcID, int status, string search)
-        {
 
-            return ChuThichTieuChiDAO.SearchChuThich(tcID, status, search);
-
-        }
-        public static bool IsValidScore(string scoreText)
-        {
-            // Kiểm tra nếu scoreText là một số nguyên hợp lệ và lớn hơn hoặc bằng 0
-            if (int.TryParse(scoreText, out int score))
-            {
-                return score >= 0; // Điểm phải là số dương hoặc bằng 0
-            }
-            return false; // Nếu không phải số hợp lệ
-        }
-        //Xóa chú thích tiêu chí
-        public static bool DeleteChuThichTieuChi(int id)
+        // Xóa chú thích tiêu chí
+        public static bool DeleteChuThichTieuChi(long id)
         {
             try
             {
@@ -75,7 +96,22 @@ namespace ql_diemrenluyen.BUS
                 Console.WriteLine("Lỗi khi xóa chú thích tiêu chí: " + ex.Message);
                 return false;
             }
+        }
 
+        // Tìm kiếm chú thích theo tiêu chí
+        public static List<ChuThichTieuChiDTO> SearchChuThich(int? tcID, int status, string search)
+        {
+            return ChuThichTieuChiDAO.SearchChuThich(tcID, status, search);
+        }
+
+        // Kiểm tra điểm hợp lệ
+        public static bool IsValidScore(string scoreText)
+        {
+            if (int.TryParse(scoreText, out int score))
+            {
+                return score >= 0; // Điểm phải là số dương hoặc bằng 0
+            }
+            return false;
         }
     }
 }

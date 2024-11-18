@@ -131,6 +131,9 @@
             // 
             // find
             // 
+
+            //find.Image = Properties.Resources.search__2_;
+
             find.Location = new Point(786, 1);
             find.Name = "find";
             find.Size = new Size(112, 32);

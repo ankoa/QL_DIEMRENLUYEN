@@ -57,7 +57,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
         {
             this.Dock = DockStyle.Fill; // Đảm bảo chiếm toàn bộ không gian
             this.ControlBox = false;
-            //List<ChuThichTieuChiDTO> listchuthich = ChuThichTieuChiBUS.GetAllChuThichTieuChi();
+            //List<ChuThichTieuChiDTO> listchuthich = ChuThichTieuChiBUS.GetAllChuThichTieuChi2();
             //MessageBox.Show("Lỗi khi tải danh sách tài khoản: " + listchuthich.Count());
 
             LoadStandardsList();
@@ -104,7 +104,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
                                                tieuchi.Id,
                                                tieuchi.Name,
                                                tieuchi.DiemMax,
-                                               tieuchi.ParentId != null ? tieuchi.ParentId.ToString() : "none", // Kiểm tra nếu ParentId > 0 thì hiển thị, ngược lại để trống
+                                               tieuchi.ParentId != null ? tieuchi.ParentId.ToString() : "null", // Kiểm tra nếu ParentId > 0 thì hiển thị, ngược lại để trống
                                                tieuchi.CreatedAt.HasValue ? tieuchi.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
                                                tieuchi.UpdatedAt.HasValue ? tieuchi.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
                                                tieuchi.status == 1 ? "Hoạt động" : "Không hoạt động"
@@ -149,7 +149,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
             }
             try
             {
-                List<ChuThichTieuChiDTO> listchuthich = ChuThichTieuChiBUS.GetAllChuThichTieuChi();
+                List<ChuThichTieuChiDTO> listchuthich = ChuThichTieuChiBUS.GetAllChuThichTieuChi2();
 
                 tbCTTC.Rows.Clear();
 
@@ -161,8 +161,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
                                                chuthich.TieuChiDanhGiaId,
                                                chuthich.Name,
                                                chuthich.Diem,
-                                               chuthich.CreatedAt.HasValue ? chuthich.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
-                                               chuthich.UpdatedAt.HasValue ? chuthich.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
+                                               chuthich.CreatedAt != DateTime.MinValue ? chuthich.CreatedAt.ToString("dd/MM/yyyy") : "", 
+                                               chuthich.UpdatedAt != DateTime.MinValue ? chuthich.UpdatedAt.ToString("dd/MM/yyyy") : "",
                                                chuthich.Status == 1 ? "Hoạt động" : "Không hoạt động"
                                            );
 
@@ -192,7 +192,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
                                 tieuchi.Id,
                                 tieuchi.Name,
                                 tieuchi.DiemMax,
-                                tieuchi.ParentId > 0 ? tieuchi.ParentId.ToString() : "none", // Kiểm tra nếu ParentId > 0 thì hiển thị, ngược lại để trống
+                                tieuchi.ParentId > 0 ? tieuchi.ParentId.ToString() : "null", // Kiểm tra nếu ParentId > 0 thì hiển thị, ngược lại để trống
                                 tieuchi.CreatedAt.HasValue ? tieuchi.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
                                 tieuchi.UpdatedAt.HasValue ? tieuchi.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
                                 tieuchi.status == 1 ? "Hoạt động" : "Không hoạt động"
@@ -210,7 +210,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
                                 tieuchi.Id,
                                 tieuchi.Name,
                                 tieuchi.DiemMax,
-                                tieuchi.ParentId != null ? tieuchi.ParentId.ToString() : "none", // Kiểm tra nếu ParentId > 0 thì hiển thị, ngược lại để trống
+                                tieuchi.ParentId != null ? tieuchi.ParentId.ToString() : "null", // Kiểm tra nếu ParentId > 0 thì hiển thị, ngược lại để trống
                                 tieuchi.CreatedAt.HasValue ? tieuchi.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
                                 tieuchi.UpdatedAt.HasValue ? tieuchi.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
                                 tieuchi.status == 1 ? "Hoạt động" : "Không hoạt động"
@@ -230,7 +230,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
         {
             try
             {
-                List<ChuThichTieuChiDTO> listchuthich = ChuThichTieuChiBUS.GetAllChuThichTieuChi();
+                List<ChuThichTieuChiDTO> listchuthich = ChuThichTieuChiBUS.GetAllChuThichTieuChi2();
                 table.Rows.Clear();
 
                 foreach (var chuthich in listchuthich)
@@ -240,8 +240,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
                         chuthich.TieuChiDanhGiaId,
                         chuthich.Name,
                         chuthich.Diem,
-                        chuthich.CreatedAt.HasValue ? chuthich.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
-                        chuthich.UpdatedAt.HasValue ? chuthich.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
+                        chuthich.CreatedAt != DateTime.MinValue ? chuthich.CreatedAt.ToString("dd/MM/yyyy") : "",
+                        chuthich.UpdatedAt != DateTime.MinValue ? chuthich.UpdatedAt.ToString("dd/MM/yyyy") : "",
                         chuthich.Status == 1 ? "Hoạt động" : "Không hoạt động"
                     );
                 }
@@ -630,8 +630,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
                             chuthich.TieuChiDanhGiaId,
                             chuthich.Name,
                             chuthich.Diem,
-                            chuthich.CreatedAt.HasValue ? chuthich.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
-                            chuthich.UpdatedAt.HasValue ? chuthich.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
+                            chuthich.CreatedAt != DateTime.MinValue ? chuthich.CreatedAt.ToString("dd/MM/yyyy") : "",
+                            chuthich.UpdatedAt != DateTime.MinValue ? chuthich.UpdatedAt.ToString("dd/MM/yyyy") : "",
                             chuthich.Status == 1 ? "Hoạt động" : "Không hoạt động"
                         );
                     }
@@ -677,7 +677,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
                 var selectedRow = tbCTTC.Rows[e.RowIndex];
 
                 // Lấy giá trị của các cột
-                int id = (int)selectedRow.Cells["colCTTC"].Value;
+                long id = (long)selectedRow.Cells["colCTTC"].Value;
                 int maxpoint = (int)selectedRow.Cells["colPoint"].Value;
 
                 string text = selectedRow.Cells["colNoiDung3"].Value?.ToString() ?? "";

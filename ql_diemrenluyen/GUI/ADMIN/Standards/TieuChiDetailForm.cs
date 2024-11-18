@@ -112,12 +112,12 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
             txtId.Visible = false;
             List<TieuChiDanhGiaDTO> listtieuchi = TieuChiDanhGiaBUS.GetAllTieuChiDanhGia();
 
-            if (parentID!= null)
+            if (parentID != null)
             {
-                lbTitle.Text ="Thông tin tiêu chí phụ";
+                lbTitle.Text = "Thông tin tiêu chí phụ";
                 foreach (var tieuchi in listtieuchi)
                 {
-                    if (tieuchi.ParentId !=null)
+                    if (tieuchi.ParentId != null)
                     {
                         cbbParentID.Items.Add(tieuchi.Id + " - " + tieuchi.Name);
 
@@ -283,7 +283,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
                         }
                     }
                 }
-                if(parentID==0)
+                if (parentID == 0)
                 {
                     // Kiểm tra nếu có chọn ParentId từ combobox
                     if (cbbParentID.SelectedIndex != -1)
@@ -338,19 +338,20 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
 
                     }
                 }
-                
+
             }
-            else { 
-            if (string.IsNullOrEmpty(txtNoiDung.Text) || cbbStatus.SelectedItem == null || string.IsNullOrEmpty(txtMaxPoint.Text))
+            else
             {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!TieuChiDanhGiaBUS.IsValidScore(txtMaxPoint.Text))
-            {
-                MessageBox.Show("Điểm phải là số nguyên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                if (string.IsNullOrEmpty(txtNoiDung.Text) || cbbStatus.SelectedItem == null || string.IsNullOrEmpty(txtMaxPoint.Text))
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!TieuChiDanhGiaBUS.IsValidScore(txtMaxPoint.Text))
+                {
+                    MessageBox.Show("Điểm phải là số nguyên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 // Kiểm tra nếu parentID là null (không chọn hoặc không hợp lệ)
                 if (parentID == null)
                 {
@@ -551,6 +552,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
         }
 
         private void lblId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpCreatedAt_ValueChanged(object sender, EventArgs e)
         {
 
         }

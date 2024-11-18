@@ -19,11 +19,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
         private QLTieuChi mainForm;
         private DataGridView table;
         private DataGridView tableAdd;
-        private int id;
+        private long id;
         int? parentID;
         String status;
         DateTime createdAt;
-        public ChuThichDetailForm(int id, int? parentID, string text, int maxpoint, DateTime createdAt, DateTime updatedAt, string status, DataGridView dataGridView, QLTieuChi tieuChiForm)
+        public ChuThichDetailForm(long id, int? parentID, string text, int maxpoint, DateTime createdAt, DateTime updatedAt, string status, DataGridView dataGridView, QLTieuChi tieuChiForm)
         {
             this.BackColor = Color.Black;
             table = dataGridView;
@@ -166,7 +166,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
                 {
                     ChuThichTieuChiDTO tc = new ChuThichTieuChiDTO
                     {
-                        TieuChiDanhGiaId = parentID,
+                        TieuChiDanhGiaId = (long)parentID.Value,
                         Name = txtNoiDung.Text,
                         Diem = int.Parse(txtMaxPoint.Text),
                         CreatedAt = DateTime.Now,
@@ -199,7 +199,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
                     ChuThichTieuChiDTO tc = new ChuThichTieuChiDTO
                     {
                         Id = id,
-                        TieuChiDanhGiaId = parentID,
+                        TieuChiDanhGiaId = (long)parentID.Value,
                         Name = txtNoiDung.Text,
                         Diem = int.Parse(txtMaxPoint.Text),
                         CreatedAt = createdAt,

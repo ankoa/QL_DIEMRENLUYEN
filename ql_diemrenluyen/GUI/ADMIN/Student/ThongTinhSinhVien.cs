@@ -70,7 +70,7 @@ namespace QLDiemRenLuyen
             LopDTO lopDTO = new LopDTO();
             lopDTO = cBLop.SelectedItem as LopDTO;
 
-            khoaDto = KhoaBUS.GetKhoaByID(lopDTO.KhoaId);
+            khoaDto = KhoaBUS.GetKhoaByID(lopDTO.Khoa.Id);
             txtKhoa.Text = khoaDto.TenKhoa;
         }
         public ThongTinhSinhVien(long idSV, List<SinhVienDTO> listStudent)
@@ -130,7 +130,7 @@ namespace QLDiemRenLuyen
             cBLop.SelectedValue = lopDTO.Id;
 
             KhoaDTO khoaDto = new KhoaDTO();
-            khoaDto = KhoaBUS.GetKhoaByID(lopDTO.KhoaId);
+            khoaDto = KhoaBUS.GetKhoaByID(lopDTO.Khoa.Id);
             txtKhoa.Text = khoaDto.TenKhoa;
 
 
@@ -189,7 +189,7 @@ namespace QLDiemRenLuyen
             KhoaDTO khoaDto = new KhoaDTO();
             LopDTO lopDTO = new LopDTO();
             lopDTO = cBLop.SelectedItem as LopDTO;
-            khoaDto = KhoaBUS.GetKhoaByID(lopDTO.KhoaId);
+            khoaDto = KhoaBUS.GetKhoaByID(lopDTO.Khoa.Id);
             txtKhoa.Text = khoaDto.TenKhoa;
 
         }

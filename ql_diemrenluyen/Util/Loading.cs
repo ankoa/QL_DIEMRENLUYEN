@@ -36,15 +36,29 @@
         // Hiển thị PictureBox loading và đảm bảo nó ở trên cùng
         public static void ShowLoading(PictureBox pictureBox)
         {
-            pictureBox.BringToFront(); // Đảm bảo luôn hiển thị trên cùng
-            pictureBox.Visible = true;
-            pictureBox.Update(); // Cập nhật UI ngay lập tức
+            if (pictureBox.InvokeRequired)
+            {
+                pictureBox.Invoke(new Action(() => ShowLoading(pictureBox)));
+            }
+            else
+            {
+                pictureBox.BringToFront(); // Đảm bảo luôn hiển thị trên cùng
+                pictureBox.Visible = true;
+                pictureBox.Update(); // Cập nhật UI ngay lập tức
+            }
         }
 
         // Ẩn PictureBox loading
         public static void HideLoading(PictureBox pictureBox)
         {
-            pictureBox.Visible = false;
+            if (pictureBox.InvokeRequired)
+            {
+                pictureBox.Invoke(new Action(() => HideLoading(pictureBox)));
+            }
+            else
+            {
+                pictureBox.Visible = false;
+            }
         }
     }
 }
