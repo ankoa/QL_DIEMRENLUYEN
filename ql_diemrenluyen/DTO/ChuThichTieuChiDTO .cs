@@ -13,14 +13,14 @@ namespace ql_diemrenluyen.DTO
         }
 
         public int Id { get; set; }
-        public ulong TieuChiDanhGiaId { get; set; }
+        public int? TieuChiDanhGiaId { get; set; }
         public string Name { get; set; }
         public int Diem { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int Status { get; set; }
 
-        public ChuThichTieuChiDTO(int id, ulong tieuChiDanhGiaId, string name, int diem, DateTime createdAt, DateTime updatedAt, int status)
+        public ChuThichTieuChiDTO(int id, int tieuChiDanhGiaId, string name, int diem, DateTime createdAt, DateTime updatedAt, int status)
         {
             Id = id;
             TieuChiDanhGiaId = tieuChiDanhGiaId;

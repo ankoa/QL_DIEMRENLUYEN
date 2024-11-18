@@ -60,14 +60,16 @@
             DataGridViewCellStyle dataGridViewCellStyle58 = new DataGridViewCellStyle();
             tabPage2 = new TabPage();
             panel4 = new Panel();
+            tableLayoutPanel13 = new TableLayoutPanel();
+            btnAddTCP = new Button();
             tbTCP = new ReaLTaiizor.Controls.PoisonDataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            colTieuChi2 = new DataGridViewTextBoxColumn();
+            colNoiDung2 = new DataGridViewTextBoxColumn();
+            colMaxPoint2 = new DataGridViewTextBoxColumn();
+            colParentID2 = new DataGridViewTextBoxColumn();
+            colCreate2 = new DataGridViewTextBoxColumn();
+            colUpdate2 = new DataGridViewTextBoxColumn();
+            colStatus2 = new DataGridViewTextBoxColumn();
             panel5 = new Panel();
             panel6 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -110,14 +112,16 @@
             txtTC = new TextBox();
             tabPage3 = new TabPage();
             panel1 = new Panel();
+            tableLayoutPanel14 = new TableLayoutPanel();
+            btnAddCTTC = new Button();
             tbCTTC = new ReaLTaiizor.Controls.PoisonDataGridView();
-            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn15 = new DataGridViewTextBoxColumn();
+            colCTTC = new DataGridViewTextBoxColumn();
+            TCID = new DataGridViewTextBoxColumn();
+            colNoiDung3 = new DataGridViewTextBoxColumn();
+            colPoint = new DataGridViewTextBoxColumn();
+            colCreate3 = new DataGridViewTextBoxColumn();
+            colUpdate3 = new DataGridViewTextBoxColumn();
+            colStatus3 = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             panel7 = new Panel();
             tableLayoutPanel8 = new TableLayoutPanel();
@@ -136,6 +140,7 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             tabPage2.SuspendLayout();
             panel4.SuspendLayout();
+            tableLayoutPanel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbTCP).BeginInit();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
@@ -155,6 +160,7 @@
             tableLayoutPanel1.SuspendLayout();
             tabPage3.SuspendLayout();
             panel1.SuspendLayout();
+            tableLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbCTTC).BeginInit();
             panel3.SuspendLayout();
             panel7.SuspendLayout();
@@ -180,14 +186,44 @@
             // 
             panel4.AutoScroll = true;
             panel4.BackColor = SystemColors.ControlLightLight;
+            panel4.Controls.Add(tableLayoutPanel13);
             panel4.Controls.Add(tbTCP);
             panel4.Dock = DockStyle.Fill;
             panel4.Location = new Point(3, 192);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
-            panel4.Padding = new Padding(21, 30, 21, 0);
+            panel4.Padding = new Padding(21, 10, 21, 0);
             panel4.Size = new Size(1286, 590);
             panel4.TabIndex = 10;
+            // 
+            // tableLayoutPanel13
+            // 
+            tableLayoutPanel13.ColumnCount = 2;
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
+            tableLayoutPanel13.Controls.Add(btnAddTCP, 1, 0);
+            tableLayoutPanel13.Dock = DockStyle.Top;
+            tableLayoutPanel13.Location = new Point(21, 10);
+            tableLayoutPanel13.Name = "tableLayoutPanel13";
+            tableLayoutPanel13.RowCount = 1;
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.Size = new Size(1223, 70);
+            tableLayoutPanel13.TabIndex = 9;
+            // 
+            // btnAddTCP
+            // 
+            btnAddTCP.BackColor = Color.LimeGreen;
+            btnAddTCP.Dock = DockStyle.Right;
+            btnAddTCP.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddTCP.ForeColor = SystemColors.ControlLightLight;
+            btnAddTCP.Location = new Point(1124, 3);
+            btnAddTCP.Margin = new Padding(3, 3, 3, 15);
+            btnAddTCP.Name = "btnAddTCP";
+            btnAddTCP.Size = new Size(96, 52);
+            btnAddTCP.TabIndex = 47;
+            btnAddTCP.Text = "Thêm";
+            btnAddTCP.UseVisualStyleBackColor = false;
+            btnAddTCP.Click += btnAddTCP_Click;
             // 
             // tbTCP
             // 
@@ -208,7 +244,7 @@
             dataGridViewCellStyle31.WrapMode = DataGridViewTriState.True;
             tbTCP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             tbTCP.ColumnHeadersHeight = 70;
-            tbTCP.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8 });
+            tbTCP.Columns.AddRange(new DataGridViewColumn[] { colTieuChi2, colNoiDung2, colMaxPoint2, colParentID2, colCreate2, colUpdate2, colStatus2 });
             tbTCP.Cursor = Cursors.Hand;
             dataGridViewCellStyle39.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle39.BackColor = Color.FromArgb(255, 255, 255);
@@ -218,12 +254,12 @@
             dataGridViewCellStyle39.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle39.WrapMode = DataGridViewTriState.False;
             tbTCP.DefaultCellStyle = dataGridViewCellStyle39;
-            tbTCP.Dock = DockStyle.Fill;
+            tbTCP.Dock = DockStyle.Bottom;
             tbTCP.EnableHeadersVisualStyles = false;
             tbTCP.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbTCP.GridColor = Color.FromArgb(255, 255, 255);
             tbTCP.HighLightPercentage = 1F;
-            tbTCP.Location = new Point(21, 30);
+            tbTCP.Location = new Point(21, 80);
             tbTCP.Margin = new Padding(0, 0, 0, 29);
             tbTCP.MultiSelect = false;
             tbTCP.Name = "tbTCP";
@@ -241,72 +277,73 @@
             tbTCP.RowHeadersWidth = 51;
             tbTCP.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbTCP.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbTCP.Size = new Size(1244, 560);
+            tbTCP.Size = new Size(1223, 560);
             tbTCP.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             tbTCP.TabIndex = 8;
+            tbTCP.CellDoubleClick += tbTCP_CellDoubleClick;
             // 
-            // dataGridViewTextBoxColumn1
+            // colTieuChi2
             // 
             dataGridViewCellStyle32.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle32;
-            dataGridViewTextBoxColumn1.HeaderText = "Tiêu chí ID";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
+            colTieuChi2.DefaultCellStyle = dataGridViewCellStyle32;
+            colTieuChi2.HeaderText = "Tiêu chí ID";
+            colTieuChi2.MinimumWidth = 6;
+            colTieuChi2.Name = "colTieuChi2";
+            colTieuChi2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // colNoiDung2
             // 
             dataGridViewCellStyle33.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle33;
-            dataGridViewTextBoxColumn3.HeaderText = "Nội dung";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
+            colNoiDung2.DefaultCellStyle = dataGridViewCellStyle33;
+            colNoiDung2.HeaderText = "Nội dung";
+            colNoiDung2.MinimumWidth = 6;
+            colNoiDung2.Name = "colNoiDung2";
+            colNoiDung2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // colMaxPoint2
             // 
             dataGridViewCellStyle34.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle34;
-            dataGridViewTextBoxColumn4.HeaderText = "Điểm tối đa";
-            dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
+            colMaxPoint2.DefaultCellStyle = dataGridViewCellStyle34;
+            colMaxPoint2.HeaderText = "Điểm tối đa";
+            colMaxPoint2.MinimumWidth = 6;
+            colMaxPoint2.Name = "colMaxPoint2";
+            colMaxPoint2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // colParentID2
             // 
             dataGridViewCellStyle35.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle35;
-            dataGridViewTextBoxColumn5.HeaderText = "ID Mục Cha";
-            dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.ReadOnly = true;
+            colParentID2.DefaultCellStyle = dataGridViewCellStyle35;
+            colParentID2.HeaderText = "ID Mục Cha";
+            colParentID2.MinimumWidth = 6;
+            colParentID2.Name = "colParentID2";
+            colParentID2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // colCreate2
             // 
             dataGridViewCellStyle36.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle36;
-            dataGridViewTextBoxColumn6.HeaderText = "Ngày tạo";
-            dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.ReadOnly = true;
+            colCreate2.DefaultCellStyle = dataGridViewCellStyle36;
+            colCreate2.HeaderText = "Ngày tạo";
+            colCreate2.MinimumWidth = 6;
+            colCreate2.Name = "colCreate2";
+            colCreate2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn7
+            // colUpdate2
             // 
             dataGridViewCellStyle37.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle37;
-            dataGridViewTextBoxColumn7.HeaderText = "Ngày cập nhật";
-            dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.ReadOnly = true;
+            colUpdate2.DefaultCellStyle = dataGridViewCellStyle37;
+            colUpdate2.HeaderText = "Ngày cập nhật";
+            colUpdate2.MinimumWidth = 6;
+            colUpdate2.Name = "colUpdate2";
+            colUpdate2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn8
+            // colStatus2
             // 
             dataGridViewCellStyle38.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle38;
-            dataGridViewTextBoxColumn8.HeaderText = "Trạng thái";
-            dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            dataGridViewTextBoxColumn8.ReadOnly = true;
+            colStatus2.DefaultCellStyle = dataGridViewCellStyle38;
+            colStatus2.HeaderText = "Trạng thái";
+            colStatus2.MinimumWidth = 6;
+            colStatus2.Name = "colStatus2";
+            colStatus2.ReadOnly = true;
             // 
             // panel5
             // 
@@ -372,12 +409,13 @@
             // 
             // btnClearTCP
             // 
+            btnClearTCP.BackColor = Color.Lavender;
             btnClearTCP.Location = new Point(633, 63);
             btnClearTCP.Name = "btnClearTCP";
             btnClearTCP.Size = new Size(83, 39);
             btnClearTCP.TabIndex = 39;
             btnClearTCP.Text = "Reset";
-            btnClearTCP.UseVisualStyleBackColor = true;
+            btnClearTCP.UseVisualStyleBackColor = false;
             btnClearTCP.Click += btnClearTCP_Click;
             // 
             // tableLayoutPanel5
@@ -419,6 +457,7 @@
             cbbStatusTCP.Name = "cbbStatusTCP";
             cbbStatusTCP.Size = new Size(210, 28);
             cbbStatusTCP.TabIndex = 36;
+            cbbStatusTCP.SelectedIndexChanged += cbbStatusTCP_SelectedIndexChanged;
             // 
             // tableLayoutPanel6
             // 
@@ -459,6 +498,7 @@
             cbbTC.Name = "cbbTC";
             cbbTC.Size = new Size(217, 28);
             cbbTC.TabIndex = 35;
+            cbbTC.SelectedIndexChanged += cbbTC_SelectedIndexChanged;
             // 
             // tableLayoutPanel7
             // 
@@ -497,6 +537,7 @@
             txtTCP.Size = new Size(401, 27);
             txtTCP.TabIndex = 38;
             txtTCP.Text = "Nhập ID,nội dung cần tìm";
+            txtTCP.TextChanged += txtTCP_TextChanged;
             // 
             // cbStatusCTTC
             // 
@@ -553,8 +594,10 @@
             // 
             // btnAddTC
             // 
-            btnAddTC.BackColor = Color.PaleGreen;
+            btnAddTC.BackColor = Color.LimeGreen;
             btnAddTC.Dock = DockStyle.Right;
+            btnAddTC.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddTC.ForeColor = SystemColors.ControlLightLight;
             btnAddTC.Location = new Point(1124, 3);
             btnAddTC.Margin = new Padding(3, 3, 3, 15);
             btnAddTC.Name = "btnAddTC";
@@ -702,12 +745,13 @@
             // 
             // button5
             // 
-            button5.Location = new Point(509, 122);
+            button5.BackColor = Color.Lavender;
+            button5.Location = new Point(372, 124);
             button5.Name = "button5";
             button5.Size = new Size(83, 39);
             button5.TabIndex = 46;
             button5.Text = "Reset";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             button5.Click += btnClearTC_Click;
             // 
             // panel2
@@ -851,14 +895,44 @@
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(tableLayoutPanel14);
             panel1.Controls.Add(tbCTTC);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 192);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(21, 30, 21, 0);
+            panel1.Padding = new Padding(21, 10, 21, 0);
             panel1.Size = new Size(1286, 590);
             panel1.TabIndex = 12;
+            // 
+            // tableLayoutPanel14
+            // 
+            tableLayoutPanel14.ColumnCount = 2;
+            tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
+            tableLayoutPanel14.Controls.Add(btnAddCTTC, 1, 0);
+            tableLayoutPanel14.Dock = DockStyle.Top;
+            tableLayoutPanel14.Location = new Point(21, 10);
+            tableLayoutPanel14.Name = "tableLayoutPanel14";
+            tableLayoutPanel14.RowCount = 1;
+            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel14.Size = new Size(1223, 70);
+            tableLayoutPanel14.TabIndex = 9;
+            // 
+            // btnAddCTTC
+            // 
+            btnAddCTTC.BackColor = Color.LimeGreen;
+            btnAddCTTC.Dock = DockStyle.Right;
+            btnAddCTTC.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddCTTC.ForeColor = SystemColors.ControlLightLight;
+            btnAddCTTC.Location = new Point(1124, 3);
+            btnAddCTTC.Margin = new Padding(3, 3, 3, 15);
+            btnAddCTTC.Name = "btnAddCTTC";
+            btnAddCTTC.Size = new Size(96, 52);
+            btnAddCTTC.TabIndex = 47;
+            btnAddCTTC.Text = "Thêm";
+            btnAddCTTC.UseVisualStyleBackColor = false;
+            btnAddCTTC.Click += btnAddCTTC_Click;
             // 
             // tbCTTC
             // 
@@ -879,7 +953,7 @@
             dataGridViewCellStyle51.WrapMode = DataGridViewTriState.True;
             tbCTTC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
             tbCTTC.ColumnHeadersHeight = 70;
-            tbCTTC.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14, dataGridViewTextBoxColumn15 });
+            tbCTTC.Columns.AddRange(new DataGridViewColumn[] { colCTTC, TCID, colNoiDung3, colPoint, colCreate3, colUpdate3, colStatus3 });
             tbCTTC.Cursor = Cursors.Hand;
             dataGridViewCellStyle59.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle59.BackColor = Color.FromArgb(255, 255, 255);
@@ -889,12 +963,12 @@
             dataGridViewCellStyle59.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle59.WrapMode = DataGridViewTriState.False;
             tbCTTC.DefaultCellStyle = dataGridViewCellStyle59;
-            tbCTTC.Dock = DockStyle.Fill;
+            tbCTTC.Dock = DockStyle.Bottom;
             tbCTTC.EnableHeadersVisualStyles = false;
             tbCTTC.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbCTTC.GridColor = Color.FromArgb(255, 255, 255);
             tbCTTC.HighLightPercentage = 1F;
-            tbCTTC.Location = new Point(21, 30);
+            tbCTTC.Location = new Point(21, 80);
             tbCTTC.Margin = new Padding(0, 0, 0, 29);
             tbCTTC.MultiSelect = false;
             tbCTTC.Name = "tbCTTC";
@@ -912,72 +986,73 @@
             tbCTTC.RowHeadersWidth = 51;
             tbCTTC.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbCTTC.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbCTTC.Size = new Size(1244, 560);
+            tbCTTC.Size = new Size(1223, 560);
             tbCTTC.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             tbCTTC.TabIndex = 7;
+            tbCTTC.CellDoubleClick += tbCTTC_CellDoubleClick;
             // 
-            // dataGridViewTextBoxColumn9
+            // colCTTC
             // 
             dataGridViewCellStyle52.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle52;
-            dataGridViewTextBoxColumn9.HeaderText = "ID";
-            dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            dataGridViewTextBoxColumn9.ReadOnly = true;
+            colCTTC.DefaultCellStyle = dataGridViewCellStyle52;
+            colCTTC.HeaderText = "ID";
+            colCTTC.MinimumWidth = 6;
+            colCTTC.Name = "colCTTC";
+            colCTTC.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn10
+            // TCID
             // 
             dataGridViewCellStyle53.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle53;
-            dataGridViewTextBoxColumn10.HeaderText = "Tiêu Chí ID";
-            dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            dataGridViewTextBoxColumn10.ReadOnly = true;
+            TCID.DefaultCellStyle = dataGridViewCellStyle53;
+            TCID.HeaderText = "Tiêu Chí ID";
+            TCID.MinimumWidth = 6;
+            TCID.Name = "TCID";
+            TCID.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn11
+            // colNoiDung3
             // 
             dataGridViewCellStyle54.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle54;
-            dataGridViewTextBoxColumn11.HeaderText = "Nội Dung";
-            dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            dataGridViewTextBoxColumn11.ReadOnly = true;
+            colNoiDung3.DefaultCellStyle = dataGridViewCellStyle54;
+            colNoiDung3.HeaderText = "Nội Dung";
+            colNoiDung3.MinimumWidth = 6;
+            colNoiDung3.Name = "colNoiDung3";
+            colNoiDung3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn12
+            // colPoint
             // 
             dataGridViewCellStyle55.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle55;
-            dataGridViewTextBoxColumn12.HeaderText = "Điểm";
-            dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            dataGridViewTextBoxColumn12.ReadOnly = true;
+            colPoint.DefaultCellStyle = dataGridViewCellStyle55;
+            colPoint.HeaderText = "Điểm";
+            colPoint.MinimumWidth = 6;
+            colPoint.Name = "colPoint";
+            colPoint.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn13
+            // colCreate3
             // 
             dataGridViewCellStyle56.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle56;
-            dataGridViewTextBoxColumn13.HeaderText = "Ngày tạo";
-            dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            dataGridViewTextBoxColumn13.ReadOnly = true;
+            colCreate3.DefaultCellStyle = dataGridViewCellStyle56;
+            colCreate3.HeaderText = "Ngày tạo";
+            colCreate3.MinimumWidth = 6;
+            colCreate3.Name = "colCreate3";
+            colCreate3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn14
+            // colUpdate3
             // 
             dataGridViewCellStyle57.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle57;
-            dataGridViewTextBoxColumn14.HeaderText = "Ngày cập nhật";
-            dataGridViewTextBoxColumn14.MinimumWidth = 6;
-            dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            dataGridViewTextBoxColumn14.ReadOnly = true;
+            colUpdate3.DefaultCellStyle = dataGridViewCellStyle57;
+            colUpdate3.HeaderText = "Ngày cập nhật";
+            colUpdate3.MinimumWidth = 6;
+            colUpdate3.Name = "colUpdate3";
+            colUpdate3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn15
+            // colStatus3
             // 
             dataGridViewCellStyle58.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle58;
-            dataGridViewTextBoxColumn15.HeaderText = "Trạng thái";
-            dataGridViewTextBoxColumn15.MinimumWidth = 6;
-            dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            dataGridViewTextBoxColumn15.ReadOnly = true;
+            colStatus3.DefaultCellStyle = dataGridViewCellStyle58;
+            colStatus3.HeaderText = "Trạng thái";
+            colStatus3.MinimumWidth = 6;
+            colStatus3.Name = "colStatus3";
+            colStatus3.ReadOnly = true;
             // 
             // panel3
             // 
@@ -1043,12 +1118,13 @@
             // 
             // btnClearCTTC
             // 
-            btnClearCTTC.Location = new Point(670, 66);
+            btnClearCTTC.BackColor = Color.Lavender;
+            btnClearCTTC.Location = new Point(639, 66);
             btnClearCTTC.Name = "btnClearCTTC";
             btnClearCTTC.Size = new Size(83, 39);
             btnClearCTTC.TabIndex = 39;
             btnClearCTTC.Text = "Reset";
-            btnClearCTTC.UseVisualStyleBackColor = true;
+            btnClearCTTC.UseVisualStyleBackColor = false;
             btnClearCTTC.Click += btnClearCTTC_Click;
             // 
             // tableLayoutPanel9
@@ -1090,6 +1166,7 @@
             cbbStatusCTTC.Name = "cbbStatusCTTC";
             cbbStatusCTTC.Size = new Size(204, 28);
             cbbStatusCTTC.TabIndex = 36;
+            cbbStatusCTTC.SelectedIndexChanged += cbbStatusCTTC_SelectedIndexChanged;
             // 
             // tableLayoutPanel10
             // 
@@ -1130,6 +1207,7 @@
             cbbTCP.Name = "cbbTCP";
             cbbTCP.Size = new Size(246, 28);
             cbbTCP.TabIndex = 35;
+            cbbTCP.SelectedIndexChanged += cbbTCP_SelectedIndexChanged;
             // 
             // tableLayoutPanel11
             // 
@@ -1168,6 +1246,7 @@
             txtCTTC.Size = new Size(401, 27);
             txtCTTC.TabIndex = 38;
             txtCTTC.Text = "Nhập ID, nội dung cần tìm";
+            txtCTTC.TextChanged += txtCTTC_TextChanged;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -1190,6 +1269,7 @@
             Load += TieuChi_Load;
             tabPage2.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            tableLayoutPanel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbTCP).EndInit();
             panel5.ResumeLayout(false);
             panel6.ResumeLayout(false);
@@ -1214,6 +1294,7 @@
             tableLayoutPanel1.PerformLayout();
             tabPage3.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            tableLayoutPanel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbCTTC).EndInit();
             panel3.ResumeLayout(false);
             panel7.ResumeLayout(false);
@@ -1288,22 +1369,26 @@
         private Label label8;
         private TextBox txtCTTC;
         private ReaLTaiizor.Controls.PoisonDataGridView tbTCP;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private TableLayoutPanel tableLayoutPanel12;
         private Button btnAddTC;
         private Button button5;
+        private DataGridViewTextBoxColumn colTieuChi2;
+        private DataGridViewTextBoxColumn colNoiDung2;
+        private DataGridViewTextBoxColumn colMaxPoint2;
+        private DataGridViewTextBoxColumn colParentID2;
+        private DataGridViewTextBoxColumn colCreate2;
+        private DataGridViewTextBoxColumn colUpdate2;
+        private DataGridViewTextBoxColumn colStatus2;
+        private TableLayoutPanel tableLayoutPanel13;
+        private Button btnAddTCP;
+        private DataGridViewTextBoxColumn colCTTC;
+        private DataGridViewTextBoxColumn TCID;
+        private DataGridViewTextBoxColumn colNoiDung3;
+        private DataGridViewTextBoxColumn colPoint;
+        private DataGridViewTextBoxColumn colCreate3;
+        private DataGridViewTextBoxColumn colUpdate3;
+        private DataGridViewTextBoxColumn colStatus3;
+        private TableLayoutPanel tableLayoutPanel14;
+        private Button btnAddCTTC;
     }
 }

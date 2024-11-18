@@ -157,24 +157,30 @@
             // 
             // btnClose
             // 
+            btnClose.BackColor = SystemColors.ControlDark;
+            btnClose.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnClose.ForeColor = SystemColors.ControlLightLight;
             btnClose.Location = new Point(324, 524);
             btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(114, 40);
             btnClose.TabIndex = 14;
             btnClose.Text = "Đóng";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
             // btnEdit
             // 
+            btnEdit.BackColor = Color.PaleGreen;
+            btnEdit.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnEdit.ForeColor = SystemColors.ControlLightLight;
             btnEdit.Location = new Point(201, 524);
             btnEdit.Margin = new Padding(3, 4, 3, 4);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(103, 40);
             btnEdit.TabIndex = 15;
             btnEdit.Text = "Chỉnh sửa";
-            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
             // 
             // lbTitle
@@ -215,20 +221,23 @@
             // 
             // btnDelete
             // 
+            btnDelete.BackColor = Color.Red;
+            btnDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnDelete.ForeColor = SystemColors.ControlLightLight;
             btnDelete.Location = new Point(66, 524);
             btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(114, 40);
             btnDelete.TabIndex = 23;
             btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // TieuChiDetailForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLightLight;
+            BackColor = Color.LightSteelBlue;
             ClientSize = new Size(482, 653);
             Controls.Add(btnDelete);
             Controls.Add(cbbParentID);

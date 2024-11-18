@@ -36,7 +36,11 @@ namespace ql_diemrenluyen.BUS
         {
             return TieuChiDanhGiaDAO.SearchTieuChiDanhGiaWithoutParentId(status, search);
         }
+        public static List<TieuChiDanhGiaDTO> SearchTieuChiDanhGia(int? parentId, int status, string search)
+        {
+            return TieuChiDanhGiaDAO.SearchTieuChiDanhGia(parentId,status, search);
 
+        }
         // Hàm kiểm tra điểm có phải là số hợp lệ hay không
         public static bool IsValidScore(string scoreText)
         {

@@ -84,13 +84,14 @@ namespace ql_diemrenluyen.DAO
         {
             List<TieuChiDanhGiaDTO> tieuChiList = new List<TieuChiDanhGiaDTO>();
 
-            // Câu truy vấn SQL: tìm kiếm theo các tham số parentId, status và search trên tên hoặc id
+            // Câu truy vấn SQL: bỏ qua các tiêu chí có parent_id là NULL và áp dụng các điều kiện lọc
             string sql = @"
-    SELECT * FROM tieuchidanhgia
-    WHERE
-        (@parentId IS NULL OR parent_id = @parentId)
-        AND (@status IS NULL OR status = @status)
-        AND (@search IS NULL OR name LIKE CONCAT('%', @search, '%') OR id LIKE CONCAT('%', @search, '%'))";
+SELECT * FROM tieuchidanhgia
+WHERE
+    parent_id IS NOT NULL
+    AND (@parentId IS NULL OR parent_id = @parentId)
+    AND (@status IS NULL OR status = @status)
+    AND (@search IS NULL OR name LIKE CONCAT('%', @search, '%') OR id LIKE CONCAT('%', @search, '%'))";
 
             MySqlCommand cmd = new MySqlCommand(sql);
 
@@ -99,7 +100,7 @@ namespace ql_diemrenluyen.DAO
                 // Thêm các tham số vào câu lệnh SQL
                 cmd.Parameters.AddWithValue("@parentId", parentId.HasValue ? (object)parentId.Value : DBNull.Value);
                 cmd.Parameters.AddWithValue("@status", status == -1 ? (object)DBNull.Value : status);
-                cmd.Parameters.AddWithValue("@search", string.IsNullOrEmpty(search) ? (object)DBNull.Value : $"%{search}%");
+                cmd.Parameters.AddWithValue("@search", string.IsNullOrEmpty(search) ? (object)DBNull.Value : search);
 
                 // Thực thi câu truy vấn và lấy kết quả
                 List<List<object>> result = DBConnection.ExecuteReader(cmd);
@@ -112,7 +113,7 @@ namespace ql_diemrenluyen.DAO
                         Id = Convert.ToInt64(row[0]), // id
                         Name = Convert.ToString(row[1]), // name
                         DiemMax = row[2] != DBNull.Value ? Convert.ToInt32(row[2]) : 0, // diem_max
-                        ParentId = row[3] != DBNull.Value ? Convert.ToInt64(row[3]) : 0, // parent_id
+                        ParentId = row[3] != DBNull.Value ? Convert.ToInt64(row[3]) : (long?)null, // parent_id
                         CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // created_at
                         UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null, // updated_at
                         status = row[6] != DBNull.Value ? Convert.ToInt32(row[6]) : 0 // status
@@ -137,6 +138,7 @@ namespace ql_diemrenluyen.DAO
 
             return tieuChiList;
         }
+
         public static List<TieuChiDanhGiaDTO> SearchTieuChiDanhGiaWithoutParentId(int status, string search)
         {
             List<TieuChiDanhGiaDTO> tieuChiList = new List<TieuChiDanhGiaDTO>();

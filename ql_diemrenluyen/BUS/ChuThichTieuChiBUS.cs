@@ -48,19 +48,34 @@ namespace ql_diemrenluyen.BUS
                 return false;
             }
         }
+        public static List<ChuThichTieuChiDTO> SearchChuThich(int? tcID, int status, string search)
+        {
 
-        // Xóa chú thích tiêu chí
-        //public static bool DeleteChuThichTieuChi(long id)
-        //{
-        //    try
-        //    {
-        //        return ChuThichTieuChiDAO.DeleteChuThichTieuChi(id);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("Lỗi khi xóa chú thích tiêu chí: " + ex.Message);
-        //        return false;
-        //    }
-        //}
+            return ChuThichTieuChiDAO.SearchChuThich(tcID, status, search);
+
+        }
+        public static bool IsValidScore(string scoreText)
+        {
+            // Kiểm tra nếu scoreText là một số nguyên hợp lệ và lớn hơn hoặc bằng 0
+            if (int.TryParse(scoreText, out int score))
+            {
+                return score >= 0; // Điểm phải là số dương hoặc bằng 0
+            }
+            return false; // Nếu không phải số hợp lệ
+        }
+        //Xóa chú thích tiêu chí
+        public static bool DeleteChuThichTieuChi(int id)
+        {
+            try
+            {
+                return ChuThichTieuChiDAO.DeleteChuThichTieuChi(id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi xóa chú thích tiêu chí: " + ex.Message);
+                return false;
+            }
+
+        }
     }
 }

@@ -18,12 +18,15 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
         private long currentAccountId;
         private QLTieuChi mainForm;
         private DataGridView table;
+        private DataGridView tableAdd;
         private long id;
         int? parentID;
         String status;
         DateTime createdAt;
         public TieuChiDetailForm(long id, string text, int maxpoint, DateTime createdAt, DateTime updatedAt, string status, DataGridView dataGridView, QLTieuChi tieuChiForm, int? parentID)
         {
+            //MessageBox.Show(parentID+"h ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             this.BackColor = Color.Black;
             table = dataGridView;
             mainForm = tieuChiForm;
@@ -57,7 +60,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
             {
                 foreach (var tieuchi in listtieuchi)
                 {
-                    if (tieuchi.ParentId.HasValue)
+                    if (parentID.HasValue)
                     {
                         cbbParentID.Items.Add(tieuchi.Id + " - " + tieuchi.Name);
 
@@ -94,16 +97,15 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
         public TieuChiDetailForm(DataGridView dataGridView, QLTieuChi tieuChiForm, int? parentID)
         {
             this.BackColor = Color.Black;
-            table = dataGridView;
+            tableAdd = dataGridView;
             mainForm = tieuChiForm;
-
+            this.parentID = parentID;
             InitializeComponent();
             dtpUpdatedAt.Value = DateTime.Now;
             dtpCreatedAt.Value = DateTime.Now;
             btnEdit.Text = "Thêm";
             btnEdit.Location = new Point(201 - 100, 524);
             btnEdit.Margin = new Padding(3, 4, 3, 4);
-            btnEdit.Click += BtnAdd_Click;
             btnDelete.Visible = false;
             btnClose.Location = new Point(324 - 50, 524);
             lblId.Visible = false;
@@ -112,6 +114,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
 
             if (parentID!= null)
             {
+                lbTitle.Text ="Thông tin tiêu chí phụ";
                 foreach (var tieuchi in listtieuchi)
                 {
                     if (tieuchi.ParentId !=null)
@@ -130,95 +133,332 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
             cbbStatus.SelectedItem = "Hoạt động";
             cbbStatus.Enabled = false;
         }
-        private void BtnAdd_Click(object sender, EventArgs e)
+        //private void BtnAdd_Click(object sender, EventArgs e)
+        //{
+        //    // Kiểm tra dữ liệu nhập vào
+        //    if (string.IsNullOrEmpty(txtNoiDung.Text) || string.IsNullOrEmpty(txtMaxPoint.Text) || cbbStatus.SelectedItem == null)
+        //    {
+        //        MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return;
+        //    }
+
+        //    // Kiểm tra điểm có phải là số hợp lệ
+        //    if (!TieuChiDanhGiaBUS.IsValidScore(txtMaxPoint.Text))
+        //    {
+        //        MessageBox.Show("Điểm phải là số nguyên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return;
+        //    }
+
+        //    // Biến parentID được khởi tạo bên ngoài các điều kiện
+
+        //    //if (parentID == null)
+        //    //{
+        //        DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn thêm Tiêu Chí", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //        if (dialogResult == DialogResult.Yes)
+        //        {
+        //            TieuChiDanhGiaDTO newTieuChi = new TieuChiDanhGiaDTO
+        //            {
+        //                Name = txtNoiDung.Text,
+        //                DiemMax = int.TryParse(txtMaxPoint.Text, out int maxPoint) ? maxPoint : 0, // Sử dụng TryParse
+        //                ParentId = null,
+        //                CreatedAt = dtpCreatedAt.Value,
+        //                UpdatedAt = dtpUpdatedAt.Value,
+        //                status = cbbStatus.SelectedItem.ToString() == "Hoạt động" ? 1 : 0
+        //            };
+
+        //            bool isAdded = TieuChiDanhGiaBUS.AddTieuChiDanhGia(newTieuChi);
+        //            if (isAdded)
+        //            {
+        //                MessageBox.Show("Thêm tiêu chí thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                QLTieuChi.LoadTieuChiDanhGiaList(table, null);
+        //                this.Close();
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Thêm tiêu chí không thành công. Vui lòng kiểm tra lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        //}
+        //    }
+        //    //else
+        //    //{
+        //    //    // Kiểm tra nếu có chọn ParentId từ combobox
+        //    //    if (cbbParentID.SelectedIndex != -1)
+        //    //    {
+        //    //        string selectedItem = cbbParentID.SelectedItem.ToString();
+
+        //    //        if (selectedItem.StartsWith("ID - Nội dung"))
+        //    //        {
+        //    //            MessageBox.Show("Bạn không thể chọn 'Mặc định' để cập nhật!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    //            return;
+        //    //        }
+
+        //    //        string[] parts = selectedItem.Split('-');
+
+        //    //        if (parts.Length == 2 && int.TryParse(parts[0].Trim(), out int id))
+        //    //        {
+        //    //            parentID = id;  // Nếu đúng, lấy ID
+        //    //        }
+        //    //        else
+        //    //        {
+        //    //            MessageBox.Show("Định dạng không hợp lệ! Vui lòng chọn ID và Nội dung theo định dạng 'ID - Nội dung'.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    //            return;
+        //    //        }
+        //    //    }
+
+        //    //    DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn thêm Tiêu Chí Phụ", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //    //    if (dialogResult == DialogResult.Yes)
+        //    //    {
+        //    //        TieuChiDanhGiaDTO newTieuChi = new TieuChiDanhGiaDTO
+        //    //        {
+        //    //            Name = txtNoiDung.Text,
+        //    //            DiemMax = int.TryParse(txtMaxPoint.Text, out int maxPoint) ? maxPoint : 0, // Sử dụng TryParse
+        //    //            ParentId = parentID,
+        //    //            CreatedAt = dtpCreatedAt.Value,
+        //    //            UpdatedAt = dtpUpdatedAt.Value,
+        //    //            status = cbbStatus.SelectedItem.ToString() == "Hoạt động" ? 1 : 0
+        //    //        };
+
+        //    //        bool isAdded = TieuChiDanhGiaBUS.AddTieuChiDanhGia(newTieuChi);
+        //    //        if (isAdded)
+        //    //        {
+        //    //            MessageBox.Show("Thêm tiêu chí phụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    //            QLTieuChi.LoadTieuChiDanhGiaList(table, null);
+        //    //            this.Close();
+        //    //        }
+        //    //        else
+        //    //        {
+        //    //            MessageBox.Show("Thêm tiêu chí phụ không thành công. Vui lòng kiểm tra lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    //        }
+        //    //    }
+        //    //}
+        //}
+
+
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-            // Kiểm tra dữ liệu nhập vào
-            if (string.IsNullOrEmpty(txtNoiDung.Text) || string.IsNullOrEmpty(txtMaxPoint.Text) || cbbStatus.SelectedItem == null)
+            if (btnEdit.Text == "Thêm")
+            {
+                // Kiểm tra dữ liệu nhập vào
+                if (string.IsNullOrEmpty(txtNoiDung.Text) || string.IsNullOrEmpty(txtMaxPoint.Text) || cbbStatus.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Kiểm tra điểm có phải là số hợp lệ
+                if (!TieuChiDanhGiaBUS.IsValidScore(txtMaxPoint.Text))
+                {
+                    MessageBox.Show("Điểm phải là số nguyên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Biến parentID được khởi tạo bên ngoài các điều kiện
+
+                if (parentID == null)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn thêm Tiêu Chí", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        TieuChiDanhGiaDTO newTieuChi = new TieuChiDanhGiaDTO
+                        {
+                            Name = txtNoiDung.Text,
+                            DiemMax = int.TryParse(txtMaxPoint.Text, out int maxPoint) ? maxPoint : 0, // Sử dụng TryParse
+                            ParentId = null,
+                            CreatedAt = dtpCreatedAt.Value,
+                            UpdatedAt = dtpUpdatedAt.Value,
+                            status = cbbStatus.SelectedItem.ToString() == "Hoạt động" ? 1 : 0
+                        };
+
+                        bool isAdded = TieuChiDanhGiaBUS.AddTieuChiDanhGia(newTieuChi);
+                        if (isAdded)
+                        {
+                            MessageBox.Show("Thêm tiêu chí thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            QLTieuChi.LoadTieuChiDanhGiaList(tableAdd, null);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm tiêu chí không thành công. Vui lòng kiểm tra lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+                if(parentID==0)
+                {
+                    // Kiểm tra nếu có chọn ParentId từ combobox
+                    if (cbbParentID.SelectedIndex != -1)
+                    {
+                        string selectedItem = cbbParentID.SelectedItem.ToString();
+
+                        if (selectedItem.StartsWith("ID - Nội dung"))
+                        {
+                            MessageBox.Show("Bạn không thể chọn 'Mặc định' để cập nhật!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        string[] parts = selectedItem.Split('-');
+
+                        if (parts.Length == 2 && int.TryParse(parts[0].Trim(), out int id))
+                        {
+                            parentID = id;  // Nếu đúng, lấy ID
+                        }
+                        else
+                        {
+                            MessageBox.Show("Định dạng không hợp lệ! Vui lòng chọn ID và Nội dung theo định dạng 'ID - Nội dung'.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+
+
+
+                    DialogResult dialogResult1 = MessageBox.Show("Bạn có chắc chắn muốn thêm Tiêu Chí Phụ", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult1 == DialogResult.Yes)
+                    {
+                        TieuChiDanhGiaDTO newTieuChi = new TieuChiDanhGiaDTO
+                        {
+                            Name = txtNoiDung.Text,
+                            DiemMax = int.TryParse(txtMaxPoint.Text, out int maxPoint) ? maxPoint : 0, // Sử dụng TryParse
+                            ParentId = parentID,
+                            CreatedAt = dtpCreatedAt.Value,
+                            UpdatedAt = dtpUpdatedAt.Value,
+                            status = cbbStatus.SelectedItem.ToString() == "Hoạt động" ? 1 : 0
+                        };
+
+                        bool isAdded = TieuChiDanhGiaBUS.AddTieuChiDanhGia(newTieuChi);
+                        if (isAdded)
+                        {
+                            MessageBox.Show("Thêm tiêu chí phụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            QLTieuChi.LoadTieuChiDanhGiaList(tableAdd, parentID);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm tiêu chí phụ không thành công. Vui lòng kiểm tra lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+                }
+                
+            }
+            else { 
+            if (string.IsNullOrEmpty(txtNoiDung.Text) || cbbStatus.SelectedItem == null || string.IsNullOrEmpty(txtMaxPoint.Text))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Kiểm tra điểm có phải là số hợp lệ
             if (!TieuChiDanhGiaBUS.IsValidScore(txtMaxPoint.Text))
             {
                 MessageBox.Show("Điểm phải là số nguyên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Tạo đối tượng mới để thêm
-            TieuChiDanhGiaDTO newTieuChi = new TieuChiDanhGiaDTO
-            {
-                Name = txtNoiDung.Text,
-                DiemMax = int.Parse(txtMaxPoint.Text),
-                ParentId = parentID != null ? parentID : null,
-                CreatedAt = dtpCreatedAt.Value,
-                UpdatedAt = dtpUpdatedAt.Value,
-                status = cbbStatus.SelectedItem.ToString() == "Hoạt động" ? 1 : 0
-            };
-
-            // Gửi yêu cầu thêm dữ liệu
-            bool isAdded = TieuChiDanhGiaBUS.AddTieuChiDanhGia(newTieuChi);
-
-            if (isAdded)
-            {
-                MessageBox.Show("Thêm tiêu chí thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                QLTieuChi.LoadTieuChiDanhGiaList(table,null);
-            }
-            else
-            {
-                MessageBox.Show("Thêm tiêu chí không thành công. Vui lòng kiểm tra lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (parentID == null)
-            {
-                if (string.IsNullOrEmpty(txtNoiDung.Text) || cbbStatus.SelectedItem == null || txtMaxPoint.Text == "")
+                // Kiểm tra nếu parentID là null (không chọn hoặc không hợp lệ)
+                if (parentID == null)
                 {
-                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (TieuChiDanhGiaBUS.IsValidScore(txtMaxPoint.Text))
-                {
-                    MessageBox.Show("Điểm phải là số nguyên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật Tiêu Chí không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (dialogResult == DialogResult.Yes)
-                {
-                    TieuChiDanhGiaDTO tc = new TieuChiDanhGiaDTO
+
+                    DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật Tiêu Chí không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        Id = id,
-                        Name = txtNoiDung.Text,
-                        DiemMax = int.Parse(txtMaxPoint.Text),
-                        ParentId = null,
-                        CreatedAt = createdAt,
-                        UpdatedAt = DateTime.Now,
-                        status = cbbStatus.SelectedItem.ToString() == "Hoạt động" ? 1 : 0
-                    };
+                        // Nếu parentID là null, thì ParentId của Tiêu Chi sẽ là null
+                        TieuChiDanhGiaDTO tc = new TieuChiDanhGiaDTO
+                        {
+                            Id = id,
+                            Name = txtNoiDung.Text,
+                            DiemMax = int.Parse(txtMaxPoint.Text),
+                            ParentId = null,  // ParentId là null khi không có chọn trong cbbParentID
+                            CreatedAt = createdAt,
+                            UpdatedAt = DateTime.Now,
+                            status = cbbStatus.SelectedItem.ToString() == "Hoạt động" ? 1 : 0
+                        };
 
-                    bool result = TieuChiDanhGiaBUS.UpdateTieuChiDanhGia(tc);
+                        bool result = TieuChiDanhGiaBUS.UpdateTieuChiDanhGia(tc);
 
-                    if (result)
-                    {
-                        MessageBox.Show("Cập nhật Tiêu Chí thành công!");
-                        QLTieuChi.LoadTieuChiDanhGiaList(table, parentID);
+                        if (result)
+                        {
+                            MessageBox.Show("Cập nhật Tiêu Chí thành công!");
+                            QLTieuChi.LoadTieuChiDanhGiaList(table, parentID);
 
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cập nhật Tiêu Chí không thành công. Vui lòng kiểm tra lại!");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật Tiêu Chí không thành công. Vui lòng kiểm tra lại!");
+                            return;
+                        }
                     }
                 }
+                else
+                {
+                    int? parentID = null;
+
+                    // Kiểm tra nếu cbbParentID không phải là item cuối (Mặc định), kiểm tra nếu mục đầu tiên là "ID - Nội dung"
+                    if (cbbParentID.SelectedIndex != -1)
+                    {
+                        // Lấy giá trị từ cbbParentID.SelectedItem và tách ID
+                        string selectedItem = cbbParentID.SelectedItem.ToString();
+
+                        // Kiểm tra xem nếu đó là mục đầu tiên và có phải là "ID - Nội dung" không hợp lệ
+                        if (selectedItem.StartsWith("ID - Nội dung"))
+                        {
+                            // Thông báo cảnh báo và dừng tiếp tục
+                            MessageBox.Show("Bạn không thể chọn 'Mặc định' để cập nhật!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        // Tách chuỗi thành mảng phần tử bằng dấu "-"
+                        string[] parts = selectedItem.Split('-');
+
+                        // Kiểm tra xem có đủ phần tử và phần đầu tiên có thể chuyển thành số
+                        if (parts.Length == 2 && int.TryParse(parts[0].Trim(), out int id))
+                        {
+                            parentID = id;  // Nếu đúng, lấy ID
+                        }
+                        else
+                        {
+                            // Nếu không đúng định dạng, thông báo lỗi và dừng lại
+                            MessageBox.Show("Định dạng không hợp lệ! Vui lòng chọn ID và Nội dung theo định dạng 'ID - Nội dung'.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+
+                    // Tiếp tục với các bước xử lý khác sau khi kiểm tra hợp lệ
+
+                    // Nếu parentID không phải null, cập nhật giá trị ParentId từ cbbParentID
+                    DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật Tiêu Chí Phụ", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        // Tiến hành cập nhật Tiêu Chí với ParentId được chọn từ cbbParentID
+                        TieuChiDanhGiaDTO tc = new TieuChiDanhGiaDTO
+                        {
+                            Id = id,
+                            Name = txtNoiDung.Text,
+                            DiemMax = int.Parse(txtMaxPoint.Text),
+                            ParentId = parentID,  // Cập nhật ParentId từ giá trị cbbParentID
+                            CreatedAt = createdAt,
+                            UpdatedAt = DateTime.Now,
+                            status = cbbStatus.SelectedItem.ToString() == "Hoạt động" ? 1 : 0
+                        };
+
+                        bool result = TieuChiDanhGiaBUS.UpdateTieuChiDanhGia(tc);
+
+                        if (result)
+                        {
+                            MessageBox.Show("Cập nhật Tiêu Chí Phụ thành công!");
+                            QLTieuChi.LoadTieuChiDanhGiaList(table, parentID);
+
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật Tiêu Chí Phụ không thành công. Vui lòng kiểm tra lại!");
+                            return;
+                        }
+                    }
+                }
             }
-            else
-            {
-                MessageBox.Show("Chỉ có thể cập nhật Tiêu Chí có ParentId = 0!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
         }
 
         private const int WM_NCLBUTTONDOWN = 0xA1;

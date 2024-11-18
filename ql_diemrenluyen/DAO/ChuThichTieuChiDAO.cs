@@ -2,6 +2,7 @@
 using ql_diemrenluyen.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -19,7 +20,7 @@ namespace ql_diemrenluyen.DAO
                 ChuThichTieuChiDTO chuThich = new ChuThichTieuChiDTO
                 {
                     Id = Convert.ToInt32(row[0]), 
-                    TieuChiDanhGiaId = Convert.ToUInt64(row[1]), 
+                    TieuChiDanhGiaId = Convert.ToInt32(row[1]), 
                     Name = Convert.ToString(row[2]),
                     Diem = Convert.ToInt32(row[3]),
                     CreatedAt = Convert.ToDateTime(row[4]), 
@@ -91,7 +92,7 @@ namespace ql_diemrenluyen.DAO
         {
             try
             {
-                string sql = "DELETE FROM chuthichtieuchi WHERE id = @id";
+                string sql = "UPDATE chuthichtieuchi SET status = 0 WHERE id = @id";
                 using (var cmd = new MySqlCommand(sql))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
@@ -103,6 +104,65 @@ namespace ql_diemrenluyen.DAO
                 Console.WriteLine("Lỗi khi xóa chú thích tiêu chí: " + ex.Message);
                 return false;
             }
+
+        }
+        public static List<ChuThichTieuChiDTO> SearchChuThich(int? tieuchidanhgia_id, int status, string search)
+        {
+            List<ChuThichTieuChiDTO> chuThichList = new List<ChuThichTieuChiDTO>();
+
+            // Câu truy vấn SQL: bỏ qua các tiêu chí có parent_id là NULL và áp dụng các điều kiện lọc
+            string sql = @"
+SELECT * FROM chuthichtieuchi
+WHERE
+    tieuchidanhgia_id IS NOT NULL
+    AND (@tieuchidanhgia_id IS NULL OR tieuchidanhgia_id = @tieuchidanhgia_id)
+    AND (@status IS NULL OR status = @status)
+    AND (@search IS NULL OR name LIKE CONCAT('%', @search, '%') OR id LIKE CONCAT('%', @search, '%'))";
+
+            MySqlCommand cmd = new MySqlCommand(sql);
+
+            try
+            {
+                // Thêm các tham số vào câu lệnh SQL
+                cmd.Parameters.AddWithValue("@tieuchidanhgia_id", tieuchidanhgia_id.HasValue ? (object)tieuchidanhgia_id.Value : DBNull.Value);
+                cmd.Parameters.AddWithValue("@status", status == -1 ? (object)DBNull.Value : status);
+                cmd.Parameters.AddWithValue("@search", string.IsNullOrEmpty(search) ? (object)DBNull.Value : search);
+
+                // Thực thi câu truy vấn và lấy kết quả
+                List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+                // Duyệt qua từng dòng kết quả và ánh xạ sang đối tượng `TieuChiDanhGiaDTO`
+                foreach (var row in result)
+                {
+                    ChuThichTieuChiDTO chuThich = new ChuThichTieuChiDTO
+                    {
+                        Id = Convert.ToInt32(row[0]),
+                        TieuChiDanhGiaId = Convert.ToInt32(row[1]),
+                        Name = Convert.ToString(row[2]),
+                        Diem = Convert.ToInt32(row[3]),
+                        CreatedAt = Convert.ToDateTime(row[4]),
+                        UpdatedAt = Convert.ToDateTime(row[5]),
+                        Status = Convert.ToInt32(row[6])
+                    };
+
+                    chuThichList.Add(chuThich);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi tìm kiếm chú thích tiêu chí đánh giá: " + ex.Message);
+            }
+            finally
+            {
+                // Đóng kết nối và giải phóng tài nguyên
+                if (cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+                cmd.Dispose();
+            }
+
+            return chuThichList;
         }
     }
 }
