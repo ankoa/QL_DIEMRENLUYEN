@@ -548,21 +548,21 @@
             textBox1.Location = new Point(3, 32);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Số lượng";
-            textBox1.Size = new Size(68, 23);
+            textBox1.Size = new Size(67, 23);
             textBox1.TabIndex = 2;
             // 
             // comboBox6
             // 
             comboBox6.FormattingEnabled = true;
             comboBox6.Items.AddRange(new object[] { "SV", "%" });
-            comboBox6.Location = new Point(3, 61);
+            comboBox6.Location = new Point(76, 32);
             comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(49, 23);
+            comboBox6.Size = new Size(46, 23);
             comboBox6.TabIndex = 1;
             // 
             // button1
             // 
-            button1.Location = new Point(3, 90);
+            button1.Location = new Point(3, 61);
             button1.Name = "button1";
             button1.Size = new Size(121, 22);
             button1.TabIndex = 3;
@@ -571,7 +571,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(3, 118);
+            button5.Location = new Point(3, 89);
             button5.Name = "button5";
             button5.Size = new Size(121, 22);
             button5.TabIndex = 4;

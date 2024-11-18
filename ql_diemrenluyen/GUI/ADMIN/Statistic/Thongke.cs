@@ -558,8 +558,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 //CreatePieChart();
                 CreatePieChart(khoaId, lopId, hockiId, namhocId);
                 CreateBarChart(hockiId, namhocId);
-
-
             }
             else
             {
