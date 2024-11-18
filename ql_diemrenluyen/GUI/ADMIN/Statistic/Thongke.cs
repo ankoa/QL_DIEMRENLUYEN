@@ -3,6 +3,8 @@ using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 using ScottPlot;
 using ScottPlot.WinForms;
+using System.Data;
+
 
 namespace ql_diemrenluyen.GUI.ADMIN.Statistic
 {
@@ -12,45 +14,37 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
         private FormsPlot formsPlot2;
         private Button currentBtn;
         private String typeThongKe = "Tổng quan";
+        private long? khoaId = null;
+        private long? lopId = null;
+        private string? hockiId = "";
+        private string? namhocId = "";
         public Thongke()
         {
             InitializeComponent();
-            InitializeFormsPlot();  // Khởi tạo và thêm FormsPlot vào form
-            CreatePieChart();
+            //InitializeFormsPlot();  // Khởi tạo và thêm FormsPlot vào form
+            CreatePieChart(khoaId, lopId, hockiId, namhocId);
             CreateBarChart();
             btnTypeThongkeClick(btnTongQuan);
             lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter().ToString();
             lblSoHs.Text = SinhVienDAO.GetAllStudentsActive().Count().ToString();
             lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<").ToString();
-            cbbHocKi.SelectedItem = "Chọn học kì";
-            cbbNamHoc.SelectedItem = "Chọn năm học";
+            cbbHocKi.SelectedIndex = 0;
+            cbbNamHoc.SelectedIndex = 0;
             cbbKhoa.SelectedItem = "Chọn khoa";
             cbbLop.SelectedItem = "Chọn lớp";
-            cbbHocKi.Visible = false;
-            cbbNamHoc.Visible = false;
+            cbbHocKi.Visible = true;
+            cbbNamHoc.Visible = true;
             cbbKhoa.Visible = false;
             cbbLop.Visible = false;
             loadKhoa();
             loadLop();
+
+            // Gán DataTable vào DataGridView
+            //dataGridView1.DataSource = SinhVienDAO.GetDanhSachSvAndDrl();
+            tableLayoutPanel7.RowStyles[1] = new RowStyle(SizeType.Percent, 0);
+            tableLayoutPanel7.RowStyles[0] = new RowStyle(SizeType.Percent, 100);
         }
 
-        private void InitializeFormsPlot()
-        {
-            // Khởi tạo FormsPlot
-            formsPlot1 = new FormsPlot();
-            this.panel4.Controls.Add(formsPlot1);  // Thêm FormsPlot vào panel4
-            formsPlot1.Dock = DockStyle.Fill;  // Đảm bảo FormsPlot chiếm toàn bộ diện tích panel
-            formsPlot1.Width = panel4.Width;  // Thiết lập chiều rộng của FormsPlot
-            formsPlot1.Height = panel4.Height;  // Thiết lập chiều cao của FormsPlot
-            //formsPlot1.Plot.ScaleFactor = 2;
-
-            // Khởi tạo FormsPlot
-            formsPlot2 = new FormsPlot();
-            this.panel5.Controls.Add(formsPlot2);  // Thêm FormsPlot vào panel4
-            formsPlot2.Dock = DockStyle.Fill;  // Đảm bảo FormsPlot chiếm toàn bộ diện tích panel
-            formsPlot2.Width = panel5.Width;  // Thiết lập chiều rộng của FormsPlot
-            formsPlot2.Height = panel5.Height;  // Thiết lập chiều cao của FormsPlot
-        }
 
         private ScottPlot.Color GetColorForLabel(string label)
         {
@@ -72,14 +66,18 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
         }
 
 
-        private void CreatePieChart(long? khoaId = null, long? lopId = null, int? hockiId = null, int? namhocId = null)
+        private void CreatePieChart(long? khoaId = null, long? lopId = null, string? hockiId = null, string? namhocId = null)
         {
-            // Clear the existing plot
-            //formsPlot1 = new FormsPlot();
+            //MessageBox.Show(khoaId.ToString());
+            this.panel4.Controls.Clear();
+            formsPlot1 = new FormsPlot();
+            this.panel4.Controls.Add(formsPlot1);  // Thêm FormsPlot vào panel4
+            formsPlot1.Dock = DockStyle.Fill;  // Đảm bảo FormsPlot chiếm toàn bộ diện tích panel
+            formsPlot1.Width = panel4.Width;  // Thiết lập chiều rộng của FormsPlot
+            formsPlot1.Height = panel4.Height;  // Thiết lập chiều cao của FormsPlot
+            //formsPlot1.Plot.ScaleFactor = 2;
             formsPlot1.Plot.Clear();
             formsPlot1.Refresh();
-
-
             // Lấy dữ liệu danh gia từ cơ sở dữ liệu
             var danhGiaData = DiemRenLuyenSinhVienDAO.GetXepLoai(khoaId, lopId, hockiId, namhocId);
 
@@ -97,7 +95,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             pie.SliceLabelDistance = .6;
 
             double total = pie.Slices.Select(x => x.Value).Sum();
-            MessageBox.Show(total.ToString());
+            //MessageBox.Show(total.ToString());
             for (int i = 0; i < pie.Slices.Count; i++)
             {
                 pie.Slices[i].LabelFontSize = 14;
@@ -114,7 +112,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             // Ẩn các thành phần không cần thiết của biểu đồ
             formsPlot1.Plot.HideGrid();
             formsPlot1.Plot.ShowLegend(Edge.Bottom);
-
+            formsPlot1.Plot.Axes.AutoScale();
             // Làm mới biểu đồ
             formsPlot1.Refresh();
         }
@@ -183,8 +181,13 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
         //    formsPlot2.Refresh();
         //}
 
-        private void CreateBarChart(int? hockiId = null, int? namhocId = null)
+        private void CreateBarChart(int? hockiId = null, string? namhocId = null)
         {
+            formsPlot2 = new FormsPlot();
+            this.panel5.Controls.Add(formsPlot2);  // Thêm FormsPlot vào panel4
+            formsPlot2.Dock = DockStyle.Fill;  // Đảm bảo FormsPlot chiếm toàn bộ diện tích panel
+            formsPlot2.Width = panel5.Width;  // Thiết lập chiều rộng của FormsPlot
+            formsPlot2.Height = panel5.Height;
             // Lấy dữ liệu điểm trung bình theo khoa
             var diemTrungBinhCuaCacKhoa = DiemRenLuyenSinhVienDAO.GetDiemTrungBinhCuaCacKhoa(hockiId, namhocId);
 
@@ -285,6 +288,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
         private void loadLop(long? khoaId = null)
         {
             //MessageBox.Show("load lop");
+            lopId = null;
             List<LopDTO> lopList = new List<LopDTO>();
 
             if (khoaId != null)
@@ -368,8 +372,17 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
         private void btnTongQuan_Click(object sender, EventArgs e)
         {
             btnTypeThongkeClick(sender);
-            //CreatePieChart();
-            //CreateBarChart();
+            CreatePieChart();
+            CreateBarChart();
+            cbbHocKi.Visible = true;
+            cbbNamHoc.Visible = true;
+            cbbKhoa.Visible = false;
+            cbbLop.Visible = false;
+            tableLayoutPanel7.RowStyles[1] = new RowStyle(SizeType.Percent, 0);
+            tableLayoutPanel7.RowStyles[0] = new RowStyle(SizeType.Percent, 100);
+            lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter().ToString();
+            lblSoHs.Text = SinhVienDAO.GetAllStudentsActive().Count().ToString();
+            lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<").ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -380,9 +393,26 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             cbbNamHoc.Visible = true;
             cbbKhoa.Visible = true;
             cbbLop.Visible = true;
-            loadLop();
-            cbbKhoa.SelectedIndex = 0;
-            cbbLop.SelectedIndex = 0;
+            loadLop(khoaId: this.khoaId);
+            //cbbKhoa.SelectedIndex = 0;
+            //cbbLop.SelectedIndex = 0;
+            tableLayoutPanel7.RowStyles[1] = new RowStyle(SizeType.Percent, 100);
+            tableLayoutPanel7.RowStyles[0] = new RowStyle(SizeType.Percent, 0);
+            dataGridView1.DataSource = null;
+            if (cbbLop.SelectedIndex == 0)
+            {
+                lblSoHs.Text = "0";
+                lblDrlTB.Text = "0";
+                lblKhongDat.Text = "0";
+                formsPlot1.Plot.Clear();
+                formsPlot2.Plot.Clear();
+                panel4.Controls.Clear();
+                panel5.Controls.Clear();
+            }
+            else
+            {
+                lblSoHs.Text = SinhVienDAO.GetAllStudentsActive(khoaId: this.khoaId, lopId: this.lopId).Count().ToString();
+            }
         }
 
 
@@ -395,17 +425,40 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             cbbNamHoc.Visible = true;
             cbbKhoa.Visible = true;
             cbbLop.Visible = false;
-            cbbKhoa.SelectedIndex = 0;
+            if (cbbKhoa.SelectedIndex == 0)
+            {
+                lblSoHs.Text = "0";
+                lblDrlTB.Text = "0";
+                lblKhongDat.Text = "0";
+                formsPlot1.Plot.Clear();
+                formsPlot2.Plot.Clear();
+                panel4.Controls.Clear();
+                panel5.Controls.Clear();
+            }
+            else
+            {
+                MessageBox.Show(hockiId);
+                lblSoHs.Text = SinhVienDAO.GetAllStudentsActive(khoaId: this.khoaId).Count().ToString();
+                lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(khoaId: this.khoaId, hockiname: this.hockiId, namhoc: this.namhocId).ToString();
+                lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", khoaId: this.khoaId).ToString();
+                CreatePieChart(khoaId, null, hockiId, namhocId);
+            }
+
+            //cbbKhoa.SelectedIndex = 0;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             btnTypeThongkeClick(sender);
+            typeThongKe = "Trường";
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            cbbHocKi.Visible = true;
+            cbbNamHoc.Visible = true;
+            cbbKhoa.Visible = true;
+            cbbLop.Visible = true;
         }
 
         private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
@@ -419,12 +472,43 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             if (cbbKhoa.SelectedIndex != 0)
             {
                 KhoaDTO khoa = (KhoaDTO)cbbKhoa.SelectedItem;
-                //MessageBox.Show(khoa.Id.ToString());
-                loadLop(khoa.Id); // Gọi hàm loadLop với Id của khoa
+                khoaId = khoa.Id;
+                if (typeThongKe == "Khoa" || typeThongKe == "Trường")
+                {
+                    MessageBox.Show(this.hockiId);
+                    CreatePieChart(khoaId, null, hockiId, namhocId);
+                    dataGridView1.DataSource = SinhVienDAO.GetDanhSachSvAndDrl(khoaId: khoa.Id);
+                    lblSoHs.Text = SinhVienDAO.GetAllStudentsActive(khoaId: this.khoaId).Count().ToString();
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(khoaId: this.khoaId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", khoaId: this.khoaId).ToString();
+                }
+                else if (typeThongKe == "Lớp")
+                {
+                    loadLop(khoa.Id);
+                    if (lopId == null)
+                    {
+                        lblSoHs.Text = "0";
+                        lblDrlTB.Text = "0";
+                        lblKhongDat.Text = "0";
+                        formsPlot1.Plot.Clear();
+                        formsPlot2.Plot.Clear();
+                        panel4.Controls.Clear();
+                        panel5.Controls.Clear();
+                    }
+
+                }
             }
             else
             {
-                loadLop(); // Gọi loadLop mà không có điều kiện khoaId nếu không có lựa chọn
+                loadLop();
+                if (typeThongKe == "Tổng quan") return;
+                lblSoHs.Text = "0";
+                lblDrlTB.Text = "0";
+                lblKhongDat.Text = "0";
+                formsPlot1.Plot.Clear();
+                formsPlot2.Plot.Clear();
+                panel4.Controls.Clear();
+                panel5.Controls.Clear();
             }
         }
 
@@ -434,13 +518,59 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             if (cbbLop.SelectedIndex != 0)
             {
                 LopDTO lop = (LopDTO)cbbLop.SelectedItem;
+                lopId = lop.Id;
                 //MessageBox.Show(khoa.Id.ToString());
-                CreatePieChart(lopId: lop.Id);
+                //CreatePieChart();
+                CreatePieChart(khoaId, lopId, hockiId, namhocId);
+                if (typeThongKe == "Lớp" || typeThongKe == "Trường")
+                {
+                    formsPlot2.Plot.Clear();
+                    formsPlot2.Refresh();
+                    lblSoHs.Text = SinhVienDAO.GetAllStudentsActive(lopId: this.lopId).Count().ToString();
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(lopId: this.lopId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId).ToString();
+                }
             }
             else
             {
                 //loadLop(); // Gọi loadLop mà không có điều kiện khoaId nếu không có lựa chọn
+
             }
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cbbHocKi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cbbHocKi.SelectedIndex != 0)
+            {
+                hockiId = cbbHocKi.SelectedItem.ToString();
+                //MessageBox.Show(khoa.Id.ToString());
+                //CreatePieChart();
+                CreatePieChart(khoaId, lopId, hockiId, namhocId);
+                //if (typeThongKe == "Lớp" || typeThongKe == "Trường")
+                //{
+                //    formsPlot2.Plot.Clear();
+                //    formsPlot2.Refresh();
+                //    lblSoHs.Text = SinhVienDAO.GetAllStudentsActive(lopId: this.lopId).Count().ToString();
+                //    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(lopId: this.lopId).ToString();
+                //    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId).ToString();
+                //}
+            }
+            else
+            {
+                hockiId = "";
+
+            }
+        }
+
+        private void cbbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            namhocId = cbbNamHoc.SelectedItem.ToString();
         }
     }
 }

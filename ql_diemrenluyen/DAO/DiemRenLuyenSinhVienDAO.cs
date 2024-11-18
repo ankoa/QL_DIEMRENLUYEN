@@ -115,24 +115,25 @@ namespace ql_diemrenluyen.DAO
             return averageScore;
         }
 
-        public static double GetAverageDiemRenLuyenByFilter(long? khoaId = null, long? lopId = null)
+        public static double GetAverageDiemRenLuyenByFilter(long? khoaId = null, long? lopId = null, string? hockiname = null, string? namhoc = null)
         {
             double averageScore = 0;
 
             // Câu truy vấn SQL cơ bản
             string sql = @"
-        SELECT AVG(drl.diemrenluyen) AS AverageScore
-        FROM diemrenluyensinhvien drl
-        JOIN sinhvien sv ON drl.sinhvien_id = sv.id
-        JOIN lop l ON sv.lop_id = l.id
-        JOIN khoa k ON l.khoa_id = k.id
-        WHERE drl.diemrenluyen IS NOT NULL 
-          AND drl.status = 1
-          AND sv.status = 1
-          AND l.status = 1
-          AND k.status = 1";
+    SELECT AVG(drl.diemrenluyen) AS AverageScore
+    FROM diemrenluyensinhvien drl
+    JOIN sinhvien sv ON drl.sinhvien_id = sv.id
+    JOIN lop l ON sv.lop_id = l.id
+    JOIN khoa k ON l.khoa_id = k.id
+    LEFT JOIN hocky hk ON drl.hocki_id = hk.Id
+    WHERE drl.diemrenluyen IS NOT NULL 
+      AND drl.status = 1
+      AND sv.status = 1
+      AND l.status = 1
+      AND k.status = 1";
 
-            // Thêm điều kiện lọc dựa trên `khoaId` và `lopId`
+            // Thêm điều kiện lọc dựa trên `khoaId`, `lopId`, `hockiname`, và `namhoc`
             if (khoaId.HasValue)
             {
                 sql += " AND k.id = @khoaId";
@@ -140,6 +141,14 @@ namespace ql_diemrenluyen.DAO
             if (lopId.HasValue)
             {
                 sql += " AND l.id = @lopId";
+            }
+            if (!string.IsNullOrEmpty(hockiname))
+            {
+                sql += " AND hk.Name = @hockiname"; // Lọc theo tên học kỳ
+            }
+            if (!string.IsNullOrEmpty(namhoc))
+            {
+                sql += " AND hk.namhoc = @namhoc";
             }
 
             // Tạo lệnh SQL
@@ -152,6 +161,14 @@ namespace ql_diemrenluyen.DAO
             {
                 cmd.Parameters.AddWithValue("@lopId", lopId.Value);
             }
+            if (!string.IsNullOrEmpty(hockiname))
+            {
+                cmd.Parameters.AddWithValue("@hockiname", hockiname);
+            }
+            if (!string.IsNullOrEmpty(namhoc))
+            {
+                cmd.Parameters.AddWithValue("@namhoc", namhoc);
+            }
 
             // Thực thi câu lệnh
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
@@ -163,6 +180,8 @@ namespace ql_diemrenluyen.DAO
 
             return averageScore;
         }
+
+
 
         public static int GetSoSinhVienCanhCaoByFilter(int drl, string sosanh, long? khoaId = null, long? lopId = null)
         {
@@ -245,30 +264,30 @@ namespace ql_diemrenluyen.DAO
             return count;
         }
 
-        public static Dictionary<string, double> GetDiemTrungBinhCuaCacKhoa(int? hockiId = null, int? namhocId = null)
+        public static Dictionary<string, double> GetDiemTrungBinhCuaCacKhoa(int? hockiId = null, string? namhocId = null)
         {
             var result = new Dictionary<string, double>();
 
             // Câu truy vấn SQL
             string sql = @"
-    SELECT k.tenkhoa AS TenKhoa, AVG(drl.diemrenluyen) AS DiemTrungBinh
-    FROM diemrenluyensinhvien drl
-    JOIN sinhvien sv ON drl.sinhvien_id = sv.id
-    JOIN lop l ON sv.lop_id = l.id
-    JOIN khoa k ON l.khoa_id = k.id
-    LEFT JOIN hocky hk ON drl.hocki_id = hk.Id
-    WHERE drl.diemrenluyen IS NOT NULL
-      AND drl.status = 1
-      AND sv.status = 1
-      AND l.status = 1
-      AND k.status = 1";
+        SELECT k.tenkhoa AS TenKhoa, AVG(drl.diemrenluyen) AS DiemTrungBinh
+        FROM diemrenluyensinhvien drl
+        JOIN sinhvien sv ON drl.sinhvien_id = sv.id
+        JOIN lop l ON sv.lop_id = l.id
+        JOIN khoa k ON l.khoa_id = k.id
+        LEFT JOIN hocky hk ON drl.hocki_id = hk.Id
+        WHERE drl.diemrenluyen IS NOT NULL
+          AND drl.status = 1
+          AND sv.status = 1
+          AND l.status = 1
+          AND k.status = 1";
 
             // Thêm điều kiện nếu có
             if (hockiId.HasValue)
             {
                 sql += " AND drl.hocki_id = @hockiId";
             }
-            if (namhocId.HasValue)
+            if (!string.IsNullOrEmpty(namhocId))
             {
                 sql += " AND hk.namhoc = @namhocId";
             }
@@ -284,27 +303,31 @@ namespace ql_diemrenluyen.DAO
             {
                 cmd.Parameters.AddWithValue("@hockiId", hockiId.Value);
             }
-            if (namhocId.HasValue)
+            if (!string.IsNullOrEmpty(namhocId))
             {
-                cmd.Parameters.AddWithValue("@namhocId", namhocId.Value);
+                cmd.Parameters.AddWithValue("@namhocId", namhocId);
             }
 
             // Thực thi câu lệnh và xử lý kết quả
             List<List<object>> queryResult = DBConnection.ExecuteReader(cmd);
 
+            if (queryResult == null || queryResult.Count == 0)
+            {
+                Console.WriteLine("Không có dữ liệu trả về.");
+                return result;
+            }
+
             foreach (var row in queryResult)
             {
                 try
                 {
-                    string tenKhoa = Convert.ToString(row[0]);  // Lấy tên khoa
-                    double diemTrungBinh = Convert.ToDouble(row[1]); // Lấy điểm trung bình
+                    string tenKhoa = row[0] != DBNull.Value ? Convert.ToString(row[0]) : "Không xác định";
+                    double diemTrungBinh = row[1] != DBNull.Value ? Convert.ToDouble(row[1]) : 0.0;
 
-                    // Thêm vào kết quả
                     result[tenKhoa] = diemTrungBinh;
                 }
                 catch (Exception ex)
                 {
-                    // Log lỗi nếu cần
                     Console.WriteLine($"Lỗi khi xử lý dữ liệu: {ex.Message}");
                 }
             }
@@ -312,25 +335,25 @@ namespace ql_diemrenluyen.DAO
             return result;
         }
 
-        public static Dictionary<string, int> GetXepLoai(long? khoaId = null, long? lopId = null, int? hockiId = null, int? namhocId = null)
+
+        public static double GetAverageDiemRenLuyenByFilter(long? khoaId = null, long? lopId = null)
         {
-            var result = new Dictionary<string, int>();
+            double averageScore = 0;
 
-            // Câu truy vấn SQL
+            // Câu truy vấn SQL cơ bản
             string sql = @"
-SELECT drl.danhgia AS DanhGia, COUNT(*) AS SoLuong
-FROM diemrenluyensinhvien drl
-JOIN sinhvien sv ON drl.sinhvien_id = sv.id
-JOIN lop l ON sv.lop_id = l.id
-JOIN khoa k ON l.khoa_id = k.id
-LEFT JOIN hocky hk ON drl.hocki_id = hk.Id
-WHERE drl.danhgia IS NOT NULL
-  AND drl.status = 1
-  AND sv.status = 1
-  AND l.status = 1
-  AND k.status = 1";
+ SELECT AVG(drl.diemrenluyen) AS AverageScore
+ FROM diemrenluyensinhvien drl
+ JOIN sinhvien sv ON drl.sinhvien_id = sv.id
+ JOIN lop l ON sv.lop_id = l.id
+ JOIN khoa k ON l.khoa_id = k.id
+ WHERE drl.diemrenluyen IS NOT NULL 
+   AND drl.status = 1
+   AND sv.status = 1
+   AND l.status = 1
+   AND k.status = 1";
 
-            // Thêm điều kiện nếu có
+            // Thêm điều kiện lọc dựa trên khoaId và lopId
             if (khoaId.HasValue)
             {
                 sql += " AND k.id = @khoaId";
@@ -339,22 +362,9 @@ WHERE drl.danhgia IS NOT NULL
             {
                 sql += " AND l.id = @lopId";
             }
-            if (hockiId.HasValue)
-            {
-                sql += " AND drl.hocki_id = @hockiId";
-            }
-            if (namhocId.HasValue)
-            {
-                sql += " AND hk.namhoc = @namhocId";
-            }
-
-            // Nhóm theo đánh giá
-            sql += " GROUP BY drl.danhgia";
 
             // Tạo lệnh SQL
             var cmd = new MySqlCommand(sql);
-
-            // Thêm tham số nếu có
             if (khoaId.HasValue)
             {
                 cmd.Parameters.AddWithValue("@khoaId", khoaId.Value);
@@ -363,39 +373,17 @@ WHERE drl.danhgia IS NOT NULL
             {
                 cmd.Parameters.AddWithValue("@lopId", lopId.Value);
             }
-            if (hockiId.HasValue)
-            {
-                cmd.Parameters.AddWithValue("@hockiId", hockiId.Value);
-            }
-            if (namhocId.HasValue)
-            {
-                cmd.Parameters.AddWithValue("@namhocId", namhocId.Value);
-            }
 
-            // Thực thi câu lệnh và xử lý kết quả
-            List<List<object>> queryResult = DBConnection.ExecuteReader(cmd);
+            // Thực thi câu lệnh
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
 
-            foreach (var row in queryResult)
+            if (result.Count > 0 && result[0][0] != DBNull.Value)
             {
-                try
-                {
-                    string danhGia = Convert.ToString(row[0]);  // Lấy đánh giá
-                    int soLuong = Convert.ToInt32(row[1]);     // Lấy số lượng
-
-                    // Thêm vào kết quả
-                    result[danhGia] = soLuong;
-                }
-                catch (Exception ex)
-                {
-                    // Log lỗi nếu cần
-                    Console.WriteLine($"Lỗi khi xử lý dữ liệu: {ex.Message}");
-                }
+                averageScore = Convert.ToDouble(result[0][0]);
             }
 
-            return result;
+            return averageScore;
         }
-
-
 
     }
 }

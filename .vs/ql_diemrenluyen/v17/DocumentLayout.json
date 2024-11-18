@@ -1,37 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Code\\qldrl\\",
+  "WorkspaceRootPath": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\onedrive\\m\u00E1y t\u00EDnh\\code\\qldiemrenluyen\\ql_diemrenluyen\\dao\\diemrenluyensinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\diemrenluyensinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\onedrive\\m\u00E1y t\u00EDnh\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\dao\\dotchamdiemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\onedrive\\m\u00E1y t\u00EDnh\\code\\qldiemrenluyen\\ql_diemrenluyen\\dao\\dotchamdiemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\dotchamdiemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\dao\\sinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\sinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\onedrive\\m\u00E1y t\u00EDnh\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|D:\\Code\\qldrl\\ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\criteria\\dotcham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|D:\\Code\\qldrl\\ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\huhuh\\onedrive\\m\u00E1y t\u00EDnh\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\menuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -42,8 +42,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 857,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -75,23 +79,36 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Thongke.cs",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAIwE0AAAAYAAAAAAAAAA==",
+              "Title": "DiemRenLuyenSinhVienDAO.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
+              "ToolTip": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
+              "ViewState": "AgIAAHIBAAAAAAAAAAAQwIEBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T19:13:27.493Z",
+              "WhenOpened": "2024-11-18T04:19:23.134Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Thongke.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
+              "Title": "Thongke.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs [Design]",
+              "ToolTip": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAhwFEAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T03:55:57.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Thongke.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
+              "ToolTip": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs [Design]",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T16:28:54.839Z",
@@ -101,9 +118,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "DotChamDiemDAO.cs",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "ToolTip": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
               "RelativeToolTip": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
               "ViewState": "AgIAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -113,22 +130,10 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "SinhVienDAO.cs",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAkwB0AAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T09:58:39.329Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "DotCham.cs",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
+              "ToolTip": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -139,34 +144,38 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "DotCham.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs [Design]",
+              "ToolTip": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs [Design]",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Criteria\\DotCham.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T02:45:18.028Z"
+              "WhenOpened": "2024-11-15T02:45:18.028Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "MenuAdmin.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
               "ToolTip": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T15:00:40.347Z"
+              "WhenOpened": "2024-11-14T15:00:40.347Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "MenuAdmin.cs",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
+              "ToolTip": "C:\\Users\\huhuh\\OneDrive\\M\u00E1y t\u00EDnh\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\MenuAdmin.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAcwEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T15:00:55.679Z"
+              "WhenOpened": "2024-11-14T15:00:55.679Z",
+              "EditorCaption": ""
             }
           ]
         },

@@ -170,6 +170,32 @@ D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\S
 D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemr.8D5063E9.Up2Date
 D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.genruntimeconfig.cache
 D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ref\ql_diemrenluyen.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\HarfBuzzSharp.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.GLControl.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.WinForms.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.HarfBuzz.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.Desktop.Common.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.WindowsForms.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libHarfBuzzSharp.so
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libHarfBuzzSharp.so
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libHarfBuzzSharp.so
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libHarfBuzzSharp.so
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libHarfBuzzSharp.dylib
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libHarfBuzzSharp.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libHarfBuzzSharp.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libSkiaSharp.so
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libSkiaSharp.so
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libSkiaSharp.so
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libSkiaSharp.so
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libSkiaSharp.dylib
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
+D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
+D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Statistic.Thongke.resources
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Util\MailTemplate\ResetPasswordMail.html
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.exe
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.deps.json
@@ -191,24 +217,52 @@ C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Core.Api.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Net.Client.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Net.Common.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\HarfBuzzSharp.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\LiveCharts.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\LiveCharts.WinForms.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\MySql.Data.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\MySqlConnector.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.GLControl.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ReaLTaiizor.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.WinForms.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.HarfBuzz.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.Desktop.Common.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.WindowsForms.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Management.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ZstdSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libHarfBuzzSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libHarfBuzzSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libHarfBuzzSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libHarfBuzzSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libHarfBuzzSharp.dylib
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libHarfBuzzSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libHarfBuzzSharp.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libSkiaSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libSkiaSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libSkiaSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libSkiaSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.AssemblyReference.cache
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.BUS.AccountBUS.resources
@@ -229,6 +283,7 @@ C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl2.resources
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl3.resources
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.MenuAdmin.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Statistic.Thongke.resources
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Student.AdminStudentTest.resources
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.QLSinhVien.resources
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThongTinhSinhVien.resources
@@ -256,55 +311,3 @@ C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.pdb
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.genruntimeconfig.cache
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ref\ql_diemrenluyen.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Statistic.Thongke.resources
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\HarfBuzzSharp.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.GLControl.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.WinForms.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.HarfBuzz.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.Desktop.Common.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.WindowsForms.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libHarfBuzzSharp.so
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libHarfBuzzSharp.so
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libHarfBuzzSharp.so
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libHarfBuzzSharp.so
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libHarfBuzzSharp.dylib
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libHarfBuzzSharp.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libHarfBuzzSharp.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libHarfBuzzSharp.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libSkiaSharp.so
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libSkiaSharp.so
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libSkiaSharp.so
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libSkiaSharp.so
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libSkiaSharp.dylib
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
-C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\HarfBuzzSharp.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.GLControl.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.WinForms.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.HarfBuzz.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.Desktop.Common.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.WindowsForms.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libHarfBuzzSharp.so
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libHarfBuzzSharp.so
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libHarfBuzzSharp.so
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libHarfBuzzSharp.so
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libHarfBuzzSharp.dylib
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libHarfBuzzSharp.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libHarfBuzzSharp.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libHarfBuzzSharp.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libSkiaSharp.so
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libSkiaSharp.so
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libSkiaSharp.so
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libSkiaSharp.so
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libSkiaSharp.dylib
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
-D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
-D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Statistic.Thongke.resources
