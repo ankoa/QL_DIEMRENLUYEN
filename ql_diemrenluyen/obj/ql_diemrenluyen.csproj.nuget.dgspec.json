@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {}
+    "D:\\Code\\qldrl\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {}
   },
   "projects": {
-    "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {
+    "D:\\Code\\qldrl\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+        "projectUniqueName": "D:\\Code\\qldrl\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
         "projectName": "ql_diemrenluyen",
-        "projectPath": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
-        "packagesPath": "C:\\Users\\huhuh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\obj\\",
+        "projectPath": "D:\\Code\\qldrl\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Code\\qldrl\\ql_diemrenluyen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\huhuh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -102,7 +102,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
