@@ -13,9 +13,9 @@ namespace ql_diemrenluyen.BUS
         }
 
         // Thêm giảng viên mới
-        public static bool AddGiangVien(GiangVienDTO giangVien, DateTime ngaySinh)
+        public static bool AddGiangVien(GiangVienDTO giangVien)
         {
-            return GiangVienDAO.AddGiangVien(giangVien,ngaySinh);
+            return GiangVienDAO.AddGiangVien(giangVien);
         }
 
         // Cập nhật thông tin giảng viên
