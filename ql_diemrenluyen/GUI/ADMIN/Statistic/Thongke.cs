@@ -32,6 +32,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             cbbNamHoc.SelectedIndex = 0;
             cbbKhoa.SelectedItem = "Chọn khoa";
             cbbLop.SelectedItem = "Chọn lớp";
+            cbbXepLoai.SelectedIndex = 0;
+            cbbLocSV.SelectedIndex = 0;
             cbbHocKi.Visible = true;
             cbbNamHoc.Visible = true;
             cbbKhoa.Visible = false;
@@ -349,6 +351,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             cbbKhoa.SelectedIndex = 0;
         }
 
+        private void loadDanhSachSvVaDrl(long? khoaId = null, long? lopId = null, string? hockiId = null, string? namhocId = null)
+        {
+
+        }
+
 
         private void btnTypeThongkeClick(object sender)
         {
@@ -375,17 +382,19 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
         {
             btnTypeThongkeClick(sender);
             typeThongKe = "Tổng quan";
-            CreatePieChart();
-            CreateBarChart();
+            //cbbHocKi.SelectedIndex = 0;
+            //cbbNamHoc.SelectedIndex = 0;
+            CreatePieChart(hockiId: this.hockiId, namhocId: this.namhocId);
+            CreateBarChart(hockiId: this.hockiId, namhocId: this.namhocId);
             cbbHocKi.Visible = true;
             cbbNamHoc.Visible = true;
             cbbKhoa.Visible = false;
             cbbLop.Visible = false;
             tableLayoutPanel7.RowStyles[1] = new RowStyle(SizeType.Percent, 0);
             tableLayoutPanel7.RowStyles[0] = new RowStyle(SizeType.Percent, 100);
-            lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter().ToString();
+            lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId).ToString();
             lblSoHs.Text = SinhVienDAO.GetAllStudentsActive().Count().ToString();
-            lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<").ToString();
+            lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId).ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -554,36 +563,68 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             if (cbbHocKi.SelectedIndex != 0)
             {
                 hockiId = cbbHocKi.SelectedItem.ToString();
-                //MessageBox.Show(khoa.Id.ToString());
-                //CreatePieChart();
-                CreatePieChart(khoaId, lopId, hockiId, namhocId);
-                CreateBarChart(hockiId, namhocId);
+                if (typeThongKe == "Lớp" && lopId != null)
+                {
+                    CreatePieChart(null, lopId, hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+                }
+                else if (typeThongKe == "Tổng quan")
+                {
+                    CreatePieChart(null, null, hockiId, namhocId);
+                    CreateBarChart(hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+                }
+                else if (typeThongKe == "Khoa" && khoaId != null)
+                {
+                    CreatePieChart(khoaId, null, hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                }
             }
             else
             {
                 hockiId = "";
-                CreatePieChart(khoaId, lopId, hockiId, namhocId);
-                CreateBarChart(hockiId, namhocId);
-                lblSoHs.Text = SinhVienDAO.GetAllStudentsActive().Count().ToString();
-                lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter().ToString();
-                lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<").ToString();
+                if (typeThongKe == "Lớp" && lopId != null)
+                {
+                    CreatePieChart(null, lopId, hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+                }
+                else if (typeThongKe == "Tổng quan")
+                {
+                    CreatePieChart(null, null, hockiId, namhocId);
+                    CreateBarChart(hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+                }
+                else if (typeThongKe == "Khoa" && khoaId != null)
+                {
+                    CreatePieChart(khoaId, null, hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                }
+                //lblSoHs.Text = SinhVienDAO.GetAllStudentsActive().Count().ToString();
+                //lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter().ToString();
+                //lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<").ToString();
             }
 
-            if (typeThongKe == "Lớp")
-            {
-                lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
-                lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
-            }
-            else if (typeThongKe == "Tổng quan")
-            {
-                lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId).ToString();
-                lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId).ToString();
-            }
-            else if (typeThongKe == "Khoa")
-            {
-                lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
-                lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
-            }
+            //if (typeThongKe == "Lớp")
+            //{
+            //    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
+            //    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+            //}
+            //else if (typeThongKe == "Tổng quan")
+            //{
+            //    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId).ToString();
+            //    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+            //}
+            //else if (typeThongKe == "Khoa")
+            //{
+            //    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+            //    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+            //}
         }
 
         private void cbbNamHoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -591,36 +632,51 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             if (cbbNamHoc.SelectedIndex != 0)
             {
                 namhocId = cbbNamHoc.SelectedItem.ToString();
-                //MessageBox.Show(khoa.Id.ToString());
-                //CreatePieChart();
-                CreatePieChart(khoaId, lopId, hockiId, namhocId);
-                CreateBarChart(hockiId, namhocId);
-
+                if (typeThongKe == "Lớp" && lopId != null)
+                {
+                    CreatePieChart(null, lopId, hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+                }
+                else if (typeThongKe == "Tổng quan")
+                {
+                    CreatePieChart(null, null, hockiId, namhocId);
+                    CreateBarChart(hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+                }
+                else if (typeThongKe == "Khoa" && khoaId != null)
+                {
+                    CreatePieChart(khoaId, null, hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                }
             }
             else
             {
                 namhocId = "";
-                CreatePieChart(khoaId, lopId, hockiId, namhocId);
-                CreateBarChart(hockiId, namhocId);
-                lblSoHs.Text = SinhVienDAO.GetAllStudentsActive().Count().ToString();
-                lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter().ToString();
-                lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<").ToString();
-            }
-
-            if (typeThongKe == "Lớp")
-            {
-                lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
-                lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
-            }
-            else if (typeThongKe == "Tổng quan")
-            {
-                lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId).ToString();
-                lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId).ToString();
-            }
-            else if (typeThongKe == "Khoa")
-            {
-                lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
-                lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                if (typeThongKe == "Lớp" && lopId != null)
+                {
+                    CreatePieChart(null, lopId, hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+                }
+                else if (typeThongKe == "Tổng quan")
+                {
+                    CreatePieChart(null, null, hockiId, namhocId);
+                    CreateBarChart(hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+                }
+                else if (typeThongKe == "Khoa" && khoaId != null)
+                {
+                    CreatePieChart(khoaId, null, hockiId, namhocId);
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                }
+                //lblSoHs.Text = SinhVienDAO.GetAllStudentsActive().Count().ToString();
+                //lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter().ToString();
+                //lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<").ToString();
             }
         }
     }
