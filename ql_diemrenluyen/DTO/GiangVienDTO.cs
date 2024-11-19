@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ namespace ql_diemrenluyen.DTO
         public string Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public DateTime? ngaySinh {get; set;}
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public string ChucVu { get; set; }
@@ -19,11 +20,12 @@ namespace ql_diemrenluyen.DTO
 
         public GiangVienDTO() { }
 
-        public GiangVienDTO(string id, string name, string email, DateTime? createdAt, DateTime? updatedAt, string ChucVu, string khoaId,bool TrangThai)
+        public GiangVienDTO(string id, string name, string email,DateTime? ngaySinh, DateTime? createdAt, DateTime? updatedAt, string ChucVu, string khoaId,bool TrangThai)
         {
             this.Id = id;
             this.Name = name;
             this.Email = email;
+            this.ngaySinh = ngaySinh;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.ChucVu = ChucVu;

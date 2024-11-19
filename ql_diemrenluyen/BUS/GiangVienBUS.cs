@@ -38,5 +38,10 @@ namespace ql_diemrenluyen.BUS
             return GiangVienDAO.SearchGiangVien(searchTerm);
         }
 
+        public static List<GiangVienDTO> SearchGiangVienByChucVu(string searchTerm)
+        {
+            return GiangVienDAO.SearchGiangVienByChucVu(searchTerm);
+        }
+
     }
 }
