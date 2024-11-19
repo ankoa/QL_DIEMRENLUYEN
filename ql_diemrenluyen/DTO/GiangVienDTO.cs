@@ -8,7 +8,7 @@ namespace ql_diemrenluyen.DTO
 {
     public class GiangVienDTO
     {
-        public string Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public DateTime? ngaySinh {get; set;}
@@ -20,7 +20,7 @@ namespace ql_diemrenluyen.DTO
 
         public GiangVienDTO() { }
 
-        public GiangVienDTO(string id, string name, string email,DateTime? ngaySinh, DateTime? createdAt, DateTime? updatedAt, string ChucVu, string khoaId,bool TrangThai)
+        public GiangVienDTO(long id, string name, string email,DateTime? ngaySinh, DateTime? createdAt, DateTime? updatedAt, string ChucVu, string khoaId,bool TrangThai)
         {
             this.Id = id;
             this.Name = name;
