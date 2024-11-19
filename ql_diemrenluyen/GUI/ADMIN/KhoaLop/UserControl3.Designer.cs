@@ -29,147 +29,187 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            panel1 = new Panel();
             find = new Button();
             textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
             dataGridHeHocView = new DataGridView();
             id_hehoc = new DataGridViewTextBoxColumn();
             name_hehoc = new DataGridViewTextBoxColumn();
             more = new DataGridViewButtonColumn();
             add_btn = new Button();
-            panel1.SuspendLayout();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridHeHocView).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 14);
+            label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(196, 31);
+            label1.Size = new Size(1132, 40);
             label1.TabIndex = 0;
             label1.Text = "Thông tin hệ học";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(find);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(comboBox1);
-            panel1.Location = new Point(0, 73);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(898, 34);
-            panel1.TabIndex = 6;
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // find
             // 
-            find.Image = Properties.Resources.search__2_;
-            find.Location = new Point(786, 1);
+            find.Image = Properties.Resources.search__3_;
+            find.Location = new Point(903, 2);
+            find.Margin = new Padding(3, 2, 3, 3);
             find.Name = "find";
-            find.Size = new Size(112, 32);
+            find.Size = new Size(110, 32);
             find.TabIndex = 3;
             find.UseVisualStyleBackColor = true;
             find.Click += find_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(343, 3);
+            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(597, 3);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(311, 27);
+            textBox1.Size = new Size(300, 30);
             textBox1.TabIndex = 2;
-            // 
-            // comboBox1
-            // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Tất cả", "Mã hệ học", "Tên hệ học" });
-            comboBox1.Location = new Point(660, 3);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(120, 28);
-            comboBox1.TabIndex = 1;
-            comboBox1.Tag = "";
             // 
             // dataGridHeHocView
             // 
+            dataGridHeHocView.AllowUserToAddRows = false;
+            dataGridHeHocView.AllowUserToDeleteRows = false;
+            dataGridHeHocView.AllowUserToResizeColumns = false;
+            dataGridHeHocView.AllowUserToResizeRows = false;
+            dataGridHeHocView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridHeHocView.BackgroundColor = Color.White;
+            dataGridHeHocView.BorderStyle = BorderStyle.None;
             dataGridHeHocView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridHeHocView.Columns.AddRange(new DataGridViewColumn[] { id_hehoc, name_hehoc, more });
-            dataGridHeHocView.Location = new Point(0, 114);
+            dataGridHeHocView.Dock = DockStyle.Fill;
+            dataGridHeHocView.Location = new Point(3, 84);
             dataGridHeHocView.Margin = new Padding(3, 4, 3, 4);
             dataGridHeHocView.Name = "dataGridHeHocView";
+            dataGridHeHocView.RowHeadersVisible = false;
             dataGridHeHocView.RowHeadersWidth = 62;
-            dataGridHeHocView.Size = new Size(898, 414);
+            dataGridHeHocView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridHeHocView.Size = new Size(1132, 449);
             dataGridHeHocView.TabIndex = 7;
             dataGridHeHocView.CellContentClick += dataGridHeHocView_CellContentClick;
             dataGridHeHocView.CellPainting += dataGridHeHocView_CellPainting;
             // 
             // id_hehoc
             // 
+            id_hehoc.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             id_hehoc.HeaderText = "Mã hệ học";
             id_hehoc.MinimumWidth = 6;
             id_hehoc.Name = "id_hehoc";
             id_hehoc.ReadOnly = true;
-            id_hehoc.Width = 204;
             // 
             // name_hehoc
             // 
+            name_hehoc.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             name_hehoc.HeaderText = "Tên hệ học";
             name_hehoc.MinimumWidth = 6;
             name_hehoc.Name = "name_hehoc";
             name_hehoc.ReadOnly = true;
-            name_hehoc.Width = 450;
             // 
             // more
             // 
+            more.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             more.HeaderText = "Xem chi tiết";
             more.MinimumWidth = 6;
             more.Name = "more";
             more.ReadOnly = true;
             more.Resizable = DataGridViewTriState.True;
             more.SortMode = DataGridViewColumnSortMode.Automatic;
-            more.Width = 180;
             // 
             // add_btn
             // 
-            add_btn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            add_btn.Location = new Point(733, 536);
+            add_btn.BackColor = Color.RoyalBlue;
+            add_btn.Dock = DockStyle.Right;
+            add_btn.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            add_btn.ForeColor = Color.White;
+            add_btn.Location = new Point(935, 541);
             add_btn.Margin = new Padding(3, 4, 3, 4);
             add_btn.Name = "add_btn";
-            add_btn.Size = new Size(165, 36);
+            add_btn.Size = new Size(200, 27);
             add_btn.TabIndex = 8;
             add_btn.Text = "Thêm hệ học";
-            add_btn.UseVisualStyleBackColor = true;
+            add_btn.UseVisualStyleBackColor = false;
             add_btn.Click += add_btn_Click;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 1);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(add_btn, 0, 3);
+            tableLayoutPanel1.Controls.Add(dataGridHeHocView, 0, 2);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6F));
+            tableLayoutPanel1.Size = new Size(1138, 572);
+            tableLayoutPanel1.TabIndex = 9;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(find);
+            flowLayoutPanel1.Controls.Add(textBox1);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new Point(3, 43);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1132, 34);
+            flowLayoutPanel1.TabIndex = 10;
+            // 
+            // button1
+            // 
+            button1.Image = Properties.Resources.setting__1_;
+            button1.Location = new Point(1019, 2);
+            button1.Margin = new Padding(3, 2, 3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(110, 32);
+            button1.TabIndex = 4;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // UserControl3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(add_btn);
-            Controls.Add(dataGridHeHocView);
-            Controls.Add(panel1);
-            Controls.Add(label1);
+            Controls.Add(tableLayoutPanel1);
             Name = "UserControl3";
-            Size = new Size(898, 572);
+            Size = new Size(1138, 572);
             Load += UserControl3_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridHeHocView).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Label label1;
-        private Panel panel1;
         private Button find;
         private TextBox textBox1;
-        private ComboBox comboBox1;
         private DataGridView dataGridHeHocView;
         private Button add_btn;
+        private TableLayoutPanel tableLayoutPanel1;
         private DataGridViewTextBoxColumn id_hehoc;
         private DataGridViewTextBoxColumn name_hehoc;
         private DataGridViewButtonColumn more;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button button1;
     }
 }

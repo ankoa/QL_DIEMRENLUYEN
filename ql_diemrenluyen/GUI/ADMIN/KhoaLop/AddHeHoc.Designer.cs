@@ -30,101 +30,151 @@
         {
             label1 = new Label();
             panel1 = new Panel();
-            text_hehoc = new TextBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
             label2 = new Label();
+            text_hehoc = new TextBox();
             panel2 = new Panel();
             add_btn = new Button();
             reset_btn = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
             panel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
-            label1.Dock = DockStyle.Top;
+            label1.BackColor = Color.RoyalBlue;
+            label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(450, 42);
+            label1.Size = new Size(436, 47);
             label1.TabIndex = 1;
             label1.Text = "Thêm hệ học";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoSize = true;
-            panel1.Controls.Add(text_hehoc);
-            panel1.Controls.Add(label2);
-            panel1.Location = new Point(12, 51);
+            panel1.Controls.Add(tableLayoutPanel2);
+            panel1.Location = new Point(3, 50);
             panel1.Name = "panel1";
-            panel1.Size = new Size(431, 37);
+            panel1.Size = new Size(436, 48);
             panel1.TabIndex = 2;
             // 
-            // text_hehoc
+            // tableLayoutPanel2
             // 
-            text_hehoc.Dock = DockStyle.Right;
-            text_hehoc.Location = new Point(72, 0);
-            text_hehoc.Name = "text_hehoc";
-            text_hehoc.Size = new Size(359, 27);
-            text_hehoc.TabIndex = 1;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            tableLayoutPanel2.Controls.Add(label2, 0, 0);
+            tableLayoutPanel2.Controls.Add(text_hehoc, 1, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(436, 48);
+            tableLayoutPanel2.TabIndex = 5;
             // 
             // label2
             // 
-            label2.Dock = DockStyle.Left;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(0, 0);
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(3, 10);
+            label2.Margin = new Padding(3, 10, 3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(72, 37);
+            label2.Size = new Size(81, 38);
             label2.TabIndex = 0;
             label2.Text = "Hệ học";
+            // 
+            // text_hehoc
+            // 
+            text_hehoc.Dock = DockStyle.Fill;
+            text_hehoc.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            text_hehoc.Location = new Point(90, 10);
+            text_hehoc.Margin = new Padding(3, 10, 3, 3);
+            text_hehoc.Name = "text_hehoc";
+            text_hehoc.Size = new Size(343, 30);
+            text_hehoc.TabIndex = 1;
             // 
             // panel2
             // 
             panel2.Controls.Add(add_btn);
             panel2.Controls.Add(reset_btn);
-            panel2.Location = new Point(12, 94);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(5, 106);
+            panel2.Margin = new Padding(5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(428, 43);
+            panel2.Size = new Size(432, 46);
             panel2.TabIndex = 3;
             // 
             // add_btn
             // 
+            add_btn.BackColor = Color.RoyalBlue;
             add_btn.Dock = DockStyle.Right;
-            add_btn.Location = new Point(233, 0);
+            add_btn.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            add_btn.ForeColor = Color.White;
+            add_btn.Location = new Point(237, 0);
             add_btn.Name = "add_btn";
-            add_btn.Size = new Size(195, 43);
+            add_btn.Size = new Size(195, 46);
             add_btn.TabIndex = 3;
             add_btn.Text = "Thêm hệ học";
-            add_btn.UseVisualStyleBackColor = true;
+            add_btn.UseVisualStyleBackColor = false;
             add_btn.Click += add_btn_Click;
             // 
             // reset_btn
             // 
             reset_btn.Dock = DockStyle.Left;
+            reset_btn.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             reset_btn.Location = new Point(0, 0);
             reset_btn.Name = "reset_btn";
-            reset_btn.Size = new Size(195, 43);
+            reset_btn.Size = new Size(195, 46);
             reset_btn.TabIndex = 0;
             reset_btn.Text = "Xóa trắng";
             reset_btn.UseVisualStyleBackColor = true;
             reset_btn.Click += reset_btn_Click;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel2, 0, 2);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
+            tableLayoutPanel1.Size = new Size(442, 157);
+            tableLayoutPanel1.TabIndex = 4;
+            // 
             // AddHeHoc
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(450, 148);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(label1);
+            ClientSize = new Size(442, 157);
+            Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AddHeHoc";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddHeHoc";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             panel2.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -136,5 +186,7 @@
         private Panel panel2;
         private Button add_btn;
         private Button reset_btn;
+        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel2;
     }
 }

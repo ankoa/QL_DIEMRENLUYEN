@@ -15,7 +15,7 @@ namespace ql_diemrenluyen.DAO
         {
             try
             {
-                string connstring = $"Server={server}; Database={database}; UID={user}; Password={password}; Port=3307; Convert Zero Datetime = true";
+                string connstring = $"Server={server}; Database={database}; UID={user}; Password={password}; Port=3306; Convert Zero Datetime = true";
                 conn = new MySqlConnection(connstring);
                 conn.Open();
                 return true;

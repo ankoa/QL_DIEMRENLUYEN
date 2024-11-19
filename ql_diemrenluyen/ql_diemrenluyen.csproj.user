@@ -19,6 +19,18 @@
     <Compile Update="GUI\ADMIN\KhoaLop\AddLop.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\HeHocSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\KhoaLopTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\KhoaSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\LopSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\ADMIN\KhoaLop\QuanLyKhoaLop.cs">
       <SubType>Form</SubType>
     </Compile>
