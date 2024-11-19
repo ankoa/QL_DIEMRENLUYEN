@@ -95,7 +95,7 @@ namespace ql_diemrenluyen.DAO
             return null; // Trả về null nếu không tìm thấy sinh viên
         }
 
-        public static List<SinhVienDetailsDTO> GetDanhSachSvAndDrl(long? khoaId = null, long? lopId = null, int? hockiId = null, string? namhocId = null)
+        public static List<SinhVienDetailsDTO> GetDanhSachSvAndDrl(long? khoaId = null, long? lopId = null, string? hockiId = null, string? namhocId = null)
         {
             string sql = @"
         SELECT sv.id, sv.name, 
@@ -120,7 +120,7 @@ WHERE 1=1
             if (lopId.HasValue)
                 sql += " AND sv.lop_id = @lopId";
 
-            if (hockiId.HasValue)
+            if (!string.IsNullOrEmpty(hockiId))
                 sql += " AND drl.hocki_id = @hockiId";
 
             if (!string.IsNullOrEmpty(namhocId))
@@ -135,8 +135,8 @@ WHERE 1=1
             if (lopId.HasValue)
                 cmd.Parameters.AddWithValue("@lopId", lopId.Value);
 
-            if (hockiId.HasValue)
-                cmd.Parameters.AddWithValue("@hockiId", hockiId.Value);
+            if (!string.IsNullOrEmpty(hockiId))
+                cmd.Parameters.AddWithValue("@hockiId", hockiId);
 
             if (!string.IsNullOrEmpty(namhocId))
                 cmd.Parameters.AddWithValue("@namhocId", namhocId);
@@ -145,6 +145,98 @@ WHERE 1=1
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
 
             // Nếu có kết quả trả về, ánh xạ dữ liệu vào danh sách DTO
+            List<SinhVienDetailsDTO> sinhVienDetails = new List<SinhVienDetailsDTO>();
+
+            foreach (var row in result)
+            {
+                sinhVienDetails.Add(MapToSinhVienDetailsDTO(row));
+            }
+
+            return sinhVienDetails;
+        }
+
+        public static List<SinhVienDetailsDTO> GetDanhSachSvAndDrl(
+    long? khoaId = null,
+    long? lopId = null,
+    string? hockiId = null,
+    string? namhocId = null,
+    string? sortOrder = null, // "asc" hoặc "desc"
+    int? limit = null,       // Số lượng giới hạn cụ thể
+    double? limitPercent = null // Phần trăm giới hạn
+)
+        {
+            string sql = @"
+        SELECT sv.id, sv.name, 
+               k.tenkhoa AS khoa_ten, 
+               l.tenlop AS lop_ten, 
+               drl.diemrenluyen, drl.danhgia
+        FROM sinhvien sv
+        LEFT JOIN lop l ON sv.lop_id = l.id
+        LEFT JOIN khoa k ON l.khoa_id = k.id
+        LEFT JOIN diemrenluyensinhvien drl ON sv.id = drl.sinhvien_id
+        LEFT JOIN hocky hk ON drl.hocki_id = hk.id
+        WHERE 1=1
+          AND drl.status = 1
+          AND sv.status = 1
+          AND l.status = 1
+          AND k.status = 1";
+
+            // Thêm điều kiện WHERE nếu có tham số
+            if (khoaId.HasValue)
+                sql += " AND l.khoa_id = @khoaId";
+
+            if (lopId.HasValue)
+                sql += " AND sv.lop_id = @lopId";
+
+            if (!string.IsNullOrEmpty(hockiId))
+                sql += " AND drl.hocki_id = @hockiId";
+
+            if (!string.IsNullOrEmpty(namhocId))
+                sql += " AND hk.namhoc = @namhocId";
+
+            // Thêm sắp xếp nếu có yêu cầu
+            if (!string.IsNullOrEmpty(sortOrder))
+            {
+                sql += sortOrder.ToLower() == "desc"
+                    ? " ORDER BY drl.diemrenluyen DESC"
+                    : " ORDER BY drl.diemrenluyen ASC";
+            }
+
+            // Tạo lệnh MySQL
+            var cmd = new MySqlCommand(sql);
+
+            if (khoaId.HasValue)
+                cmd.Parameters.AddWithValue("@khoaId", khoaId.Value);
+
+            if (lopId.HasValue)
+                cmd.Parameters.AddWithValue("@lopId", lopId.Value);
+
+            if (!string.IsNullOrEmpty(hockiId))
+                cmd.Parameters.AddWithValue("@hockiId", hockiId);
+
+            if (!string.IsNullOrEmpty(namhocId))
+                cmd.Parameters.AddWithValue("@namhocId", namhocId);
+
+            // Thực thi câu lệnh SQL và lấy kết quả
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Tính toán số lượng kết quả cần lấy nếu có yêu cầu giới hạn
+            int totalRecords = result.Count;
+            int recordsToTake = totalRecords;
+
+            if (limitPercent.HasValue && limitPercent.Value > 0)
+            {
+                recordsToTake = (int)(totalRecords * (limitPercent.Value / 100));
+            }
+            else if (limit.HasValue && limit.Value > 0)
+            {
+                recordsToTake = Math.Min(limit.Value, totalRecords);
+            }
+
+            // Cắt danh sách kết quả theo giới hạn
+            result = result.Take(recordsToTake).ToList();
+
+            // Ánh xạ kết quả vào danh sách DTO
             List<SinhVienDetailsDTO> sinhVienDetails = new List<SinhVienDetailsDTO>();
 
             foreach (var row in result)
@@ -354,7 +446,7 @@ WHERE 1=1
         {
             return new SinhVienDetailsDTO
             {
-                SinhVienId = Convert.ToInt64(data[0]),
+                Id = Convert.ToInt64(data[0]),
                 Ten = Convert.ToString(data[1]),
                 Khoa = Convert.ToString(data[2]),
                 Lop = Convert.ToString(data[3]),
@@ -366,7 +458,7 @@ WHERE 1=1
 
     public class SinhVienDetailsDTO
     {
-        public long SinhVienId { get; set; }
+        public long Id { get; set; }
         public string Ten { get; set; }
         public string Khoa { get; set; }
         public string Lop { get; set; }

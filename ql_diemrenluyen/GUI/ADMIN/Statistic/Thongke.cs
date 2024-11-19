@@ -18,6 +18,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
         private long? lopId = null;
         private string? hockiId = null;
         private string? namhocId = null;
+        private List<SinhVienDetailsDTO> sinhVienDetails = new List<SinhVienDetailsDTO>();
         public Thongke()
         {
             InitializeComponent();
@@ -40,6 +41,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             cbbLop.Visible = false;
             loadKhoa();
             loadLop();
+            flowLayoutPanel2.Visible = false;
 
             // Gán DataTable vào DataGridView
             //dataGridView1.DataSource = SinhVienDAO.GetDanhSachSvAndDrl();
@@ -351,9 +353,32 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             cbbKhoa.SelectedIndex = 0;
         }
 
-        private void loadDanhSachSvVaDrl(long? khoaId = null, long? lopId = null, string? hockiId = null, string? namhocId = null)
+        private void loadDanhSachSvVaDrl()
         {
-
+            if (typeThongKe == "Khoa")
+            {
+                if (this.khoaId == null || this.hockiId == "" || this.namhocId == "")
+                {
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Rows.Clear();
+                    flowLayoutPanel2.Visible = false;
+                    return;
+                }
+                dataGridView1.DataSource = SinhVienDAO.GetDanhSachSvAndDrl(khoaId: this.khoaId, hockiId: this.hockiId, namhocId: this.namhocId);
+                flowLayoutPanel2.Visible = true;
+            }
+            else if (typeThongKe == "Lớp")
+            {
+                if (this.lopId == null || this.hockiId == "" || this.namhocId == "")
+                {
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Rows.Clear();
+                    flowLayoutPanel2.Visible = false;
+                    return;
+                }
+                flowLayoutPanel2.Visible = true;
+                dataGridView1.DataSource = SinhVienDAO.GetDanhSachSvAndDrl(lopId: this.lopId, hockiId: this.hockiId, namhocId: this.namhocId);
+            }
         }
 
 
@@ -488,10 +513,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             {
                 KhoaDTO khoa = (KhoaDTO)cbbKhoa.SelectedItem;
                 khoaId = khoa.Id;
-                if (typeThongKe == "Khoa" || typeThongKe == "Trường")
+                if (typeThongKe == "Khoa")
                 {
                     CreatePieChart(khoaId, null, hockiId, namhocId);
-                    dataGridView1.DataSource = SinhVienDAO.GetDanhSachSvAndDrl(khoaId: khoa.Id);
+
+                    //dataGridView1.DataSource = SinhVienDAO.GetDanhSachSvAndDrl(khoaId: khoa.Id, hockiId: this.hockiId, namhocId: this.namhocId);
                     lblSoHs.Text = SinhVienDAO.GetAllStudentsActive(khoaId: this.khoaId).Count().ToString();
                     lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(khoaId: this.khoaId).ToString();
                     lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", khoaId: this.khoaId).ToString();
@@ -514,6 +540,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             }
             else
             {
+                this.khoaId = null;
                 loadLop();
                 if (typeThongKe == "Tổng quan") return;
                 lblSoHs.Text = "0";
@@ -524,6 +551,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 panel4.Controls.Clear();
                 panel5.Controls.Clear();
             }
+            if (typeThongKe != "Tổng quan")
+                loadDanhSachSvVaDrl();
         }
 
         private void cbbLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -535,21 +564,30 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 lopId = lop.Id;
                 //MessageBox.Show(khoa.Id.ToString());
                 //CreatePieChart();
-                CreatePieChart(khoaId, lopId, hockiId, namhocId);
-                if (typeThongKe == "Lớp" || typeThongKe == "Trường")
+
+                if (typeThongKe == "Lớp")
                 {
-                    formsPlot2.Plot.Clear();
-                    formsPlot2.Refresh();
+                    CreatePieChart(null, lopId, hockiId, namhocId);
                     lblSoHs.Text = SinhVienDAO.GetAllStudentsActive(lopId: this.lopId).Count().ToString();
-                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(lopId: this.lopId).ToString();
-                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId).ToString();
+                    lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(lopId: this.lopId, hockiname: this.hockiId, namhoc: this.namhocId).ToString();
+                    lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
                 }
             }
             else
             {
                 //loadLop(); // Gọi loadLop mà không có điều kiện khoaId nếu không có lựa chọn
-
+                this.lopId = null;
+                if (typeThongKe == "Tổng quan") return;
+                lblSoHs.Text = "0";
+                lblDrlTB.Text = "0";
+                lblKhongDat.Text = "0";
+                formsPlot1.Plot.Clear();
+                formsPlot2.Plot.Clear();
+                panel4.Controls.Clear();
+                panel5.Controls.Clear();
             }
+            if (typeThongKe != "Tổng quan")
+                loadDanhSachSvVaDrl();
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
@@ -568,6 +606,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                     CreatePieChart(null, lopId, hockiId, namhocId);
                     lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
                     lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
+                    loadDanhSachSvVaDrl();
                 }
                 else if (typeThongKe == "Tổng quan")
                 {
@@ -581,6 +620,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                     CreatePieChart(khoaId, null, hockiId, namhocId);
                     lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
                     lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
+                    loadDanhSachSvVaDrl();
                 }
             }
             else
@@ -589,6 +629,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 if (typeThongKe == "Lớp" && lopId != null)
                 {
                     CreatePieChart(null, lopId, hockiId, namhocId);
+                    loadDanhSachSvVaDrl();
                     lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
                     lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
                 }
@@ -602,6 +643,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 else if (typeThongKe == "Khoa" && khoaId != null)
                 {
                     CreatePieChart(khoaId, null, hockiId, namhocId);
+                    loadDanhSachSvVaDrl();
                     lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
                     lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
                 }
@@ -635,6 +677,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 if (typeThongKe == "Lớp" && lopId != null)
                 {
                     CreatePieChart(null, lopId, hockiId, namhocId);
+                    loadDanhSachSvVaDrl();
                     lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
                     lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
                 }
@@ -648,6 +691,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 else if (typeThongKe == "Khoa" && khoaId != null)
                 {
                     CreatePieChart(khoaId, null, hockiId, namhocId);
+                    loadDanhSachSvVaDrl();
                     lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
                     lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
                 }
@@ -657,6 +701,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 namhocId = "";
                 if (typeThongKe == "Lớp" && lopId != null)
                 {
+                    loadDanhSachSvVaDrl();
                     CreatePieChart(null, lopId, hockiId, namhocId);
                     lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, lopId: this.lopId).ToString();
                     lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", lopId: this.lopId, hockyName: this.hockiId, namhoc: this.namhocId).ToString();
@@ -670,6 +715,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 }
                 else if (typeThongKe == "Khoa" && khoaId != null)
                 {
+                    loadDanhSachSvVaDrl();
                     CreatePieChart(khoaId, null, hockiId, namhocId);
                     lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter(hockiname: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
                     lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<", hockyName: this.hockiId, namhoc: this.namhocId, khoaId: this.khoaId).ToString();
@@ -678,6 +724,18 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
                 //lblDrlTB.Text = DiemRenLuyenSinhVienDAO.GetAverageDiemRenLuyenByFilter().ToString();
                 //lblKhongDat.Text = DiemRenLuyenSinhVienDAO.GetSoSinhVienCanhCaoByFilter(50, "<").ToString();
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Lấy danh sách sinh viên từ DAO
+            this.sinhVienDetails = SinhVienDAO.GetDanhSachSvAndDrl(khoaId: this.khoaId, hockiId: this.hockiId, namhocId: this.namhocId);
+
+            // Chuyển đổi danh sách sang List<Dictionary<string, string>>
+            var dictionaryList = ExcelExporter.ConvertListToDictionaryList(sinhVienDetails);
+
+            // Xuất ra Excel
+            ExcelExporter.ExportListToExcel(dictionaryList);
         }
     }
 }
