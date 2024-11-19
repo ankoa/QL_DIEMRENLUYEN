@@ -1,6 +1,6 @@
-﻿namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
+﻿namespace ql_diemrenluyen.GUI.ADMIN.Account
 {
-    partial class FormTieuChi
+    partial class testform
     {
         /// <summary>
         /// Required designer variable.
@@ -82,7 +82,7 @@
             panel3.Location = new Point(0, 0);
             panel3.Margin = new Padding(3, 20, 3, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1400, 49);
+            panel3.Size = new Size(1419, 49);
             panel3.TabIndex = 33;
             // 
             // label1
@@ -232,7 +232,7 @@
             // 
             panel2.Controls.Add(tableLayoutPanel4);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(1150, 51);
+            panel2.Location = new Point(1169, 51);
             panel2.Margin = new Padding(3, 50, 3, 3);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(0, 50, 0, 0);
@@ -277,7 +277,7 @@
             pnTop.Margin = new Padding(50, 0, 50, 0);
             pnTop.Name = "pnTop";
             pnTop.Padding = new Padding(0, 51, 0, 51);
-            pnTop.Size = new Size(1400, 189);
+            pnTop.Size = new Size(1419, 189);
             pnTop.TabIndex = 9;
             // 
             // dataGridViewTextBoxColumn4
@@ -387,7 +387,7 @@
             tableTK.RowHeadersWidth = 51;
             tableTK.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tableTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableTK.Size = new Size(1358, 699);
+            tableTK.Size = new Size(1377, 628);
             tableTK.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             tableTK.TabIndex = 7;
             // 
@@ -401,7 +401,7 @@
             pnContent.Margin = new Padding(0);
             pnContent.Name = "pnContent";
             pnContent.Padding = new Padding(21, 30, 21, 0);
-            pnContent.Size = new Size(1400, 729);
+            pnContent.Size = new Size(1419, 658);
             pnContent.TabIndex = 8;
             // 
             // panel1
@@ -413,21 +413,21 @@
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(0, 20, 0, 0);
-            panel1.Size = new Size(1400, 938);
+            panel1.Size = new Size(1419, 867);
             panel1.TabIndex = 32;
             // 
-            // FormTieuChi
+            // testform
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1400, 938);
+            ClientSize = new Size(1419, 867);
             ControlBox = false;
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormTieuChi";
-            Text = "TieuChi";
-            Load += TieuChi_Load;
+            Name = "testform";
+            Text = "Form1";
+            Load += Form1_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

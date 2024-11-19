@@ -1,6 +1,12 @@
 ﻿using ql_diemrenluyen.GUI.ADMIN.KhoaLop;
 using ql_diemrenluyen.GUI.ADMIN.Student;
 using ql_diemrenluyen.GUI.ADMIN.TieuChi;
+using ql_diemrenluyen.GUI.ADMIN.Account;
+using System;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+
 using ql_diemrenluyen.Helper;
 using System.Runtime.InteropServices;
 
@@ -12,7 +18,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         TaiKhoan form_taikhoan;
         AdminStudentTest form_student;
         DotCham form_DotCham;
-        FormTieuChi form_TieuChi;
+        QLTieuChi form_TieuChi;
         QLGiangVien form_GiangVien;
         QuanLyKhoaLop form_QuanLyKhoaLop;
         private PictureBox loading;
@@ -25,6 +31,16 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
 
 
         public MenuAdmin()
@@ -37,8 +53,18 @@ namespace ql_diemrenluyen.GUI.ADMIN
             this.WindowState = FormWindowState.Maximized;
             this.Activated += MenuAdmin_Activated; // Thêm sự kiện Activated
             this.MouseDown += Form_MouseDown;
+            panel1.MouseDown += Panel1_MouseDown; // Gắn sự kiện MouseDown cho panel1
+
             // Khởi tạo PictureBox loading
             loading = Loading.CreateLoadingControl(this);
+        }
+        private void Panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture(); // Giải phóng chuột để nhận sự kiện kéo
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0); // Gửi thông báo kéo đến Windows
+            }
         }
 
 
@@ -82,44 +108,64 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void UpdateChildFormSize()
         {
-            // Tính toán kích thước còn lại của vùng MDI
-            var clientSize = this.ClientSize;
+            //// Tính toán kích thước còn lại của vùng MDI
+            //var clientSize = this.ClientSize;
 
-            // Nếu có form_home, cập nhật kích thước
-            if (form_home != null && !form_home.IsDisposed)
-            {
-                form_home.Size = clientSize;
-                form_home.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
-                form_home.PerformLayout();
-            }
+            //// Nếu có form_home, cập nhật kích thước
+            //if (form_home != null && !form_home.IsDisposed)
+            //{
+            //    form_home.Size = clientSize;
+            //    form_home.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
+            //    form_home.PerformLayout();
+            //}
 
-            // Nếu có form_taikhoan, cập nhật kích thước
-            if (form_taikhoan != null && !form_taikhoan.IsDisposed)
-            {
-                form_taikhoan.Size = clientSize;
-                form_taikhoan.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
-                form_taikhoan.PerformLayout();
-            }
+            //// Nếu có form_taikhoan, cập nhật kích thước
+            //if (form_taikhoan != null && !form_taikhoan.IsDisposed)
+            //{
+            //    form_taikhoan.Size = clientSize;
+            //    form_taikhoan.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
+            //    form_taikhoan.PerformLayout();
+            //}
 
-            // Nếu có form_student, cập nhật kích thước
-            if (form_student != null && !form_student.IsDisposed)
-            {
-                form_student.Size = clientSize;
-                form_student.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
-                form_student.PerformLayout();
-            }
-            // Nếu có form_student, cập nhật kích thước
-            if (form_student != null && !form_student.IsDisposed)
-            {
-                form_student.Size = clientSize;
-                form_student.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
-                form_student.PerformLayout();
-            }
+            //// Nếu có form_student, cập nhật kích thước
+            //if (form_student != null && !form_student.IsDisposed)
+            //{
+            //    form_student.Size = clientSize;
+            //    form_student.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
+            //    form_student.PerformLayout();
+            //}
+            //// Nếu có form_student, cập nhật kích thước
+            //if (form_student != null && !form_student.IsDisposed)
+            //{
+            //    form_student.Size = clientSize;
+            //    form_student.Location = new Point(0, 0); // Đặt ở vị trí (0, 0)
+            //    form_student.PerformLayout();
+            //}
         }
 
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
-            sidebar.Width = 300;
+            sidebar.Width = 99;
+            this.MouseDown += Form_MouseDown;
+            btnHomepage.BackColor = Color.LightBlue;
+            if (form_home == null)
+            {
+                form_home = new HomePage();
+                form_home.FormClosed += HomePage_FormClosed;
+                form_home.FormBorderStyle = FormBorderStyle.None;
+                form_home.ControlBox = false;
+                form_home.MdiParent = this;
+                form_home.Location = new Point(0, 0);
+                form_home.Size = this.ClientSize; // Kích thước form_home bằng kích thước vùng MDI
+                form_home.Show();
+            }
+            else
+            {
+                form_home.Activate();
+            }
+
+            //sidebar.Width = 300;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -196,7 +242,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void button1_Click(object sender, EventArgs e)
         {
             ClearMdiForms();
-
+            btnHomepage.BackColor = Color.LightBlue;
             if (form_home == null)
             {
                 form_home = new HomePage();
@@ -204,9 +250,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_home.FormBorderStyle = FormBorderStyle.None;
                 form_home.ControlBox = false;
                 form_home.MdiParent = this;
-                form_home.Location = new Point(0, 0);
-                form_home.Size = this.ClientSize; // Kích thước form_home bằng kích thước vùng MDI
-
+                form_home.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
                 form_home.Show();
             }
             else
@@ -217,56 +261,71 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void HomePage_FormClosed(object sender, EventArgs e)
         {
-            form_home = null;
+           btnHomepage.BackColor = Color.RoyalBlue;
+            form_home = null; 
         }
 
         private void btnUser_Click(object sender, EventArgs e) // Nút quản lý người dùng
         {
             ClearMdiForms();
-
-            // Tạo loading animation
-            var loading = Loading.CreateLoadingControl(this);
-            Helper.Loading.ShowLoading(loading);
-
-            Task.Run(() =>
+            btnUser.BackColor = Color.LightBlue;
+            if (form_taikhoan == null)
             {
-                if (form_taikhoan == null)
-                {
-                    form_taikhoan = new TaiKhoan();
-                    // Tạo form tài khoản trên UI thread
-                    this.Invoke(new Action(() =>
-                    {
+                form_taikhoan = new TaiKhoan();
+                form_taikhoan.FormClosed += TaiKhoan_FormClosed;
+                form_taikhoan.MdiParent = this;
+                form_taikhoan.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_taikhoan.Show();
+            }
+            else
+            {
+                form_taikhoan.Activate();
+            }
 
-                        form_taikhoan.FormClosed += TaiKhoan_FormClosed;
-                        form_taikhoan.FormBorderStyle = FormBorderStyle.None;
-                        form_taikhoan.ControlBox = false;
-                        form_taikhoan.MdiParent = this;
-                        form_taikhoan.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
-                        form_taikhoan.Show();
+            //// Tạo loading animation
+            //var loading = Loading.CreateLoadingControl(this);
+            //Helper.Loading.ShowLoading(loading);
 
-                        Loading.HideLoading(loading); // Ẩn loading sau khi form hiển thị
-                    }));
-                }
-                else
-                {
-                    this.Invoke(new Action(() =>
-                    {
-                        form_taikhoan.Activate();
-                        Loading.HideLoading(loading); // Ẩn loading nếu form đã tồn tại
-                    }));
-                }
-            });
+            //Task.Run(() =>
+            //{
+            //    if (form_taikhoan == null)
+            //    {
+            //        form_taikhoan = new TaiKhoan();
+            //        // Tạo form tài khoản trên UI thread
+            //        this.Invoke(new Action(() =>
+            //        {
+
+            //            form_taikhoan.FormClosed += TaiKhoan_FormClosed;
+            //            form_taikhoan.FormBorderStyle = FormBorderStyle.None;
+            //            form_taikhoan.ControlBox = false;
+            //            form_taikhoan.MdiParent = this;
+            //            form_taikhoan.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+            //            form_taikhoan.Show();
+
+            //            Loading.HideLoading(loading); // Ẩn loading sau khi form hiển thị
+            //        }));
+            //    }
+            //    else
+            //    {
+            //        this.Invoke(new Action(() =>
+            //        {
+            //            form_taikhoan.Activate();
+            //            Loading.HideLoading(loading); // Ẩn loading nếu form đã tồn tại
+            //        }));
+            //    }
+            //});
         }
 
         private void TaiKhoan_FormClosed(object sender, EventArgs e)
         {
+            btnUser.BackColor = Color.RoyalBlue;
             form_taikhoan = null; // Đặt biến thành null khi form bị đóng
         }
 
         private void btnStudent_Click(object sender, EventArgs e) // Nút quản lý sinh viên
         {
             ClearMdiForms();
-
+            btnStudent.BackColor = Color.LightBlue;
             if (form_student == null)
             {
                 form_student = new AdminStudentTest();
@@ -285,15 +344,18 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         private void AdminStudentTest_FormClosed(object sender, EventArgs e)
         {
+            btnStudent.BackColor = Color.RoyalBlue;
+
             form_student = null; // Đặt biến thành null khi form bị đóng
         }
         private void btnTieuChi_Click(object sender, EventArgs e) // Nút tiêu chí
         {
             ClearMdiForms();
+            btnTieuChi.BackColor = Color.LightBlue;
 
             if (form_TieuChi == null)
             {
-                form_TieuChi = new FormTieuChi();
+                form_TieuChi = new QLTieuChi();
                 form_TieuChi.FormClosed += FormTieuChi_FormClosed; // Gán sự kiện FormClosed cho form_TieuChi
                 form_TieuChi.FormBorderStyle = FormBorderStyle.None;
                 form_TieuChi.ControlBox = false;
@@ -308,11 +370,14 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         private void FormTieuChi_FormClosed(object sender, EventArgs e)
         {
+            btnTieuChi.BackColor = Color.RoyalBlue;
+
             form_TieuChi = null; // Đặt form_TieuChi về null khi form bị đóng
         }
         private void btnGiangVien_Click(object sender, EventArgs e) // Nút quản lý giảng viên
         {
             ClearMdiForms();
+            btnGiangVien.BackColor = Color.LightBlue;
 
             if (form_GiangVien == null)
             {
@@ -331,12 +396,14 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         private void QLGiangVien_FormClosed(object sender, EventArgs e)
         {
+            btnGiangVien.BackColor = Color.RoyalBlue;
+
             form_GiangVien = null; // Đặt form_DotCham về null khi form bị đóng
         }
         private void btnDotCham_Click(object sender, EventArgs e) // Nút đợt chấm
         {
             ClearMdiForms();
-
+            btnDotCham.BackColor = Color.LightBlue;
             if (form_DotCham == null)
             {
                 form_DotCham = new DotCham();
@@ -354,11 +421,14 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         private void DotCham_FormClosed(object sender, EventArgs e)
         {
+            btnDotCham.BackColor = Color.RoyalBlue;
+
             form_DotCham = null; // Đặt form_DotCham về null khi form bị đóng
         }
         private void btnClass_Click(object sender, EventArgs e) // Nút quản lý lớp
         {
             ClearMdiForms();
+            btnClass.BackColor = Color.LightBlue;
 
             if (form_QuanLyKhoaLop == null)
             {
@@ -377,12 +447,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         private void QuanLyKhoaLop_FormClosed(object sender, EventArgs e)
         {
+            btnClass.BackColor = Color.RoyalBlue;
+
             form_QuanLyKhoaLop = null; // Đặt form_DotCham về null khi form bị đóng
         }
         private void btnLogOut_Click(object sender, EventArgs e) // Nút đăng xuất
         {
-            // TODO: Thêm chức năng cho nút đăng xuất
+            this.Dispose();
         }
+
 
     }
 }

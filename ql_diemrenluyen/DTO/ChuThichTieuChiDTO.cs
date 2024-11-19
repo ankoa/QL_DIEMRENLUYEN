@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ql_diemrenluyen.DTO
 {
-    internal class ChuThichTieuChiDTO
+    public class ChuThichTieuChiDTO
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public long TieuChiDanhGiaId { get; set; }
         public string Name { get; set; }
         public int Diem { get; set; }
@@ -16,7 +16,7 @@ namespace ql_diemrenluyen.DTO
         public DateTime UpdatedAt { get; set; }
         public int Status { get; set; }
 
-        public ChuThichTieuChiDTO(int id, long tieuChiDanhGiaId, string name, int diem, DateTime createdAt, DateTime updatedAt, int status)
+        public ChuThichTieuChiDTO(long id, long tieuChiDanhGiaId, string name, int diem, DateTime createdAt, DateTime updatedAt, int status)
         {
             Id = id;
             TieuChiDanhGiaId = tieuChiDanhGiaId;
@@ -25,6 +25,10 @@ namespace ql_diemrenluyen.DTO
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
             Status = status;
+        }
+
+        public ChuThichTieuChiDTO()
+        {
         }
     }
 }

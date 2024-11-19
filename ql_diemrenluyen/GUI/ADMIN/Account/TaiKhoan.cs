@@ -13,9 +13,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         public TaiKhoan()
         {
             InitializeComponent();
-            this.ControlBox = false;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.MaximizeBox = false;
+            this.Dock = DockStyle.Fill; // Đặt Dock để chiếm toàn bộ không gian
             cbbRole.SelectedItem = "Mặc định";
             cbbStatus.SelectedItem = "Mặc định";
             LoadAccountList();
@@ -30,8 +28,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void TaiKhoan_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            this.Dock = DockStyle.Fill;
+            this.Dock = DockStyle.Fill; // Đảm bảo chiếm toàn bộ không gian
+            this.ControlBox= false;
+            this.FormBorderStyle = FormBorderStyle.None;    
             LoadAccountList();
         }
 
@@ -340,6 +339,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
         private void pnTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

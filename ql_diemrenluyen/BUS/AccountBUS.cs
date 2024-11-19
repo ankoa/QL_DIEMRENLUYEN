@@ -61,7 +61,7 @@ namespace ql_diemrenluyen.BUS
         {
             try
             {
-                return AccountDAO.DeleteAccount(id);
+                return AccountDAO.DeactivateAccount(id);
             }
             catch (Exception ex)
             {

@@ -26,6 +26,7 @@ namespace QLDiemRenLuyen
             listStudent = new List<SinhVienDTO>();
             listStudent = listStudentBUS;
             dataGridStudent.Rows.Clear();
+
             if (listStudent.Count > 0)
             {
                 listStudent.ForEach(student =>
@@ -36,6 +37,7 @@ namespace QLDiemRenLuyen
                         this.dataGridStudent.Rows[index].Cells[0].Value = student.Id;
                         this.dataGridStudent.Rows[index].Cells[1].Value = student.Name;
                         this.dataGridStudent.Rows[index].Cells[2].Value = student.toStringGender();
+
                         LopDTO lopDTO = new LopDTO();
                         lopDTO = LopBUS.GetLopByID(student.LopId);
                         this.dataGridStudent.Rows[index].Cells[3].Value = lopDTO.TenLop;
@@ -46,13 +48,18 @@ namespace QLDiemRenLuyen
                 });
             }
 
-
-            //dataGridStudent.DataSource = listStudent;
-            //autoresize each column
-
-
+            // Tùy chọn: Auto resize các cột trong DataGridView
+            dataGridStudent.AutoResizeColumns();
         }
-        private void label1_Click(object sender, EventArgs e)
+
+
+
+        //dataGridStudent.DataSource = listStudent;
+        //autoresize each column
+
+
+    
+    private void label1_Click(object sender, EventArgs e)
         {
 
         }

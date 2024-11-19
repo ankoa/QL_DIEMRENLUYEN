@@ -3401,19 +3401,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\duyli\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+      "projectUniqueName": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
       "projectName": "ql_diemrenluyen",
-      "projectPath": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
-      "packagesPath": "C:\\Users\\duyli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\obj\\",
+      "projectPath": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\duyli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

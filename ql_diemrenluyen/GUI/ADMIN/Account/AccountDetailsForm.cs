@@ -11,12 +11,15 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         private long currentAccountId;
         private TaiKhoan mainForm;
         private DataGridView table;
-
+        private long id;
+        String status;
         public AccountDetailsForm(long id, string password, int role, string rememberToken, DateTime createdAt, DateTime updatedAt, string status, DataGridView dataGridView, TaiKhoan tkform)
         {
             this.BackColor = Color.Black;
             table = dataGridView;
             mainForm = tkform;
+            this.id = id;
+            this.status = status;
             InitializeComponent();
 
             // Set các giá trị cho các trường trong form
@@ -28,7 +31,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
             // Cài đặt DateTimePicker cho CreatedAt
             DateTime minValidDate = dtpCreatedAt.MinDate;
-
             dtpCreatedAt.Value = createdAt >= minValidDate ? createdAt : DateTime.Now;
             dtpCreatedAt.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             dtpCreatedAt.Format = DateTimePickerFormat.Custom;
@@ -41,56 +43,30 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
             // Tạo ComboBox cho Role
             cmbRole.Items.AddRange(new object[] {
-                "ADMIN",
-                "Sinh viên",
-                "Giảng viên",
-                "Cố vấn học tập",
-                "Quản lý Khoa",
-                "Quản lý Trường"
-            });
+        "ADMIN",
+        "Sinh viên",
+        "Giảng viên",
+        "Cố vấn học tập",
+        "Quản lý Khoa",
+        "Quản lý Trường"
+    });
 
             // Chọn giá trị trong ComboBox dựa trên role
-            switch (role)
-            {
-                case 0:
-                    cmbRole.SelectedIndex = 0;
-                    break;
-                case 1:
-                    cmbRole.SelectedIndex = 1;
-                    break;
-                case 2:
-                    cmbRole.SelectedIndex = 2; 
-                    break;
-                case 3:
-                    cmbRole.SelectedIndex = 3; 
-                    break;
-                case 4:
-                    cmbRole.SelectedIndex = 4; 
-                    break;
-                case 5:
-                    cmbRole.SelectedIndex = 5; 
-                    break;
-                default:
-                    cmbRole.SelectedIndex = -1; 
-                    break;
-            }
+            cmbRole.SelectedIndex = role;
 
             // Tải trạng thái vào ComboBox
             comboBox1.SelectedItem = status;
             comboBox1.Enabled = true; // Cho phép chọn trạng thái
 
             currentAccountId = id;
-            /*string message = $"ID: {id}\n" +
-                     $"Password: {password}\n" +
-                     $"Role: {role}\n" +
-                     $"Remember Token: {rememberToken}\n" +
-                     $"Created At: {createdAt.ToString("yyyy-MM-dd HH:mm:ss")}\n" +
-                     $"Updated At: {updatedAt.ToString("yyyy-MM-dd HH:mm:ss")}\n" +
-                     $"Status: {status}";
 
-            // Hiển thị thông báo trong MessageBox
-            MessageBox.Show(message, "Thông tin Tài khoản", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+            // Hiển thị thông báo cảnh báo về trạng thái tài khoản
+            //MessageBox.Show($"Trạng thái tài khoản: {status}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            // Điều chỉnh trạng thái của nút Delete
+            btnDelete.Enabled = status == "Hoạt động"; // Nếu tài khoản không phải "Hoạt động", cho phép xóa
         }
+
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -126,7 +102,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
                 {
                     Id = currentAccountId,
                     Password = txtPassword.Text,
-                    Role = role,  
+                    Role = role,
                     Status = comboBox1.SelectedItem.ToString() == "Hoạt động" ? 1 : 0,
                     CreatedAt = dtpCreatedAt.Value,
                     UpdatedAt = DateTime.Now
@@ -140,7 +116,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
                     TaiKhoan.LoadAccountList(table);
 
-                    this.Close(); 
+                    this.Close();
                 }
                 else
                 {
@@ -148,13 +124,88 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
                 }
             }
         }
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
 
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            // Cấu hình border
+            int borderWidth = 5; // Độ dày của border
+            Color borderColor = Color.Black; // Màu của border (màu đen)
+
+            // Vẽ border (viền thẳng, không bo góc)
+            using (Pen pen = new Pen(borderColor, borderWidth))
+            {
+                e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None; // Tắt làm mịn (anti-aliasing)
+                e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, this.ClientSize.Width - borderWidth, this.ClientSize.Height - borderWidth));
+            }
+        }
+
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
 
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn ngừng hoạt động tài khoản này?",
+                                  "Xác nhận",
+                                  MessageBoxButtons.YesNo,
+                                  MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                bool isDeactivated = AccountBUS.DeleteAccount(id);
+                if (isDeactivated)
+                {
+                    MessageBox.Show("Tài khoản đã được ngừng hoạt động.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TaiKhoan.LoadAccountList(table);
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra khi ngừng hoạt động tài khoản.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hành động đã bị hủy bỏ.", "Hủy bỏ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void AccountDetailsForm_Load(object sender, EventArgs e)
+        {
+
+            btnDelete.Enabled = status == "Hoạt động"; // Nếu tài khoản không phải "Hoạt động", cho phép xóa
         }
     }
 }
