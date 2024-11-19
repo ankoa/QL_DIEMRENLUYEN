@@ -7,8 +7,6 @@ namespace ql_diemrenluyen.DAO
 {
     public class GiangVienDAO
     {
-        // Lấy tất cả giảng viên
-        // Lấy tất cả giảng viên
             public static List<GiangVienDTO> GetAllGiangVien()
             {
                 List<GiangVienDTO> giangViens = new List<GiangVienDTO>();
