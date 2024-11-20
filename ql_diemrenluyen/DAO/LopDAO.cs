@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -58,7 +56,7 @@ namespace ql_diemrenluyen.DAO
                 };
                 return lop;
             }
-           
+
             return null;
         }
 
@@ -191,6 +189,34 @@ namespace ql_diemrenluyen.DAO
         {
             List<LopDTO> list = new List<LopDTO>();
             String sql = "select lop.id, lop.tenlop, lop.khoa_id, lop.hedaotao, lop.created_at, lop.updated_at, lop.status from lop, khoa where (khoa.tenkhoa like @khoaid) and ( lop.khoa_id = khoa.id )";
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@khoaid", "%" + value + "%");
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+            if (result.Count > 0)
+            {
+                foreach (var row in result)
+                {
+                    LopDTO lop = new LopDTO
+                    {
+                        Id = Convert.ToInt64(row[0]),
+                        TenLop = Convert.ToString(row[1]),
+                        Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[2])),
+                        HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[3])),
+                        CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
+                        UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
+                        status = Convert.ToInt16(row[6])
+                    };
+                    list.Add(lop);
+                }
+                return list;
+            }
+            return null;
+        }
+
+        public static List<LopDTO> getLopByKhoaId(String value)
+        {
+            List<LopDTO> list = new List<LopDTO>();
+            String sql = "select lop.id, lop.tenlop, lop.khoa_id, lop.hedaotao, lop.created_at, lop.updated_at, lop.status from lop, khoa where (khoa.Id like @khoaid) and ( lop.khoa_id = khoa.id )";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@khoaid", "%" + value + "%");
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
