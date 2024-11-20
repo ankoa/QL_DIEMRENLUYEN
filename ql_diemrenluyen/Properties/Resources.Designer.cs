@@ -133,9 +133,29 @@ namespace ql_diemrenluyen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_class_50__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-class-50 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_compliance_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-compliance-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_evidence_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-evidence-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +203,29 @@ namespace ql_diemrenluyen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_photo_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-photo-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_semester_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-semester-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_statistics_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-statistics-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +256,16 @@ namespace ql_diemrenluyen.Properties {
         internal static System.Drawing.Bitmap icons8_teacher_501 {
             get {
                 object obj = ResourceManager.GetObject("icons8-teacher-501", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_teacher_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-teacher-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

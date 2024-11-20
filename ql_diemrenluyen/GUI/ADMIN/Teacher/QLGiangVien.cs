@@ -42,6 +42,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         giangVien.Email,
                         giangVien.ChucVu,
                         giangVien.KhoaId,
+                        giangVien.CreatedAt,
+                        giangVien.UpdatedAt,
                         "Xem",
                         "Xóa"
                     );
@@ -163,7 +165,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             if (e.RowIndex >= 0)
             {
                 var selectedRow = tableGV.Rows[e.RowIndex];
-                long id = (long)selectedRow.Cells[0].Value; // ID giảng viên
+                long id = Convert.ToInt64(selectedRow.Cells[0].Value);
                 string name = selectedRow.Cells[1].Value?.ToString() ?? ""; // Tên giảng viên
                 string email = selectedRow.Cells[2].Value?.ToString() ?? ""; // Email giảng viên
                 string chucVu = selectedRow.Cells[3].Value?.ToString() ?? ""; // Chức vụ giảng viên

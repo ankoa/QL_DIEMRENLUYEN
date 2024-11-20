@@ -49,6 +49,10 @@
             btnDotCham = new Button();
             panel6 = new Panel();
             btnTieuChi = new Button();
+            panel10 = new Panel();
+            btnBangchung = new Button();
+            panel11 = new Panel();
+            btnThongke = new Button();
             panel7 = new Panel();
             btnLogOut = new Button();
             sideBarTransiton = new System.Windows.Forms.Timer(components);
@@ -63,6 +67,8 @@
             panel9.SuspendLayout();
             panel8.SuspendLayout();
             panel6.SuspendLayout();
+            panel10.SuspendLayout();
+            panel11.SuspendLayout();
             panel7.SuspendLayout();
             SuspendLayout();
             // 
@@ -124,11 +130,13 @@
             flowLayoutPanel1.Controls.Add(panel9);
             flowLayoutPanel1.Controls.Add(panel8);
             flowLayoutPanel1.Controls.Add(panel6);
+            flowLayoutPanel1.Controls.Add(panel10);
+            flowLayoutPanel1.Controls.Add(panel11);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(320, 633);
+            flowLayoutPanel1.Size = new Size(320, 682);
             flowLayoutPanel1.TabIndex = 8;
             // 
             // panel2
@@ -136,7 +144,7 @@
             panel2.Controls.Add(btnHomepage);
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(317, 85);
+            panel2.Size = new Size(317, 70);
             panel2.TabIndex = 2;
             // 
             // btnHomepage
@@ -155,7 +163,7 @@
             btnHomepage.Margin = new Padding(10);
             btnHomepage.Name = "btnHomepage";
             btnHomepage.Padding = new Padding(10, 0, 0, 0);
-            btnHomepage.Size = new Size(317, 85);
+            btnHomepage.Size = new Size(317, 70);
             btnHomepage.TabIndex = 3;
             btnHomepage.Text = "Trang chủ";
             btnHomepage.UseVisualStyleBackColor = false;
@@ -164,9 +172,9 @@
             // panel3
             // 
             panel3.Controls.Add(btnUser);
-            panel3.Location = new Point(3, 94);
+            panel3.Location = new Point(3, 79);
             panel3.Name = "panel3";
-            panel3.Size = new Size(317, 80);
+            panel3.Size = new Size(317, 70);
             panel3.TabIndex = 4;
             // 
             // btnUser
@@ -185,7 +193,7 @@
             btnUser.Margin = new Padding(10);
             btnUser.Name = "btnUser";
             btnUser.Padding = new Padding(10, 0, 0, 0);
-            btnUser.Size = new Size(317, 80);
+            btnUser.Size = new Size(317, 70);
             btnUser.TabIndex = 3;
             btnUser.Text = "Tài khoản";
             btnUser.UseVisualStyleBackColor = false;
@@ -194,9 +202,9 @@
             // panel4
             // 
             panel4.Controls.Add(btnStudent);
-            panel4.Location = new Point(3, 180);
+            panel4.Location = new Point(3, 155);
             panel4.Name = "panel4";
-            panel4.Size = new Size(317, 80);
+            panel4.Size = new Size(317, 70);
             panel4.TabIndex = 5;
             // 
             // btnStudent
@@ -215,7 +223,7 @@
             btnStudent.Margin = new Padding(10);
             btnStudent.Name = "btnStudent";
             btnStudent.Padding = new Padding(10, 0, 0, 0);
-            btnStudent.Size = new Size(317, 80);
+            btnStudent.Size = new Size(317, 70);
             btnStudent.TabIndex = 3;
             btnStudent.Text = "Sinh viên";
             btnStudent.UseVisualStyleBackColor = false;
@@ -224,9 +232,9 @@
             // panel5
             // 
             panel5.Controls.Add(btnClass);
-            panel5.Location = new Point(3, 266);
+            panel5.Location = new Point(3, 231);
             panel5.Name = "panel5";
-            panel5.Size = new Size(317, 80);
+            panel5.Size = new Size(317, 70);
             panel5.TabIndex = 6;
             // 
             // btnClass
@@ -239,13 +247,13 @@
             btnClass.FlatStyle = FlatStyle.Flat;
             btnClass.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClass.ForeColor = SystemColors.ControlLightLight;
-            btnClass.Image = Properties.Resources.icons8_class_50;
+            btnClass.Image = Properties.Resources.icons8_class_50__1_;
             btnClass.ImageAlign = ContentAlignment.MiddleLeft;
             btnClass.Location = new Point(0, 0);
             btnClass.Margin = new Padding(10);
             btnClass.Name = "btnClass";
             btnClass.Padding = new Padding(10, 0, 0, 0);
-            btnClass.Size = new Size(317, 80);
+            btnClass.Size = new Size(317, 70);
             btnClass.TabIndex = 3;
             btnClass.Text = "Khoa, lớp";
             btnClass.UseVisualStyleBackColor = false;
@@ -254,9 +262,9 @@
             // panel9
             // 
             panel9.Controls.Add(btnGiangVien);
-            panel9.Location = new Point(3, 352);
+            panel9.Location = new Point(3, 307);
             panel9.Name = "panel9";
-            panel9.Size = new Size(317, 80);
+            panel9.Size = new Size(317, 70);
             panel9.TabIndex = 7;
             // 
             // btnGiangVien
@@ -270,13 +278,13 @@
             btnGiangVien.FlatStyle = FlatStyle.Flat;
             btnGiangVien.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGiangVien.ForeColor = SystemColors.ControlLightLight;
-            btnGiangVien.Image = Properties.Resources.icons8_teacher_501;
+            btnGiangVien.Image = Properties.Resources.icons8_teacher_64;
             btnGiangVien.ImageAlign = ContentAlignment.MiddleLeft;
             btnGiangVien.Location = new Point(0, 0);
             btnGiangVien.Margin = new Padding(10);
             btnGiangVien.Name = "btnGiangVien";
             btnGiangVien.Padding = new Padding(10, 0, 0, 0);
-            btnGiangVien.Size = new Size(317, 80);
+            btnGiangVien.Size = new Size(317, 70);
             btnGiangVien.TabIndex = 3;
             btnGiangVien.Text = "Giảng viên";
             btnGiangVien.UseVisualStyleBackColor = false;
@@ -285,9 +293,9 @@
             // panel8
             // 
             panel8.Controls.Add(btnDotCham);
-            panel8.Location = new Point(3, 438);
+            panel8.Location = new Point(3, 383);
             panel8.Name = "panel8";
-            panel8.Size = new Size(317, 80);
+            panel8.Size = new Size(317, 70);
             panel8.TabIndex = 5;
             // 
             // btnDotCham
@@ -306,7 +314,7 @@
             btnDotCham.Margin = new Padding(10);
             btnDotCham.Name = "btnDotCham";
             btnDotCham.Padding = new Padding(10, 0, 0, 0);
-            btnDotCham.Size = new Size(317, 80);
+            btnDotCham.Size = new Size(317, 70);
             btnDotCham.TabIndex = 3;
             btnDotCham.Text = "Đợt chấm";
             btnDotCham.UseVisualStyleBackColor = false;
@@ -315,9 +323,9 @@
             // panel6
             // 
             panel6.Controls.Add(btnTieuChi);
-            panel6.Location = new Point(3, 524);
+            panel6.Location = new Point(3, 459);
             panel6.Name = "panel6";
-            panel6.Size = new Size(317, 80);
+            panel6.Size = new Size(317, 70);
             panel6.TabIndex = 6;
             // 
             // btnTieuChi
@@ -337,26 +345,87 @@
             btnTieuChi.Margin = new Padding(10);
             btnTieuChi.Name = "btnTieuChi";
             btnTieuChi.Padding = new Padding(10, 0, 0, 0);
-            btnTieuChi.Size = new Size(317, 80);
+            btnTieuChi.Size = new Size(317, 70);
             btnTieuChi.TabIndex = 3;
             btnTieuChi.Text = "             Tiêu chí đánh giá";
             btnTieuChi.UseVisualStyleBackColor = false;
             btnTieuChi.Click += btnTieuChi_Click;
             // 
+            // panel10
+            // 
+            panel10.Controls.Add(btnBangchung);
+            panel10.Location = new Point(3, 535);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(317, 70);
+            panel10.TabIndex = 7;
+            // 
+            // btnBangchung
+            // 
+            btnBangchung.BackColor = Color.RoyalBlue;
+            btnBangchung.BackgroundImageLayout = ImageLayout.Zoom;
+            btnBangchung.Dock = DockStyle.Fill;
+            btnBangchung.FlatAppearance.BorderColor = Color.RoyalBlue;
+            btnBangchung.FlatAppearance.BorderSize = 0;
+            btnBangchung.FlatStyle = FlatStyle.Flat;
+            btnBangchung.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBangchung.ForeColor = SystemColors.ControlLightLight;
+            btnBangchung.Image = Properties.Resources.icons8_photo_50;
+            btnBangchung.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBangchung.Location = new Point(0, 0);
+            btnBangchung.Margin = new Padding(10);
+            btnBangchung.Name = "btnBangchung";
+            btnBangchung.Padding = new Padding(10, 0, 0, 0);
+            btnBangchung.Size = new Size(317, 70);
+            btnBangchung.TabIndex = 3;
+            btnBangchung.Text = "Bằng chứng";
+            btnBangchung.UseVisualStyleBackColor = false;
+            btnBangchung.Click += btnBangchung_Click;
+            // 
+            // panel11
+            // 
+            panel11.Controls.Add(btnThongke);
+            panel11.Location = new Point(3, 611);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(317, 70);
+            panel11.TabIndex = 8;
+            // 
+            // btnThongke
+            // 
+            btnThongke.AutoSize = true;
+            btnThongke.BackColor = Color.RoyalBlue;
+            btnThongke.BackgroundImageLayout = ImageLayout.Zoom;
+            btnThongke.Dock = DockStyle.Fill;
+            btnThongke.FlatAppearance.BorderColor = Color.RoyalBlue;
+            btnThongke.FlatAppearance.BorderSize = 0;
+            btnThongke.FlatStyle = FlatStyle.Flat;
+            btnThongke.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThongke.ForeColor = SystemColors.ControlLightLight;
+            btnThongke.Image = Properties.Resources.icons8_statistics_50;
+            btnThongke.ImageAlign = ContentAlignment.MiddleLeft;
+            btnThongke.Location = new Point(0, 0);
+            btnThongke.Margin = new Padding(10);
+            btnThongke.Name = "btnThongke";
+            btnThongke.Padding = new Padding(10, 0, 0, 0);
+            btnThongke.Size = new Size(317, 70);
+            btnThongke.TabIndex = 3;
+            btnThongke.Text = "Thống kê";
+            btnThongke.UseVisualStyleBackColor = false;
+            btnThongke.Click += btnThongke_Click;
+            // 
             // panel7
             // 
             panel7.Controls.Add(btnLogOut);
             panel7.Dock = DockStyle.Bottom;
-            panel7.Location = new Point(3, 636);
+            panel7.Location = new Point(3, 685);
             panel7.Name = "panel7";
-            panel7.Size = new Size(317, 80);
+            panel7.Size = new Size(317, 70);
             panel7.TabIndex = 7;
             // 
             // btnLogOut
             // 
             btnLogOut.BackColor = Color.RoyalBlue;
             btnLogOut.BackgroundImageLayout = ImageLayout.Zoom;
-            btnLogOut.Dock = DockStyle.Bottom;
+            btnLogOut.Dock = DockStyle.Fill;
             btnLogOut.FlatAppearance.BorderColor = Color.RoyalBlue;
             btnLogOut.FlatAppearance.BorderSize = 0;
             btnLogOut.FlatStyle = FlatStyle.Flat;
@@ -368,7 +437,7 @@
             btnLogOut.Margin = new Padding(10);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Padding = new Padding(10, 0, 0, 0);
-            btnLogOut.Size = new Size(317, 80);
+            btnLogOut.Size = new Size(317, 70);
             btnLogOut.TabIndex = 3;
             btnLogOut.Text = "Đăng xuất";
             btnLogOut.UseVisualStyleBackColor = false;
@@ -408,6 +477,9 @@
             panel8.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
             panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -436,5 +508,9 @@
         private Label label1;
         private Panel panel9;
         private Button btnGiangVien;
+        private Panel panel10;
+        private Button btnBangchung;
+        private Panel panel11;
+        private Button btnThongke;
     }
 }

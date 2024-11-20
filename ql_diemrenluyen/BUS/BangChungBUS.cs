@@ -29,5 +29,10 @@ namespace ql_diemrenluyen.BUS
         {
             return BangChungDAO.DeleteBangChung(id);
         }
+        public static List<BangChungDTO> SearchBangChung(int? TCid, int status, string search, int? selectedHocKyId)
+        {
+            return BangChungDAO.SearchBangChung(TCid, status, search, selectedHocKyId);
+        }
+
     }
 }
