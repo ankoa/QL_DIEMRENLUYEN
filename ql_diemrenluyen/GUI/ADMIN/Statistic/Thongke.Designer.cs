@@ -62,6 +62,7 @@
             tableLayoutPanel11 = new TableLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
             cbbXepLoai = new ComboBox();
+            cbbTangGiam = new ComboBox();
             textBox1 = new TextBox();
             cbbLocSV = new ComboBox();
             button1 = new Button();
@@ -111,7 +112,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            tableLayoutPanel1.Size = new Size(992, 481);
+            tableLayoutPanel1.Size = new Size(992, 541);
             tableLayoutPanel1.TabIndex = 0;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -458,7 +459,7 @@
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(986, 340);
+            tableLayoutPanel6.Size = new Size(986, 400);
             tableLayoutPanel6.TabIndex = 2;
             // 
             // tableLayoutPanel7
@@ -475,7 +476,7 @@
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.Size = new Size(684, 336);
+            tableLayoutPanel7.Size = new Size(684, 396);
             tableLayoutPanel7.TabIndex = 0;
             tableLayoutPanel7.Paint += tableLayoutPanel7_Paint;
             // 
@@ -487,12 +488,12 @@
             tableLayoutPanel10.Controls.Add(label3, 0, 0);
             tableLayoutPanel10.Controls.Add(tableLayoutPanel11, 0, 1);
             tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(3, 171);
+            tableLayoutPanel10.Location = new Point(3, 201);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 2;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Size = new Size(678, 162);
+            tableLayoutPanel10.Size = new Size(678, 192);
             tableLayoutPanel10.TabIndex = 3;
             // 
             // label3
@@ -520,12 +521,13 @@
             tableLayoutPanel11.Name = "tableLayoutPanel11";
             tableLayoutPanel11.RowCount = 1;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel11.Size = new Size(672, 122);
+            tableLayoutPanel11.Size = new Size(672, 152);
             tableLayoutPanel11.TabIndex = 1;
             // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.Controls.Add(cbbXepLoai);
+            flowLayoutPanel2.Controls.Add(cbbTangGiam);
             flowLayoutPanel2.Controls.Add(textBox1);
             flowLayoutPanel2.Controls.Add(cbbLocSV);
             flowLayoutPanel2.Controls.Add(button1);
@@ -533,22 +535,34 @@
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(3, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(125, 116);
+            flowLayoutPanel2.Size = new Size(125, 146);
             flowLayoutPanel2.TabIndex = 0;
             // 
             // cbbXepLoai
             // 
             cbbXepLoai.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbXepLoai.FormattingEnabled = true;
-            cbbXepLoai.Items.AddRange(new object[] { "Chọn xếp loại", "Xuất sắc", "Tốt", "Khá", "Trung bình", "Yếu", "Kém" });
+            cbbXepLoai.Items.AddRange(new object[] { "Chọn xếp loại", "Xuất sắc", "Tốt", "Khá", "Trung bình", "Yếu", "Kém", "Cảnh cáo" });
             cbbXepLoai.Location = new Point(3, 3);
             cbbXepLoai.Name = "cbbXepLoai";
             cbbXepLoai.Size = new Size(121, 23);
             cbbXepLoai.TabIndex = 0;
+            cbbXepLoai.SelectedIndexChanged += cbbXepLoai_SelectedIndexChanged;
+            // 
+            // cbbTangGiam
+            // 
+            cbbTangGiam.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbTangGiam.FormattingEnabled = true;
+            cbbTangGiam.Items.AddRange(new object[] { "Chọn thứ tự", "Top", "Bottom" });
+            cbbTangGiam.Location = new Point(3, 32);
+            cbbTangGiam.Name = "cbbTangGiam";
+            cbbTangGiam.Size = new Size(121, 23);
+            cbbTangGiam.TabIndex = 5;
+            cbbTangGiam.SelectedIndexChanged += cbbTangGiam_SelectedIndexChanged;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(3, 32);
+            textBox1.Location = new Point(3, 61);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Số lượng";
             textBox1.Size = new Size(67, 23);
@@ -559,23 +573,25 @@
             cbbLocSV.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbLocSV.FormattingEnabled = true;
             cbbLocSV.Items.AddRange(new object[] { "SV", "%" });
-            cbbLocSV.Location = new Point(76, 32);
+            cbbLocSV.Location = new Point(76, 61);
             cbbLocSV.Name = "cbbLocSV";
             cbbLocSV.Size = new Size(46, 23);
             cbbLocSV.TabIndex = 1;
+            cbbLocSV.SelectedIndexChanged += cbbLocSV_SelectedIndexChanged;
             // 
             // button1
             // 
-            button1.Location = new Point(3, 61);
+            button1.Location = new Point(3, 90);
             button1.Name = "button1";
             button1.Size = new Size(121, 22);
             button1.TabIndex = 3;
             button1.Text = "Lọc";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(3, 89);
+            button5.Location = new Point(3, 118);
             button5.Name = "button5";
             button5.Size = new Size(121, 22);
             button5.TabIndex = 4;
@@ -612,14 +628,14 @@
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.Black;
-            dataGridView1.Location = new Point(134, 4);
-            dataGridView1.Margin = new Padding(3, 4, 3, 2);
+            dataGridView1.Location = new Point(134, 6);
+            dataGridView1.Margin = new Padding(3, 6, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 35;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(535, 116);
+            dataGridView1.Size = new Size(535, 144);
             dataGridView1.TabIndex = 1;
             // 
             // tableLayoutPanel9
@@ -635,7 +651,7 @@
             tableLayoutPanel9.RowCount = 2;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(678, 162);
+            tableLayoutPanel9.Size = new Size(678, 192);
             tableLayoutPanel9.TabIndex = 2;
             // 
             // panel5
@@ -645,7 +661,7 @@
             panel5.Margin = new Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(10);
-            panel5.Size = new Size(672, 123);
+            panel5.Size = new Size(672, 153);
             panel5.TabIndex = 1;
             panel5.SizeChanged += Panel5_SizeChanged;
             // 
@@ -677,7 +693,7 @@
             tableLayoutPanel8.RowCount = 2;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Size = new Size(290, 333);
+            tableLayoutPanel8.Size = new Size(290, 393);
             tableLayoutPanel8.TabIndex = 1;
             // 
             // panel4
@@ -687,7 +703,7 @@
             panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(10);
-            panel4.Size = new Size(284, 294);
+            panel4.Size = new Size(284, 354);
             panel4.TabIndex = 1;
             // 
             // label1
@@ -707,7 +723,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(992, 481);
+            ClientSize = new Size(992, 541);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Thongke";
@@ -788,5 +804,6 @@
         private Button button5;
         private Button button2;
         private Button button3;
+        private ComboBox cbbTangGiam;
     }
 }

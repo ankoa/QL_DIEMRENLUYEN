@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using ql_diemrenluyen.DAO;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.GUI.ADMIN.Account;
 
 namespace ql_diemrenluyen.GUI.ADMIN
@@ -29,8 +25,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void TaiKhoan_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill; // Đảm bảo chiếm toàn bộ không gian
-            this.ControlBox= false;
-            this.FormBorderStyle = FormBorderStyle.None;    
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
             LoadAccountList();
         }
 

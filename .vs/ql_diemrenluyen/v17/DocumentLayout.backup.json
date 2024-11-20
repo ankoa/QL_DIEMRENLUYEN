@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\Code\\qldrl\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\dao\\sinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\sinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\teacher\\giangviendetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\teacher\\giangviendetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\statistic\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\teacher\\qlgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\teacher\\qlgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\dao\\sinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\sinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,21 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 857,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SinhVienDAO.cs",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAswPcAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T13:20:02.981Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -71,42 +58,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Thongke.cs",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
-              "ViewState": "AgIAAFoBAAAAAAAAAAAvwHsBAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T13:19:47.786Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "QLGiangVien.cs",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
-              "ViewState": "AgIAAK0AAAAAAAAAAAAvwMEAAAAeAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\Program.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\Program.cs",
+              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\Program.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T13:19:32.683Z",
+              "WhenOpened": "2024-11-20T14:48:52.108Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GiangVienDetail.cs",
-              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\GiangVienDetail.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\GiangVienDetail.cs",
-              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\GiangVienDetail.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\GiangVienDetail.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAnwEIAAAAQAAAAAAAAAA==",
+              "Title": "SinhVienDAO.cs",
+              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
+              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\DAO\\SinhVienDAO.cs",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAswP8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T13:19:25.756Z",
+              "WhenOpened": "2024-11-20T14:47:35.202Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Thongke.cs",
+              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
+              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs*",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs*",
+              "ViewState": "AgIAANUCAAAAAAAAAAAIwOwCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T14:45:55.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Thongke.cs [Design]",
+              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs",
+              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs [Design]*",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Statistic\\Thongke.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T14:45:46.312Z",
+              "EditorCaption": " [Design]"
             }
           ]
         },
