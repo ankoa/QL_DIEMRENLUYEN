@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="GUI\ADMIN\Account\AccountDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Account\testform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Account\TaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\AddHeHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\AddKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\AddLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\QuanLyKhoaLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UpdateHeHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UpdateKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UpdateLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\KhoaLop\UserControl3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\MenuAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+<<<<<<< HEAD
+    <Compile Update="GUI\ADMIN\Standards\ChuThichDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Standards\TieuChiDetailForm.cs">
+=======
+    <Compile Update="GUI\ADMIN\Statistic\Thongke.cs">
+>>>>>>> 672151bb78a0b09fda2eef5a5aeef10ff7162631
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\AdminStudentTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\QLSinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\ThongTinhSinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\TimKiemSinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Teacher\GiangVienDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Teacher\QLGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Standards\QLTieuChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\AdminStudentTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\QLSinhVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\ThongTinhSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ADMIN\Student\TimKiemSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\USER\Chamdrl\chamdrl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\USER\Dashboard\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Util\Custom-DateTimePicker-WinForm-main\RJDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Util\RoundedPanelBase .cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="GUI\ADMIN\Student\QLSinhVien.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

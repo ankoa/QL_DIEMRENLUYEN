@@ -1,12 +1,16 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace ql_diemrenluyen.GUI.ADMIN.Account
+﻿namespace ql_diemrenluyen.GUI.ADMIN.Account
 {
     partial class AccountDetailsForm
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -18,6 +22,10 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
         #region Windows Form Designer generated code
 
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -39,6 +47,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             dtpCreatedAt = new DateTimePicker();
             comboBox1 = new ComboBox();
             cmbRole = new ComboBox();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // lblId
@@ -79,7 +88,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             txtPassword.Location = new Point(210, 140);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.ReadOnly = true;
             txtPassword.Size = new Size(228, 27);
             txtPassword.TabIndex = 3;
             txtPassword.UseSystemPasswordChar = true;
@@ -155,7 +163,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(273, 524);
+            btnClose.Location = new Point(324, 515);
             btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(114, 40);
@@ -166,7 +174,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(88, 524);
+            btnEdit.Location = new Point(199, 515);
             btnEdit.Margin = new Padding(3, 4, 3, 4);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(103, 40);
@@ -209,12 +217,24 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             cmbRole.Size = new Size(228, 28);
             cmbRole.TabIndex = 21;
             // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(66, 515);
+            btnDelete.Margin = new Padding(3, 4, 3, 4);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(114, 40);
+            btnDelete.TabIndex = 22;
+            btnDelete.Text = "Xóa";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // AccountDetailsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(482, 653);
+            Controls.Add(btnDelete);
             Controls.Add(cmbRole);
             Controls.Add(comboBox1);
             Controls.Add(dtpCreatedAt);
@@ -261,5 +281,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         private DateTimePicker dtpCreatedAt;
         private ComboBox comboBox1;
         private ComboBox cmbRole;
+        private Button btnDelete;
     }
+
 }

@@ -1,6 +1,8 @@
-﻿using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
 using System;
+using System.Collections.Generic;
+using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace ql_diemrenluyen.GUI.ADMIN.Teacher
@@ -10,49 +12,38 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
         private string currentGiangVienId;
         private DataGridView table;
         private QLGiangVien mainForm;
+        private Dictionary<bool, string> trangThaiMapping = new Dictionary<bool, string>
+        {
+            { true, "Hoạt động" },
+            { false, "Không hoạt động" }
+        };
 
-        public GiangVienDetailForm(string id, string name, string email, string chucvu, string khoa, bool trangThai, DataGridView dataGridView, QLGiangVien gvform)
+        public GiangVienDetailForm(long id, string name, string email, string chucvu, string khoa, bool trangThai, DataGridView dataGridView, QLGiangVien gvform)
         {
             table = dataGridView;
             mainForm = gvform;
             InitializeComponent();
-
-            txtId.Text = id;
+            txtId.Text = id.ToString(); // Hiển thị dưới dạng chuỗi trong TextBox
             txtTenGV.Text = name;
             txtEmail.Text = email;
-            txtChucVu.Text = chucvu;
+            comboBoxChucVu.SelectedIndex = comboBoxChucVu.Items.IndexOf(chucvu);
             txtKhoa.Text = khoa;
-            comboBoxTrangThai.SelectedItem = trangThai ? "Hoạt động" : "Không hoạt động";
-
-            currentGiangVienId = id;
+            comboBoxTrangThai.SelectedItem = trangThaiMapping[trangThai];
+            currentGiangVienId = id.ToString(); // Giữ ID dưới dạng chuỗi nếu cần xử lý sau
         }
+
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTenGV.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text) ||
-                string.IsNullOrWhiteSpace(txtChucVu.Text) ||
-                string.IsNullOrWhiteSpace(txtKhoa.Text))
+            if (string.IsNullOrWhiteSpace(txtTenGV.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                string.IsNullOrWhiteSpace(comboBoxChucVu.Text) || string.IsNullOrWhiteSpace(txtKhoa.Text) ||
+                comboBoxTrangThai.SelectedItem == null || !IsValidEmail(txtEmail.Text))
             {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng kiểm tra lại thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!IsValidEmail(txtEmail.Text))
-            {
-                MessageBox.Show("Địa chỉ email không hợp lệ!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (comboBoxTrangThai.SelectedItem == null)
-            {
-                MessageBox.Show("Vui lòng chọn trạng thái giảng viên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật thông tin giảng viên không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dialogResult == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc chắn muốn cập nhật thông tin giảng viên không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 UpdateGiangVienInfo();
             }
@@ -60,22 +51,26 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
 
         private void UpdateGiangVienInfo()
         {
-            GiangVienDTO giangVien = new GiangVienDTO
+            if (!long.TryParse(txtId.Text, out long id))
             {
-                Id = txtId.Text,
+                MessageBox.Show("ID không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var giangVien = new GiangVienDTO
+            {
+                Id = id, // Chuyển đổi từ string sang long
                 Name = txtTenGV.Text,
                 Email = txtEmail.Text,
-                ChucVu = txtChucVu.Text,
+                ChucVu = comboBoxChucVu.SelectedItem?.ToString(),
                 KhoaId = txtKhoa.Text,
-                TrangThai = (comboBoxTrangThai.SelectedItem?.ToString() == "Hoạt động")
+                TrangThai = comboBoxTrangThai.SelectedItem?.ToString() == "Hoạt động"
             };
 
-            bool result = GiangVienBUS.UpdateGiangVien(giangVien);
-
-            if (result)
+            if (GiangVienBUS.UpdateGiangVien(giangVien))
             {
                 MessageBox.Show("Cập nhật thông tin giảng viên thành công!");
-                TaiKhoan.LoadAccountList(table);
+                mainForm.ReloadData();
                 this.Close();
             }
             else
@@ -83,6 +78,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
                 MessageBox.Show("Cập nhật thông tin giảng viên không thành công. Vui lòng kiểm tra lại!");
             }
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -93,8 +89,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
         {
             try
             {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
+                return new MailAddress(email).Address == email;
             }
             catch
             {

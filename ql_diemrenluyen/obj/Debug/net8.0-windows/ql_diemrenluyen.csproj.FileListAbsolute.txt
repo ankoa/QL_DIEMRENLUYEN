@@ -2,6 +2,7 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_di
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.BUS.AccountBUS.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AccountDetailsForm.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TaiKhoan.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.testform.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AddDotCham.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.DotCham.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.ThemDotCham.resources
@@ -17,19 +18,23 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_di
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl2.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl3.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.MenuAdmin.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Standards.ChuThichDetailForm.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TieuChi.QLTieuChi.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Standards.TieuChiDetailForm.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Statistic.Thongke.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Student.AdminStudentTest.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.QLSinhVien.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThongTinhSinhVien.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.TimKiemSinhVien.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Teacher.GiangVienDetailForm.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.QLGiangVien.resources
-D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TieuChi.FormTieuChi.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ChangePassword.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.CreateNewPass.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.FindEmail.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Form1.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Login.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ResetPass.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.chamdrl.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.USER.Dashboard.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.Properties.Resources.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.GenerateResource.cache
@@ -59,6 +64,7 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Core.Api.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Net.Client.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Net.Common.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\HarfBuzzSharp.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
@@ -68,15 +74,39 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Micro
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\MySql.Data.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\MySqlConnector.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.GLControl.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ReaLTaiizor.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.WinForms.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.HarfBuzz.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.Desktop.Common.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.WindowsForms.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Management.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ZstdSharp.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libHarfBuzzSharp.so
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libHarfBuzzSharp.so
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libHarfBuzzSharp.so
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libHarfBuzzSharp.so
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libHarfBuzzSharp.dylib
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libHarfBuzzSharp.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libHarfBuzzSharp.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libSkiaSharp.so
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libSkiaSharp.so
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libSkiaSharp.so
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libSkiaSharp.so
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libSkiaSharp.dylib
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemr.8D5063E9.Up2Date
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.dll
@@ -84,6 +114,7 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\refin
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.pdb
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.genruntimeconfig.cache
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ref\ql_diemrenluyen.dll
+<<<<<<< HEAD
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Util\MailTemplate\ResetPasswordMail.html
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.exe
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.deps.json
@@ -329,3 +360,10 @@ D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.IO.RecyclableMe
 D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Drawing.Common.dll
 D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
 D:\Code\qldrl\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+=======
+>>>>>>> 7fa813d2dffe173e81cb4114bddef188c69f350a
+D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.testform.resources
+D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Standards.ChuThichDetailForm.resources
+D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TieuChi.QLTieuChi.resources
+D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Standards.TieuChiDetailForm.resources
+D:\Code\qldrl\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.chamdrl.resources

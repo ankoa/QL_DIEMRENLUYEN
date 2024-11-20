@@ -131,15 +131,6 @@ namespace ql_diemrenluyen.DAO
 
 
 
-        // Xóa tài khoản
-        public static bool DeleteAccount(long id)
-        {
-            string sql = $"DELETE FROM account WHERE id = @id";
-            var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@id", id);
-
-            return DBConnection.ExecuteNonQuery(cmd) > 0;
-        }
         // Tìm kiếm tài khoản theo nhiều tiêu chí
         public static List<AccountDTO> SearchAccounts(int vaitro, int status, string search)
         {
@@ -199,6 +190,14 @@ WHERE
         }
 
 
+        public static bool DeactivateAccount(long id)
+        {
+            string sql = "UPDATE account SET status = 0 WHERE id = @id";
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
 
 
 

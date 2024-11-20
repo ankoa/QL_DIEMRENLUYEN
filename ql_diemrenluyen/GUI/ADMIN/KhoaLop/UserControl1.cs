@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySqlX.XDevAPI.Relational;
 using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
+using ql_diemrenluyen.Properties;
 
 namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
 {
@@ -174,7 +175,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             if (e.ColumnIndex == dataGridKhoaView.Columns["more"].Index && e.RowIndex >= 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                Image img = Image.FromFile("C:\\Users\\User\\Downloads\\edit.png");
+                Image img = Image.FromFile("../../../Resources/search(2)1.png");
                 int x = e.CellBounds.Left + (e.CellBounds.Width - img.Width) / 2;
                 int y = e.CellBounds.Top + (e.CellBounds.Height - img.Height) / 2;
                 e.Graphics.DrawImage(img, new Rectangle(x, y, img.Width, img.Height));

@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Text.RegularExpressions;
 using ql_diemrenluyen.BUS;
-using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace QLDiemRenLuyen
@@ -25,7 +14,7 @@ namespace QLDiemRenLuyen
         private List<LopDTO> listLop = new List<LopDTO>();
 
         private List<SinhVienDTO> listStudent = new List<SinhVienDTO>();
-        public TimKiemSinhVien(QLSinhVien parent,List<SinhVienDTO> listStudent)
+        public TimKiemSinhVien(QLSinhVien parent, List<SinhVienDTO> listStudent)
         {
             this.listStudent = listStudent;
             InitializeComponent();
@@ -100,11 +89,15 @@ namespace QLDiemRenLuyen
                 KhoaDTO khoaDTO = new KhoaDTO();
                 khoaDTO = cBKhoa.SelectedItem as KhoaDTO;
 
+
                 foreach (LopDTO lop in listLop)
                 {
-                    if (lop.KhoaId == khoaDTO.Id)
+                    if (lop.Id != -1)
                     {
-                        list.Add(lop);
+                        if (lop.Khoa.Id == khoaDTO.Id)
+                        {
+                            list.Add(lop);
+                        }
                     }
                 }
                 LopDTO lopTatCa = new LopDTO();
@@ -138,7 +131,7 @@ namespace QLDiemRenLuyen
                 LopDTO lopDTO = new LopDTO();
                 lopDTO = cBLop.SelectedItem as LopDTO;
 
-                cBKhoa.SelectedValue = lopDTO.KhoaId;
+                cBKhoa.SelectedValue = lopDTO.Khoa.Id;
             }
 
         }
@@ -166,19 +159,24 @@ namespace QLDiemRenLuyen
             }
             Regex r = new Regex("[0-9\\.,\\-_()\\[\\]{}\\:;?!@#\\$%\\^&\\*\\+=/\\\\|<>~\"']");
             if (r.IsMatch(txtHoTen.Text.Trim()))
-               {
-                    MessageBox.Show("Họ tên không chứa số và ký tự đặc biệt !");
-                    return;
-               }
+            {
+                MessageBox.Show("Họ tên không chứa số và ký tự đặc biệt !");
+                return;
+            }
 
-            
+
             MessageBox.Show("Tìm kiếm thành công !");
-            String maSV =txtMaSV.Text.Trim();
-            String hoTen= txtHoTen.Text.Trim();
-            long lopID= long.Parse(cBLop.SelectedValue.ToString());
-            long khoaID =long.Parse(cBKhoa.SelectedValue.ToString());
+            String maSV = txtMaSV.Text.Trim();
+            String hoTen = txtHoTen.Text.Trim();
+            long lopID = long.Parse(cBLop.SelectedValue.ToString());
+            long khoaID = long.Parse(cBKhoa.SelectedValue.ToString());
             parentForm.setListStudent(SinhVienBUS.advancedSearch(maSV, hoTen, lopID, khoaID));
             this.Dispose();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,6 +33,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             btnEdit = new Button();
             label2 = new Label();
             comboBoxTrangThai = new ComboBox();
+            comboBoxChucVu = new ComboBox();  
+
             SuspendLayout();
             // 
             // lblId
@@ -44,9 +46,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             lblId.Size = new Size(29, 20);
             lblId.TabIndex = 0;
             lblId.Text = "ID:";
-            // 
+
             // txtId
-            // 
             txtId.BorderStyle = BorderStyle.FixedSingle;
             txtId.Location = new Point(201, 63);
             txtId.Margin = new Padding(3, 4, 3, 4);
@@ -54,9 +55,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             txtId.ReadOnly = true;
             txtId.Size = new Size(228, 27);
             txtId.TabIndex = 1;
-            // 
+
             // lblTenGV
-            // 
             lblTenGV.AutoSize = true;
             lblTenGV.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblTenGV.Location = new Point(57, 118);
@@ -64,18 +64,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             lblTenGV.Size = new Size(65, 20);
             lblTenGV.TabIndex = 2;
             lblTenGV.Text = "Tên GV:";
-            // 
+
             // txtTenGV
-            // 
             txtTenGV.BorderStyle = BorderStyle.FixedSingle;
             txtTenGV.Location = new Point(201, 118);
             txtTenGV.Margin = new Padding(3, 4, 3, 4);
             txtTenGV.Name = "txtTenGV";
             txtTenGV.Size = new Size(228, 27);
             txtTenGV.TabIndex = 3;
-            // 
+
             // lblEmail
-            // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblEmail.Location = new Point(57, 176);
@@ -83,18 +81,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             lblEmail.Size = new Size(53, 20);
             lblEmail.TabIndex = 4;
             lblEmail.Text = "Email:";
-            // 
+
             // txtEmail
-            // 
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.Location = new Point(201, 176);
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(228, 27);
             txtEmail.TabIndex = 5;
-            // 
+
             // lblKhoa
-            // 
             lblKhoa.AutoSize = true;
             lblKhoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblKhoa.Location = new Point(57, 233);
@@ -102,18 +98,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             lblKhoa.Size = new Size(51, 20);
             lblKhoa.TabIndex = 6;
             lblKhoa.Text = "Khoa:";
-            // 
+
             // txtKhoa
-            // 
             txtKhoa.BorderStyle = BorderStyle.FixedSingle;
             txtKhoa.Location = new Point(201, 233);
             txtKhoa.Margin = new Padding(3, 4, 3, 4);
             txtKhoa.Name = "txtKhoa";
             txtKhoa.Size = new Size(228, 27);
             txtKhoa.TabIndex = 7;
-            // 
+
             // lblTrangThai
-            // 
             lblTrangThai.AutoSize = true;
             lblTrangThai.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblTrangThai.Location = new Point(57, 296);
@@ -121,9 +115,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             lblTrangThai.Size = new Size(85, 20);
             lblTrangThai.TabIndex = 8;
             lblTrangThai.Text = "Trạng Thái:";
-            // 
+
             // btnClose
-            // 
             btnClose.Location = new Point(264, 502);
             btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
@@ -132,9 +125,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
-            // 
+
             // btnEdit
-            // 
             btnEdit.Location = new Point(108, 502);
             btnEdit.Margin = new Padding(3, 4, 3, 4);
             btnEdit.Name = "btnEdit";
@@ -143,9 +135,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             btnEdit.Text = "Chỉnh sửa";
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
-            // 
+
             // label2
-            // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label2.Location = new Point(57, 370);
@@ -153,33 +144,36 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             label2.Size = new Size(91, 20);
             label2.TabIndex = 16;
             label2.Text = "Chức Vụ:";
-            // 
-            // txtChucVu
-            // 
-            txtChucVu.BorderStyle = BorderStyle.FixedSingle;
-            txtChucVu.Location = new Point(201, 367);
-            txtChucVu.Margin = new Padding(3, 4, 3, 4);
-            txtChucVu.Name = "txtChucVu";
-            txtChucVu.Size = new Size(228, 27);
-            txtChucVu.TabIndex = 15;
-            // 
+
+            // comboBoxChucVu - ComboBox chức vụ
+            comboBoxChucVu.FormattingEnabled = true;
+            comboBoxChucVu.Items.AddRange(new object[] { 
+                "Giảng viên bộ môn", 
+                "Cố vấn học tập", 
+                "Quản lý khoa", 
+                "Quản lý trường" 
+            });
+            comboBoxChucVu.Location = new Point(201, 367);
+            comboBoxChucVu.Margin = new Padding(3, 4, 3, 4);
+            comboBoxChucVu.Name = "comboBoxChucVu";
+            comboBoxChucVu.Size = new Size(228, 28);
+            comboBoxChucVu.TabIndex = 15;
+
             // comboBoxTrangThai
-            // 
             comboBoxTrangThai.FormattingEnabled = true;
             comboBoxTrangThai.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
             comboBoxTrangThai.Location = new Point(201, 296);
             comboBoxTrangThai.Name = "comboBoxTrangThai";
             comboBoxTrangThai.Size = new Size(228, 28);
             comboBoxTrangThai.TabIndex = 17;
-            // 
+
             // GiangVienDetailForm
-            // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(470, 577);
             Controls.Add(comboBoxTrangThai);
             Controls.Add(label2);
-            Controls.Add(txtChucVu);
+            Controls.Add(comboBoxChucVu); // Thêm ComboBox Chức Vụ vào Controls
             Controls.Add(btnClose);
             Controls.Add(btnEdit);
             Controls.Add(lblTrangThai);
@@ -214,7 +208,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
         private Button btnClose;
         private Button btnEdit;
         private Label label2;
-        private TextBox txtChucVu;
         private ComboBox comboBoxTrangThai;
+        private ComboBox comboBoxChucVu;  // Đảm bảo khai báo ComboBox chức vụ
     }
 }
