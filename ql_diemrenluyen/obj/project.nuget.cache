@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z2mAFhzEtR0=",
+  "dgSpecHash": "rxei8JJsKL4=",
   "success": true,
-  "projectFilePath": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+  "projectFilePath": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
