@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {}
+    "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {}
   },
   "projects": {
-    "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {
+    "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+        "projectUniqueName": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
         "projectName": "ql_diemrenluyen",
-        "projectPath": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+        "projectPath": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\obj\\",
+        "outputPath": "D:\\CSharp Project\\QL_DiemRenLuyen\\ql_diemrenluyen\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,9 +54,17 @@
               "target": "Package",
               "version": "[1.26.2, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.5.0, )"
+            },
             "Google.Cloud.Vision.V1": {
               "target": "Package",
               "version": "[3.7.0, )"
+            },
+            "LiveCharts.WinForms": {
+              "target": "Package",
+              "version": "[0.9.7.1, )"
             },
             "MySql.Data": {
               "target": "Package",
