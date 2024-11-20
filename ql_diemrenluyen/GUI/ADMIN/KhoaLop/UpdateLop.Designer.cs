@@ -29,279 +29,463 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            panel1 = new Panel();
             text_lop = new TextBox();
             label2 = new Label();
-            panel2 = new Panel();
             Khoa_cbb = new ComboBox();
             label3 = new Label();
-            panel3 = new Panel();
             Hdt_cbb = new ComboBox();
             label4 = new Label();
-            panel4 = new Panel();
             ib_lb = new Label();
             label5 = new Label();
-            panel5 = new Panel();
             created_lb = new Label();
             label8 = new Label();
-            panel6 = new Panel();
             updated_lb = new Label();
             label10 = new Label();
             delete_lop = new Button();
             update_lop = new Button();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel4.SuspendLayout();
-            panel5.SuspendLayout();
-            panel6.SuspendLayout();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel7 = new TableLayoutPanel();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            tableLayoutPanel11 = new TableLayoutPanel();
+            tableLayoutPanel10 = new TableLayoutPanel();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            tableLayoutPanel9 = new TableLayoutPanel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel7.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            tableLayoutPanel11.SuspendLayout();
+            tableLayoutPanel10.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
+            tableLayoutPanel8.SuspendLayout();
+            tableLayoutPanel9.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
-            label1.Dock = DockStyle.Top;
+            label1.BackColor = Color.RoyalBlue;
+            label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(699, 43);
+            label1.Size = new Size(854, 49);
             label1.TabIndex = 1;
             label1.Text = "Thông tin lớp";
-            label1.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(text_lop);
-            panel1.Controls.Add(label2);
-            panel1.Location = new Point(358, 46);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(332, 37);
-            panel1.TabIndex = 2;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // text_lop
             // 
-            text_lop.Location = new Point(93, 3);
+            text_lop.Dock = DockStyle.Fill;
+            text_lop.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            text_lop.Location = new Point(143, 10);
+            text_lop.Margin = new Padding(3, 10, 3, 3);
             text_lop.Name = "text_lop";
-            text_lop.Size = new Size(233, 27);
+            text_lop.Size = new Size(275, 30);
             text_lop.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(3, 6);
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(3, 12);
+            label2.Margin = new Padding(3, 12, 3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(65, 20);
+            label2.Size = new Size(134, 33);
             label2.TabIndex = 0;
             label2.Text = "Tên lớp :";
             // 
-            // panel2
-            // 
-            panel2.Controls.Add(Khoa_cbb);
-            panel2.Controls.Add(label3);
-            panel2.Location = new Point(10, 89);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(332, 37);
-            panel2.TabIndex = 3;
-            // 
             // Khoa_cbb
             // 
+            Khoa_cbb.Dock = DockStyle.Fill;
             Khoa_cbb.DropDownStyle = ComboBoxStyle.DropDownList;
+            Khoa_cbb.Font = new Font("Segoe UI", 10.2F);
             Khoa_cbb.FormattingEnabled = true;
-            Khoa_cbb.Location = new Point(93, 3);
+            Khoa_cbb.Location = new Point(143, 10);
+            Khoa_cbb.Margin = new Padding(3, 10, 3, 3);
             Khoa_cbb.Name = "Khoa_cbb";
-            Khoa_cbb.Size = new Size(233, 28);
+            Khoa_cbb.Size = new Size(275, 31);
             Khoa_cbb.TabIndex = 1;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(3, 6);
+            label3.Dock = DockStyle.Fill;
+            label3.Font = new Font("Segoe UI", 10.2F);
+            label3.Location = new Point(3, 12);
+            label3.Margin = new Padding(3, 12, 3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(43, 20);
+            label3.Size = new Size(134, 33);
             label3.TabIndex = 0;
             label3.Text = "Khoa";
             // 
-            // panel3
-            // 
-            panel3.Controls.Add(Hdt_cbb);
-            panel3.Controls.Add(label4);
-            panel3.Location = new Point(358, 89);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(332, 37);
-            panel3.TabIndex = 4;
-            // 
             // Hdt_cbb
             // 
+            Hdt_cbb.Dock = DockStyle.Fill;
             Hdt_cbb.DropDownStyle = ComboBoxStyle.DropDownList;
+            Hdt_cbb.Font = new Font("Segoe UI", 10.2F);
             Hdt_cbb.FormattingEnabled = true;
-            Hdt_cbb.Location = new Point(93, 3);
+            Hdt_cbb.Location = new Point(143, 10);
+            Hdt_cbb.Margin = new Padding(3, 10, 3, 3);
             Hdt_cbb.Name = "Hdt_cbb";
-            Hdt_cbb.Size = new Size(233, 28);
+            Hdt_cbb.Size = new Size(275, 31);
             Hdt_cbb.TabIndex = 2;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(3, 6);
+            label4.Dock = DockStyle.Fill;
+            label4.Font = new Font("Segoe UI", 10.2F);
+            label4.Location = new Point(3, 12);
+            label4.Margin = new Padding(3, 12, 3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(84, 20);
+            label4.Size = new Size(134, 33);
             label4.TabIndex = 0;
             label4.Text = "Hệ đào tạo";
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(ib_lb);
-            panel4.Controls.Add(label5);
-            panel4.Location = new Point(10, 46);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(332, 37);
-            panel4.TabIndex = 3;
             // 
             // ib_lb
             // 
             ib_lb.AutoSize = true;
-            ib_lb.Location = new Point(93, 6);
+            ib_lb.Dock = DockStyle.Fill;
+            ib_lb.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ib_lb.Location = new Point(143, 12);
+            ib_lb.Margin = new Padding(3, 12, 3, 0);
             ib_lb.Name = "ib_lb";
-            ib_lb.Size = new Size(50, 20);
+            ib_lb.Size = new Size(275, 33);
             ib_lb.TabIndex = 1;
             ib_lb.Text = "label6";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(3, 6);
+            label5.Dock = DockStyle.Fill;
+            label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(3, 12);
+            label5.Margin = new Padding(3, 12, 3, 0);
             label5.Name = "label5";
-            label5.Size = new Size(63, 20);
+            label5.Size = new Size(134, 33);
             label5.TabIndex = 0;
-            label5.Text = "Mã lớp :";
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(created_lb);
-            panel5.Controls.Add(label8);
-            panel5.Location = new Point(10, 132);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(332, 37);
-            panel5.TabIndex = 4;
+            label5.Text = "Mã lớp ";
             // 
             // created_lb
             // 
             created_lb.AutoSize = true;
-            created_lb.Location = new Point(93, 6);
+            created_lb.Dock = DockStyle.Fill;
+            created_lb.Font = new Font("Segoe UI", 10.2F);
+            created_lb.Location = new Point(143, 12);
+            created_lb.Margin = new Padding(3, 12, 3, 0);
             created_lb.Name = "created_lb";
-            created_lb.Size = new Size(50, 20);
+            created_lb.Size = new Size(275, 33);
             created_lb.TabIndex = 1;
             created_lb.Text = "label7";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(3, 6);
+            label8.Dock = DockStyle.Fill;
+            label8.Font = new Font("Segoe UI", 10.2F);
+            label8.Location = new Point(3, 12);
+            label8.Margin = new Padding(3, 12, 3, 0);
             label8.Name = "label8";
-            label8.Size = new Size(77, 20);
+            label8.Size = new Size(134, 33);
             label8.TabIndex = 0;
-            label8.Text = "Ngày tạo :";
-            // 
-            // panel6
-            // 
-            panel6.Controls.Add(updated_lb);
-            panel6.Controls.Add(label10);
-            panel6.Location = new Point(358, 132);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(332, 37);
-            panel6.TabIndex = 5;
+            label8.Text = "Ngày tạo ";
             // 
             // updated_lb
             // 
             updated_lb.AutoSize = true;
-            updated_lb.Location = new Point(121, 6);
+            updated_lb.Dock = DockStyle.Fill;
+            updated_lb.Font = new Font("Segoe UI", 10.2F);
+            updated_lb.Location = new Point(143, 12);
+            updated_lb.Margin = new Padding(3, 12, 3, 0);
             updated_lb.Name = "updated_lb";
-            updated_lb.Size = new Size(50, 20);
+            updated_lb.Size = new Size(275, 33);
             updated_lb.TabIndex = 1;
             updated_lb.Text = "label9";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(3, 6);
+            label10.Dock = DockStyle.Fill;
+            label10.Font = new Font("Segoe UI", 10.2F);
+            label10.Location = new Point(3, 12);
+            label10.Margin = new Padding(3, 12, 3, 0);
             label10.Name = "label10";
-            label10.Size = new Size(112, 20);
+            label10.Size = new Size(134, 33);
             label10.TabIndex = 0;
             label10.Text = "Ngày cập nhật :";
             // 
             // delete_lop
             // 
-            delete_lop.Location = new Point(13, 175);
+            delete_lop.BackColor = Color.Red;
+            delete_lop.Dock = DockStyle.Left;
+            delete_lop.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            delete_lop.ForeColor = Color.White;
+            delete_lop.Location = new Point(3, 3);
             delete_lop.Name = "delete_lop";
-            delete_lop.Size = new Size(329, 39);
+            delete_lop.Size = new Size(300, 47);
             delete_lop.TabIndex = 6;
             delete_lop.Text = "Xóa lớp";
-            delete_lop.UseVisualStyleBackColor = true;
+            delete_lop.UseVisualStyleBackColor = false;
             delete_lop.Click += delete_lop_Click;
             // 
             // update_lop
             // 
-            update_lop.Location = new Point(358, 175);
+            update_lop.BackColor = Color.RoyalBlue;
+            update_lop.Dock = DockStyle.Right;
+            update_lop.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            update_lop.ForeColor = Color.White;
+            update_lop.Location = new Point(551, 3);
             update_lop.Name = "update_lop";
-            update_lop.Size = new Size(326, 39);
+            update_lop.Size = new Size(300, 47);
             update_lop.TabIndex = 7;
             update_lop.Text = "Cập nhật lớp";
-            update_lop.UseVisualStyleBackColor = true;
+            update_lop.UseVisualStyleBackColor = false;
             update_lop.Click += update_btn_Click;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel7, 0, 4);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel5, 0, 3);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel6, 0, 2);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 5;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.6470585F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.5882359F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.5882359F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.5882359F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.5882359F));
+            tableLayoutPanel1.Size = new Size(860, 279);
+            tableLayoutPanel1.TabIndex = 8;
+            // 
+            // tableLayoutPanel7
+            // 
+            tableLayoutPanel7.ColumnCount = 2;
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel7.Controls.Add(update_lop, 1, 0);
+            tableLayoutPanel7.Controls.Add(delete_lop, 0, 0);
+            tableLayoutPanel7.Dock = DockStyle.Fill;
+            tableLayoutPanel7.Location = new Point(3, 223);
+            tableLayoutPanel7.Name = "tableLayoutPanel7";
+            tableLayoutPanel7.RowCount = 1;
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel7.Size = new Size(854, 53);
+            tableLayoutPanel7.TabIndex = 10;
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.ColumnCount = 2;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel11, 1, 0);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel10, 0, 0);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
+            tableLayoutPanel5.Location = new Point(3, 166);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Size = new Size(854, 51);
+            tableLayoutPanel5.TabIndex = 9;
+            // 
+            // tableLayoutPanel11
+            // 
+            tableLayoutPanel11.ColumnCount = 2;
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
+            tableLayoutPanel11.Controls.Add(updated_lb, 1, 0);
+            tableLayoutPanel11.Controls.Add(label10, 0, 0);
+            tableLayoutPanel11.Dock = DockStyle.Fill;
+            tableLayoutPanel11.Location = new Point(430, 3);
+            tableLayoutPanel11.Name = "tableLayoutPanel11";
+            tableLayoutPanel11.RowCount = 1;
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel11.Size = new Size(421, 45);
+            tableLayoutPanel11.TabIndex = 10;
+            // 
+            // tableLayoutPanel10
+            // 
+            tableLayoutPanel10.ColumnCount = 2;
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
+            tableLayoutPanel10.Controls.Add(created_lb, 1, 0);
+            tableLayoutPanel10.Controls.Add(label8, 0, 0);
+            tableLayoutPanel10.Dock = DockStyle.Fill;
+            tableLayoutPanel10.Location = new Point(3, 3);
+            tableLayoutPanel10.Name = "tableLayoutPanel10";
+            tableLayoutPanel10.RowCount = 1;
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel10.Size = new Size(421, 45);
+            tableLayoutPanel10.TabIndex = 10;
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.ColumnCount = 2;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.Controls.Add(tableLayoutPanel8, 0, 0);
+            tableLayoutPanel6.Controls.Add(tableLayoutPanel9, 1, 0);
+            tableLayoutPanel6.Dock = DockStyle.Fill;
+            tableLayoutPanel6.Location = new Point(3, 109);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 1;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel6.Size = new Size(854, 51);
+            tableLayoutPanel6.TabIndex = 10;
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.ColumnCount = 2;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
+            tableLayoutPanel8.Controls.Add(Khoa_cbb, 1, 0);
+            tableLayoutPanel8.Controls.Add(label3, 0, 0);
+            tableLayoutPanel8.Dock = DockStyle.Fill;
+            tableLayoutPanel8.Location = new Point(3, 3);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 1;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel8.Size = new Size(421, 45);
+            tableLayoutPanel8.TabIndex = 9;
+            // 
+            // tableLayoutPanel9
+            // 
+            tableLayoutPanel9.ColumnCount = 2;
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
+            tableLayoutPanel9.Controls.Add(Hdt_cbb, 1, 0);
+            tableLayoutPanel9.Controls.Add(label4, 0, 0);
+            tableLayoutPanel9.Dock = DockStyle.Fill;
+            tableLayoutPanel9.Location = new Point(430, 3);
+            tableLayoutPanel9.Name = "tableLayoutPanel9";
+            tableLayoutPanel9.RowCount = 1;
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel9.Size = new Size(421, 45);
+            tableLayoutPanel9.TabIndex = 10;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel4, 1, 0);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 52);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(854, 51);
+            tableLayoutPanel2.TabIndex = 9;
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
+            tableLayoutPanel4.Controls.Add(text_lop, 1, 0);
+            tableLayoutPanel4.Controls.Add(label2, 0, 0);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(430, 3);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.Size = new Size(421, 45);
+            tableLayoutPanel4.TabIndex = 9;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.6666641F));
+            tableLayoutPanel3.Controls.Add(ib_lb, 1, 0);
+            tableLayoutPanel3.Controls.Add(label5, 0, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(3, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Size = new Size(421, 45);
+            tableLayoutPanel3.TabIndex = 9;
             // 
             // UpdateLop
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(699, 227);
-            Controls.Add(update_lop);
-            Controls.Add(delete_lop);
-            Controls.Add(panel6);
-            Controls.Add(panel5);
-            Controls.Add(panel4);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(label1);
+            ClientSize = new Size(860, 279);
+            Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "UpdateLop";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "UpdateLop";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel7.ResumeLayout(false);
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel11.ResumeLayout(false);
+            tableLayoutPanel11.PerformLayout();
+            tableLayoutPanel10.ResumeLayout(false);
+            tableLayoutPanel10.PerformLayout();
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel8.PerformLayout();
+            tableLayoutPanel9.ResumeLayout(false);
+            tableLayoutPanel9.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel4.ResumeLayout(false);
+            tableLayoutPanel4.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Label label1;
-        private Panel panel1;
         private TextBox text_lop;
         private Label label2;
-        private Panel panel2;
         private ComboBox Khoa_cbb;
         private Label label3;
-        private Panel panel3;
         private ComboBox Hdt_cbb;
         private Label label4;
-        private Panel panel4;
         private Label ib_lb;
         private Label label5;
-        private Panel panel5;
         private Label created_lb;
         private Label label8;
-        private Panel panel6;
         private Label updated_lb;
         private Label label10;
         private Button delete_lop;
         private Button update_lop;
+        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel tableLayoutPanel3;
+        private TableLayoutPanel tableLayoutPanel7;
+        private TableLayoutPanel tableLayoutPanel5;
+        private TableLayoutPanel tableLayoutPanel11;
+        private TableLayoutPanel tableLayoutPanel10;
+        private TableLayoutPanel tableLayoutPanel6;
+        private TableLayoutPanel tableLayoutPanel8;
+        private TableLayoutPanel tableLayoutPanel9;
+        private TableLayoutPanel tableLayoutPanel4;
     }
 }

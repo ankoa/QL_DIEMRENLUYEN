@@ -6,10 +6,16 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_di
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AddDotCham.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.DotCham.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.ThemDotCham.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Evidence.BangChungDetailsForm.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Evidence.QLBangChung.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.HomePage.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddHeHoc.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddKhoa.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddLop.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.HeHocSearch.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.KhoaLopTest.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.KhoaSearch.resources
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.LopSearch.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.QuanLyKhoaLop.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateHeHoc.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateKhoa.resources
@@ -36,8 +42,8 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_di
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ResetPass.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.chamdrl.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.USER.Dashboard.resources
-D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.Properties.Resources.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.GenerateResource.cache
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.Properties.Resources.resources
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GeneratedMSBuildEditorConfig.editorconfig
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.AssemblyInfoInputs.cache
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.AssemblyInfo.cs
@@ -51,6 +57,7 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_di
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.pdb
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\CloudinaryDotNet.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Api.CommonProtos.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Api.Gax.dll
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Api.Gax.Grpc.dll
@@ -114,6 +121,3 @@ D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\refin
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.pdb
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.genruntimeconfig.cache
 D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ref\ql_diemrenluyen.dll
-D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Evidence.QLBangChung.resources
-D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\CloudinaryDotNet.dll
-D:\CSharp Project\ql_diemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Evidence.BangChungDetailsForm.resources

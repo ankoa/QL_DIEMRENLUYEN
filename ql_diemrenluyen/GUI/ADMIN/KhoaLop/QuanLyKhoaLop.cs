@@ -5,6 +5,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
         public QuanLyKhoaLop()
         {
             InitializeComponent();
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -12,7 +13,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void QuanLyKhoaLop_Load(object sender, EventArgs e)
         {
 
         }
