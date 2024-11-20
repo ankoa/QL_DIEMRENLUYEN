@@ -30,14 +30,6 @@ namespace ql_diemrenluyen.BUS
         {
             return LopDAO.findAll(value);
         }
-        public static List<LopDTO> findByName(String value)
-        {
-            return LopDAO.findByName(value);
-        }
-        public static List<LopDTO> findById(String value)
-        {
-            return LopDAO.findById(value);
-        }
         public static List<LopDTO> findByKhoaId(String value)
         {
             return LopDAO.findByKhoaId(value);
@@ -49,6 +41,10 @@ namespace ql_diemrenluyen.BUS
         public static List<LopDTO> findByHeHoc(String value)
         {
             return LopDAO.findByHeHoc(value);
+        }
+        public static List<LopDTO> GetListBySearch(String value)
+        {
+            return LopDAO.GetListBySearch(value);
         }
     }
 }

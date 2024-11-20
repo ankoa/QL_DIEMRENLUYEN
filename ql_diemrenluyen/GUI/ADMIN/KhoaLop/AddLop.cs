@@ -55,11 +55,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                 MessageBox.Show("Không được để trống dữ liệu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 rs = false;
             }
-            else if (strResult)
-            {
-                MessageBox.Show("Dữ liệu nhập không hợp lệ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                rs = false;
-            }
+            //else if (strResult)
+            //{
+            //    MessageBox.Show("Dữ liệu nhập không hợp lệ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    rs = false;
+            //}
             return rs;
         }
         private void label2_Click(object sender, EventArgs e)
@@ -71,9 +71,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
         {
             if (check(text_lop.Text))
             {
-                if(Khoa_cbb.SelectedIndex > 0)
+                if (Khoa_cbb.SelectedIndex > 0)
                 {
-                    if(Hdt_cbb.SelectedIndex > 0)
+                    if (Hdt_cbb.SelectedIndex > 0)
                     {
                         List<LopDTO> list = LopBUS.getAllLop();
                         KhoaDTO khoa = KhoaBUS.GetKhoaByName(Khoa_cbb.Text.ToString());
@@ -106,5 +106,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                 }
             }
         }
+
     }
 }

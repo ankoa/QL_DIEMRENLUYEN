@@ -21,12 +21,11 @@ namespace ql_diemrenluyen.DAO
                         Id = Convert.ToInt32(row[0]), 
                         Name = Convert.ToString(row[1]), 
                         Email = Convert.ToString(row[2]), 
-                        ngaySinh = row[3] != null ? Convert.ToDateTime(row[7]) : (DateTime?)null,
-                        CreatedAt = row[4] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null, 
-                        UpdatedAt = row[5] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null, 
-                        ChucVu = Convert.ToString(row[6]),
-                        KhoaId = Convert.ToString(row[7]),
-                        Status = Convert.ToInt32(row[8])
+                        CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null, 
+                        UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null, 
+                        ChucVu = Convert.ToString(row[5]),
+                        KhoaId = Convert.ToString(row[6]),
+                        Status = Convert.ToInt32(row[7])
                         
                     };
 
@@ -41,13 +40,12 @@ namespace ql_diemrenluyen.DAO
         public static bool AddGiangVien(GiangVienDTO giangVien)
         {
             
-            string sql = $"INSERT INTO giangvien (name, email,ngay_sinh , created_at, updated_at, chucvu, khoa_id , status) " +
+            string sql = $"INSERT INTO giangvien (name, email, created_at, updated_at, chucvu, khoa_id , status) " +
                         $"VALUES (@name, @email,@ngaySinh, @createdAt, @updatedAt, @ChucVu, @khoaId,@status )";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@name", giangVien.Name);
             cmd.Parameters.AddWithValue("@email", giangVien.Email);
-            cmd.Parameters.AddWithValue("@ngaySinh", giangVien.ngaySinh);  
             cmd.Parameters.AddWithValue("@createdAt", giangVien.CreatedAt);
             cmd.Parameters.AddWithValue("@updatedAt", giangVien.UpdatedAt);
             cmd.Parameters.AddWithValue("@ChucVu", giangVien.ChucVu);
@@ -106,7 +104,6 @@ namespace ql_diemrenluyen.DAO
                 UPDATE giangvien
                 SET name = @name,
                     email = @email,
-                    ngay_sinh = @ngaySinh,
                     created_at = @createdAt,
                     updated_at = @updatedAt,
                     chucvu = @ChucVu,
@@ -118,7 +115,6 @@ namespace ql_diemrenluyen.DAO
             cmd.Parameters.AddWithValue("@id", giangVien.Id);
             cmd.Parameters.AddWithValue("@name", giangVien.Name);
             cmd.Parameters.AddWithValue("@email", giangVien.Email);
-            cmd.Parameters.AddWithValue("@ngaySinh", giangVien.ngaySinh);
             cmd.Parameters.AddWithValue("@createdAt", giangVien.CreatedAt ?? DateTime.Now);
             cmd.Parameters.AddWithValue("@updatedAt", giangVien.UpdatedAt ?? DateTime.Now);
             cmd.Parameters.AddWithValue("@ChucVu", giangVien.ChucVu);
@@ -189,12 +185,11 @@ namespace ql_diemrenluyen.DAO
                     Id = Convert.ToInt32(row[0]), 
                     Name = Convert.ToString(row[1]), 
                     Email = Convert.ToString(row[2]), 
-                    ngaySinh = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null, 
-                    CreatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null, 
-                    UpdatedAt = row[5] != null ? Convert.ToDateTime(row[5]) : (DateTime?)null, 
-                    ChucVu = Convert.ToString(row[6]),
-                    KhoaId = Convert.ToString(row[7]),
-                    Status = Convert.ToInt32(row[8])
+                    CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null, 
+                    UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null, 
+                    ChucVu = Convert.ToString(row[5]),
+                    KhoaId = Convert.ToString(row[6]),
+                    Status = Convert.ToInt32(row[7])
                 };
 
                 giangViens.Add(giangVien);
@@ -221,12 +216,11 @@ namespace ql_diemrenluyen.DAO
                     Id = Convert.ToInt32(row[0]),
                     Name = Convert.ToString(row[1]),
                     Email = Convert.ToString(row[2]),
-                    ngaySinh = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
                     CreatedAt = row[4] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
                     UpdatedAt = row[5] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                    ChucVu = Convert.ToString(row[6]),
-                    KhoaId = Convert.ToString(row[7]),
-                    Status = Convert.ToInt32(row[8])
+                    ChucVu = Convert.ToString(row[5]),
+                    KhoaId = Convert.ToString(row[6]),
+                    Status = Convert.ToInt32(row[7])
                 };
 
                 giangViens.Add(giangVien);
@@ -242,12 +236,11 @@ namespace ql_diemrenluyen.DAO
                 Id = Convert.ToInt32(row[0]),
                 Name = Convert.ToString(row[1]),
                 Email = Convert.ToString(row[2]),
-                ngaySinh = row[3] != null ? Convert.ToDateTime(row[7]) : (DateTime?)null,
                 CreatedAt = row[4] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
                 UpdatedAt = row[5] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                ChucVu = Convert.ToString(row[6]),
-                KhoaId = Convert.ToString(row[7]),
-                Status = Convert.ToInt32(row[8])
+                ChucVu = Convert.ToString(row[5]),
+                KhoaId = Convert.ToString(row[6]),
+                Status = Convert.ToInt32(row[7])
                
             };
         }

@@ -68,11 +68,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                 MessageBox.Show("Không được để trống dữ liệu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 rs = false;
             }
-            else if (strResult)
-            {
-                MessageBox.Show("Dữ liệu nhập không hợp lệ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                rs = false;
-            }
+            //else if (strResult)
+            //{
+            //    MessageBox.Show("Dữ liệu nhập không hợp lệ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    rs = false;
+            //}
             return rs;
         }
         private void update_btn_Click(object sender, EventArgs e)

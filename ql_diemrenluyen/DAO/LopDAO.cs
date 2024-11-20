@@ -131,60 +131,8 @@ namespace ql_diemrenluyen.DAO
             }
             return null;
         }
-        public static List<LopDTO> findById(String value)
-        {
-            List<LopDTO> list = new List<LopDTO>();
-            String sql = "select * from lop where lop.id like @id";
-            var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@id", "%" + value + "%");
-            List<List<object>> result = DBConnection.ExecuteReader(cmd);
-            if (result.Count > 0)
-            {
-                foreach (var row in result)
-                {
-                    LopDTO lop = new LopDTO
-                    {
-                        Id = Convert.ToInt64(row[0]),
-                        TenLop = Convert.ToString(row[1]),
-                        Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[2])),
-                        HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[3])),
-                        CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
-                        UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
-                        status = Convert.ToInt16(row[6])
-                    };
-                    list.Add(lop);
-                }
-                return list;
-            }
-            return null;
-        }
-        public static List<LopDTO> findByName(String value)
-        {
-            List<LopDTO> list = new List<LopDTO>();
-            String sql = "select * from lop where lop.tenlop like @name";
-            var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@name", "%" + value + "%");
-            List<List<object>> result = DBConnection.ExecuteReader(cmd);
-            if (result.Count > 0)
-            {
-                foreach (var row in result)
-                {
-                    LopDTO lop = new LopDTO
-                    {
-                        Id = Convert.ToInt64(row[0]),
-                        TenLop = Convert.ToString(row[1]),
-                        Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[2])),
-                        HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[3])),
-                        CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
-                        UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
-                        status = Convert.ToInt16(row[6])
-                    };
-                    list.Add(lop);
-                }
-                return list;
-            }
-            return null;
-        }
+        
+        
         public static List<LopDTO> findByKhoaId(String value)
         {
             List<LopDTO> list = new List<LopDTO>();
@@ -246,6 +194,32 @@ namespace ql_diemrenluyen.DAO
             String sql = "select lop.id, lop.tenlop, lop.khoa_id, lop.hedaotao, lop.created_at, lop.updated_at, lop.status from lop, hehoc where ( hehoc.name like @hedaotao) and (lop.hedaotao = hehoc.id)";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@hedaotao", "%" + value + "%");
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+            if (result.Count > 0)
+            {
+                foreach (var row in result)
+                {
+                    LopDTO lop = new LopDTO
+                    {
+                        Id = Convert.ToInt64(row[0]),
+                        TenLop = Convert.ToString(row[1]),
+                        Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[2])),
+                        HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[3])),
+                        CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
+                        UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
+                        status = Convert.ToInt16(row[6])
+                    };
+                    list.Add(lop);
+                }
+                return list;
+            }
+            return null;
+        }
+        public static List<LopDTO> GetListBySearch(String value)
+        {
+            List<LopDTO> list = new List<LopDTO>();
+            String sql = "select * from lop where"+value;
+            var cmd = new MySqlCommand(sql);
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
             if (result.Count > 0)
             {

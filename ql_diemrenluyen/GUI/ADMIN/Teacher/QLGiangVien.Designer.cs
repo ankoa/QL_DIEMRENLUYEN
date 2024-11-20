@@ -21,11 +21,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pnContent = new Panel();
             tableGV = new ReaLTaiizor.Controls.PoisonDataGridView();
@@ -50,7 +45,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnTop.SuspendLayout();
             pnInput.SuspendLayout();
             SuspendLayout();
-
             // 
             // panel1
             // 
@@ -58,12 +52,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel1.Controls.Add(pnContent);
             panel1.Controls.Add(pnTop);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(50, 20);
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(0, 20, 0, 0);
-            panel1.Size = new Size(1319, 746);
+            panel1.Size = new Size(1319, 766);
             panel1.TabIndex = 5;
-
             // 
             // pnContent
             // 
@@ -75,9 +68,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnContent.Margin = new Padding(0);
             pnContent.Name = "pnContent";
             pnContent.Padding = new Padding(20, 50, 20, 0);
-            pnContent.Size = new Size(1319, 536);
+            pnContent.Size = new Size(1319, 556);
             pnContent.TabIndex = 8;
-
             // 
             // tableGV
             // 
@@ -89,8 +81,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableGV.BorderStyle = BorderStyle.None;
             tableGV.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tableGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-
-            // Set up header style
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -98,15 +88,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tableGV.ColumnHeadersHeight = 70;
             tableGV.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
-            tableGV.Dock = DockStyle.Fill;
-
-            // Set up default cell style
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             tableGV.DefaultCellStyle = dataGridViewCellStyle2;
-
+            tableGV.Dock = DockStyle.Fill;
             tableGV.EnableHeadersVisualStyles = false;
             tableGV.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tableGV.GridColor = Color.FromArgb(255, 255, 255);
@@ -114,59 +104,53 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableGV.MultiSelect = false;
             tableGV.Name = "tableGV";
             tableGV.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-
-            // Set up row header style
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tableGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             tableGV.RowHeadersVisible = false;
+            tableGV.RowHeadersWidth = 51;
+            tableGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tableGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableGV.Size = new Size(1279, 486);
+            tableGV.Size = new Size(1279, 506);
             tableGV.TabIndex = 5;
-
+            tableGV.CellDoubleClick += tableGV_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewTextBoxColumn1.HeaderText = "Giảng viên ID";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-
             // 
             // dataGridViewTextBoxColumn2
             // 
             dataGridViewTextBoxColumn2.HeaderText = "Tên Giảng viên";
             dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-
             // 
             // dataGridViewTextBoxColumn3
             // 
             dataGridViewTextBoxColumn3.HeaderText = "Chuyên ngành";
             dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-
             // 
             // dataGridViewTextBoxColumn4
             // 
             dataGridViewTextBoxColumn4.HeaderText = "Email";
             dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-
             // 
             // dataGridViewTextBoxColumn5
             // 
             dataGridViewTextBoxColumn5.HeaderText = "Ngày sinh";
             dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-
             // 
             // dataGridViewTextBoxColumn6
             // 
             dataGridViewTextBoxColumn6.HeaderText = "Trạng thái";
             dataGridViewTextBoxColumn6.MinimumWidth = 6;
             dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-
             // 
             // pnTop
             // 
@@ -182,7 +166,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnTop.Padding = new Padding(0, 50, 0, 50);
             pnTop.Size = new Size(1319, 190);
             pnTop.TabIndex = 7;
-
             // 
             // label3
             // 
@@ -192,10 +175,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label3.ForeColor = Color.White;
             label3.Location = new Point(131, 63);
             label3.Name = "label3";
-            label3.Size = new Size(138, 28);
+            label3.Size = new Size(224, 35);
             label3.TabIndex = 3;
             label3.Text = "Quản lý Giảng viên";
-
             // 
             // label2
             // 
@@ -205,10 +187,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label2.ForeColor = Color.White;
             label2.Location = new Point(804, 122);
             label2.Name = "label2";
-            label2.Size = new Size(137, 28);
+            label2.Size = new Size(130, 35);
             label2.TabIndex = 2;
             label2.Text = "Trạng thái:";
-
             // 
             // pnInput
             // 
@@ -218,16 +199,14 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnInput.Name = "pnInput";
             pnInput.Size = new Size(390, 55);
             pnInput.TabIndex = 1;
-
             // 
             // txtSearch
             // 
             txtSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSearch.Location = new Point(175, 10);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(213, 29);
+            txtSearch.Size = new Size(213, 34);
             txtSearch.TabIndex = 1;
-
             // 
             // label1
             // 
@@ -235,10 +214,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(3, 13);
             label1.Name = "label1";
-            label1.Size = new Size(166, 21);
+            label1.Size = new Size(191, 28);
             label1.TabIndex = 0;
             label1.Text = "Tìm kiếm giảng viên:";
-
             // 
             // cbbStatus
             // 
@@ -247,9 +225,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             cbbStatus.Items.AddRange(new object[] { "Đang dạy", "Nghỉ hưu", "Tạm nghỉ" });
             cbbStatus.Location = new Point(1005, 122);
             cbbStatus.Name = "cbbStatus";
-            cbbStatus.Size = new Size(213, 29);
+            cbbStatus.Size = new Size(213, 36);
             cbbStatus.TabIndex = 0;
-
             // 
             // cbbRole
             // 
@@ -258,9 +235,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             cbbRole.Items.AddRange(new object[] { "Giảng viên", "Cố vấn học tập", "Quản lý khoa", "Quản lý trường" });
             cbbRole.Location = new Point(1005, 63);
             cbbRole.Name = "cbbRole";
-            cbbRole.Size = new Size(213, 29);
+            cbbRole.Size = new Size(213, 36);
             cbbRole.TabIndex = 0;
-
             // 
             // panel3
             // 
@@ -269,11 +245,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel3.Name = "panel3";
             panel3.Size = new Size(1319, 50);
             panel3.TabIndex = 8;
-
             // 
             // QLGiangVien
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1319, 766);
             Controls.Add(panel1);

@@ -81,7 +81,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             if (rs == DialogResult.OK)
             {
                 List<LopDTO> list = LopBUS.findByHeHoc(hehoc.Name);
-                if (list != null) {
+                if (list != null)
+                {
                     int dem = 0;
                     foreach (LopDTO item in list)
                     {
@@ -90,7 +91,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                             dem++;
                         }
                     }
-                    if (dem > 0) {
+                    if (dem > 0)
+                    {
                         MessageBox.Show("Hệ học đang có các lớp học hoạt động. Xóa hệ học không thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -115,8 +117,13 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                     }
                 }
 
-               
+
             }
+        }
+
+        private void text_hehoc_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
