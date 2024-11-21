@@ -142,24 +142,24 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewTextBoxColumn4.HeaderText = "Ngày tạo";
+            dataGridViewTextBoxColumn4.HeaderText = "Khoa";
             dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewTextBoxColumn5.HeaderText = "Ngày cập nhật";
+            dataGridViewTextBoxColumn5.HeaderText = "Chức vụ";
             dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewTextBoxColumn6.HeaderText = "Chức vụ";
+            dataGridViewTextBoxColumn6.HeaderText = "Ngày tạo";
             dataGridViewTextBoxColumn6.MinimumWidth = 6;
             dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
 
             // dataGridViewTextBoxColumn7 - Cột Khoa
-            dataGridViewTextBoxColumn7.HeaderText = "Khoa";
+            dataGridViewTextBoxColumn7.HeaderText = "Ngày cập nhật";
             dataGridViewTextBoxColumn7.MinimumWidth = 7;
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
 
@@ -213,6 +213,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnInput.Name = "pnInput";
             pnInput.Size = new Size(390, 55);
             pnInput.TabIndex = 1;
+            
             // 
             // txtSearch
             // 
@@ -259,6 +260,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel3.Name = "panel3";
             panel3.Size = new Size(1319, 50);
             panel3.TabIndex = 8;
+            label2.Text = "Trạng thái:";
+
             // 
             // TaiKhoan
             // 
