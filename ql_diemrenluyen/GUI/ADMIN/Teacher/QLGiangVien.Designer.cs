@@ -1,4 +1,4 @@
-﻿using MySqlX.XDevAPI.Relational;
+using MySqlX.XDevAPI.Relational;
 using System.Windows.Forms;
 
 namespace ql_diemrenluyen.GUI.ADMIN
