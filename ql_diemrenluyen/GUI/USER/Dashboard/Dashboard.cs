@@ -6,8 +6,8 @@ namespace ql_diemrenluyen.GUI.USER
 {
     public partial class Dashboard : Form
     {
-        public static string nguoidung_id = Program.nguoidung_id;
-        public static string role = Program.role switch
+        public static string nguoidung_id = "1";
+        public static string role = 1 switch
         {
             0 => "ADMIN",
             1 => "Sinh viên",
@@ -17,6 +17,18 @@ namespace ql_diemrenluyen.GUI.USER
             5 => "Quản lý Trường",
             _ => "Unknown"
         };
+
+        //public static string nguoidung_id = Program.nguoidung_id;
+        //public static string role = Program.role switch
+        //{
+        //    0 => "ADMIN",
+        //    1 => "Sinh viên",
+        //    2 => "Giảng viên",
+        //    3 => "Cố vấn",
+        //    4 => "Quản lý Khoa",
+        //    5 => "Quản lý Trường",
+        //    _ => "Unknown"
+        //};
 
         public Dashboard()
         {

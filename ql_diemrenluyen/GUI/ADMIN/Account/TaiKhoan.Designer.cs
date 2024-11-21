@@ -269,6 +269,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             button2.TabIndex = 40;
             button2.Text = "Import";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -279,6 +280,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             button3.TabIndex = 41;
             button3.Text = "Export";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // btnClear
             // 

@@ -60,6 +60,43 @@ namespace ql_diemrenluyen.DAO
             return null;
         }
 
+        // Lấy đối tượng lớp từ ID của lớp
+        public static LopDTO GetLopByLopNameAndKhoaName(string lop, string khoa)
+        {
+            // Câu lệnh SQL để tìm lớp dựa trên tên lớp và tên khoa
+            string sql = @"
+        SELECT lop.id, lop.tenlop, lop.khoa_id, lop.hedaotao, lop.created_at, lop.updated_at, lop.status
+        FROM lop
+        INNER JOIN khoa ON lop.khoa_id = khoa.id
+        WHERE lop.tenlop = @lopName AND khoa.tenkhoa = @khoaName
+        LIMIT 1";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@lopName", lop);
+            cmd.Parameters.AddWithValue("@khoaName", khoa);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0)
+            {
+                List<object> row = result[0];
+                LopDTO lopDTO = new LopDTO
+                {
+                    Id = Convert.ToInt64(row[0]),
+                    TenLop = Convert.ToString(row[1]),
+                    Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[2])),
+                    HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[3])),
+                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
+                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
+                    status = Convert.ToInt16(row[6])
+                };
+                return lopDTO;
+            }
+
+            return null;
+        }
+
+
         // Thêm lớp mới
         public static bool AddLop(LopDTO lop)
         {
@@ -131,8 +168,8 @@ namespace ql_diemrenluyen.DAO
             }
             return null;
         }
-        
-        
+
+
         public static List<LopDTO> findByKhoaId(String value)
         {
             List<LopDTO> list = new List<LopDTO>();
@@ -218,7 +255,7 @@ namespace ql_diemrenluyen.DAO
         public static List<LopDTO> GetListBySearch(String value)
         {
             List<LopDTO> list = new List<LopDTO>();
-            String sql = "select * from lop where"+value;
+            String sql = "select * from lop where" + value;
             var cmd = new MySqlCommand(sql);
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
             if (result.Count > 0)
