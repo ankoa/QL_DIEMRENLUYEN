@@ -1,9 +1,6 @@
 using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 using System.Net.Mail;
-using System.Windows.Forms;
 
 namespace ql_diemrenluyen.GUI.ADMIN.Teacher
 {
@@ -64,7 +61,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
                 Email = txtEmail.Text,
                 ChucVu = comboBoxChucVu.SelectedItem?.ToString(),
                 KhoaId = txtKhoa.Text,
+<<<<<<< HEAD
+                //TrangThai = comboBoxTrangThai.SelectedItem?.ToString() == "Hoạt động"
+=======
                 Status = string.Equals(comboBoxTrangThai.SelectedItem?.ToString(), "Hoạt động", StringComparison.OrdinalIgnoreCase) ? 1 : 0
+>>>>>>> 96180158a6659968f76a1ce9afa27bec161df9df
             };
 
             if (GiangVienBUS.UpdateGiangVien(giangVien))

@@ -28,7 +28,7 @@ namespace ql_diemrenluyen.GUI
             // Tạo một tài khoản mẫu
             var account = new AccountDTO
             {
-                Role = 1, // Vai trò của tài khoản
+                Role = 0, // Vai trò của tài khoản
                 Password = "123", // Mật khẩu cho tài khoản
                 RememberToken = "", // Token nhớ đăng nhập (có thể null)
                 CreatedAt = DateTime.Now, // Thời gian tạo
@@ -165,13 +165,25 @@ namespace ql_diemrenluyen.GUI
                     else
                     {
                         this.Hide();  // Ẩn form hiện tại
-                        MenuAdmin otpForm = new MenuAdmin();
+                        Program.nguoidung_id = accountLogin.Id.ToString();
+                        Program.role = accountLogin.Role;
+
+                        if (accountLogin.Role == 0)
+                        {
+                            MenuAdmin otpForm = new MenuAdmin();
 
 
-                        // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
-                        //otpForm.FormClosed += (s, args) => this.Show();
+                            // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
+                            //otpForm.FormClosed += (s, args) => this.Show();
 
-                        otpForm.Show();  // Hiển thị form mới
+                            otpForm.Show();  // Hiển thị form mới
+                        }
+                        else
+                        {
+                            MessageBox.Show(accountLogin.Role.ToString());
+                        }
+
+
                     }
                 }));
             });
