@@ -14,7 +14,7 @@ namespace ql_diemrenluyen.GUI
         public Login()
         {
             InitializeComponent();
-            //TestAddAccount();
+            TestAddAccount();
             this.FormBorderStyle = FormBorderStyle.None;
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
             this.Region = new Region(CreateRoundedRectanglePath(this.ClientRectangle, 30));
