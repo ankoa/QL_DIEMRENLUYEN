@@ -114,7 +114,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tableGV.Size = new Size(1279, 506);
             tableGV.TabIndex = 5;
-            tableGV.CellDoubleClick += tableGV_CellDoubleClick;
+            tableGV.CellDoubleClick += table_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn1
             // 
