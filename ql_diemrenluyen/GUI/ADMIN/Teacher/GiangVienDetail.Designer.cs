@@ -1,11 +1,32 @@
-﻿using System;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ql_diemrenluyen.GUI.ADMIN.Teacher
 {
-    partial class GiangVienDetailForm
+    partial class GiangVienDetailForm : Form
     {
         private System.ComponentModel.IContainer components = null;
+
+        // Control Declaration
+        private Label lblId;
+        private TextBox txtId;
+        private Label lblTenGV;
+        private TextBox txtTenGV;
+        private Label lblEmail;
+        private TextBox txtEmail;
+        private Label lblKhoa;
+        private TextBox txtKhoa;
+        private Label lblTrangThai;
+        private ComboBox comboBoxTrangThai;
+        private Label lblChucVu;
+        private ComboBox comboBoxChucVu;
+        private Button btnClose;
+        private Button btnEdit;
+        private Button btnDelete;
+        private Label titleLabel;
+        private DateTimePicker dtpCreatedAt;
+        private DateTimePicker dtpUpdatedAt;
 
         protected override void Dispose(bool disposing)
         {
@@ -16,199 +37,189 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         private void InitializeComponent()
         {
-            lblId = new Label();
-            txtId = new TextBox();
-            lblTenGV = new Label();
-            txtTenGV = new TextBox();
-            lblEmail = new Label();
-            txtEmail = new TextBox();
-            lblKhoa = new Label();
-            txtKhoa = new TextBox();
-            lblTrangThai = new Label();
-            btnClose = new Button();
-            btnEdit = new Button();
-            label2 = new Label();
-            comboBoxTrangThai = new ComboBox();
-            comboBoxChucVu = new ComboBox();  
-
+            // Form setup
             SuspendLayout();
-            // 
-            // lblId
-            // 
-            lblId.AutoSize = true;
-            lblId.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblId.Location = new Point(57, 63);
-            lblId.Name = "lblId";
-            lblId.Size = new Size(29, 20);
-            lblId.TabIndex = 0;
-            lblId.Text = "ID:";
+            BackColor = SystemColors.ControlLightLight;
+            FormBorderStyle = FormBorderStyle.None;
+            StartPosition = FormStartPosition.CenterScreen;
+            ClientSize = new Size(422, 490);
 
-            // txtId
-            txtId.BorderStyle = BorderStyle.FixedSingle;
-            txtId.Location = new Point(201, 63);
-            txtId.Margin = new Padding(3, 4, 3, 4);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(228, 27);
-            txtId.TabIndex = 1;
+            // Title Label
+            titleLabel = new Label
+            {
+                Text = "Chi tiết giảng viên",
+                Font = new Font("Segoe UI", 16.2F, FontStyle.Bold),
+                ForeColor = Color.Black,
+                AutoSize = true,
+                Location = new Point(95, 7)
+            };
+            Controls.Add(titleLabel);
 
-            // lblTenGV
-            lblTenGV.AutoSize = true;
-            lblTenGV.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblTenGV.Location = new Point(57, 118);
-            lblTenGV.Name = "lblTenGV";
-            lblTenGV.Size = new Size(65, 20);
-            lblTenGV.TabIndex = 2;
-            lblTenGV.Text = "Tên GV:";
-
-            // txtTenGV
-            txtTenGV.BorderStyle = BorderStyle.FixedSingle;
-            txtTenGV.Location = new Point(201, 118);
-            txtTenGV.Margin = new Padding(3, 4, 3, 4);
-            txtTenGV.Name = "txtTenGV";
-            txtTenGV.Size = new Size(228, 27);
-            txtTenGV.TabIndex = 3;
-
-            // lblEmail
-            lblEmail.AutoSize = true;
-            lblEmail.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblEmail.Location = new Point(57, 176);
-            lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(53, 20);
-            lblEmail.TabIndex = 4;
-            lblEmail.Text = "Email:";
-
-            // txtEmail
-            txtEmail.BorderStyle = BorderStyle.FixedSingle;
-            txtEmail.Location = new Point(201, 176);
-            txtEmail.Margin = new Padding(3, 4, 3, 4);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(228, 27);
-            txtEmail.TabIndex = 5;
-
-            // lblKhoa
-            lblKhoa.AutoSize = true;
-            lblKhoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblKhoa.Location = new Point(57, 233);
-            lblKhoa.Name = "lblKhoa";
-            lblKhoa.Size = new Size(51, 20);
-            lblKhoa.TabIndex = 6;
-            lblKhoa.Text = "Khoa:";
-
-            // txtKhoa
-            txtKhoa.BorderStyle = BorderStyle.FixedSingle;
-            txtKhoa.Location = new Point(201, 233);
-            txtKhoa.Margin = new Padding(3, 4, 3, 4);
-            txtKhoa.Name = "txtKhoa";
-            txtKhoa.Size = new Size(228, 27);
-            txtKhoa.TabIndex = 7;
-
-            // lblTrangThai
-            lblTrangThai.AutoSize = true;
-            lblTrangThai.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblTrangThai.Location = new Point(57, 296);
-            lblTrangThai.Name = "lblTrangThai";
-            lblTrangThai.Size = new Size(85, 20);
-            lblTrangThai.TabIndex = 8;
-            lblTrangThai.Text = "Trạng Thái:";
-
-            // btnClose
-            btnClose.Location = new Point(264, 502);
-            btnClose.Margin = new Padding(3, 4, 3, 4);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(114, 40);
-            btnClose.TabIndex = 14;
-            btnClose.Text = "Đóng";
-            btnClose.UseVisualStyleBackColor = true;
-            btnClose.Click += btnClose_Click;
-
-            // btnEdit
-            btnEdit.Location = new Point(108, 502);
-            btnEdit.Margin = new Padding(3, 4, 3, 4);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(114, 40);
-            btnEdit.TabIndex = 13;
-            btnEdit.Text = "Chỉnh sửa";
-            btnEdit.UseVisualStyleBackColor = true;
-            btnEdit.Click += btnEdit_Click;
-
-            // label2
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label2.Location = new Point(57, 370);
-            label2.Name = "label2";
-            label2.Size = new Size(91, 20);
-            label2.TabIndex = 16;
-            label2.Text = "Chức Vụ:";
-
-            // comboBoxChucVu - ComboBox chức vụ
-            comboBoxChucVu.FormattingEnabled = true;
-            comboBoxChucVu.Items.AddRange(new object[] { 
-                "Giảng viên bộ môn", 
-                "Cố vấn học tập", 
-                "Quản lý khoa", 
-                "Quản lý trường" 
-            });
-            comboBoxChucVu.Location = new Point(201, 367);
-            comboBoxChucVu.Margin = new Padding(3, 4, 3, 4);
-            comboBoxChucVu.Name = "comboBoxChucVu";
-            comboBoxChucVu.Size = new Size(228, 28);
-            comboBoxChucVu.TabIndex = 15;
-
-            // comboBoxTrangThai
-            comboBoxTrangThai.FormattingEnabled = true;
-            comboBoxTrangThai.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
-            comboBoxTrangThai.Location = new Point(201, 296);
-            comboBoxTrangThai.Name = "comboBoxTrangThai";
-            comboBoxTrangThai.Size = new Size(228, 28);
-            comboBoxTrangThai.TabIndex = 17;
-
-            // GiangVienDetailForm
-            AutoScaleDimensions = new SizeF(9F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(470, 577);
-            Controls.Add(comboBoxTrangThai);
-            Controls.Add(label2);
-            Controls.Add(comboBoxChucVu); // Thêm ComboBox Chức Vụ vào Controls
-            Controls.Add(btnClose);
-            Controls.Add(btnEdit);
-            Controls.Add(lblTrangThai);
-            Controls.Add(txtKhoa);
-            Controls.Add(lblKhoa);
-            Controls.Add(txtEmail);
-            Controls.Add(lblEmail);
-            Controls.Add(txtTenGV);
-            Controls.Add(lblTenGV);
-            Controls.Add(txtId);
+            // Label & TextBox for ID
+            lblId = new Label
+            {
+                Text = "ID:",
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Location = new Point(58, 64)
+            };
             Controls.Add(lblId);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "GiangVienDetailForm";
-            Text = "Chi tiết giảng viên";
+
+            txtId = new TextBox
+            {
+                ReadOnly = true,
+                BackColor = SystemColors.ControlLightLight,
+                Location = new Point(184, 64),
+                Size = new Size(200, 23)
+            };
+            Controls.Add(txtId);
+
+            // Label & TextBox for Tên Giảng Viên
+            lblTenGV = new Label
+            {
+                Text = "Tên GV:",
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Location = new Point(58, 105)
+            };
+            Controls.Add(lblTenGV);
+
+            txtTenGV = new TextBox
+            {
+                Location = new Point(184, 105),
+                Size = new Size(200, 23)
+            };
+            Controls.Add(txtTenGV);
+
+            // Label & TextBox for Email
+            lblEmail = new Label
+            {
+                Text = "Email:",
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Location = new Point(58, 148)
+            };
+            Controls.Add(lblEmail);
+
+            txtEmail = new TextBox
+            {
+                Location = new Point(184, 148),
+                Size = new Size(200, 23)
+            };
+            Controls.Add(txtEmail);
+
+            // Label & TextBox for Khoa
+            lblKhoa = new Label
+            {
+                Text = "Khoa:",
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Location = new Point(58, 191)
+            };
+            Controls.Add(lblKhoa);
+
+            txtKhoa = new TextBox
+            {
+                Location = new Point(184, 191),
+                Size = new Size(200, 23)
+            };
+            Controls.Add(txtKhoa);
+
+            // Label & ComboBox for Trạng thái
+            lblTrangThai = new Label
+            {
+                Text = "Trạng thái:",
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Location = new Point(58, 238)
+            };
+            Controls.Add(lblTrangThai);
+
+            comboBoxTrangThai = new ComboBox
+            {
+                Location = new Point(184, 238),
+                Size = new Size(200, 23),
+                Items = { "Hoạt động", "Không hoạt động" }
+            };
+            Controls.Add(comboBoxTrangThai);
+
+            // Label & ComboBox for Chức vụ
+            lblChucVu = new Label
+            {
+                Text = "Chức vụ:",
+                Font = new Font("Segoe UI", 9F, FontStyle.Bold),
+                Location = new Point(58, 284)
+            };
+            Controls.Add(lblChucVu);
+
+            comboBoxChucVu = new ComboBox
+            {
+                Location = new Point(184, 284),
+                Size = new Size(200, 23),
+                Items = { "Giảng viên bộ môn", "Cố vấn học tập", "Quản lý khoa", "Quản lý trường" }
+            };
+            Controls.Add(comboBoxChucVu);
+
+            // Created At Date Picker
+            dtpCreatedAt = new DateTimePicker
+            {
+                Location = new Point(184, 326),
+                Size = new Size(200, 23)
+            };
+            Controls.Add(dtpCreatedAt);
+
+            // Updated At Date Picker
+            dtpUpdatedAt = new DateTimePicker
+            {
+                Location = new Point(184, 366),
+                Size = new Size(200, 23)
+            };
+            Controls.Add(dtpUpdatedAt);
+
+            // Edit Button
+            btnEdit = new Button
+            {
+                Text = "Chỉnh sửa",
+                Location = new Point(174, 420),
+                Size = new Size(90, 30)
+            };
+            btnEdit.Click += BtnEdit_Click;
+            Controls.Add(btnEdit);
+
+            // Delete Button
+            btnDelete = new Button
+            {
+                Text = "Xóa",
+                Location = new Point(58, 420),
+                Size = new Size(100, 30)
+            };
+            btnDelete.Click += BtnDelete_Click;
+            Controls.Add(btnDelete);
+
+            // Close Button
+            btnClose = new Button
+            {
+                Text = "Đóng",
+                Location = new Point(284, 420),
+                Size = new Size(100, 30)
+            };
+            btnClose.Click += BtnClose_Click;
+            Controls.Add(btnClose);
+
             ResumeLayout(false);
             PerformLayout();
         }
 
-        #endregion
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
-        private Label lblId;
-        private TextBox txtId;
-        private Label lblTenGV;
-        private TextBox txtTenGV;
-        private Label lblEmail;
-        private TextBox txtEmail;
-        private Label lblKhoa;
-        private TextBox txtKhoa;
-        private Label lblTrangThai;
-        private Button btnClose;
-        private Button btnEdit;
-        private Label label2;
-        private ComboBox comboBoxTrangThai;
-        private ComboBox comboBoxChucVu;  // Đảm bảo khai báo ComboBox chức vụ
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chỉnh sửa thông tin giảng viên!");
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Xóa thông tin giảng viên!");
+        }
     }
 }
