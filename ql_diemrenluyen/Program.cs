@@ -1,10 +1,11 @@
-using ql_diemrenluyen.GUI.USER;
+using ql_diemrenluyen.GUI;
 namespace ql_diemrenluyen
 {
     internal static class Program
     {
         public static string nguoidung_id = "1";
         public static int role = 1;
+        public static string type = "";
         //public static string nguoidung_id = "1";
         //public static string role = "Sinh Viên";
         /// <summary>
@@ -16,7 +17,7 @@ namespace ql_diemrenluyen
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Dashboard());
+            Application.Run(new Login());
             //Application.Run(new Thongke()); // or Application.Run(new AdminStudentTest());
 
         }

@@ -1,6 +1,7 @@
 ﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
 using ql_diemrenluyen.GUI.ADMIN;
+using ql_diemrenluyen.GUI.USER;
 using ql_diemrenluyen.Helper;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
@@ -14,7 +15,7 @@ namespace ql_diemrenluyen.GUI
         public Login()
         {
             InitializeComponent();
-            TestAddAccount();
+            //TestAddAccount();
             this.FormBorderStyle = FormBorderStyle.None;
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
             this.Region = new Region(CreateRoundedRectanglePath(this.ClientRectangle, 30));
@@ -152,6 +153,7 @@ namespace ql_diemrenluyen.GUI
                 var username = inputUser.Text;
                 var password = inputPass.Text;
                 var accountLogin = AccountBUS.Login(username, password); // Không phải async
+                var (account, accountType) = AccountBUS.findAccountById(long.Parse(username));
 
                 // Cập nhật giao diện phải thực hiện trên UI thread
                 this.Invoke(new Action(() =>
@@ -167,10 +169,12 @@ namespace ql_diemrenluyen.GUI
                         this.Hide();  // Ẩn form hiện tại
                         Program.nguoidung_id = accountLogin.Id.ToString();
                         Program.role = accountLogin.Role;
-
+                        Program.type = accountType;
+                        MessageBox.Show(accountType);
                         if (accountLogin.Role == 0)
                         {
                             MenuAdmin otpForm = new MenuAdmin();
+
 
 
                             // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
@@ -178,9 +182,25 @@ namespace ql_diemrenluyen.GUI
 
                             otpForm.Show();  // Hiển thị form mới
                         }
-                        else
+                        else if (accountLogin.Role == 1)
                         {
-                            MessageBox.Show(accountLogin.Role.ToString());
+                            Dashboard otpForm = new Dashboard();
+
+
+                            // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
+                            //otpForm.FormClosed += (s, args) => this.Show();
+
+                            otpForm.Show();  // Hiển thị form mới
+                        }
+                        else if (accountLogin.Role == 3)
+                        {
+                            Dashboard otpForm = new Dashboard();
+
+
+                            // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
+                            //otpForm.FormClosed += (s, args) => this.Show();
+
+                            otpForm.Show();  // Hiển thị form mới
                         }
 
 

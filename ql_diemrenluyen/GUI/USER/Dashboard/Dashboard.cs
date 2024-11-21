@@ -7,7 +7,7 @@ namespace ql_diemrenluyen.GUI.USER
     public partial class Dashboard : Form
     {
         public static string nguoidung_id = "1";
-        public static string role = 1 switch
+        public static string role = 3 switch
         {
             0 => "ADMIN",
             1 => "Sinh viên",
@@ -33,7 +33,7 @@ namespace ql_diemrenluyen.GUI.USER
         public Dashboard()
         {
             InitializeComponent();
-            LoadStudentInfo();
+            LoadInfo();
             if (role.Equals("Sinh viên"))
             {
                 LoadDrlHocKi(1);
@@ -49,27 +49,55 @@ namespace ql_diemrenluyen.GUI.USER
             //CustomizeSpecificColumns();
         }
 
-        private void LoadStudentInfo()
+        private void LoadInfo()
         {
-            try
+            if (role.Equals("Sinh viên"))
             {
-                // Lấy danh sách sinh viên từ DAO
-                // Sau này đổi thành bus
-                var student = SinhVienBUS.GetStudentById(1);
+                lbStudentInfo.Text = "Thông tin sinh viên";
+                try
+                {
+                    // Lấy danh sách sinh viên từ DAO
+                    // Sau này đổi thành bus
+                    var student = SinhVienBUS.GetStudentById(long.Parse(nguoidung_id));
 
-                lbMaSV.Text = student.Id.ToString();
-                lbEmail.Text = student.Email;
-                lbHovaTen.Text = student.Name;
-                lbNgaySinh.Text = student.NgaySinh.ToString();
-                if (student.GioiTinh == 1)
-                    lbGioiTinh.Text = "Nam";
-                else
-                    lbGioiTinh.Text = "Nữ";
+                    lbMaSV.Text = student.Id.ToString();
+                    lbEmail.Text = student.Email;
+                    lbHovaTen.Text = student.Name;
+                    lbNgaySinh.Text = student.NgaySinh.ToString();
+                    if (student.GioiTinh == 1)
+                        lbGioiTinh.Text = "Nam";
+                    else
+                        lbGioiTinh.Text = "Nữ";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tải sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else if (role.Equals("Cố vấn"))
             {
-                MessageBox.Show($"Lỗi khi tải sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lbStudentInfo.Text = "Thông tin cố vấn";
+                try
+                {
+                    // Lấy danh sách sinh viên từ DAO
+                    // Sau này đổi thành bus
+                    var giangvien = GiangVienBUS.GetGiangVienById(long.Parse(nguoidung_id));
+
+                    lbMaSV.Text = giangvien.Id.ToString();
+                    lbEmail.Text = giangvien.Email;
+                    lbHovaTen.Text = giangvien.Name;
+                    lbNgaySinh.Text = giangvien.ngaySinh.ToString();
+                    //if (giangvien. == 1)
+                    //    lbGioiTinh.Text = "Nam";
+                    //else
+                    //    lbGioiTinh.Text = "Nữ";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tải sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
         }
 
         private void LoadDotChamDiemSinhVien(int sinhVienId, string role)
