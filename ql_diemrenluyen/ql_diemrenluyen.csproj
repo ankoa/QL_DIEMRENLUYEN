@@ -9,6 +9,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+
+		<PackageReference Include="CloudinaryDotNet" Version="1.26.2" />
+
 		<PackageReference Include="EPPlus" Version="7.5.0" />
 		<PackageReference Include="Google.Cloud.Vision.V1" Version="3.7.0" />
 		<PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />

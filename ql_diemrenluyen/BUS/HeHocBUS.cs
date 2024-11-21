@@ -41,5 +41,9 @@ namespace ql_diemrenluyen.BUS
         {
             return HeHocDAO.GetHehocByName(name);
         }
+        public static List<HeHocDTO> GetListBySearch(String value)
+        {
+            return HeHocDAO.GetListBySearch(value);
+        }
     }
 }

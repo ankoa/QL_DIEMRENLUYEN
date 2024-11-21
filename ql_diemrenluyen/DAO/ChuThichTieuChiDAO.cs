@@ -162,10 +162,9 @@ namespace ql_diemrenluyen.DAO
                 cmd.Parameters.AddWithValue("@tieuchidanhgia_id", chuThich.TieuChiDanhGiaId);
                 cmd.Parameters.AddWithValue("@name", chuThich.Name);
                 cmd.Parameters.AddWithValue("@diem", chuThich.Diem);
-                cmd.Parameters.AddWithValue("@created_at", chuThich.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"));
                 cmd.Parameters.AddWithValue("@updated_at", chuThich.UpdatedAt.ToString("yyyy-MM-dd HH:mm:ss"));
                 cmd.Parameters.AddWithValue("@status", chuThich.Status);
-
+                cmd.Parameters.AddWithValue("@id", chuThich.Id);
                 return DBConnection.ExecuteNonQuery(cmd) > 0;
             }
             catch (Exception ex)

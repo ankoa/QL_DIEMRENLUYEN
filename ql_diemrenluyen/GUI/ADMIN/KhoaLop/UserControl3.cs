@@ -19,10 +19,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
         public UserControl3()
         {
             InitializeComponent();
-            if(comboBox1.Items.Count > 0)
-            {
-                comboBox1.SelectedIndex = 0;
-            }
         }
         public void loadlist(List<HeHocDTO> list)
         {
@@ -89,7 +85,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             if (e.ColumnIndex == dataGridHeHocView.Columns["more"].Index && e.RowIndex >= 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                Image img = Image.FromFile("C:\\Users\\User\\Downloads\\edit.png");
+                Image img = Image.FromFile("../../../Resources/edit.png");
                 int x = e.CellBounds.Left + (e.CellBounds.Width - img.Width) / 2;
                 int y = e.CellBounds.Top + (e.CellBounds.Height - img.Height) / 2;
                 e.Graphics.DrawImage(img, new Rectangle(x, y, img.Width, img.Height));
@@ -107,50 +103,36 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             }
             else
             {
-                if (comboBox1.SelectedIndex == 0)
+                list = HeHocBUS.findAll(textBox1.Text);
+                if (list == null)
                 {
-                    list = HeHocBUS.findAll(textBox1.Text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Giá trị không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = HeHocBUS.getAllHeHoc();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                    }
-
+                    MessageBox.Show("Giá trị không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    list = HeHocBUS.getAllHeHoc();
+                    loadlist(list);
                 }
-                else if (comboBox1.SelectedIndex == 1)
+                else
                 {
-                    list = HeHocBUS.findById(int.Parse(textBox1.Text));
-                    if (list == null)
-                    {
-                        MessageBox.Show("Mã khoa không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = HeHocBUS.getAllHeHoc();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                    }
-                }
-                else if (comboBox1.SelectedIndex == 2)
-                {
-                    list = HeHocBUS.findName(textBox1.Text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Tên không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = HeHocBUS.getAllHeHoc();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                    }
+                    loadlist(list);
                 }
             }
+        }
+        public void Setlist(List<HeHocDTO> list)
+        {
+            if (list != null)
+            {
+                loadlist(list);
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                list = HeHocBUS.getAllHeHoc();
+                loadlist(list);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new HeHocSearch(this).Show();
         }
     }
 }

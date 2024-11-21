@@ -524,8 +524,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
                 if (isDeactivated)
                 {
                     MessageBox.Show("Tiêu Chí đã được ngừng hoạt động.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    QLTieuChi.LoadTieuChiDanhGiaList(table, 0);
-
+                        QLTieuChi.LoadTieuChiDanhGiaList(table, parentID);
+  
                     this.Close();
                 }
                 else

@@ -29,18 +29,15 @@ namespace ql_diemrenluyen.BUS
         public static bool DeleteKhoa(long id) { 
             return KhoaDAO.DeleteKhoa(id);
         }
-        public static List<KhoaDTO> GetListKhoaById(long id) {
-            return KhoaDAO.GetListKhoaByID(id);       
-        }
         public static List<KhoaDTO> findAll(String value)
         {
             return KhoaDAO.findAll(value);
         }
-        public static List<KhoaDTO> findName(String value) { 
-            return KhoaDAO.findName(value);
-        }
         public static KhoaDTO GetKhoaByName(String name) { 
             return KhoaDAO.GetKhoaByName(name);
+        }
+        public static List<KhoaDTO> GetListBySearch(String search) { 
+            return KhoaDAO.GetListKhoaBySearch(search);
         }
     }
 }

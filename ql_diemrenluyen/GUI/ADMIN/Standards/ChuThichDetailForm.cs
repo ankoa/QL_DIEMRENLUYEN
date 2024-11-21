@@ -291,7 +291,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
                 if (isDeactivated)
                 {
                     MessageBox.Show("Chú Thích Tiêu Chí đã được ngừng hoạt động.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    QLTieuChi.LoadTieuChiDanhGiaList(table, 0);
+                    QLTieuChi.LoadChuThichTieuChiList(table);
 
                     this.Close();
                 }

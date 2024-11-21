@@ -9,13 +9,13 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
         private string currentGiangVienId;
         private DataGridView table;
         private QLGiangVien mainForm;
-        private Dictionary<bool, string> trangThaiMapping = new Dictionary<bool, string>
+        private Dictionary<int, string> trangThaiMapping = new Dictionary<int, string>
         {
-            { true, "Hoạt động" },
-            { false, "Không hoạt động" }
+            { 1, "Hoạt động" },
+            { 0, "Không hoạt động" }
         };
 
-        public GiangVienDetailForm(long id, string name, string email, string chucvu, string khoa, bool trangThai, DataGridView dataGridView, QLGiangVien gvform)
+        public GiangVienDetailForm(long id, string name, string email, string chucvu, string khoa, int trangThai, DataGridView dataGridView, QLGiangVien gvform)
         {
             table = dataGridView;
             mainForm = gvform;
@@ -61,7 +61,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Teacher
                 Email = txtEmail.Text,
                 ChucVu = comboBoxChucVu.SelectedItem?.ToString(),
                 KhoaId = txtKhoa.Text,
+<<<<<<< HEAD
                 //TrangThai = comboBoxTrangThai.SelectedItem?.ToString() == "Hoạt động"
+=======
+                Status = string.Equals(comboBoxTrangThai.SelectedItem?.ToString(), "Hoạt động", StringComparison.OrdinalIgnoreCase) ? 1 : 0
+>>>>>>> 96180158a6659968f76a1ce9afa27bec161df9df
             };
 
             if (GiangVienBUS.UpdateGiangVien(giangVien))

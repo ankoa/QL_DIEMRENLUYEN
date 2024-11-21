@@ -33,11 +33,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                 MessageBox.Show("Dữ liệu nhập không hợp lệ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 rs = false;
             }
-            else if (strResult)
-            {
-                MessageBox.Show("Dữ liệu nhập không hợp lệ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                rs = false;
-            }
+            //else if (strResult)
+            //{
+            //    MessageBox.Show("Dữ liệu nhập không hợp lệ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    rs = false;
+            //}
             return rs;
         }
         private bool isNumber(String value)
