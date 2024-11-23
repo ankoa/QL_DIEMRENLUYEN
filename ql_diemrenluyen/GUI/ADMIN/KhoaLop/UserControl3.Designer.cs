@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             find = new Button();
             textBox1 = new TextBox();
             dataGridHeHocView = new DataGridView();
@@ -39,22 +38,17 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             button1 = new Button();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            label1 = new Label();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            button3 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridHeHocView).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(1132, 40);
-            label1.TabIndex = 0;
-            label1.Text = "Thông tin hệ học";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // find
             // 
@@ -143,8 +137,8 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 1);
-            tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(add_btn, 0, 3);
             tableLayoutPanel1.Controls.Add(dataGridHeHocView, 0, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -182,6 +176,66 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(label1, 0, 0);
+            tableLayoutPanel2.Controls.Add(flowLayoutPanel2, 1, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(1132, 34);
+            tableLayoutPanel2.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Left;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(196, 34);
+            label1.TabIndex = 0;
+            label1.Text = "Thông tin hệ học";
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(button3);
+            flowLayoutPanel2.Controls.Add(button4);
+            flowLayoutPanel2.Dock = DockStyle.Fill;
+            flowLayoutPanel2.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel2.Location = new Point(566, 0);
+            flowLayoutPanel2.Margin = new Padding(0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(566, 34);
+            flowLayoutPanel2.TabIndex = 1;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.Location = new Point(453, 0);
+            button3.Margin = new Padding(3, 0, 3, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(110, 32);
+            button3.TabIndex = 0;
+            button3.Text = "Export";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.Location = new Point(337, 0);
+            button4.Margin = new Padding(3, 0, 3, 3);
+            button4.Name = "button4";
+            button4.Size = new Size(110, 32);
+            button4.TabIndex = 1;
+            button4.Text = "Import";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // UserControl3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -192,15 +246,15 @@
             Load += UserControl3_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridHeHocView).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Label label1;
         private Button find;
         private TextBox textBox1;
         private DataGridView dataGridHeHocView;
@@ -211,5 +265,10 @@
         private DataGridViewButtonColumn more;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button button1;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label label1;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Button button3;
+        private Button button4;
     }
 }
