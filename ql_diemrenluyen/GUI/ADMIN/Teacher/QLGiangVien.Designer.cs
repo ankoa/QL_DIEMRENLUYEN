@@ -1,4 +1,4 @@
-﻿using MySqlX.XDevAPI.Relational;
+using MySqlX.XDevAPI.Relational;
 using System.Windows.Forms;
 
 namespace ql_diemrenluyen.GUI.ADMIN
@@ -30,6 +30,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn(); 
             pnTop = new Panel();
             label3 = new Label();
             label2 = new Label();
@@ -45,9 +47,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnTop.SuspendLayout();
             pnInput.SuspendLayout();
             SuspendLayout();
-            // 
+            
             // panel1
-            // 
             panel1.BackColor = SystemColors.ControlLightLight;
             panel1.Controls.Add(pnContent);
             panel1.Controls.Add(pnTop);
@@ -57,9 +58,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel1.Padding = new Padding(0, 20, 0, 0);
             panel1.Size = new Size(1319, 766);
             panel1.TabIndex = 5;
-            // 
+
             // pnContent
-            // 
             pnContent.AutoScroll = true;
             pnContent.BackColor = SystemColors.ControlLightLight;
             pnContent.Controls.Add(tableGV);
@@ -70,9 +70,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnContent.Padding = new Padding(20, 50, 20, 0);
             pnContent.Size = new Size(1319, 556);
             pnContent.TabIndex = 8;
-            // 
+
             // tableGV
-            // 
             tableGV.AllowDrop = true;
             tableGV.AllowUserToOrderColumns = true;
             tableGV.AllowUserToResizeRows = false;
@@ -87,7 +86,17 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
             tableGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tableGV.ColumnHeadersHeight = 70;
-            tableGV.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
+            tableGV.Columns.AddRange(new DataGridViewColumn[] 
+            { 
+                dataGridViewTextBoxColumn1, 
+                dataGridViewTextBoxColumn2, 
+                dataGridViewTextBoxColumn3, 
+                dataGridViewTextBoxColumn4, 
+                dataGridViewTextBoxColumn5, 
+                dataGridViewTextBoxColumn6,
+                dataGridViewTextBoxColumn7, // Cột Khoa
+                dataGridViewTextBoxColumn8  // Cột Trạng thái
+            });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -114,10 +123,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tableGV.Size = new Size(1279, 506);
             tableGV.TabIndex = 5;
-            tableGV.CellDoubleClick += tableGV_CellDoubleClick;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
+            tableGV.CellDoubleClick += table_CellDoubleClick;
             dataGridViewTextBoxColumn1.HeaderText = "Giảng viên ID";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -130,30 +136,38 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewTextBoxColumn3.HeaderText = "Chuyên ngành";
+            dataGridViewTextBoxColumn3.HeaderText = "Email";
             dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewTextBoxColumn4.HeaderText = "Email";
+            dataGridViewTextBoxColumn4.HeaderText = "Khoa";
             dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewTextBoxColumn5.HeaderText = "Ngày sinh";
+            dataGridViewTextBoxColumn5.HeaderText = "Chức vụ";
             dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewTextBoxColumn6.HeaderText = "Trạng thái";
+            dataGridViewTextBoxColumn6.HeaderText = "Ngày tạo";
             dataGridViewTextBoxColumn6.MinimumWidth = 6;
             dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
+
+            // dataGridViewTextBoxColumn7 - Cột Khoa
+            dataGridViewTextBoxColumn7.HeaderText = "Ngày cập nhật";
+            dataGridViewTextBoxColumn7.MinimumWidth = 7;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+
+            // dataGridViewTextBoxColumn8 - Cột Trạng thái
+            dataGridViewTextBoxColumn8.HeaderText = "Trạng thái";
+            dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // pnTop
-            // 
             pnTop.BackColor = Color.RoyalBlue;
             pnTop.Controls.Add(label3);
             pnTop.Controls.Add(label2);
@@ -199,6 +213,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnInput.Name = "pnInput";
             pnInput.Size = new Size(390, 55);
             pnInput.TabIndex = 1;
+            
             // 
             // txtSearch
             // 
@@ -245,8 +260,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel3.Name = "panel3";
             panel3.Size = new Size(1319, 50);
             panel3.TabIndex = 8;
+            label2.Text = "Trạng thái:";
+
             // 
-            // QLGiangVien
+            // TaiKhoan
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -264,10 +281,13 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnInput.ResumeLayout(false);
             pnInput.PerformLayout();
             ResumeLayout(false);
-        }
 
+        }
+        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flowLayoutPanel3;
         private Panel panel1;
-        private Panel pnContent;
+        private Panel pnInput;
+        private Panel panel2;
         private ReaLTaiizor.Controls.PoisonDataGridView tableGV;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -275,14 +295,23 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private Panel pnTop;
-        private Label label3;
-        private Label label2;
-        private Panel pnInput;
-        private TextBox txtSearch;
-        private Label label1;
-        private ComboBox cbbStatus;
-        private ComboBox cbbRole;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+          
         private Panel panel3;
+        private Panel pnContent;
+
+        private Panel pnTop;
+        private Label label2;
+        private Label label3;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label label1;
+        private TextBox txtSearch;
+        private ComboBox cbbRole;
+        private ComboBox cbbStatus;
+        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel tableLayoutPanel3;
+        private TableLayoutPanel tableLayoutPanel4;
     }
 }
