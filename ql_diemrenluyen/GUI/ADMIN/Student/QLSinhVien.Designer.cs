@@ -45,6 +45,8 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             btnSearch = new Button();
             button2 = new Button();
+            buttonImport = new Button();
+            button3 = new Button();
             btnThemSV = new Button();
             label2 = new Label();
             txtSearch = new TextBox();
@@ -190,7 +192,7 @@
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 250F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 300F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 420F));
             tableLayoutPanel2.Controls.Add(flowLayoutPanel2, 2, 0);
             tableLayoutPanel2.Controls.Add(label2, 0, 0);
             tableLayoutPanel2.Controls.Add(txtSearch, 1, 0);
@@ -207,11 +209,13 @@
             // 
             flowLayoutPanel2.Controls.Add(btnSearch);
             flowLayoutPanel2.Controls.Add(button2);
+            flowLayoutPanel2.Controls.Add(buttonImport);
+            flowLayoutPanel2.Controls.Add(button3);
             flowLayoutPanel2.Controls.Add(btnThemSV);
             flowLayoutPanel2.Dock = DockStyle.Fill;
-            flowLayoutPanel2.Location = new Point(1166, 3);
+            flowLayoutPanel2.Location = new Point(1046, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(294, 48);
+            flowLayoutPanel2.Size = new Size(414, 48);
             flowLayoutPanel2.TabIndex = 7;
             // 
             // btnSearch
@@ -221,7 +225,7 @@
             btnSearch.Location = new Point(0, 2);
             btnSearch.Margin = new Padding(0, 2, 3, 2);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(60, 40);
+            btnSearch.Size = new Size(60, 37);
             btnSearch.TabIndex = 3;
             btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += button1_Click;
@@ -233,20 +237,46 @@
             button2.Location = new Point(66, 2);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(79, 40);
+            button2.Size = new Size(60, 37);
             button2.TabIndex = 4;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
+            // 
+            // buttonImport
+            // 
+            buttonImport.BackColor = SystemColors.Control;
+            buttonImport.Font = new Font("Segoe UI Emoji", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonImport.ForeColor = SystemColors.MenuHighlight;
+            buttonImport.Location = new Point(132, 2);
+            buttonImport.Margin = new Padding(3, 2, 3, 3);
+            buttonImport.Name = "buttonImport";
+            buttonImport.Size = new Size(70, 37);
+            buttonImport.TabIndex = 8;
+            buttonImport.Text = "Import";
+            buttonImport.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = SystemColors.Control;
+            button3.Font = new Font("Segoe UI Emoji", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = SystemColors.MenuHighlight;
+            button3.Location = new Point(208, 2);
+            button3.Margin = new Padding(3, 2, 3, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(70, 37);
+            button3.TabIndex = 9;
+            button3.Text = "Export";
+            button3.UseVisualStyleBackColor = false;
             // 
             // btnThemSV
             // 
             btnThemSV.BackColor = SystemColors.Highlight;
             btnThemSV.Font = new Font("Segoe UI Emoji", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThemSV.ForeColor = SystemColors.ControlLightLight;
-            btnThemSV.Location = new Point(151, 2);
+            btnThemSV.Location = new Point(284, 2);
             btnThemSV.Margin = new Padding(3, 2, 3, 3);
             btnThemSV.Name = "btnThemSV";
-            btnThemSV.Size = new Size(125, 40);
+            btnThemSV.Size = new Size(125, 37);
             btnThemSV.TabIndex = 7;
             btnThemSV.Text = "Thêm Sinh Viên";
             btnThemSV.UseVisualStyleBackColor = false;
@@ -273,7 +303,7 @@
             txtSearch.Margin = new Padding(0, 8, 0, 3);
             txtSearch.MaxLength = 70;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(913, 33);
+            txtSearch.Size = new Size(793, 33);
             txtSearch.TabIndex = 8;
             // 
             // QLSinhVien
@@ -315,5 +345,8 @@
         private FlowLayoutPanel flowLayoutPanel2;
         private Label label1;
         private TextBox txtSearch;
+        private Button button1;
+        private Button button3;
+        private Button buttonImport;
     }
 }
