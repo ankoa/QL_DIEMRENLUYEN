@@ -1,5 +1,6 @@
 ﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
+using ql_diemrenluyen.Util.ExcelImporter;
 
 namespace QLDiemRenLuyen
 {
@@ -17,6 +18,7 @@ namespace QLDiemRenLuyen
         {
             loadSVIntoTable(listStudentSearch);
         }
+
         private void loadSVIntoTable(List<SinhVienDTO> listStudentBUS)
         {
             listStudent = new List<SinhVienDTO>();
@@ -170,6 +172,38 @@ namespace QLDiemRenLuyen
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    try
+                    {
+                        ImportSinhVien importer = new ImportSinhVien();
+                        var importedStudents = importer.ImportFromExcel(filePath);
+
+                        MessageBox.Show($"Import thành công {importedStudents.Count} sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi import dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Chuyển đổi danh sách sang List<Dictionary<string, string>>
+            var dictionaryList = ExcelExporter.ConvertListToDictionaryList(SinhVienBUS.GetAllStudentsToExport());
+
+            //// Xuất ra Excel
+            ExcelExporter.ExportListToExcel(dictionaryList);
         }
     }
 }
