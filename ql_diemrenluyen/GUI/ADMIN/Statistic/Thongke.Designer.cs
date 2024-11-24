@@ -104,7 +104,7 @@
             tableLayoutPanel1.Controls.Add(tableLayoutPanel5, 0, 1);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel6, 0, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Location = new Point(18, 15);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
@@ -112,7 +112,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            tableLayoutPanel1.Size = new Size(992, 541);
+            tableLayoutPanel1.Size = new Size(956, 511);
             tableLayoutPanel1.TabIndex = 0;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -131,7 +131,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(988, 41);
+            tableLayoutPanel2.Size = new Size(952, 41);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -147,14 +147,14 @@
             tableLayoutPanel4.Controls.Add(cbbLop, 3, 0);
             tableLayoutPanel4.Controls.Add(flowLayoutPanel1, 0, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(387, 2);
+            tableLayoutPanel4.Location = new Point(374, 2);
             tableLayoutPanel4.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.Padding = new Padding(0, 4, 0, 0);
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
-            tableLayoutPanel4.Size = new Size(598, 37);
+            tableLayoutPanel4.Size = new Size(575, 37);
             tableLayoutPanel4.TabIndex = 2;
             tableLayoutPanel4.Paint += tableLayoutPanel4_Paint;
             // 
@@ -167,7 +167,7 @@
             cbbHocKi.Location = new Point(3, 6);
             cbbHocKi.Margin = new Padding(3, 2, 3, 2);
             cbbHocKi.Name = "cbbHocKi";
-            cbbHocKi.Size = new Size(113, 23);
+            cbbHocKi.Size = new Size(109, 23);
             cbbHocKi.TabIndex = 0;
             cbbHocKi.SelectedIndexChanged += cbbHocKi_SelectedIndexChanged;
             // 
@@ -177,10 +177,10 @@
             cbbNamHoc.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbNamHoc.FormattingEnabled = true;
             cbbNamHoc.Items.AddRange(new object[] { "Chọn năm học", "2021", "2022", "2023", "2024", "2025" });
-            cbbNamHoc.Location = new Point(122, 6);
+            cbbNamHoc.Location = new Point(118, 6);
             cbbNamHoc.Margin = new Padding(3, 2, 3, 2);
             cbbNamHoc.Name = "cbbNamHoc";
-            cbbNamHoc.Size = new Size(113, 23);
+            cbbNamHoc.Size = new Size(109, 23);
             cbbNamHoc.TabIndex = 1;
             cbbNamHoc.SelectedIndexChanged += cbbNamHoc_SelectedIndexChanged;
             // 
@@ -190,10 +190,10 @@
             cbbKhoa.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbKhoa.FormattingEnabled = true;
             cbbKhoa.Items.AddRange(new object[] { "Chọn khoa" });
-            cbbKhoa.Location = new Point(241, 6);
+            cbbKhoa.Location = new Point(233, 6);
             cbbKhoa.Margin = new Padding(3, 2, 3, 2);
             cbbKhoa.Name = "cbbKhoa";
-            cbbKhoa.Size = new Size(203, 23);
+            cbbKhoa.Size = new Size(195, 23);
             cbbKhoa.TabIndex = 2;
             cbbKhoa.SelectedIndexChanged += cbbKhoa_SelectedIndexChanged;
             // 
@@ -203,10 +203,10 @@
             cbbLop.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbLop.FormattingEnabled = true;
             cbbLop.Items.AddRange(new object[] { "Chọn lớp" });
-            cbbLop.Location = new Point(450, 6);
+            cbbLop.Location = new Point(434, 6);
             cbbLop.Margin = new Padding(3, 2, 3, 2);
             cbbLop.Name = "cbbLop";
-            cbbLop.Size = new Size(145, 23);
+            cbbLop.Size = new Size(138, 23);
             cbbLop.TabIndex = 3;
             cbbLop.SelectedIndexChanged += cbbLop_SelectedIndexChanged;
             // 
@@ -233,7 +233,7 @@
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(339, 37);
+            tableLayoutPanel3.Size = new Size(327, 37);
             tableLayoutPanel3.TabIndex = 1;
             // 
             // button2
@@ -244,10 +244,10 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 12F);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(226, 2);
+            button2.Location = new Point(218, 2);
             button2.Margin = new Padding(0, 2, 0, 2);
             button2.Name = "button2";
-            button2.Size = new Size(113, 33);
+            button2.Size = new Size(109, 33);
             button2.TabIndex = 7;
             button2.Text = "Lớp";
             button2.UseVisualStyleBackColor = true;
@@ -261,10 +261,10 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 12F);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(113, 2);
+            button3.Location = new Point(109, 2);
             button3.Margin = new Padding(0, 2, 0, 2);
             button3.Name = "button3";
-            button3.Size = new Size(113, 33);
+            button3.Size = new Size(109, 33);
             button3.TabIndex = 4;
             button3.Text = "Khoa";
             button3.UseVisualStyleBackColor = true;
@@ -281,7 +281,7 @@
             btnTongQuan.Location = new Point(3, 2);
             btnTongQuan.Margin = new Padding(3, 2, 0, 2);
             btnTongQuan.Name = "btnTongQuan";
-            btnTongQuan.Size = new Size(110, 33);
+            btnTongQuan.Size = new Size(106, 33);
             btnTongQuan.TabIndex = 0;
             btnTongQuan.Text = "Tổng quan";
             btnTongQuan.UseVisualStyleBackColor = true;
@@ -304,7 +304,7 @@
             tableLayoutPanel5.Padding = new Padding(0, 10, 0, 10);
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(986, 88);
+            tableLayoutPanel5.Size = new Size(950, 88);
             tableLayoutPanel5.TabIndex = 1;
             // 
             // panel1
@@ -317,7 +317,7 @@
             panel1.Location = new Point(5, 12);
             panel1.Margin = new Padding(5, 2, 5, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(318, 64);
+            panel1.Size = new Size(306, 64);
             panel1.TabIndex = 0;
             // 
             // label5
@@ -360,10 +360,10 @@
             panel2.Controls.Add(label6);
             panel2.Controls.Add(lblDrlTB);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(333, 12);
+            panel2.Location = new Point(321, 12);
             panel2.Margin = new Padding(5, 2, 5, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(318, 64);
+            panel2.Size = new Size(306, 64);
             panel2.TabIndex = 1;
             // 
             // pictureBox2
@@ -407,10 +407,10 @@
             panel3.Controls.Add(lblKhongDat);
             panel3.Controls.Add(pictureBox3);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(661, 13);
+            panel3.Location = new Point(637, 13);
             panel3.Margin = new Padding(5, 3, 5, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(320, 62);
+            panel3.Size = new Size(308, 62);
             panel3.TabIndex = 2;
             // 
             // label7
@@ -459,7 +459,7 @@
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(986, 400);
+            tableLayoutPanel6.Size = new Size(950, 370);
             tableLayoutPanel6.TabIndex = 2;
             // 
             // tableLayoutPanel7
@@ -476,7 +476,7 @@
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.Size = new Size(684, 396);
+            tableLayoutPanel7.Size = new Size(659, 366);
             tableLayoutPanel7.TabIndex = 0;
             tableLayoutPanel7.Paint += tableLayoutPanel7_Paint;
             // 
@@ -488,12 +488,12 @@
             tableLayoutPanel10.Controls.Add(label3, 0, 0);
             tableLayoutPanel10.Controls.Add(tableLayoutPanel11, 0, 1);
             tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(3, 201);
+            tableLayoutPanel10.Location = new Point(3, 186);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 2;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Size = new Size(678, 192);
+            tableLayoutPanel10.Size = new Size(653, 177);
             tableLayoutPanel10.TabIndex = 3;
             // 
             // label3
@@ -504,7 +504,7 @@
             label3.ForeColor = Color.White;
             label3.Location = new Point(3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(672, 34);
+            label3.Size = new Size(647, 34);
             label3.TabIndex = 0;
             label3.Text = "Danh sách điểm rèn luyện";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -521,7 +521,7 @@
             tableLayoutPanel11.Name = "tableLayoutPanel11";
             tableLayoutPanel11.RowCount = 1;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel11.Size = new Size(672, 152);
+            tableLayoutPanel11.Size = new Size(647, 137);
             tableLayoutPanel11.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -535,7 +535,7 @@
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(3, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(125, 146);
+            flowLayoutPanel2.Size = new Size(125, 131);
             flowLayoutPanel2.TabIndex = 0;
             // 
             // cbbXepLoai
@@ -617,6 +617,7 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeight = 29;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.CornflowerBlue;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -635,7 +636,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 35;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(535, 144);
+            dataGridView1.Size = new Size(510, 129);
             dataGridView1.TabIndex = 1;
             // 
             // tableLayoutPanel9
@@ -651,7 +652,7 @@
             tableLayoutPanel9.RowCount = 2;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(678, 192);
+            tableLayoutPanel9.Size = new Size(653, 177);
             tableLayoutPanel9.TabIndex = 2;
             // 
             // panel5
@@ -661,7 +662,7 @@
             panel5.Margin = new Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(10);
-            panel5.Size = new Size(672, 153);
+            panel5.Size = new Size(647, 138);
             panel5.TabIndex = 1;
             panel5.SizeChanged += Panel5_SizeChanged;
             // 
@@ -673,7 +674,7 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(672, 35);
+            label2.Size = new Size(647, 35);
             label2.TabIndex = 0;
             label2.Text = "Thống kê điểm rèn luyện trung bình";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -687,13 +688,13 @@
             tableLayoutPanel8.Controls.Add(panel4, 0, 1);
             tableLayoutPanel8.Controls.Add(label1, 0, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(693, 4);
+            tableLayoutPanel8.Location = new Point(668, 4);
             tableLayoutPanel8.Margin = new Padding(3, 4, 3, 3);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 2;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Size = new Size(290, 393);
+            tableLayoutPanel8.Size = new Size(279, 363);
             tableLayoutPanel8.TabIndex = 1;
             // 
             // panel4
@@ -703,7 +704,7 @@
             panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(10);
-            panel4.Size = new Size(284, 354);
+            panel4.Size = new Size(273, 324);
             panel4.TabIndex = 1;
             // 
             // label1
@@ -714,7 +715,7 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(284, 35);
+            label1.Size = new Size(273, 35);
             label1.TabIndex = 0;
             label1.Text = "Thống kê phân loại";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -723,10 +724,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(992, 541);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Thongke";
+            Padding = new Padding(18, 15, 18, 15);
             Text = "Thongke";
             ResizeEnd += resize;
             Resize += resize;

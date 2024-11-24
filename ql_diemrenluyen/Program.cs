@@ -5,6 +5,7 @@ namespace ql_diemrenluyen
     {
         public static string nguoidung_id = "1";
         public static int role = 1;
+        public static string type = "";
         //public static string nguoidung_id = "1";
         //public static string role = "Sinh Viên";
         /// <summary>

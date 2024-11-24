@@ -113,6 +113,28 @@ namespace ql_diemrenluyen.BUS
             return (null, null);
         }
 
+        public static (object account, string accountType) findAccountById(long id)
+        {
+            if (id == null)
+            {
+                return (null, null);
+            }
+
+            SinhVienDTO sv = SinhVienDAO.GetStudentById(id);
+            if (sv != null)
+            {
+                return (sv, "Sinh viên");
+            }
+
+            GiangVienDTO gv = GiangVienDAO.GetGiangVienById(id);
+            if (gv != null)
+            {
+                return (gv, "Giảng viên");
+            }
+
+            return (null, null);
+        }
+
         public static bool ChangePassword(long userId, string newPassword)
         {
             return AccountDAO.ChangePassword(userId, newPassword);

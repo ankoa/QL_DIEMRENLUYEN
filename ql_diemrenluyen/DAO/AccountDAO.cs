@@ -60,17 +60,49 @@ namespace ql_diemrenluyen.DAO
         //    return tieuChiList;
         //}
 
+        //public static bool AddAccount(AccountDTO account)
+        //{
+        //    try
+        //    {
+        //        string sql = "INSERT INTO account (vaitro, password, remember_token, created_at, updated_at, status) " +
+        //                     "VALUES (@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
+
+        //        string hashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(account.Password, 13); // Hash password
+
+        //        using (var cmd = new MySqlCommand(sql))
+        //        {
+        //            cmd.Parameters.AddWithValue("@role", account.Role); // role là int
+        //            cmd.Parameters.AddWithValue("@password", hashedPassword);
+        //            cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken ?? (object)DBNull.Value); // Handle null
+        //            cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt ?? DateTime.Now); // Set default if null
+        //            cmd.Parameters.AddWithValue("@updatedAt", account.UpdatedAt ?? DateTime.Now); // Set default if null
+        //            cmd.Parameters.AddWithValue("@status", account.Status);
+
+        //            return DBConnection.ExecuteNonQuery(cmd) > 0; // Return true if success
+        //        }
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        return false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //    }
+        //}
+
         public static bool AddAccount(AccountDTO account)
         {
             try
             {
-                string sql = "INSERT INTO account (vaitro, password, remember_token, created_at, updated_at, status) " +
-                             "VALUES (@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
+                string sql = "INSERT INTO account (id,vaitro, password, remember_token, created_at, updated_at, status) " +
+                             "VALUES (@id,@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
 
                 string hashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(account.Password, 13); // Hash password
 
                 using (var cmd = new MySqlCommand(sql))
                 {
+                    cmd.Parameters.AddWithValue("@id", account.Id);
                     cmd.Parameters.AddWithValue("@role", account.Role); // role là int
                     cmd.Parameters.AddWithValue("@password", hashedPassword);
                     cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken ?? (object)DBNull.Value); // Handle null
