@@ -364,7 +364,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     string filePath = openFileDialog.FileName;
                     try
                     {
-                        ImportSinhVien importer = new ImportSinhVien();
+                        ImportLop importer = new ImportLop();
                         var importedStudents = importer.ImportFromExcel(filePath);
 
                         MessageBox.Show($"Import thành công {importedStudents.Count} sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

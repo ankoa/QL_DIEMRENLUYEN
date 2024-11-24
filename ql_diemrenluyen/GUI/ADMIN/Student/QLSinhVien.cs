@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms;
-using Org.BouncyCastle.Utilities;
-using ql_diemrenluyen.BUS;
-using ql_diemrenluyen.DAO;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
 
 namespace QLDiemRenLuyen
@@ -58,8 +54,8 @@ namespace QLDiemRenLuyen
         //autoresize each column
 
 
-    
-    private void label1_Click(object sender, EventArgs e)
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -98,7 +94,7 @@ namespace QLDiemRenLuyen
                 {
                     MessageBox.Show("Xóa không thành công ");
                 }
-              
+
 
             }
 

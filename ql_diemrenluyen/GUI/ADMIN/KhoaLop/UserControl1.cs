@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySqlX.XDevAPI.Relational;
-using ql_diemrenluyen.BUS;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using ql_diemrenluyen.Properties;
 
 namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
 {
@@ -126,8 +115,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                 e.Handled = true;
             }
         }
-        public void Setlist(List<KhoaDTO> list) {
-            if(list != null)
+        public void Setlist(List<KhoaDTO> list)
+        {
+            if (list != null)
             {
                 loadlist(list);
             }
@@ -137,12 +127,22 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                 list = KhoaBUS.GetAllKhoa();
                 loadlist(list);
             }
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             new KhoaSearch(this).Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            // Chuyển đổi danh sách sang List<Dictionary<string, string>>
+            var dictionaryList = ExcelExporter.ConvertListToDictionaryList(KhoaBUS.GetAllKhoa());
+
+            // Xuất ra Excel
+            ExcelExporter.ExportListToExcel(dictionaryList);
         }
     }
 }
