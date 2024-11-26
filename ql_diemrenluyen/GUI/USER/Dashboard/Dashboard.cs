@@ -100,7 +100,7 @@ namespace ql_diemrenluyen.GUI.USER
                     lbMaSV.Text = giangvien.Id.ToString();
                     lbEmail.Text = giangvien.Email;
                     lbHovaTen.Text = giangvien.Name;
-                    lbNgaySinh.Text = giangvien.ngaySinh.ToString();
+                    lbNgaySinh.Text = giangvien.NgaySinh.ToString();
                     //if (giangvien. == 1)
                     //    lbGioiTinh.Text = "Nam";
                     //else
