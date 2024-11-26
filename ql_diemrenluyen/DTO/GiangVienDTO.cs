@@ -14,14 +14,14 @@ namespace ql_diemrenluyen.DTO
         public DateTime? NgaySinh { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        public string ChucVu { get; set; }
+        public int ChucVu { get; set; }
         public string KhoaId { get; set; }
         public int GioiTinh { get; set; }
         public int Status { get; set; }
 
         public GiangVienDTO() { }
 
-        public GiangVienDTO(long id, string name, string email, DateTime? ngaySinh, DateTime? createdAt, DateTime? updatedAt, string chucVu, string khoaId, int gioiTinh, int status)
+        public GiangVienDTO(long id, string name, string email, DateTime? ngaySinh, DateTime? createdAt, DateTime? updatedAt, int chucVu, string khoaId, int gioiTinh, int status)
         {
             this.Id = id;
             this.Name = name;
