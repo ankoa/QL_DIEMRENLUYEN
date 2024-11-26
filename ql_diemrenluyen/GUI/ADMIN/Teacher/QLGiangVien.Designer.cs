@@ -247,7 +247,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             cbbRole.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbbRole.FormattingEnabled = true;
-            cbbRole.Items.AddRange(new object[] { "Giảng viên", "Cố vấn học tập", "Quản lý khoa", "Quản lý trường" });
+            cbbRole.Items.AddRange(new object[] { "Giảng viên", "Cố vấn"});
             cbbRole.Location = new Point(1005, 63);
             cbbRole.Name = "cbbRole";
             cbbRole.Size = new Size(213, 36);
