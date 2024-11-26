@@ -21,8 +21,8 @@ namespace ql_diemrenluyen.DAO
                     Email = Convert.ToString(row[2]),
                     CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
                     UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                    ChucVu = Convert.ToString(row[5]),
-                    KhoaId = Convert.ToString(row[6]),
+                    ChucVu = Convert.ToInt32(row[5]),
+                    KhoaId = Convert.ToInt32(row[6]),
                     Status = Convert.ToInt32(row[7])
 
                 };
@@ -58,7 +58,7 @@ namespace ql_diemrenluyen.DAO
                 long giangVienId = GetLastInsertedId();
 
 
-                string password = giangVien.ngaySinh.Value.ToString("yyyyMMdd");
+                string password = giangVien.NgaySinh.Value.ToString("yyyyMMdd");
 
                 return AddAccount(giangVienId, password);
             }
@@ -185,8 +185,8 @@ namespace ql_diemrenluyen.DAO
                     Email = Convert.ToString(row[2]),
                     CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
                     UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                    ChucVu = Convert.ToString(row[5]),
-                    KhoaId = Convert.ToString(row[6]),
+                    ChucVu = Convert.ToInt32(row[5]),
+                    KhoaId = Convert.ToInt32(row[6]),
                     Status = Convert.ToInt32(row[7])
                 };
 
@@ -216,8 +216,8 @@ namespace ql_diemrenluyen.DAO
                     Email = Convert.ToString(row[2]),
                     CreatedAt = row[4] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
                     UpdatedAt = row[5] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                    ChucVu = Convert.ToString(row[5]),
-                    KhoaId = Convert.ToString(row[6]),
+                    ChucVu = Convert.ToInt32(row[5]),
+                    KhoaId = Convert.ToInt32(row[6]),
                     Status = Convert.ToInt32(row[7])
                 };
 
@@ -246,8 +246,8 @@ namespace ql_diemrenluyen.DAO
                     Email = Convert.ToString(row[2]),
                     CreatedAt = row[3] != DBNull.Value ? Convert.ToDateTime(row[3]) : (DateTime?)null,
                     UpdatedAt = row[4] != DBNull.Value ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                    ChucVu = Convert.ToString(row[5]),
-                    KhoaId = Convert.ToString(row[6]),
+                    ChucVu = Convert.ToInt32(row[5]),
+                    KhoaId = Convert.ToInt32(row[6]),
                     Status = Convert.ToInt32(row[7])
                 };
 
@@ -267,8 +267,8 @@ namespace ql_diemrenluyen.DAO
                 Email = Convert.ToString(row[2]),
                 CreatedAt = row[4] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
                 UpdatedAt = row[5] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                ChucVu = Convert.ToString(row[5]),
-                KhoaId = Convert.ToString(row[6]),
+                ChucVu = Convert.ToInt32(row[5]),
+                KhoaId = Convert.ToInt32(row[6]),
                 Status = Convert.ToInt32(row[7])
             };
         }
