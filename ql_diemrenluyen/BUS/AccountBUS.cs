@@ -1,4 +1,4 @@
-﻿using ql_diemrenluyen.DAO;
+using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.BUS
@@ -40,7 +40,10 @@ namespace ql_diemrenluyen.BUS
         {
             return AccountDAO.AddAccountSV(account);
         }
-
+        public static bool AddAccountGV(AccountDTO account)
+        {
+            return AccountDAO.AddAccountGV(account);
+        }
         // Cập nhật thông tin tài khoản
         public static bool UpdateAccount(AccountDTO account)
         {
