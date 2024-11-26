@@ -268,7 +268,24 @@ namespace ql_diemrenluyen.BUS
             }
 
         }
+        public static int GetIdVoiHocKyVaName(int hocKiId, string name)
+        {
+            if (hocKiId <= 0 || string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentException("Dữ liệu không hợp lệ!");
+            }
 
+            var dotChamDiems = DotChamDiemDAO.GetAllDotChamDiem();
+            foreach (var dot in dotChamDiems)
+            {
+                if (dot.HocKiId == hocKiId && dot.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+                {
+                    return dot.Id;
+                }
+            }
+
+            throw new Exception("Không tìm thấy đợt chấm điểm với học kỳ đã chọn.");
+        }
 
 
 

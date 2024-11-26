@@ -368,6 +368,23 @@ AND dcd.status=1
             return dotChamDiems;
         }
 
+        public static int? GetIdVoiHocKyVaName(int hocKiId, string name)
+        {
+            string sql = "SELECT Id FROM dotchamdiem WHERE hocki_id = @hocKiId AND name = @name LIMIT 1";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@hocKiId", hocKiId);
+            cmd.Parameters.AddWithValue("@name", name);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Nếu không tìm thấy kết quả, trả về null
+            if (result.Count == 0)
+                return null;
+
+            // Trả về Id (giả định Id luôn ở cột đầu tiên)
+            return Convert.ToInt32(result[0][0]);
+        }
 
 
     }

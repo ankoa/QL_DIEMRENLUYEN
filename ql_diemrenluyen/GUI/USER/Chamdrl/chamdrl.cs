@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
@@ -21,10 +22,13 @@ namespace ql_diemrenluyen.GUI.ADMIN
         List<LopDTO> lopList = LopBUS.getAllLop();
         List<HocKyDTO> hockyList = HocKyBUS.GetAllHocKy();
         List<SinhVienDTO> sinhvienList = SinhVienBUS.GetAllStudents();
+        List<TieuChiDanhGiaDTO> tieuChiList = TieuChiDanhGiaBUS.XuatAllTieuChiDanhGia();
         private Dictionary<string, long> sttToId = new Dictionary<string, long>();
         //private System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
         private System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+        long nguoiDungId = long.Parse(Program.nguoidung_id);
 
+        string vaiTro = Program.role;
 
         public chamdrl()
         {
@@ -70,9 +74,36 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridView1.Columns["STT"].ReadOnly = true;
             dataGridView1.Columns["Nội dung tiêu chí đánh giá"].ReadOnly = true;
             dataGridView1.Columns["Điểm tối đa"].ReadOnly = true;
+            
+            // Mặc định tất cả các cột đều không chỉnh sửa được
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.ReadOnly = true;
+            }
+
+            // Xác định vai trò và cho phép chỉnh sửa cột phù hợp
+            switch (Program.role) // role = "Sinh Viên", "Cố vấn", "Khoa", "Trường"
+            {
+                case "Sinh Viên":
+                    dataGridView1.Columns["Điểm SV tự đánh giá"].ReadOnly = false;
+                    dataGridView1.Columns["Ghi Chú"].ReadOnly = false;
+                    break;
+                case "Cố Vấn":
+                    dataGridView1.Columns["Điểm CVHT"].ReadOnly = false;
+                    break;
+                case "Khoa":
+                    dataGridView1.Columns["Điểm khoa"].ReadOnly = false;
+                    break;
+                case "Trường":
+                    dataGridView1.Columns["Điểm trường"].ReadOnly = false;
+                    break;
+                default:
+                    MessageBox.Show("Vai trò không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
             dataGridView1.EditingControlShowing += dataGridView_EditingControlShowing;
-            dataGridView1.CellMouseEnter += dgvTieuChi_CellMouseEnter;
-            dataGridView1.CellMouseLeave += dgvTieuChi_CellMouseLeave;
+            dataGridView1.CellClick += dgvTieuChi_CellClick;
+            // dataGridView1.CellMouseLeave += dgvTieuChi_CellMouseLeave;
             dataGridView1.ShowCellToolTips = true;
             //toolTip.AutoPopDelay = 5000;  // Thời gian hiển thị tối đa
             //toolTip.InitialDelay = 200;  // Thời gian chờ trước khi hiển thị
@@ -142,6 +173,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             //HocKyDTO lastHocKy = hockyList.Last();
             //lbhocky.Text = "Học kỳ " + lastHocKy.Name + " năm học " + lastHocKy.namhoc + " - " + lastHocKy.namhoc + 1;
             LoadHocKyToComboBox();
+
             //cbHocKy.SelectedIndexChanged += (s, e) =>
             //{
             //    if (cbHocKy.SelectedValue != null)
@@ -151,7 +183,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             //    }
             //};
 
-
+            IfRoleIsSinhvien(vaiTro, nguoiDungId);
 
 
 
@@ -168,7 +200,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataTable.Columns.Add("Điểm khoa", typeof(string));
             dataTable.Columns.Add("Điểm trường", typeof(string));
             dataTable.Columns.Add("Ghi chú", typeof(string));
-
+            
 
             // Tạo Dictionary để theo dõi STT cha - con
             Dictionary<long, int> childCountByParent = new Dictionary<long, int>();
@@ -193,7 +225,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     int maxDiem = chuThichList.Any() ? chuThichList.Max(ct => ct.Diem) : 0;
                     diemMax = maxDiem > 0 ? maxDiem : 0; // Nếu cao nhất là âm, đặt = 0
                 }
-
+                
                 row["STT"] = stt;
                 row["Nội dung tiêu chí đánh giá"] = noiDung;
                 row["Điểm tối đa"] = diemMax;
@@ -210,41 +242,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
 
-        //private string GetSTT(TieuChiDanhGiaDTO tieuChi, Dictionary<long, int> childCountByParent, Dictionary<long, string> parentToRoman)
-        //{
-        //    // Nếu là mục cha lớn nhất (không có ParentId)
-        //    if (tieuChi.ParentId == 0)
-        //    {
-        //        // Đánh số la mã cho mục cha
-        //        int romanIndex = parentToRoman.Count + 1;
-        //        string roman = ConvertToRoman(romanIndex);
-        //        parentToRoman[tieuChi.Id] = roman;  // Ghi lại số la mã của mục cha
-        //        return roman;  // Trả về số la mã của mục cha
-        //    }
-        //    else  // Mục con của mục cha hoặc con của mục con
-        //    {
-        //        // Kiểm tra nếu mục cha đã có trong childCountByParent, nếu chưa thì khởi tạo
-        //        if (!childCountByParent.ContainsKey(tieuChi.ParentId))
-        //        {
-        //            childCountByParent[tieuChi.ParentId] = 0; // Khởi tạo số lượng con của mục cha
-        //        }
-
-        //        // Nếu mục cha là số la mã
-        //        if (parentToRoman.ContainsKey(tieuChi.ParentId))
-        //        {
-        //            // Nếu cha là la mã, mục con sẽ là số tự nhiên
-        //            childCountByParent[tieuChi.ParentId]++;
-        //            return childCountByParent[tieuChi.ParentId].ToString();
-        //        }
-        //        else
-        //        {
-        //            // Nếu cha là số tự nhiên, mục con sẽ có số thập phân (cha.số con)
-        //            string parentStt = childCountByParent[tieuChi.ParentId].ToString(); // Số tự nhiên của cha
-        //            childCountByParent[tieuChi.ParentId]++;
-        //            return parentStt + "." + childCountByParent[tieuChi.ParentId].ToString();  // Đánh số thập phân
-        //        }
-        //    }
-        //}
+        
         private string GetSTT(long id, long? parentId, Dictionary<long, int> childCountByParent, Dictionary<long, string> parentToRoman)
         {
             if (parentId == null || parentId == 0)
@@ -481,7 +479,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         //        }
         //    }
         //}
-        private void dgvTieuChi_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        private void dgvTieuChi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra nếu là cột "Nội dung tiêu chí đánh giá" và có dấu "?"
             if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["Nội dung tiêu chí đánh giá"].Index)
@@ -505,9 +503,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
                          var notes = GetNotesByTieuChiId(originalId);
                         string noteText = string.Join("\n", notes);
-                        toolTip.Show(noteText, dataGridView1,
-                        dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location,
-                        50000); // Hiển thị 5 giây
+                        //toolTip.Show(noteText, dataGridView1,
+                        //dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location,
+                        //50000); // Hiển thị 5 giây
                         MessageBox.Show(noteText, "Ghi chú", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -557,9 +555,126 @@ namespace ql_diemrenluyen.GUI.ADMIN
         //{
         //    toolTip.Hide(dataGridView1);
         //}
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            Cham(vaiTro,nguoiDungId);
+        }
+        private void IfRoleIsSinhvien(string vaiTro, long nguoiDungId)
+        {
+            if (vaiTro == "Sinh Viên")
+            {
+                SinhVienDTO sinhvien = SinhVienBUS.GetStudentById(nguoiDungId);
+                lbTen.Text = sinhvien.Name;
+                lbMssv.Text = sinhvien.Id.ToString();
+                cbKhoa.Enabled = false;
+                cbLop.Enabled = false;
+                cbSinhvien.Enabled = false;
+            }
+        }
+        private void Cham(string vaiTro, long nguoiDungId)
+        {
+            if (lbTen.Text == "" || lbMssv.Text == "")
+            {
+                MessageBox.Show("Chưa chọn sinh viên");
+                return;
+            }
+            else if (cbHocKy.SelectedIndex == -1)
+            {
+                MessageBox.Show("Chưa chọn học kì");
+                return;
+            }
+            try
+            {
+                int hockyid = Convert.ToInt32(cbHocKy.SelectedValue);
 
+                int iddotcham = DotChamDiemBUS.GetIdVoiHocKyVaName(hockyid, vaiTro);
+                long idthongtindotcham = (long)ThongTinDotChamBUS.GetThongTinDotChamId(Convert.ToInt64(iddotcham), vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId);
+                int totalScore = 0;
+                // Kiểm tra sự tồn tại của thongTinDotChamDiemId
+                if (ChiTietDotChamBUS.IsChiTietDotChamExist(idthongtindotcham))
+                {
+                    MessageBox.Show("Không thể chấm lại!", "Thông báo");
+                    return;
+                }
+                // Xác định cột điểm cần lấy dựa trên vai trò
+                string diemColumn = vaiTro switch
+                {
+                    "Sinh Viên" => "Điểm SV tự đánh giá",
+                    "Cố Vấn" => "Điểm CVHT",
+                    "Khoa" => "Điểm khoa",
+                    "Trường" => "Điểm trường",
+                    _ => throw new Exception("Vai trò không hợp lệ!" + vaiTro)
+                };
+
+                // Lấy danh sách Id và điểm từ DataGridView hoặc DataTable
+                //Dictionary<string, long> sttToId = GetSttToIdMapping(); // Map STT -> Id
+                List<ChiTietDotChamDTO> chiTietList = new List<ChiTietDotChamDTO>();
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    // Bỏ qua hàng trống
+                    if (row.IsNewRow) continue;
+
+                    string stt = row.Cells["STT"].Value?.ToString();
+                    string diemStr = row.Cells[diemColumn].Value?.ToString();
+
+                    if (!string.IsNullOrEmpty(stt) && !string.IsNullOrEmpty(diemStr))
+                    {
+                        // Chuyển STT sang Id
+                        long id = GetOriginalId(stt, sttToId);
+
+                        // Chuyển điểm sang số nguyên
+                        if (int.TryParse(diemStr, out int diem))
+                        {
+                            // Thêm vào danh sách kết quả
+                            totalScore += diem; // Cộng tổng điểm
+                            chiTietList.Add(new ChiTietDotChamDTO
+                            {
+                                TieuchiDanhgiaId = id,
+                                Diem = diem,
+                                ThongTinDotChamDiemId = idthongtindotcham,
+                                CreatedAt = DateTime.Now,
+                                UpdatedAt = DateTime.Now,
+                                Status = 1 // Trạng thái mặc định
+                            });
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Điểm không hợp lệ ở dòng có STT: {stt}", "Thông báo");
+                        }
+                    }
+                }
+
+                // Lưu dữ liệu vào cơ sở dữ liệu
+                foreach (var chiTiet in chiTietList)
+                {
+                    ChiTietDotChamBUS.AddChiTietDotCham(chiTiet);
+                }
+                // Tạo đánh giá từ tổng điểm
+                string danhGia = totalScore switch
+                {
+                    >= 90 => "Xuất sắc",
+                    >= 80 => "Tốt",
+                    >= 65 => "Khá",
+                    >= 50 => "Trung bình",
+                    >= 35 => "Yếu",
+                    _ => "Kém"
+                };
+
+                // Lưu kết quả đợt chấm
+                var ketQuaDotCham = new KetQuaDotChamDTO(0, idthongtindotcham, totalScore, danhGia, DateTime.Now, 1);
+
+                //KetQuaDotChamBUS.AddKetQuaDotCham(ketQuaDotCham);
+
+                ThongTinDotChamBUS.UpdateThongTinDotCham(iddotcham, vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId);
+
+                MessageBox.Show("Chấm điểm thành công!", "Thông báo");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi");
+            }
         }
 
 

@@ -18,7 +18,7 @@ namespace ql_diemrenluyen.DAO
                 {
                     GiangVienDTO giangVien = new GiangVienDTO
                     {
-                        Id = Convert.ToString(row[0]), 
+                        Id = row[0] != null ? Convert.ToInt64(row[0]) : 0,
                         Name = Convert.ToString(row[1]), 
                         Email = Convert.ToString(row[2]), 
                         ngaySinh = row[3] != null ? Convert.ToDateTime(row[7]) : (DateTime?)null,
@@ -183,7 +183,7 @@ namespace ql_diemrenluyen.DAO
             {
                 GiangVienDTO giangVien = new GiangVienDTO
                 {
-                    Id = Convert.ToString(row[0]), 
+                    Id = row[0] != null ? Convert.ToInt64(row[0]) : 0,
                     Name = Convert.ToString(row[1]), 
                     Email = Convert.ToString(row[2]), 
                     ngaySinh = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null, 
@@ -214,7 +214,7 @@ namespace ql_diemrenluyen.DAO
             {
                 GiangVienDTO giangVien = new GiangVienDTO
                 {
-                    Id = Convert.ToString(row[0]),
+                    Id = row[0] != null ? Convert.ToInt64(row[0]) : 0,
                     Name = Convert.ToString(row[1]),
                     Email = Convert.ToString(row[2]),
                     ngaySinh = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
@@ -236,7 +236,7 @@ namespace ql_diemrenluyen.DAO
         {
             return new GiangVienDTO
             {
-                Id = Convert.ToString(row[0]),
+                Id = row[0] != null ? Convert.ToInt64(row[0]) : 0,
                 Name = Convert.ToString(row[1]),
                 Email = Convert.ToString(row[2]),
                 ngaySinh = row[3] != null ? Convert.ToDateTime(row[7]) : (DateTime?)null,
