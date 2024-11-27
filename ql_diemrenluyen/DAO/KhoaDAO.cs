@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -11,7 +9,7 @@ namespace ql_diemrenluyen.DAO
         public static List<KhoaDTO> GetAllKhoa()
         {
             List<KhoaDTO> khoaList = new List<KhoaDTO>();
-            string sql = "SELECT * FROM khoa"; 
+            string sql = "SELECT * FROM khoa";
 
             List<List<object>> result = DBConnection.ExecuteReader(sql);
 
@@ -57,12 +55,14 @@ namespace ql_diemrenluyen.DAO
 
             return null;
         }
-        public static KhoaDTO GetKhoaByName(string name) {
+        public static KhoaDTO GetKhoaByName(string name)
+        {
             String sql = "select * from khoa where khoa.tenkhoa like @name";
             var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@name", "%"+name+"%");
+            cmd.Parameters.AddWithValue("@name", "%" + name + "%");
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
-            if (result.Count > 0) { 
+            if (result.Count > 0)
+            {
                 List<object> row = result[0];
                 KhoaDTO khoa = new KhoaDTO
                 {
@@ -78,9 +78,9 @@ namespace ql_diemrenluyen.DAO
         }
         public static List<KhoaDTO> findAll(String value)
         {
-            List<KhoaDTO> list= new List<KhoaDTO>();
-            String sql = "SELECT * FROM khoa where khoa.id LIKE @id or khoa.tenkhoa LIKE @name or khoa.created_at LIKE @create or khoa.updated_at LIKE @update";
-            var cmd= new MySqlCommand(sql);
+            List<KhoaDTO> list = new List<KhoaDTO>();
+            String sql = "SELECT * FROM khoa where khoa.id LIKE @id or khoa.tenkhoa LIKE @name";
+            var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", "%" + value + "%");
             cmd.Parameters.AddWithValue("@name", "%" + value + "%");
             cmd.Parameters.AddWithValue("@create", "%" + value + "%");
@@ -104,43 +104,17 @@ namespace ql_diemrenluyen.DAO
             }
             return null;
         }
-        public static List<KhoaDTO> findName(String value)
+
+        public static List<KhoaDTO> GetListKhoaBySearch(String value)
         {
             List<KhoaDTO> list = new List<KhoaDTO>();
-            String sql = "SELECT * FROM khoa where khoa.tenkhoa LIKE @name";
+            string sql = "select * from khoa where" + value; // Câu lệnh SQL
             var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@name", "%" + value + "%");
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
             if (result.Count > 0)
             {
                 foreach (var row in result)
                 {
-                    KhoaDTO khoa = new KhoaDTO
-                    {
-                        Id = Convert.ToInt64(row[0]),
-                        TenKhoa = Convert.ToString(row[1]),
-                        CreatedAt = row[2] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[2]) : null,
-                        UpdatedAt = row[3] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[3]) : null,
-                        status = Convert.ToInt16(row[4])
-                    };
-                    list.Add(khoa);
-                }
-                return list;
-            }
-            return null;
-        }
-        public static List<KhoaDTO> GetListKhoaByID(long id)
-        {
-            List<KhoaDTO> list = new List<KhoaDTO>();
-            string sql = "select * from khoa where khoa.id LIKE @id"; // Câu lệnh SQL
-            var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@id", "%"+id+"%");
-
-            List<List<object>> result = DBConnection.ExecuteReader(cmd);
-
-            if (result.Count > 0)
-            {
-                foreach (var row in result) {
                     KhoaDTO khoa = new KhoaDTO
                     {
                         Id = Convert.ToInt64(row[0]),

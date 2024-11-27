@@ -50,9 +50,21 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.5.0, )"
+            },
             "Google.Cloud.Vision.V1": {
               "target": "Package",
               "version": "[3.7.0, )"
+            },
+            "LiveCharts.WinForms": {
+              "target": "Package",
+              "version": "[0.9.7.1, )"
             },
             "MySql.Data": {
               "target": "Package",

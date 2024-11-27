@@ -1,12 +1,8 @@
-﻿using ql_diemrenluyen.GUI.ADMIN.KhoaLop;
+﻿using ql_diemrenluyen.GUI.ADMIN.Evidence;
+using ql_diemrenluyen.GUI.ADMIN.KhoaLop;
+using ql_diemrenluyen.GUI.ADMIN.Statistic;
 using ql_diemrenluyen.GUI.ADMIN.Student;
 using ql_diemrenluyen.GUI.ADMIN.TieuChi;
-using ql_diemrenluyen.GUI.ADMIN.Account;
-using System;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-
 using ql_diemrenluyen.Helper;
 using System.Runtime.InteropServices;
 
@@ -21,6 +17,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         QLTieuChi form_TieuChi;
         QLGiangVien form_GiangVien;
         QuanLyKhoaLop form_QuanLyKhoaLop;
+        QLBangChung form_QLBangChung;
+        Thongke form_ThongKe;
         private PictureBox loading;
 
         [DllImport("user32.dll")]
@@ -145,7 +143,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
-            sidebar.Width = 99;
+            //sidebar.Width = 99;
+            sidebar.Width = 300;
             this.MouseDown += Form_MouseDown;
             btnHomepage.BackColor = Color.LightBlue;
             if (form_home == null)
@@ -164,7 +163,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 form_home.Activate();
             }
 
-            //sidebar.Width = 300;
+
 
         }
 
@@ -261,8 +260,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void HomePage_FormClosed(object sender, EventArgs e)
         {
-           btnHomepage.BackColor = Color.RoyalBlue;
-            form_home = null; 
+            btnHomepage.BackColor = Color.RoyalBlue;
+            form_home = null;
         }
 
         private void btnUser_Click(object sender, EventArgs e) // Nút quản lý người dùng
@@ -456,6 +455,57 @@ namespace ql_diemrenluyen.GUI.ADMIN
             this.Dispose();
         }
 
+        private void btnThongke_Click(object sender, EventArgs e)
+        {
+            ClearMdiForms();
+            btnThongke.BackColor = Color.LightBlue;
 
+            if (form_ThongKe == null)
+            {
+                form_ThongKe = new Thongke();
+                form_ThongKe.FormClosed += ThongKe_FormClosed; // Gán sự kiện FormClosed cho form_QuanLyKhoaLop
+                form_ThongKe.FormBorderStyle = FormBorderStyle.None;
+                form_ThongKe.ControlBox = false;
+                form_ThongKe.MdiParent = this;
+                form_ThongKe.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_ThongKe.Show();
+            }
+            else
+            {
+                form_ThongKe.Activate();
+            }
+        }
+        private void ThongKe_FormClosed(object sender, EventArgs e)
+        {
+            btnThongke.BackColor = Color.RoyalBlue;
+
+            form_ThongKe = null; // Đặt form_DotCham về null khi form bị đóng
+        }
+        private void btnBangchung_Click(object sender, EventArgs e)
+        {
+            ClearMdiForms();
+            btnBangchung.BackColor = Color.LightBlue;
+
+            if (form_QLBangChung == null)
+            {
+                form_QLBangChung = new QLBangChung();
+                form_QLBangChung.FormClosed += QLBangChung_FormClosed; // Gán sự kiện FormClosed cho form_QuanLyKhoaLop
+                form_QLBangChung.FormBorderStyle = FormBorderStyle.None;
+                form_QLBangChung.ControlBox = false;
+                form_QLBangChung.MdiParent = this;
+                form_QLBangChung.Dock = DockStyle.Fill; // Đặt DockStyle.Fill để tự động chiếm toàn bộ không gian MDI
+                form_QLBangChung.Show();
+            }
+            else
+            {
+                form_QLBangChung.Activate();
+            }
+        }
+        private void QLBangChung_FormClosed(object sender, EventArgs e)
+        {
+            btnBangchung.BackColor = Color.RoyalBlue;
+
+            form_QLBangChung = null; // Đặt form_DotCham về null khi form bị đóng
+        }
     }
 }

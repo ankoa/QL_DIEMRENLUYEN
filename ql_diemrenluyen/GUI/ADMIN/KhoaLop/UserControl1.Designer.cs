@@ -31,173 +31,204 @@
             dataGridKhoaView = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
-            created_day = new DataGridViewTextBoxColumn();
-            updated_day = new DataGridViewTextBoxColumn();
             more = new DataGridViewButtonColumn();
-            label1 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
             button1 = new Button();
-            panel1 = new Panel();
+            label1 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            button2 = new Button();
             find = new Button();
             textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridKhoaView).BeginInit();
-            panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridKhoaView
             // 
+            dataGridKhoaView.AllowUserToAddRows = false;
+            dataGridKhoaView.AllowUserToDeleteRows = false;
+            dataGridKhoaView.AllowUserToResizeColumns = false;
+            dataGridKhoaView.AllowUserToResizeRows = false;
+            dataGridKhoaView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridKhoaView.BackgroundColor = Color.White;
+            dataGridKhoaView.BorderStyle = BorderStyle.None;
             dataGridKhoaView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridKhoaView.Columns.AddRange(new DataGridViewColumn[] { id, name, created_day, updated_day, more });
-            dataGridKhoaView.Location = new Point(0, 114);
-            dataGridKhoaView.Margin = new Padding(3, 4, 3, 4);
+            dataGridKhoaView.Columns.AddRange(new DataGridViewColumn[] { id, name, more });
+            dataGridKhoaView.Dock = DockStyle.Fill;
+            dataGridKhoaView.Location = new Point(3, 75);
+            dataGridKhoaView.MultiSelect = false;
             dataGridKhoaView.Name = "dataGridKhoaView";
+            dataGridKhoaView.ReadOnly = true;
+            dataGridKhoaView.RowHeadersVisible = false;
             dataGridKhoaView.RowHeadersWidth = 62;
-            dataGridKhoaView.Size = new Size(898, 414);
+            dataGridKhoaView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridKhoaView.Size = new Size(960, 411);
             dataGridKhoaView.TabIndex = 0;
             dataGridKhoaView.CellContentClick += dataGridView1_CellContentClick_1;
             dataGridKhoaView.CellPainting += dataGridKhoaView_CellPainting;
             // 
             // id
             // 
+            id.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             id.HeaderText = "Mã khoa";
             id.MinimumWidth = 8;
             id.Name = "id";
             id.ReadOnly = true;
-            id.Width = 120;
             // 
             // name
             // 
+            name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             name.HeaderText = "Tên khoa";
             name.MinimumWidth = 8;
             name.Name = "name";
             name.ReadOnly = true;
-            name.Width = 214;
-            // 
-            // created_day
-            // 
-            created_day.HeaderText = "Ngày tạo";
-            created_day.MinimumWidth = 8;
-            created_day.Name = "created_day";
-            created_day.ReadOnly = true;
-            created_day.Width = 180;
-            // 
-            // updated_day
-            // 
-            updated_day.HeaderText = "Ngày cập nhật";
-            updated_day.MinimumWidth = 8;
-            updated_day.Name = "updated_day";
-            updated_day.ReadOnly = true;
-            updated_day.Width = 180;
             // 
             // more
             // 
+            more.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             more.HeaderText = "Xem chi tiết";
             more.MinimumWidth = 8;
             more.Name = "more";
             more.ReadOnly = true;
             more.Text = "Chi tiết";
-            more.Width = 140;
             // 
-            // label1
+            // tableLayoutPanel1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(187, 32);
-            label1.TabIndex = 1;
-            label1.Text = "Thông tin khoa";
-            label1.Click += label1_Click;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(dataGridKhoaView, 0, 2);
+            tableLayoutPanel1.Controls.Add(button1, 0, 3);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6F));
+            tableLayoutPanel1.Size = new Size(966, 522);
+            tableLayoutPanel1.TabIndex = 6;
             // 
             // button1
             // 
-            button1.BackColor = Color.White;
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(733, 536);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.BackColor = Color.RoyalBlue;
+            button1.Dock = DockStyle.Right;
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(788, 492);
             button1.Name = "button1";
-            button1.Size = new Size(165, 36);
-            button1.TabIndex = 2;
+            button1.Size = new Size(175, 27);
+            button1.TabIndex = 4;
             button1.Text = "Thêm khoa";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // panel1
+            // label1
             // 
-            panel1.Controls.Add(find);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(comboBox1);
-            panel1.Location = new Point(0, 73);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(898, 34);
-            panel1.TabIndex = 3;
-            panel1.Paint += panel1_Paint;
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(960, 36);
+            label1.TabIndex = 5;
+            label1.Text = "Thông tin khoa";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(button4);
+            flowLayoutPanel1.Controls.Add(button2);
+            flowLayoutPanel1.Controls.Add(find);
+            flowLayoutPanel1.Controls.Add(textBox1);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new Point(3, 38);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(960, 32);
+            flowLayoutPanel1.TabIndex = 6;
+            // 
+            // button2
+            // 
+            button2.Image = Properties.Resources.setting__1_;
+            button2.Location = new Point(780, 2);
+            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Name = "button2";
+            button2.Size = new Size(96, 24);
+            button2.TabIndex = 3;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // find
             // 
             find.BackColor = Color.White;
-
-            //find.Image = Properties.Resources.search__2_;
-
-            find.Location = new Point(786, 1);
+            find.BackgroundImage = Properties.Resources.search__3_;
+            find.BackgroundImageLayout = ImageLayout.Center;
+            find.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            find.Location = new Point(678, 2);
+            find.Margin = new Padding(3, 2, 3, 2);
             find.Name = "find";
-            find.Size = new Size(112, 32);
-            find.TabIndex = 3;
+            find.Size = new Size(96, 24);
+            find.TabIndex = 0;
             find.UseVisualStyleBackColor = false;
             find.Click += find_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(343, 3);
+            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(409, 2);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(311, 27);
+            textBox1.Size = new Size(263, 26);
             textBox1.TabIndex = 2;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
-            // comboBox1
+            // button4
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Tất cả", "Mã khoa", "Tên khoa" });
-            comboBox1.Location = new Point(660, 3);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(120, 28);
-            comboBox1.TabIndex = 1;
-            comboBox1.Tag = "";
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            button4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.Location = new Point(882, 3);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 5;
+            button4.Text = "Export";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // UserControl1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel1);
-            Controls.Add(button1);
-            Controls.Add(label1);
-            Controls.Add(dataGridKhoaView);
-            Margin = new Padding(3, 4, 3, 4);
+            Controls.Add(tableLayoutPanel1);
             Name = "UserControl1";
-            Size = new Size(898, 572);
+            Size = new Size(966, 522);
             Load += UserControl1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridKhoaView).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridKhoaView;
-        private Label label1;
+        private TableLayoutPanel tableLayoutPanel1;
         private Button button1;
-        private Panel panel1;
-        private TextBox textBox1;
-        private ComboBox comboBox1;
+        private Label label1;
+        private FlowLayoutPanel flowLayoutPanel1;
         private Button find;
+        private TextBox textBox1;
+        private Button button2;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn created_day;
-        private DataGridViewTextBoxColumn updated_day;
         private DataGridViewButtonColumn more;
+        private Button button4;
     }
 }

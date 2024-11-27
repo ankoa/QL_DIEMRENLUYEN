@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using QLDiemRenLuyen;
+﻿using QLDiemRenLuyen;
 
 namespace ql_diemrenluyen.GUI.ADMIN.Student
 {
@@ -19,8 +10,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.Student
             QLSinhVien qLSinhVien = new QLSinhVien();
             qLSinhVien.Dock = DockStyle.Fill;
             this.Controls.Add(qLSinhVien);
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.ControlBox = false;
             //this.Dock = DockStyle.Fill;
         }
 

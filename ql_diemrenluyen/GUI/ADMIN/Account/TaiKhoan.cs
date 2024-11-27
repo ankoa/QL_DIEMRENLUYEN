@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using ql_diemrenluyen.DAO;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.GUI.ADMIN.Account;
+using ql_diemrenluyen.Util.ExcelImporter;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
@@ -29,8 +26,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void TaiKhoan_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill; // Đảm bảo chiếm toàn bộ không gian
-            this.ControlBox= false;
-            this.FormBorderStyle = FormBorderStyle.None;    
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
             LoadAccountList();
         }
 
@@ -346,6 +343,38 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Chuyển đổi danh sách sang List<Dictionary<string, string>>
+            var dictionaryList = ExcelExporter.ConvertListToDictionaryList(LopBUS.GetLopHocToExports());
+
+            // Xuất ra Excel
+            ExcelExporter.ExportListToExcel(dictionaryList);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    try
+                    {
+                        ImportLop importer = new ImportLop();
+                        var importedStudents = importer.ImportFromExcel(filePath);
+
+                        MessageBox.Show($"Import thành công {importedStudents.Count} sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi import dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

@@ -165,5 +165,28 @@ namespace ql_diemrenluyen.DAO
             }
             return null;
         }
+        public static List<HeHocDTO> GetListBySearch(String value)
+        {
+            List<HeHocDTO> list = new List<HeHocDTO>();
+            String sql = "SELECT * FROM hehoc where"+value;
+            var cmd = new MySqlCommand(sql);
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+            if (result.Count > 0)
+            {
+                foreach (var row in result)
+                {
+                    HeHocDTO heHoc = new HeHocDTO
+                    {
+                        Id = Convert.ToInt32(row[0]),
+                        Name = Convert.ToString(row[1]),
+                        status = Convert.ToInt16(row[2])
+                    };
+                    list.Add(heHoc);
+                }
+                return list;
+
+            }
+            return null;
+        }
     }
 }

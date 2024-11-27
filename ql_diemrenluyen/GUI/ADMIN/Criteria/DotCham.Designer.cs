@@ -32,7 +32,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
         // Thêm cột cho DataGridView trong InitializeComponent
         private void InitializeComponent()
         {
-
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
@@ -45,6 +44,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pnContent = new Panel();
+            panel5 = new Panel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            btnAdd = new Button();
             tableTK = new ReaLTaiizor.Controls.PoisonDataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
@@ -75,9 +77,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel3 = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
-            btnAdd = new Button();
             panel1.SuspendLayout();
             pnContent.SuspendLayout();
+            panel5.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tableTK).BeginInit();
             pnTop.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -107,14 +110,55 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             pnContent.AutoScroll = true;
             pnContent.BackColor = SystemColors.ControlLightLight;
-            pnContent.Controls.Add(tableTK);
+            pnContent.Controls.Add(panel5);
             pnContent.Dock = DockStyle.Fill;
             pnContent.Location = new Point(0, 239);
             pnContent.Margin = new Padding(0);
             pnContent.Name = "pnContent";
-            pnContent.Padding = new Padding(0, 22, 0, 0);
             pnContent.Size = new Size(1154, 321);
             pnContent.TabIndex = 8;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(tableLayoutPanel2);
+            panel5.Dock = DockStyle.Fill;
+            panel5.Location = new Point(0, 0);
+            panel5.Margin = new Padding(3, 2, 3, 2);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(1154, 321);
+            panel5.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(btnAdd, 0, 1);
+            tableLayoutPanel2.Controls.Add(tableTK, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel2.Size = new Size(1154, 321);
+            tableLayoutPanel2.TabIndex = 35;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = SystemColors.Highlight;
+            btnAdd.Cursor = Cursors.Hand;
+            btnAdd.Dock = DockStyle.Fill;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Cascadia Code", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.Location = new Point(3, 274);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(1148, 44);
+            btnAdd.TabIndex = 32;
+            btnAdd.Text = "Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // tableTK
             // 
@@ -151,8 +195,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableTK.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tableTK.GridColor = Color.FromArgb(255, 255, 255);
             tableTK.HighLightPercentage = 1F;
-            tableTK.Location = new Point(0, 22);
-            tableTK.Margin = new Padding(0, 0, 0, 22);
+            tableTK.Location = new Point(0, 20);
+            tableTK.Margin = new Padding(0, 20, 0, 0);
             tableTK.MultiSelect = false;
             tableTK.Name = "tableTK";
             tableTK.ReadOnly = true;
@@ -169,10 +213,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableTK.RowHeadersWidth = 51;
             tableTK.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tableTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableTK.Size = new Size(1154, 299);
+            tableTK.Size = new Size(1154, 251);
             tableTK.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
-            tableTK.TabIndex = 5;
-            tableTK.CellContentClick += tableTK_CellContentClick;
+            tableTK.TabIndex = 34;
             tableTK.CellDoubleClick += tableTK_CellDoubleClick_1;
             // 
             // dataGridViewTextBoxColumn1
@@ -419,7 +462,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.ActiveCaptionText;
+            label7.ForeColor = Color.White;
             label7.Location = new Point(34, 2);
             label7.Margin = new Padding(52, 0, 3, 0);
             label7.Name = "label7";
@@ -462,7 +505,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.ForeColor = Color.White;
             label1.Location = new Point(34, 2);
             label1.Margin = new Padding(52, 0, 3, 0);
             label1.Name = "label1";
@@ -508,22 +551,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             timer2.Tick += timer2_Tick;
             // 
-            // btnAdd
-            // 
-            btnAdd.BackColor = SystemColors.Highlight;
-            btnAdd.Cursor = Cursors.Hand;
-            btnAdd.FlatAppearance.BorderSize = 0;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Cascadia Code", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(558, 591);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(85, 46);
-            btnAdd.TabIndex = 32;
-            btnAdd.Text = "Thêm";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
-            // 
             // DotCham
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -534,7 +561,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1242, 650);
             ControlBox = false;
-            Controls.Add(btnAdd);
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -544,8 +570,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tài Khoản";
             Load += DotCham_Load;
+            Resize += resize;
             panel1.ResumeLayout(false);
             pnContent.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tableTK).EndInit();
             pnTop.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
@@ -576,7 +605,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private Panel panel1;
         private Panel pnContent;
-        private ReaLTaiizor.Controls.PoisonDataGridView tableTK;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private Panel panel3;
         private Panel pnTop;
@@ -588,12 +616,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private Label label4;
         private ComboBox cbbNguoiCham;
         private TableLayoutPanel tableLayoutPanel1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label label5;
         private Label label6;
@@ -605,6 +627,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private PictureBox pictureBox2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
+        private Panel panel5;
         private Button btnAdd;
+        private ReaLTaiizor.Controls.PoisonDataGridView tableTK;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private TableLayoutPanel tableLayoutPanel2;
     }
 }

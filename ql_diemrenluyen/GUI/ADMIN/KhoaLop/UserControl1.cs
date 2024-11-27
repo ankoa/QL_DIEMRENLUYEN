@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySqlX.XDevAPI.Relational;
-using ql_diemrenluyen.BUS;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using ql_diemrenluyen.Properties;
 
 namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
 {
@@ -19,10 +8,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
         public UserControl1()
         {
             InitializeComponent();
-            if (comboBox1.Items.Count > 0)
-            {
-                comboBox1.SelectedIndex = 0;
-            }
+            List<KhoaDTO> list = KhoaBUS.GetAllKhoa();
+            loadlist(list);
 
         }
         public void loadlist(List<KhoaDTO> list)
@@ -36,8 +23,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                     int rowIndex = dataGridKhoaView.Rows.Add();
                     dataGridKhoaView.Rows[rowIndex].Cells[0].Value = item.Id;
                     dataGridKhoaView.Rows[rowIndex].Cells[1].Value = item.TenKhoa;
-                    dataGridKhoaView.Rows[rowIndex].Cells[2].Value = item.CreatedAt;
-                    dataGridKhoaView.Rows[rowIndex].Cells[3].Value = item.UpdatedAt;
                 }
             }
         }
@@ -47,21 +32,17 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             if (e.ColumnIndex == dataGridKhoaView.Columns["more"].Index && e.RowIndex >= 0)
             {
                 var selectColumn = dataGridKhoaView.Rows[e.RowIndex];
-                KhoaDTO item = new KhoaDTO();
-                if(selectColumn.Cells["id"].Value != null)
+                KhoaDTO item;
+                if (selectColumn.Cells["id"].Value != null)
                 {
-                    item.Id = long.Parse(selectColumn.Cells["id"].Value.ToString());
-                    item.TenKhoa = selectColumn.Cells["name"].Value.ToString();
-                    item.CreatedAt = DateTime.Parse(selectColumn.Cells["created_day"].Value.ToString());
-                    item.UpdatedAt = DateTime.Parse(selectColumn.Cells["updated_day"].Value.ToString());
-                    item.status = 1;
+                    item = KhoaBUS.GetKhoaByID(long.Parse(selectColumn.Cells["id"].Value.ToString()));
                     using (var update_Khoa = new UpdateKhoa(item))
                     {
                         if (update_Khoa.ShowDialog() == DialogResult.OK)
                         {
                             List<KhoaDTO> list = KhoaBUS.GetAllKhoa();
                             loadlist(list);
-                   
+
                         }
                     }
                 }
@@ -74,8 +55,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
-            List<KhoaDTO> list = KhoaBUS.GetAllKhoa();
-            loadlist(list);
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -96,22 +76,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
         private void find_Click(object sender, EventArgs e)
         {
 
@@ -123,48 +87,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             }
             else
             {
-                if (comboBox1.SelectedIndex == 0)
+                list = KhoaBUS.findAll(textBox1.Text);
+                if (list == null)
                 {
-                    list = KhoaBUS.findAll(textBox1.Text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Giá trị không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = KhoaBUS.GetAllKhoa();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                    }
-
+                    MessageBox.Show("Giá trị không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    list = KhoaBUS.GetAllKhoa();
+                    loadlist(list);
                 }
-                else if (comboBox1.SelectedIndex == 1)
+                else
                 {
-                    list = KhoaBUS.GetListKhoaById(long.Parse(textBox1.Text));
-                    if (list == null)
-                    {
-                        MessageBox.Show("Mã khoa không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = KhoaBUS.GetAllKhoa();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                    }
-                }
-                else if (comboBox1.SelectedIndex == 2)
-                {
-                    list = KhoaBUS.findName(textBox1.Text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Tên không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = KhoaBUS.GetAllKhoa();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                    }
+                    loadlist(list);
                 }
             }
         }
@@ -175,12 +107,42 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             if (e.ColumnIndex == dataGridKhoaView.Columns["more"].Index && e.RowIndex >= 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                Image img = Image.FromFile("../../../Resources/search(2)1.png");
+
+                Image img = Image.FromFile("../../../Resources/edit.png");
                 int x = e.CellBounds.Left + (e.CellBounds.Width - img.Width) / 2;
                 int y = e.CellBounds.Top + (e.CellBounds.Height - img.Height) / 2;
                 e.Graphics.DrawImage(img, new Rectangle(x, y, img.Width, img.Height));
                 e.Handled = true;
             }
+        }
+        public void Setlist(List<KhoaDTO> list)
+        {
+            if (list != null)
+            {
+                loadlist(list);
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                list = KhoaBUS.GetAllKhoa();
+                loadlist(list);
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new KhoaSearch(this).Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            // Chuyển đổi danh sách sang List<Dictionary<string, string>>
+            var dictionaryList = ExcelExporter.ConvertListToDictionaryList(KhoaBUS.GetAllKhoa());
+
+            // Xuất ra Excel
+            ExcelExporter.ExportListToExcel(dictionaryList);
         }
     }
 }

@@ -1,8 +1,5 @@
 ﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace ql_diemrenluyen.GUI.ADMIN.Account
 {
@@ -206,6 +203,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         {
 
             btnDelete.Enabled = status == "Hoạt động"; // Nếu tài khoản không phải "Hoạt động", cho phép xóa
+        }
+
+        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

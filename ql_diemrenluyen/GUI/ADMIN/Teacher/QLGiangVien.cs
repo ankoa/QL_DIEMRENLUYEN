@@ -1,70 +1,71 @@
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-using ql_diemrenluyen.DAO;
-using ql_diemrenluyen.DTO;
 using ql_diemrenluyen.BUS;
-using ql_diemrenluyen.GUI.ADMIN.Teacher;
+using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
     public partial class QLGiangVien : Form
-{
-    public QLGiangVien()
     {
-        InitializeComponent();
-        this.ControlBox = false;
-        this.FormBorderStyle = FormBorderStyle.None;
-        this.MaximizeBox = false;
-        LoadGiangVienList();
-    }
-
-    private void QLGiangVien_Load(object sender, EventArgs e)
-    {
-        this.WindowState = FormWindowState.Maximized;
-        this.Dock = DockStyle.Fill;
-        LoadGiangVienList();
-    }
-
-    private void LoadGiangVienList()
-    {
-        try
+        public QLGiangVien()
         {
-            List<GiangVienDTO> giangViens = GiangVienBUS.GetAllGiangVien();
-            tableGV.Rows.Clear();
+            InitializeComponent();
+            InitializeUI();
+        }
 
-            foreach (var giangVien in giangViens)
+        // Hàm khởi tạo giao diện
+        private void InitializeUI()
+        {
+            this.Dock = DockStyle.Fill; // Đặt Dock để chiếm toàn bộ không gian
+            cbbRole.SelectedItem = "Mặc định";
+            cbbStatus.SelectedItem = "Mặc định";
+            LoadGiangVienList(tableGV);
+
+            if (this.Width < 1200)
             {
-                tableGV.Rows.Add(
-                    giangVien.Id,
-                    giangVien.Name,
-                    giangVien.Email,
-                    giangVien.ChucVu,
-                    giangVien.KhoaId,
-                    "Xem",
-                    "Xóa"
-                );
+                pnContent.Padding = new Padding(50);
+                pnContent.Dock = DockStyle.Fill;
             }
 
-            ApplyTableStyles(tableGV);
+            InitializePlaceholder(txtSearch, "Nhập từ khóa tìm kiếm...");
         }
-        catch (Exception ex)
+
+        // Hàm tải danh sách giảng viên
+        public static void LoadGiangVienList(DataGridView table)
         {
-            MessageBox.Show("Lỗi khi tải danh sách giảng viên: " + ex.Message);
+            try
+            {
+                List<GiangVienDTO> giangViens = GiangVienBUS.GetAllGiangVien();
+                PopulateGiangVienTable(giangViens, table);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách giảng viên: " + ex.Message);
+            }
         }
-    }
 
-    public void ReloadData()
-    {
-        LoadGiangVienList();
-    }
-
-    public static void LoadGiangVienList(DataGridView table)
-    {
-        try
+        // Hàm tìm kiếm giảng viên
+        private void SearchGiangVienList()
         {
-            List<GiangVienDTO> giangViens = GiangVienBUS.GetAllGiangVien();
+            try
+            {
+                string search = txtSearch.Text.Trim();
+                if (search.Equals("Nhập từ khóa tìm kiếm..."))
+                    search = null;
+
+                List<GiangVienDTO> giangViens = string.IsNullOrEmpty(search)
+                    ? GiangVienBUS.GetAllGiangVien()
+                    : GiangVienBUS.SearchGiangVien(search);
+
+                PopulateGiangVienTable(giangViens, tableGV);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
+            }
+        }
+
+        // Hàm tái sử dụng để cập nhật bảng giảng viên
+        private static void PopulateGiangVienTable(List<GiangVienDTO> giangViens, DataGridView table)
+        {
             table.Rows.Clear();
 
             foreach (var giangVien in giangViens)
@@ -75,134 +76,100 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     giangVien.Email,
                     giangVien.ChucVu,
                     giangVien.KhoaId,
-                    giangVien.CreatedAt,
-                    giangVien.UpdatedAt,
-                    "Xem",
-                    "Xóa"
+                    giangVien.CreatedAt?.ToString("dd/MM/yyyy") ?? "",
+                    giangVien.UpdatedAt?.ToString("dd/MM/yyyy") ?? "",
+                    giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
                 );
             }
 
             ApplyTableStyles(table);
         }
-        catch (Exception ex)
+
+        // Hàm áp dụng phong cách cho bảng giảng viên
+        private static void ApplyTableStyles(DataGridView table)
         {
-            MessageBox.Show("Lỗi khi tải danh sách giảng viên: " + ex.Message);
+            table.RowTemplate.Height = 40;
+            table.BorderStyle = BorderStyle.Fixed3D;
+            table.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+
+            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle
+            {
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                BackColor = Color.RoyalBlue,
+                ForeColor = Color.White
+            };
+
+            table.ColumnHeadersDefaultCellStyle = headerStyle;
+            table.EnableHeadersVisualStyles = false;
+            table.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+            table.DefaultCellStyle.SelectionForeColor = Color.Black;
         }
-    }
 
-    private static void ApplyTableStyles(DataGridView table)
-    {
-        table.RowTemplate.Height = 40;
-        table.BorderStyle = BorderStyle.Fixed3D;
-        table.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-
-        DataGridViewCellStyle headerStyle = new DataGridViewCellStyle
+        // Hàm khởi tạo placeholder cho TextBox
+        private void InitializePlaceholder(TextBox textBox, string placeholder)
         {
-            Font = new Font("Segoe UI", 14, FontStyle.Bold),
-            BackColor = Color.RoyalBlue,
-            ForeColor = Color.White
-        };
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray;
 
-        table.ColumnHeadersDefaultCellStyle = headerStyle;
-        table.EnableHeadersVisualStyles = false;
-        table.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
-        table.DefaultCellStyle.SelectionForeColor = Color.Black;
-    }
-
-    private void SearchGiangVienList()
-    {
-        try
-        {
-            string search = txtSearch.Text.Trim();
-
-            if (string.IsNullOrEmpty(search))
+            textBox.Enter += (sender, e) =>
             {
-                LoadGiangVienList(tableGV);
-                return;
-            }
+                if (textBox.Text == placeholder)
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                }
+            };
 
-            List<GiangVienDTO> giangViens;
-
-            if (long.TryParse(search, out long id))
+            textBox.Leave += (sender, e) =>
             {
-                var giangVien = GiangVienBUS.GetGiangVienById(id);
-                giangViens = giangVien != null ? new List<GiangVienDTO> { giangVien } : new List<GiangVienDTO>();
-            }
-            else
-            {
-                giangViens = GiangVienBUS.SearchGiangVien(search);
-            }
-
-            tableGV.Rows.Clear();
-
-            foreach (var giangVien in giangViens)
-            {
-                tableGV.Rows.Add(
-                    giangVien.Id,
-                    giangVien.Name,
-                    giangVien.Email,
-                    giangVien.ChucVu,
-                    giangVien.KhoaId,
-                    giangVien.CreatedAt,
-                    giangVien.UpdatedAt,
-                    "Xem",
-                    "Xóa"
-                );
-            }
-
-            ApplyTableStyles(tableGV);
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholder;
+                    textBox.ForeColor = Color.Gray;
+                }
+            };
         }
-        catch (Exception ex)
+
+        // Sự kiện thay đổi văn bản tìm kiếm
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("Lỗi khi tìm kiếm giảng viên: " + ex.Message);
+            SearchGiangVienList();
         }
-    }
 
-    private void txtSearch_TextChanged(object sender, EventArgs e)
-    {
-        SearchGiangVienList();
-    }
-
-    private void tableGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-    {
-        if (e.RowIndex >= 0)
+        // Sự kiện nút Clear (Xóa tìm kiếm)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            var selectedRow = tableGV.Rows[e.RowIndex];
-            string idString = selectedRow.Cells[0].Value?.ToString() ?? "";
+            // Reset các trường tìm kiếm
+            txtSearch.Text = "Nhập từ khóa tìm kiếm...";
+            txtSearch.ForeColor = Color.Gray;
 
-            if (!long.TryParse(idString, out long id))
+            // Reload danh sách giảng viên mặc định
+            LoadGiangVienList(tableGV);
+        }
+
+        // Sự kiện double click vào một hàng trong bảng giảng viên
+        private void table_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
             {
-                MessageBox.Show("ID không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                var selectedRow = tableGV.Rows[e.RowIndex];
 
-            string name = selectedRow.Cells[1].Value?.ToString() ?? "";
-            string email = selectedRow.Cells[2].Value?.ToString() ?? "";
-            string chucVu = selectedRow.Cells[3].Value?.ToString() ?? "";
-            string khoa = selectedRow.Cells[4].Value?.ToString() ?? "";
+                long id = (long)selectedRow.Cells["IdColumn"].Value;
+                string name = selectedRow.Cells["NameColumn"].Value?.ToString() ?? "";
+                string email = selectedRow.Cells["EmailColumn"].Value?.ToString() ?? "";
+                string chucVu = selectedRow.Cells["ChucVuColumn"].Value?.ToString() ?? "";
+                string khoaId = selectedRow.Cells["KhoaColumn"].Value?.ToString() ?? "";
+                string status = selectedRow.Cells["StatusColumn"].Value?.ToString() ?? "";
 
-            GiangVienDTO giangVien = GiangVienBUS.GetGiangVienById(id);
-
-            if (giangVien != null)
-            {
-                GiangVienDetailForm detailsForm = new GiangVienDetailForm(
-                    id,
-                    giangVien.Name,
-                    giangVien.Email,
-                    giangVien.ChucVu,
-                    giangVien.KhoaId,
-                    giangVien.TrangThai,
-                    tableGV,
-                    this
-                );
-
-                detailsForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy giảng viên.");
+                // Chuyển sang form chi tiết giảng viên (khi cần sử dụng)
+                // GiangVienDetailForm detailsForm = new GiangVienDetailForm(id, name, email, chucVu, khoaId, table, this);
+                // detailsForm.Show();
             }
         }
-     }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

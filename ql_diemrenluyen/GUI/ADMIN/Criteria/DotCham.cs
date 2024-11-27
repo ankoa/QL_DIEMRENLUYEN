@@ -491,5 +491,16 @@ namespace ql_diemrenluyen.GUI.ADMIN
             detailsForm.ShowDialog();
 
         }
+
+        private void resize(object sender, EventArgs e)
+        {
+            int leftMargin = (tableLayoutPanel1.ClientSize.Width - label2.Width - label3.Width - label4.Width - cbbHocKi.Width - cbbNamHoc.Width - cbbNguoiCham.Width - 59 * 2) / 2;
+            int leftMarginReset = (tableLayoutPanel1.ClientSize.Width - panel2.Width * 2 - 59) / 2;
+            int leftMarginBtnAdd = (this.ClientSize.Width - btnAdd.Width * 2) / 2;
+            btnAdd.Margin = new Padding(leftMarginBtnAdd, 3, 0, 0);
+            label5.Margin = new Padding(leftMargin, 3, 0, 0);
+            label2.Margin = new Padding(leftMargin, 3, 0, 0);
+            panel2.Margin = new Padding(leftMarginReset, 3, 0, 0);
+        }
     }
 }

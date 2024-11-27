@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using ql_diemrenluyen.BUS;
 
 namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
 {
@@ -18,9 +9,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
         public UserControl2()
         {
             InitializeComponent();
-            if (comboBox1.Items.Count > 0) {
-                comboBox1.SelectedIndex = 0;
-            }
         }
         public void loadlist(List<LopDTO> list)
         {
@@ -35,10 +23,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                     dataGridLopView.Rows[rowIndex].Cells[1].Value = item.TenLop;
                     dataGridLopView.Rows[rowIndex].Cells[2].Value = item.Khoa.TenKhoa;
                     dataGridLopView.Rows[rowIndex].Cells[3].Value = item.HeDaoTao.Name;
+                    dataGridLopView.Rows[rowIndex].Cells[4].Value = item.CoVanId;
+
+                    // Xử lý tên giảng viên nếu CoVanId không null
+                    dataGridLopView.Rows[rowIndex].Cells[5].Value = item.CoVanId.HasValue
+                        ? GiangVienBUS.GetGiangVienById(item.CoVanId.Value).Name
+                        : "";
                 }
             }
-
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -68,7 +62,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             if (e.ColumnIndex == dataGridLopView.Columns["more"].Index && e.RowIndex >= 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                Image img = Image.FromFile("C:\\Users\\User\\Downloads\\edit.png");
+                Image img = Image.FromFile("../../../Resources/edit.png");
                 int x = e.CellBounds.Left + (e.CellBounds.Width - img.Width) / 2;
                 int y = e.CellBounds.Top + (e.CellBounds.Height - img.Height) / 2;
                 e.Graphics.DrawImage(img, new Rectangle(x, y, img.Width, img.Height));
@@ -111,79 +105,41 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             }
             else
             {
-                if (comboBox1.SelectedIndex == 0)
+                list = LopBUS.findAll(textBox1.Text);
+                if (list == null)
                 {
-                    list = LopBUS.findAll(textBox1.Text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Giá trị không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = LopBUS.getAllLop();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                    }
-
+                    MessageBox.Show("Giá trị không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    list = LopBUS.getAllLop();
+                    loadlist(list);
                 }
-                else if (comboBox1.SelectedIndex == 1)
+                else
                 {
-                    list = LopBUS.findById(textBox1.Text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Mã lớp không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = LopBUS.getAllLop();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                    }
-                }
-                else if (comboBox1.SelectedIndex == 2)
-                {
-                    list = LopBUS.findByName(textBox1.Text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Tên không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = LopBUS.getAllLop();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                    }
-                }
-                else if (comboBox1.SelectedIndex == 3)
-                {
-                    list = LopBUS.findByKhoaId(textBox1.Text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Khoa không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = LopBUS.getAllLop();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);
-                        
-                    }
-                }
-                else if (comboBox1.SelectedIndex == 4)
-                {
-                    list = LopBUS.findByHeHoc(textBox1.Text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Hệ đào tạo không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        list = LopBUS.getAllLop();
-                        loadlist(list);
-                    }
-                    else
-                    {
-                        loadlist(list);                        
-                    }
+                    loadlist(list);
                 }
             }
+        }
+        public void Setlist(List<LopDTO> list)
+        {
+            if (list != null)
+            {
+                loadlist(list);
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu không tồn tại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                list = LopBUS.getAllLop();
+                loadlist(list);
+            }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new LopSearch(this).Show();
         }
     }
 }

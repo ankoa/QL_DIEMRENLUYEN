@@ -1,4 +1,4 @@
-﻿using ql_diemrenluyen.DAO;
+using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.BUS
@@ -40,7 +40,10 @@ namespace ql_diemrenluyen.BUS
         {
             return AccountDAO.AddAccountSV(account);
         }
-
+        public static bool AddAccountGV(AccountDTO account)
+        {
+            return AccountDAO.AddAccountGV(account);
+        }
         // Cập nhật thông tin tài khoản
         public static bool UpdateAccount(AccountDTO account)
         {
@@ -105,6 +108,28 @@ namespace ql_diemrenluyen.BUS
             }
 
             GiangVienDTO gv = GiangVienDAO.GetGiangVienByEmail(email);
+            if (gv != null)
+            {
+                return (gv, "Giảng viên");
+            }
+
+            return (null, null);
+        }
+
+        public static (object account, string accountType) findAccountById(long id)
+        {
+            if (id == null)
+            {
+                return (null, null);
+            }
+
+            SinhVienDTO sv = SinhVienDAO.GetStudentById(id);
+            if (sv != null)
+            {
+                return (sv, "Sinh viên");
+            }
+
+            GiangVienDTO gv = GiangVienDAO.GetGiangVienById(id);
             if (gv != null)
             {
                 return (gv, "Giảng viên");
