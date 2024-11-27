@@ -1,6 +1,5 @@
 using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using System.Drawing;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
@@ -53,7 +52,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     search = null;
 
                 List<GiangVienDTO> giangViens = string.IsNullOrEmpty(search)
-                    ? GiangVienBUS.GetAllGiangVien() 
+                    ? GiangVienBUS.GetAllGiangVien()
                     : GiangVienBUS.SearchGiangVien(search);
 
                 PopulateGiangVienTable(giangViens, tableGV);
@@ -166,6 +165,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 // GiangVienDetailForm detailsForm = new GiangVienDetailForm(id, name, email, chucVu, khoaId, table, this);
                 // detailsForm.Show();
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

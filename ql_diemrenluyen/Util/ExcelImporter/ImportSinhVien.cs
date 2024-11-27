@@ -40,7 +40,7 @@ namespace ql_diemrenluyen.Util.ExcelImporter
 
                 AccountBUS.AddAccount(acc);
 
-                // Thêm sinh viên vào database
+                //Thêm sinh viên vào database
                 SinhVienBUS.AddStudent(sinhVien);
             }
 
@@ -73,8 +73,8 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                 {
                     try
                     {
-                        string tenLop = worksheet.Cells[row, 6].Text; // Cột 'lop'
-                        string tenKhoa = worksheet.Cells[row, 7].Text; // Cột 'khoa'
+                        string tenLop = worksheet.Cells[row, 7].Text.Trim();
+                        string tenKhoa = worksheet.Cells[row, 6].Text.Trim();
 
                         // Tra cứu id của lớp và khoa
                         long lopId = LopDAO.GetLopByLopNameAndKhoaName(tenLop, tenKhoa).Id;

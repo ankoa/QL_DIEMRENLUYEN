@@ -68,7 +68,7 @@ namespace ql_diemrenluyen.DAO
         {
             // Câu lệnh SQL để tìm lớp dựa trên tên lớp và tên khoa
             string sql = @"
-            SELECT lop.id, lop.tenlop, lop.khoa_id, lop.hedaotao, lop.created_at, lop.updated_at, lop.status
+            SELECT lop.id, lop.tenlop,lop.covan_id, lop.khoa_id, lop.hedaotao, lop.created_at, lop.updated_at, lop.status
             FROM lop
             INNER JOIN khoa ON lop.khoa_id = khoa.id
             WHERE LOWER(lop.tenlop) = LOWER(@lopName) AND LOWER(khoa.tenkhoa) = LOWER(@khoaName)
@@ -88,7 +88,7 @@ namespace ql_diemrenluyen.DAO
                 {
                     Id = Convert.ToInt64(row[0]),
                     TenLop = Convert.ToString(row[1]),
-                    CoVanId = Convert.ToInt64(row[2]),
+                    CoVanId = row[2] != DBNull.Value ? (Int64?)Convert.ToInt64(row[2]) : null,
                     Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[3])),
                     HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[4])),
                     CreatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
@@ -396,6 +396,50 @@ namespace ql_diemrenluyen.DAO
             return lopDetailsList;
         }
 
+        public static List<LopToExport> GetLopHocToExport()
+        {
+            string sql = @"
+           SELECT
+                l.tenlop AS TenLop,
+                k.tenkhoa AS TenKhoa,
+                he.name AS HeHocName,
+                gv.id AS MaGiangVien,
+                gv.name AS TenGiangVien
+            FROM lop l
+            LEFT JOIN giangvien gv ON l.covan_id = gv.id         
+            INNER JOIN khoa k ON gv.khoa_id = k.id             
+            LEFT JOIN sinhvien sv ON sv.lop_id = l.id            
+            LEFT JOIN hehoc he ON l.hedaotao = he.id
+            WHERE l.khoa_id = gv.khoa_id                          
+            GROUP BY l.tenlop, k.tenkhoa, he.name, gv.name;
+            ";
+
+            var cmd = new MySqlCommand(sql);
+            int count = 1;
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            List<LopToExport> lopDetailsList = new List<LopToExport>();
+
+            foreach (var row in result)
+            {
+                LopToExport lopDetails = new LopToExport
+                {
+                    TenLop = row[0] != DBNull.Value ? Convert.ToString(row[0]) : null,
+                    TenKhoa = row[1] != DBNull.Value ? Convert.ToString(row[1]) : null,
+                    HeDaoTao = row[2] != DBNull.Value ? Convert.ToString(row[2]) : null, // Mapping HeHocName to HeDaoTao
+                    MaCoVan = row[3] != DBNull.Value ? Convert.ToInt64(row[3]) : 0,  // Mapping MaGiangVien to MaCoVan
+                    CoVan = row[4] != DBNull.Value ? Convert.ToString(row[4]) : null  // Mapping TenGiangVien to CoVan
+                };
+                lopDetailsList.Add(lopDetails);
+                count++;
+            }
+
+            return lopDetailsList;
+        }
+
+
+
 
     }
 
@@ -407,6 +451,15 @@ namespace ql_diemrenluyen.DAO
         public string TenKhoa { get; set; }
         public string CoVan { get; set; }
         public int? SoLuong { get; set; }
+    }
+
+    public class LopToExport
+    {
+        public string TenLop { get; set; }
+        public string TenKhoa { get; set; }
+        public string HeDaoTao { get; set; }
+        public long MaCoVan { get; set; }
+        public string CoVan { get; set; }
     }
 
 }

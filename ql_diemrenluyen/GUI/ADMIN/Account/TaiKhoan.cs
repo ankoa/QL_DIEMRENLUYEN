@@ -348,7 +348,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void button3_Click(object sender, EventArgs e)
         {
             // Chuyển đổi danh sách sang List<Dictionary<string, string>>
-            var dictionaryList = ExcelExporter.ConvertListToDictionaryList(AccountBUS.GetAllAccounts());
+            var dictionaryList = ExcelExporter.ConvertListToDictionaryList(LopBUS.GetLopHocToExports());
 
             // Xuất ra Excel
             ExcelExporter.ExportListToExcel(dictionaryList);

@@ -23,6 +23,32 @@ namespace ql_diemrenluyen.DAO
             return students;
         }
 
+        public static List<SinhVienToExport> GetAllStudentsToExport()
+        {
+            List<SinhVienToExport> students = new List<SinhVienToExport>();
+
+            // Truy vấn SQL kết nối sinhvien, lop, và khoa
+            string sql = @"
+        SELECT sv.id, sv.name, sv.ngaysinh, sv.email, sv.gioitinh, sv.created_at, sv.updated_at, sv.status, 
+               l.TenLop, k.TenKhoa
+        FROM sinhvien sv
+        INNER JOIN lop l ON sv.lop_id = l.Id
+        INNER JOIN khoa k ON l.khoa_id = k.Id";
+
+            List<List<object>> result = DBConnection.ExecuteReader(sql);
+
+            foreach (var row in result)
+            {
+                SinhVienToExport student = MapToSinhVienToExport(row);
+
+                students.Add(student);
+            }
+
+            return students;
+        }
+
+
+
         // Lấy tất cả sinh viên
         public static List<SinhVienDTO> GetAllStudentsActive(long? khoaId = null, long? lopId = null)
         {
@@ -462,6 +488,27 @@ namespace ql_diemrenluyen.DAO
                 XepLoai = Convert.ToString(data[5])
             };
         }
+
+        private static SinhVienToExport MapToSinhVienToExport(List<object> row)
+        {
+            return new SinhVienToExport
+            {
+                Id = Convert.ToInt64(row[0]),
+                Name = row[1]?.ToString(),
+                NgaySinh = row[2] != null
+                    ? Convert.ToDateTime(row[2]).ToString("dd/MM/yyyy") // Chuyển thành chuỗi định dạng dd/MM/yyyy
+                    : null, // Nếu null, để giá trị là null
+                Email = row[3]?.ToString(),
+                GioiTinh = Convert.ToInt32(row[4]) == 1 ? "Nam" : "Nữ",
+                CreatedAt = row[5] != null ? Convert.ToDateTime(row[5]) : (DateTime?)null,
+                UpdatedAt = row[6] != null ? Convert.ToDateTime(row[6]) : (DateTime?)null,
+                Status = Convert.ToInt32(row[7]),
+                Lop = row[8]?.ToString(),
+                Khoa = row[9]?.ToString()
+            };
+        }
+
+
     }
 
     public class SinhVienDetailsDTO
@@ -473,4 +520,20 @@ namespace ql_diemrenluyen.DAO
         public decimal DiemRenLuyen { get; set; }
         public string XepLoai { get; set; }
     }
+
+    public class SinhVienToExport
+    {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string NgaySinh { get; set; }
+        public string Email { get; set; }
+        public string GioiTinh { get; set; }
+        public string Khoa { get; set; } // Tên khoa
+        public string Lop { get; set; } // Tên lớp
+        public DateTime? CreatedAt { get; set; } // Nullable DateTime
+        public DateTime? UpdatedAt { get; set; } // Nullable DateTime
+        public int Status { get; set; }
+
+    }
+
 }
