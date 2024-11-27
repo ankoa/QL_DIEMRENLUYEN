@@ -1,4 +1,4 @@
-﻿using OfficeOpenXml;
+using OfficeOpenXml;
 using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
@@ -26,7 +26,7 @@ namespace ql_diemrenluyen.Util.ExcelImporter
             // Gọi DAO để chèn dữ liệu vào database
             foreach (var giangVien in giangVienList)
             {
-                string password = giangVien.ngaySinh?.ToString("ddMMyyyy") ?? "123456";
+                string password = giangVien.NgaySinh?.ToString("ddMMyyyy") ?? "123456";
 
                 AccountDTO acc = new AccountDTO
                 {
@@ -84,9 +84,10 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                             Id = Convert.ToInt64(worksheet.Cells[row, 1].Text),
                             Name = worksheet.Cells[row, 2].Text,
                             Email = worksheet.Cells[row, 3].Text,
-                            ngaySinh = DateTime.Parse(worksheet.Cells[row, 4].Text),
-                            ChucVu = worksheet.Cells[row, 5].Text,
-                            KhoaId = khoaId.ToString(),
+                            NgaySinh = DateTime.Parse(worksheet.Cells[row, 4].Text),
+                            ChucVu = worksheet.Cells[row, 5].Text == "Giảng viên" ? 1 : 
+                            (worksheet.Cells[row, 5].Text == "Cố vấn" ? 0 : -1),  
+                            KhoaId = Convert.ToInt64(worksheet.Cells[row, 6].Text),
                             Status = 1, // Mặc định là 1
                             CreatedAt = DateTime.UtcNow,
                             UpdatedAt = DateTime.UtcNow
