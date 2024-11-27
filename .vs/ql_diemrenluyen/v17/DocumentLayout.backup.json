@@ -3,11 +3,23 @@
   "WorkspaceRootPath": "D:\\Code\\qldrl\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|D:\\Code\\qldrl\\ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldrl\\ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|D:\\Code\\qldrl\\ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -67,31 +79,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Dashboard.cs",
+              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T17:18:03.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dashboard.cs [Design]",
+              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T17:17:56.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\Program.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\Program.cs",
+              "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\Program.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T17:17:32.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TaiKhoan.cs",
               "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
               "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
-              "ViewState": "AgIAAEoBAAAAAAAAAAAcwF4BAABkAAAAAAAAAA==",
+              "ViewState": "AgIAAEoBAAAAAAAAAAAcwFcBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T15:29:58.319Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "TaiKhoan.cs [Design]",
               "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
               "ToolTip": "D:\\Code\\qldrl\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs [Design]",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:29:55.283Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-24T15:29:55.283Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "LopBUS.cs",
               "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\BUS\\LopBUS.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\LopBUS.cs",
@@ -99,12 +146,11 @@
               "RelativeToolTip": "ql_diemrenluyen\\BUS\\LopBUS.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:28:19.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T15:28:19.116Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "LopDAO.cs",
               "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\DAO\\LopDAO.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\LopDAO.cs",
@@ -112,12 +158,11 @@
               "RelativeToolTip": "ql_diemrenluyen\\DAO\\LopDAO.cs",
               "ViewState": "AgIAAIUBAAAAAAAAAAAkwKEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T15:00:12.123Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T15:00:12.123Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "LopDTO.cs",
               "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\DTO\\LopDTO.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\DTO\\LopDTO.cs",
@@ -125,12 +170,11 @@
               "RelativeToolTip": "ql_diemrenluyen\\DTO\\LopDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T14:59:44.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T14:59:44.913Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ImportLop.cs",
               "DocumentMoniker": "D:\\Code\\qldrl\\ql_diemrenluyen\\Util\\ExcelImporter\\ImportLop.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\Util\\ExcelImporter\\ImportLop.cs",
@@ -138,8 +182,7 @@
               "RelativeToolTip": "ql_diemrenluyen\\Util\\ExcelImporter\\ImportLop.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T14:58:56.802Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T14:58:56.802Z"
             }
           ]
         },
