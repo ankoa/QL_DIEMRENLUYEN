@@ -82,11 +82,21 @@ namespace ql_diemrenluyen.BUS
                 return false;
             }
         }
+        //public static bool IsChiTietDotChamExist(long thongTinDotChamDiemId)
+        //{
+        //    // Gọi phương thức DAO để kiểm tra sự tồn tại
+        //    return ChiTietDotChamDAO.IsChiTietDotChamExist(thongTinDotChamDiemId);
+        //}
         public static bool IsChiTietDotChamExist(long thongTinDotChamDiemId)
         {
-            // Gọi phương thức DAO để kiểm tra sự tồn tại
-            return ChiTietDotChamDAO.IsChiTietDotChamExist(thongTinDotChamDiemId);
+            // Lấy toàn bộ danh sách chi tiết đợt chấm
+            List<ChiTietDotChamDTO> chiTietDotChamList = ChiTietDotChamBUS.GetAllChiTietDotCham();
+
+            // Kiểm tra nếu có bản ghi nào có thongTinDotChamDiemId phù hợp và status = 1
+            return chiTietDotChamList.Any(chiTiet =>
+                chiTiet.ThongTinDotChamDiemId == thongTinDotChamDiemId && chiTiet.Status == 1);
         }
+
     }
 }
 

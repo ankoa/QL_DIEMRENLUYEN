@@ -7,8 +7,17 @@ namespace ql_diemrenluyen
     {
         //public static string nguoidung_id = "1";
         //public static string role = "Cố vấn";
+        //public static string nguoidung_id = "3121420938";
         public static string nguoidung_id = "1";
-        public static string role = "Sinh Viên";
+        public static int role = 1;
+// 0 =>"ADMIN",
+//1 =>"Sinh viên"
+//2 =>"Giảng viên",
+//3 =>"Cố vấn"
+//4 =>"Quản lý Khoa",
+//5 =>"Quản lý Trường",
+//=> "Unknown"
+        //public static string role = "Sinh Viên";
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

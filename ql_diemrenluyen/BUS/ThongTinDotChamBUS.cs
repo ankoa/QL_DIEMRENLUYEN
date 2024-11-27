@@ -65,7 +65,7 @@ namespace ql_diemrenluyen.BUS
         //        throw new Exception("Lỗi khi cập nhật thông tin đợt chấm điểm: " + ex.Message);
         //    }
         //}
-        public static bool UpdateThongTinDotCham(int dotChamDiemId, string role, long sinhVienId, long nguoiChamId)
+        public static bool UpdateThongTinDotCham(int dotChamDiemId, string role, long sinhVienId, long nguoiChamId, int? ketQua, string danhGia)
         {
             // Kiểm tra logic nghiệp vụ
             if (dotChamDiemId <= 0 || sinhVienId <= 0)
@@ -73,28 +73,43 @@ namespace ql_diemrenluyen.BUS
                 throw new ArgumentException("Dữ liệu không hợp lệ!");
             }
 
-            if (role == "Sinh Viên")
+            if (role == "Sinh viên")
             {
                 if (sinhVienId != nguoiChamId)
                 {
                     throw new ArgumentException("Sinh viên và người chấm không khớp!");
                 }
             }
-            else if (role != "Cố Vấn" && role != "Khoa" && role != "Trường")
+            else if (role != "Cố vấn" && role != "Khoa" && role != "Trường")
             {
-                throw new ArgumentException("Role không hợp lệaaaaaaaa!");
+                throw new ArgumentException("Role không hợp lệ!");
             }
 
+            // Kiểm tra nếu ketQua hoặc danhGia không hợp lệ (nếu cần thiết)
+
             // Gọi DAO thực hiện cập nhật
-            return ThongTinDotChamDAO.UpdateThongTinDotCham(dotChamDiemId, role, sinhVienId, nguoiChamId);
+            return ThongTinDotChamDAO.UpdateThongTinDotCham(dotChamDiemId, role, sinhVienId, nguoiChamId, ketQua, danhGia);
         }
+
         public static long? GetThongTinDotChamId(long dotChamDiemId, string role, long sinhVienId, long nguoiChamId)
         {
             // Kiểm tra điều kiện role hợp lệ
             if (string.IsNullOrEmpty(role))
-                throw new ArgumentException("Role không hợp lệbbbbbbbbb!");
+                throw new ArgumentException("Role không hợp lệb!");
 
             return ThongTinDotChamDAO.GetThongTinDotChamId(dotChamDiemId, role, sinhVienId, nguoiChamId);
+        }
+        //lấy id TTDCĐ
+        public static long? GetThongTinDotChamDiemId(int dotChamDiemId, long sinhVienId)
+        {
+            long? thongTinDotChamDiemId = ThongTinDotChamDAO.GetThongTinDotChamDiemId(dotChamDiemId, sinhVienId);
+
+            if (thongTinDotChamDiemId == null)
+            {
+                MessageBox.Show("Không tìm thấy thông tin đợt chấm điểm đã hoàn thành!", "Thông báo");
+            }
+
+            return thongTinDotChamDiemId;
         }
 
 

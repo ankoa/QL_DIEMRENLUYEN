@@ -78,19 +78,44 @@ namespace ql_diemrenluyen.DAO
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
         // Kiểm tra xem chi tiết đợt chấm đã tồn tại hay chưa
+        //public static bool IsChiTietDotChamExist(long thongTinDotChamDiemId)
+        //{
+        //    // Câu SQL kiểm tra sự tồn tại của thongTinDotChamDiemId với status = 1
+        //    string sql = "SELECT 1 FROM chitietdotcham WHERE thongtindotchamdiem_id = @thongTinDotChamDiemId AND status = 1 LIMIT 1";
+
+        //    var cmd = new MySqlCommand(sql);
+        //    cmd.Parameters.AddWithValue("@thongTinDotChamDiemId", thongTinDotChamDiemId);
+
+        //    object result = DBConnection.ExecuteScalar(cmd);
+
+        //    // Nếu có kết quả thì tồn tại
+        //    return result != null;
+        //}
         public static bool IsChiTietDotChamExist(long thongTinDotChamDiemId)
         {
-            // Câu SQL kiểm tra sự tồn tại của thongTinDotChamDiemId với status = 1
             string sql = "SELECT 1 FROM chitietdotcham WHERE thongtindotchamdiem_id = @thongTinDotChamDiemId AND status = 1 LIMIT 1";
 
-            var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@thongTinDotChamDiemId", thongTinDotChamDiemId);
+            using (var connection = new MySqlConnection("<connection_string>"))
+            using (var cmd = new MySqlCommand(sql, connection))
+            {
+                cmd.Parameters.AddWithValue("@thongTinDotChamDiemId", thongTinDotChamDiemId);
 
-            object result = DBConnection.ExecuteScalar(cmd);
-
-            // Nếu có kết quả thì tồn tại
-            return result != null;
+                try
+                {
+                    connection.Open();
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        return reader.HasRows; // Nếu có hàng trả về, tồn tại
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi kiểm tra tồn tại: {ex.Message}", "Lỗi");
+                    return false;
+                }
+            }
         }
+
 
 
 

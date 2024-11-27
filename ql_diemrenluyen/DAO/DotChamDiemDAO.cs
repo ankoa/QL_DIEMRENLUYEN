@@ -385,6 +385,24 @@ AND dcd.status=1
             // Trả về Id (giả định Id luôn ở cột đầu tiên)
             return Convert.ToInt32(result[0][0]);
         }
+        public static List<int> GetDotChamDiemIdsByHocKiId(int hocKiId)
+        {
+            List<int> dotChamDiemIds = new List<int>();
+            string sql = "SELECT id FROM dotchamdiem WHERE hocki_id = @hocKiId";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@hocKiId", hocKiId);
+
+            List<List<object>> result = DBConnection.ExecuteReader(sql, cmd);
+
+            foreach (var row in result)
+            {
+                dotChamDiemIds.Add(Convert.ToInt32(row[0]));
+            }
+
+            return dotChamDiemIds;
+        }
+
 
 
     }

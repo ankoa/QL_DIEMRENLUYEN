@@ -16,10 +16,10 @@ namespace ql_diemrenluyen.DTO
         public int Final { get; set; }
         public int HoanThanh { get; set; }
         public int Status { get; set; }
+        public int? KetQua { get; set; }  // Thêm trường KetQua (nullable)
+        public string DanhGia { get; set; }  // Thêm trường DanhGia (nullable)
 
-        
-
-        public ThongTinDotChamDTO(long id, int dotChamDiemId, long? coVanId, long sinhVienId, long? khoaId, int final, int hoanThanh, int status)
+        public ThongTinDotChamDTO(long id, int dotChamDiemId, long? coVanId, long sinhVienId, long? khoaId, int final, int hoanThanh, int status, int? ketQua, string danhGia)
         {
             this.Id = id;
             this.DotChamDiemId = dotChamDiemId;
@@ -29,8 +29,12 @@ namespace ql_diemrenluyen.DTO
             this.Final = final;
             this.HoanThanh = hoanThanh;
             this.Status = status;
+            this.KetQua = ketQua;
+            this.DanhGia = danhGia;
         }
+
         public ThongTinDotChamDTO() { }
     }
+
 
 }

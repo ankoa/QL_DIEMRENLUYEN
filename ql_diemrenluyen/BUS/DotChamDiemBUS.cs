@@ -286,6 +286,18 @@ namespace ql_diemrenluyen.BUS
 
             throw new Exception("Không tìm thấy đợt chấm điểm với học kỳ đã chọn.");
         }
+        public static List<int> GetDotChamDiemIdsByHocKiId(int hocKiId)
+        {
+            List<int> dotChamDiemIds = DotChamDiemDAO.GetDotChamDiemIdsByHocKiId(hocKiId);
+
+            if (dotChamDiemIds.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy đợt chấm điểm nào cho học kỳ này!", "Thông báo");
+            }
+
+            return dotChamDiemIds;
+        }
+
 
 
 

@@ -21,11 +21,12 @@ namespace ql_diemrenluyen.DAO
                 {
                     Id = Convert.ToInt64(row[0]),
                     TenLop = Convert.ToString(row[1]),
-                    Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[2])),
-                    HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[3])),
-                    CreatedAt = row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null,
-                    UpdatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
-                    status = Convert.ToInt16(row[6])
+                    CoVanId = row[2] != DBNull.Value ? (long?)Convert.ToInt64(row[2]) : null, // Xử lý null
+                    Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[3])),
+                    HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[4])),
+                    CreatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
+                    UpdatedAt = row[6] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[6]) : null,
+                    status = Convert.ToInt16(row[7])
                 };
 
                 lopList.Add(lop);

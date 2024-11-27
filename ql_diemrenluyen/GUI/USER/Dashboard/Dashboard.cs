@@ -7,7 +7,8 @@ namespace ql_diemrenluyen.GUI.USER
     public partial class Dashboard : Form
     {
         public static string nguoidung_id = Program.nguoidung_id;
-        public static string role = Program.role;
+        //public static string role = Program.role;
+        public static string role = "Sinh viên";
         public Dashboard()
         {
             InitializeComponent();

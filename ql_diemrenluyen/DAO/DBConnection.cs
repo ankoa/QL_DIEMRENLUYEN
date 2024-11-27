@@ -154,7 +154,39 @@ namespace ql_diemrenluyen.DAO
             }
             return table;
         }
+        public static List<List<object>> ExecuteReader(string sql, MySqlCommand cmd)
+        {
+            var table = new List<List<object>>();
+            if (Open())
+            {
+                try
+                {
+                    cmd.Connection = conn; // Gán kết nối cho lệnh
+                    var rd = cmd.ExecuteReader();
+                    int size = rd.FieldCount;
 
+                    while (rd.Read())
+                    {
+                        var row = new List<object>();
+                        for (int i = 0; i < size; i++)
+                        {
+                            row.Add(rd.GetValue(i));
+                        }
+                        table.Add(row);
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Error executing reader: " + ex.Message);
+                    return new List<List<object>>();
+                }
+                finally
+                {
+                    Close();
+                }
+            }
+            return table;
+        }
         // Thực thi câu lệnh không trả về kết quả
         public static int ExecuteNonQuery(MySqlCommand cmd)
         {
@@ -202,9 +234,38 @@ namespace ql_diemrenluyen.DAO
             return null;
         }
 
-        internal static object ExecuteScalar(MySqlCommand cmd)
+        //internal static object ExecuteScalar(MySqlCommand cmd)
+        //{
+        //    throw new NotImplementedException();
+        //}
+        public static object ExecuteScalar(MySqlCommand cmd)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Mở kết nối đến cơ sở dữ liệu
+                if (Open()) // Kiểm tra nếu kết nối được mở thành công
+                {
+                    cmd.Connection = conn; // Gán kết nối cho MySqlCommand
+
+                    // Thực thi câu lệnh và lấy kết quả
+                    object result = cmd.ExecuteScalar();
+
+                    // Trả về kết quả (nếu có)
+                    return result;
+                }
+                else
+                {
+                    Console.WriteLine("Không thể mở kết nối.");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                Console.WriteLine($"Error executing scalar query: {ex.Message}");
+                return null;
+            }
         }
+
     }
 }
