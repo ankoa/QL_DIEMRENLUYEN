@@ -63,6 +63,38 @@ namespace ql_diemrenluyen.DAO
             return null;
         }
 
+        public static List<LopDTO> GetLopByCoVanID(long covanId)
+        {
+            string sql = "SELECT * FROM lop WHERE lop.covan_id = @covanId"; // Câu lệnh SQL
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@covanId", covanId);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Danh sách các lớp
+            List<LopDTO> danhSachLop = new List<LopDTO>();
+
+            foreach (var row in result)
+            {
+                LopDTO lop = new LopDTO
+                {
+                    Id = Convert.ToInt64(row[0]),
+                    TenLop = Convert.ToString(row[1]),
+                    CoVanId = row[2] != DBNull.Value ? (long?)Convert.ToInt64(row[2]) : null, // Xử lý null
+                    Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[3])),
+                    HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[4])),
+                    CreatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
+                    UpdatedAt = row[6] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[6]) : null,
+                    status = Convert.ToInt16(row[7])
+                };
+
+                danhSachLop.Add(lop);
+            }
+
+            return danhSachLop;
+        }
+
+
         // Lấy đối tượng lớp từ ID của lớp
         public static LopDTO GetLopByLopNameAndKhoaName(string lop, string khoa)
         {
@@ -262,6 +294,8 @@ namespace ql_diemrenluyen.DAO
             }
             return null;
         }
+
+
         public static List<LopDTO> findByHeHoc(String value)
         {
             List<LopDTO> list = new List<LopDTO>();

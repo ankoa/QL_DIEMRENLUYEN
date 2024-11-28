@@ -1,5 +1,6 @@
 ﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DAO;
+using ql_diemrenluyen.GUI.ADMIN;
 using System.Data;
 
 namespace ql_diemrenluyen.GUI.USER
@@ -17,8 +18,9 @@ namespace ql_diemrenluyen.GUI.USER
         //    5 => "Quản lý Trường",
         //    _ => "Unknown"
         //};
+        ////82778917
 
-        public static string nguoidung_id = "82778917";
+        public static string nguoidung_id = "1";
         public static string role = 3 switch
         {
             0 => "ADMIN",
@@ -271,6 +273,7 @@ namespace ql_diemrenluyen.GUI.USER
                 }
                 else if (role.Equals("Cố vấn"))
                 {
+
                     dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaCoVanTheoId(sinhVienId);
                 }
                 else
@@ -303,12 +306,31 @@ namespace ql_diemrenluyen.GUI.USER
 
                 // Gán thông báo vào DataGridView4
                 dataGridView4.DataSource = thongBaoList;
+
+                // Xử lý sự kiện double-click trên DataGridView2
+                dataGridView2.CellDoubleClick += (sender, e) =>
+                {
+                    if (e.RowIndex >= 0)  // Kiểm tra nếu đã chọn một hàng hợp lệ
+                    {
+                        var selectedRow = dataGridView2.Rows[e.RowIndex];
+                        var dotChamDiem = (ThongTinDotChamDiemDTO)selectedRow.DataBoundItem; // Lấy đối tượng DTO từ dòng đã chọn
+                        chamdrl otpForm = new chamdrl("Chấm", 1, dotChamDiem.Id, long.Parse(nguoidung_id));
+
+
+                        // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
+                        //otpForm.FormClosed += (s, args) => this.Show();
+
+                        otpForm.Show();  // Hiển thị form mới
+                        //MessageBox.Show($"ID của ThongTinDotChamDiemDTO: {dotChamDiem.Id}", "Thông tin đợt chấm điểm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                };
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 

@@ -85,7 +85,8 @@ namespace ql_diemrenluyen.DAO
                dcd.name AS DotChamDiem, 
                dcd.startDate AS NgayBatDau, 
                dcd.endDate AS NgayKetThuc, 
-               ttdcd.hoanthanh AS HoanThanh
+               ttdcd.hoanthanh AS HoanThanh,
+                dcd.id
         FROM hocky hk
         JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
         JOIN thongtindotchamdiem ttdcd ON dcd.id = ttdcd.dotchamdiem_id
@@ -109,13 +110,13 @@ namespace ql_diemrenluyen.DAO
             var row = result[0];
             ThongTinDotChamDiemDTO thongTinDotChamDiem = new ThongTinDotChamDiemDTO
             {
+                Id = Convert.ToInt32(row[5]),
                 HocKy = Convert.ToString(row[0]),
                 DotChamDiem = Convert.ToString(row[1]),
                 NgayBatDau = Convert.ToDateTime(row[2]),
                 NgayKetThuc = Convert.ToDateTime(row[3]),
                 HoanThanh = Convert.ToString(row[4]),
             };
-            Console.WriteLine(thongTinDotChamDiem.ToString());
             return thongTinDotChamDiem;
         }
         public static ThongTinDotChamDiemDTO GetDotChamDiemCuaCoVanTheoId(int coVanId)
@@ -129,7 +130,8 @@ namespace ql_diemrenluyen.DAO
            dcd.name AS DotChamDiem, 
            dcd.startDate AS NgayBatDau, 
            dcd.endDate AS NgayKetThuc, 
-           (SUM(CASE WHEN ttdcd.hoanthanh = 0 THEN 1 ELSE 0 END) / COUNT(ttdcd.hoanthanh)) * 100 AS HoanThanh
+           (SUM(CASE WHEN ttdcd.hoanthanh = 0 THEN 1 ELSE 0 END) / COUNT(ttdcd.hoanthanh)) * 100 AS HoanThanh,
+            dcd.id
     FROM hocky hk
     JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
     JOIN thongtindotchamdiem ttdcd ON dcd.id = ttdcd.dotchamdiem_id
@@ -151,13 +153,13 @@ AND dcd.status=1
             var row = result[0];
             ThongTinDotChamDiemDTO thongTinDotChamDiem = new ThongTinDotChamDiemDTO
             {
+                Id = Convert.ToInt32(row[5]),
                 HocKy = Convert.ToString(row[0]),
                 DotChamDiem = Convert.ToString(row[1]),
                 NgayBatDau = Convert.ToDateTime(row[2]),
                 NgayKetThuc = Convert.ToDateTime(row[3]),
                 HoanThanh = Convert.ToString(row[4]) + "%" // Thay đổi để gán giá trị phần trăm hoàn thành
             };
-            Console.WriteLine(thongTinDotChamDiem.ToString());
             return thongTinDotChamDiem;
         }
 
@@ -455,6 +457,7 @@ AND dcd.status=1
     public class ThongTinDotChamDiemDTO
     {
         public int Id { get; set; }
+        public int? HocKyId { get; set; }
         public string HocKy { get; set; }
         public string DotChamDiem { get; set; }
         public DateTime NgayBatDau { get; set; }

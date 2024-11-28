@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.DAO
@@ -162,8 +160,52 @@ namespace ql_diemrenluyen.DAO
             return chiTietDotChams;
         }
 
+        public static int? GetDiem(long sinhVienID, long tieuChiDanhGiaID, int dotchamdiemID, long? coVanID = null, int? khoaID = null, int? final = null)
+        {
+            string sql = "SELECT ct.diem " +
+                         "FROM thongtindotchamdiem tt " +
+                         "JOIN chitietdotcham ct ON tt.id = ct.thongtindotchamdiem_id " +
+                         "JOIN dotchamdiem d ON tt.dotchamdiem_id = d.Id " +  // Kết nối với bảng dotchamdiem
+                         "WHERE tt.sinhvien_id = @sinhVienID ";
 
+            // Thêm các điều kiện vào câu SQL nếu các tham số khác không phải NULL
+            if (coVanID.HasValue)
+            {
+                sql += "AND tt.covan_id = @coVanID ";
+            }
 
+            if (khoaID.HasValue)
+            {
+                sql += "AND tt.khoa_id = @khoaID ";
+            }
+
+            if (final.HasValue)
+            {
+                sql += "AND tt.final = @final ";
+            }
+
+            // Thêm điều kiện tìm kiếm theo dotchamdiemID
+            sql += "AND tt.dotchamdiem_id = @dotchamdiemID " +
+                   "AND ct.tieuchidanhgia_id = @tieuChiDanhGiaID " +
+                   "LIMIT 1;";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@sinhVienID", sinhVienID);
+            if (coVanID.HasValue) cmd.Parameters.AddWithValue("@coVanID", coVanID.Value);
+            if (khoaID.HasValue) cmd.Parameters.AddWithValue("@khoaID", khoaID.Value);
+            if (final.HasValue) cmd.Parameters.AddWithValue("@final", final.Value);
+            cmd.Parameters.AddWithValue("@tieuChiDanhGiaID", tieuChiDanhGiaID);
+            cmd.Parameters.AddWithValue("@dotchamdiemID", dotchamdiemID);  // Thêm tham số dotchamdiemID
+
+            var result = DBConnection.ExecuteScalar(cmd);
+
+            if (result != null && result != DBNull.Value)
+            {
+                return Convert.ToInt32(result);
+            }
+
+            return null; // Trả về null nếu không tìm thấy điểm
+        }
 
 
 

@@ -1,4 +1,5 @@
-using ql_diemrenluyen.GUI.ADMIN;
+using ql_diemrenluyen.GUI.USER;
+
 namespace ql_diemrenluyen
 {
     internal static class Program
@@ -17,10 +18,10 @@ namespace ql_diemrenluyen
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new Dashboard());
-            //Application.Run(new chamdrl());
+            Application.Run(new Dashboard());
+            //Application.Run(new chamdrl("Chấm", 1, 3, 1));
             //Application.Run(new Thongke()); // or Application.Run(new AdminStudentTest());
-            Application.Run(new MenuAdmin());
+            //Application.Run(new MenuAdmin());
 
         }
     }
