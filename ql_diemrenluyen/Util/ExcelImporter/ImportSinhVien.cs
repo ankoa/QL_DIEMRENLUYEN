@@ -38,10 +38,10 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                     Status = 1
                 };
 
-                AccountBUS.AddAccount(acc);
-
                 //Thêm sinh viên vào database
                 SinhVienBUS.AddStudent(sinhVien);
+
+                AccountBUS.AddAccount(acc);
             }
 
             return sinhVienList;

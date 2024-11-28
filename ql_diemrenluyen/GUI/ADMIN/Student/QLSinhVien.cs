@@ -188,6 +188,7 @@ namespace QLDiemRenLuyen
                         var importedStudents = importer.ImportFromExcel(filePath);
 
                         MessageBox.Show($"Import thành công {importedStudents.Count} sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadSVIntoTable(SinhVienBUS.GetAllStudents());
                     }
                     catch (Exception ex)
                     {

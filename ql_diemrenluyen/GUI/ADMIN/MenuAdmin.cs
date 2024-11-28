@@ -20,6 +20,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         QLBangChung form_QLBangChung;
         Thongke form_ThongKe;
         private PictureBox loading;
+        private int role;
 
         [DllImport("user32.dll")]
         private static extern void ReleaseCapture();
@@ -44,6 +45,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         public MenuAdmin()
         {
             InitializeComponent();
+            role = Program.role;
+            //if (role ==)
             //mdiProp();
             //this.FormBorderStyle = FormBorderStyle.None;
             //this.ControlBox = false;

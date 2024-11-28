@@ -1,16 +1,6 @@
-﻿using ql_diemrenluyen.DAO;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using ql_diemrenluyen.BUS;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
@@ -312,7 +302,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     if (lopList[i].Khoa.Id == khoaId)
                     {
                         cbLop.Items.Add(lopList[i].TenLop);
-                        
+
                     }
                 }
             }
@@ -503,7 +493,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         // Hiển thị ghi chú liên quan đến originalId hoặc thực hiện hành động khác
                         //ShowNotesForId(originalId, e.RowIndex, e.ColumnIndex);
 
-                         var notes = GetNotesByTieuChiId(originalId);
+                        var notes = GetNotesByTieuChiId(originalId);
                         string noteText = string.Join("\n", notes);
                         toolTip.Show(noteText, dataGridView1,
                         dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location,
