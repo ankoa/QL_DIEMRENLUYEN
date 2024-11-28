@@ -89,10 +89,10 @@
     <Compile Update="GUI\ADMIN\Student\TimKiemSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\ADMIN\Teacher\GiangVienDetail.cs">
+    <Compile Update="GUI\ADMIN\Teacher\QLGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\ADMIN\Teacher\QLGiangVien.cs">
+    <Compile Update="GUI\ADMIN\Teacher\ThemGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Form1.cs">

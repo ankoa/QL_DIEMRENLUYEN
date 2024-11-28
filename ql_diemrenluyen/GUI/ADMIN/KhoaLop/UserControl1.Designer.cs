@@ -39,6 +39,7 @@
             button2 = new Button();
             find = new Button();
             textBox1 = new TextBox();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridKhoaView).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -56,15 +57,14 @@
             dataGridKhoaView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridKhoaView.Columns.AddRange(new DataGridViewColumn[] { id, name, more });
             dataGridKhoaView.Dock = DockStyle.Fill;
-            dataGridKhoaView.Location = new Point(3, 100);
-            dataGridKhoaView.Margin = new Padding(3, 4, 3, 4);
+            dataGridKhoaView.Location = new Point(3, 75);
             dataGridKhoaView.MultiSelect = false;
             dataGridKhoaView.Name = "dataGridKhoaView";
             dataGridKhoaView.ReadOnly = true;
             dataGridKhoaView.RowHeadersVisible = false;
             dataGridKhoaView.RowHeadersWidth = 62;
             dataGridKhoaView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridKhoaView.Size = new Size(1098, 548);
+            dataGridKhoaView.Size = new Size(960, 411);
             dataGridKhoaView.TabIndex = 0;
             dataGridKhoaView.CellContentClick += dataGridView1_CellContentClick_1;
             dataGridKhoaView.CellPainting += dataGridKhoaView_CellPainting;
@@ -105,13 +105,14 @@
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6F));
-            tableLayoutPanel1.Size = new Size(1104, 696);
+            tableLayoutPanel1.Size = new Size(966, 522);
             tableLayoutPanel1.TabIndex = 6;
             // 
             // button1
@@ -120,10 +121,9 @@
             button1.Dock = DockStyle.Right;
             button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(901, 656);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(788, 492);
             button1.Name = "button1";
-            button1.Size = new Size(200, 36);
+            button1.Size = new Size(175, 27);
             button1.TabIndex = 4;
             button1.Text = "Thêm khoa";
             button1.UseVisualStyleBackColor = false;
@@ -136,30 +136,32 @@
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1098, 48);
+            label1.Size = new Size(960, 36);
             label1.TabIndex = 5;
             label1.Text = "Thông tin khoa";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.Controls.Add(button4);
             flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(find);
             flowLayoutPanel1.Controls.Add(textBox1);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanel1.Location = new Point(3, 51);
+            flowLayoutPanel1.Location = new Point(3, 38);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1098, 42);
+            flowLayoutPanel1.Size = new Size(960, 32);
             flowLayoutPanel1.TabIndex = 6;
             // 
             // button2
             // 
             button2.Image = Properties.Resources.setting__1_;
-            button2.Location = new Point(985, 2);
-            button2.Margin = new Padding(3, 2, 3, 3);
+            button2.Location = new Point(780, 2);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(110, 32);
+            button2.Size = new Size(96, 24);
             button2.TabIndex = 3;
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
@@ -167,14 +169,13 @@
             // find
             // 
             find.BackColor = Color.White;
-
             find.BackgroundImage = Properties.Resources.search__3_;
             find.BackgroundImageLayout = ImageLayout.Center;
             find.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            find.Location = new Point(869, 2);
-            find.Margin = new Padding(3, 2, 3, 3);
+            find.Location = new Point(678, 2);
+            find.Margin = new Padding(3, 2, 3, 2);
             find.Name = "find";
-            find.Size = new Size(110, 32);
+            find.Size = new Size(96, 24);
             find.TabIndex = 0;
             find.UseVisualStyleBackColor = false;
             find.Click += find_Click;
@@ -182,19 +183,30 @@
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(563, 3);
+            textBox1.Location = new Point(409, 2);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(300, 30);
+            textBox1.Size = new Size(263, 26);
             textBox1.TabIndex = 2;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.Location = new Point(882, 3);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 5;
+            button4.Text = "Export";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // UserControl1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "UserControl1";
-            Size = new Size(1104, 696);
+            Size = new Size(966, 522);
             Load += UserControl1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridKhoaView).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
@@ -217,5 +229,6 @@
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn name;
         private DataGridViewButtonColumn more;
+        private Button button4;
     }
 }

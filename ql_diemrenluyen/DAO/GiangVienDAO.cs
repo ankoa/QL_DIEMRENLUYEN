@@ -1,71 +1,36 @@
 using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 
 namespace ql_diemrenluyen.DAO
 {
     public class GiangVienDAO
     {
-            public static List<GiangVienDTO> GetAllGiangVien()
-            {
-                List<GiangVienDTO> giangViens = new List<GiangVienDTO>();
-                string sql = "SELECT * FROM giangvien"; 
-
-                List<List<object>> result = DBConnection.ExecuteReader(sql);
-
-                foreach (var row in result)
-                {
-                    GiangVienDTO giangVien = new GiangVienDTO
-                    {
-                        Id = Convert.ToInt32(row[0]), 
-                        Name = Convert.ToString(row[1]), 
-                        Email = Convert.ToString(row[2]), 
-                        CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null, 
-                        UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null, 
-                        ChucVu = Convert.ToString(row[5]),
-                        KhoaId = Convert.ToString(row[6]),
-                        Status = Convert.ToInt32(row[7])
-                        
-                    };
-
-                    giangViens.Add(giangVien);
-                }
-
-                return giangViens;
-            }
-
-        // Thêm giảng viên mới
-
-        public static bool AddGiangVien(GiangVienDTO giangVien)
+        public static List<GiangVienDTO> GetAllGiangVien()
         {
-            
-            string sql = $"INSERT INTO giangvien (name, email, created_at, updated_at, chucvu, khoa_id , status) " +
-                        $"VALUES (@name, @email,@ngaySinh, @createdAt, @updatedAt, @ChucVu, @khoaId,@status )";
+            List<GiangVienDTO> giangViens = new List<GiangVienDTO>();
+            string sql = "SELECT * FROM giangvien";
 
-            var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@name", giangVien.Name);
-            cmd.Parameters.AddWithValue("@email", giangVien.Email);
-            cmd.Parameters.AddWithValue("@createdAt", giangVien.CreatedAt);
-            cmd.Parameters.AddWithValue("@updatedAt", giangVien.UpdatedAt);
-            cmd.Parameters.AddWithValue("@ChucVu", giangVien.ChucVu);
-            cmd.Parameters.AddWithValue("@khoaId", giangVien.KhoaId);
-            cmd.Parameters.AddWithValue("@status", giangVien.Status);
+            List<List<object>> result = DBConnection.ExecuteReader(sql);
 
-            bool isGiangVienAdded = DBConnection.ExecuteNonQuery(cmd) > 0;
-
-            if (isGiangVienAdded)
+            foreach (var row in result)
             {
-                // Lấy id giảng viên mới tạo bằng LAST_INSERT_ID()
-                long giangVienId = GetLastInsertedId(); 
+                GiangVienDTO giangVien = new GiangVienDTO
+                {
+                    Id = Convert.ToInt32(row[0]),
+                    Name = Convert.ToString(row[1]),
+                    Email = Convert.ToString(row[2]),
+                    CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
+                    UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
+                    KhoaId = Convert.ToInt64(row[5]), // Corrected type to match bigint
+                    Status = Convert.ToInt32(row[6]),
+                    NgaySinh = row[7] != null ? Convert.ToDateTime(row[7]) : (DateTime?)null,
+                    GioiTinh = Convert.ToInt32(row[8])
+                };
 
-                
-                string password = giangVien.ngaySinh.Value.ToString("yyyyMMdd");
-
-                return AddAccount(giangVienId, password);
+                giangViens.Add(giangVien);
             }
 
-            return false;
+            return giangViens;
         }
 
 
@@ -75,16 +40,16 @@ namespace ql_diemrenluyen.DAO
             string sql = "SELECT LAST_INSERT_ID()";  // Lấy id của dòng mới thêm
             var cmd = new MySqlCommand(sql);
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
-            
+
             if (result.Count > 0)
             {
                 return Convert.ToInt64(result[0][0]);
             }
 
-            return -1; 
+            return -1;
         }
 
-        
+
         public static bool AddAccount(long giangVienId, string password)
         {
             string sql = $"INSERT INTO account (id, password, role) VALUES (@id, @password, @role)";
@@ -97,19 +62,53 @@ namespace ql_diemrenluyen.DAO
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
 
-        // Cập nhật thông tin giảng viên
+        public static bool AddGiangVien(GiangVienDTO giangVien)
+        {
+            string sql = @"
+            INSERT INTO giangvien 
+            (name, email, created_at, updated_at, khoa_id, status, nsinh, gtinh) 
+            VALUES 
+            (@name, @email, @createdAt, @updatedAt, @khoaId, @status, @ngaySinh, @gioiTinh)";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@name", giangVien.Name);
+            cmd.Parameters.AddWithValue("@email", giangVien.Email);
+            cmd.Parameters.AddWithValue("@createdAt", giangVien.CreatedAt ?? DateTime.Now);
+            cmd.Parameters.AddWithValue("@updatedAt", giangVien.UpdatedAt ?? DateTime.Now);
+            cmd.Parameters.AddWithValue("@khoaId", giangVien.KhoaId);
+            cmd.Parameters.AddWithValue("@status", giangVien.Status);
+            cmd.Parameters.AddWithValue("@ngaySinh", giangVien.NgaySinh);
+            cmd.Parameters.AddWithValue("@gioiTinh", giangVien.GioiTinh);
+
+            bool isGiangVienAdded =  DBConnection.ExecuteNonQuery(cmd) > 0;
+            if (isGiangVienAdded)
+            {
+                // Lấy id giảng viên mới tạo bằng LAST_INSERT_ID()
+                long giangVienId = GetLastInsertedId();
+
+
+                string password = giangVien.NgaySinh.Value.ToString("yyyyMMdd");
+
+                return AddAccount(giangVienId, password);
+            }
+
+            return false;
+
+        }
+
         public static bool UpdateGiangVien(GiangVienDTO giangVien)
         {
             string sql = @"
-                UPDATE giangvien
-                SET name = @name,
-                    email = @email,
-                    created_at = @createdAt,
-                    updated_at = @updatedAt,
-                    chucvu = @ChucVu,
-                    khoa_id = @khoaId,
-                    status = @status
-                WHERE id = @id";
+            UPDATE giangvien
+            SET name = @name,
+                email = @email,
+                created_at = @createdAt,
+                updated_at = @updatedAt,
+                khoa_id = @khoaId,
+                status = @status,
+                nsinh = @ngaySinh,
+                gtinh = @gioiTinh
+            WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", giangVien.Id);
@@ -117,24 +116,26 @@ namespace ql_diemrenluyen.DAO
             cmd.Parameters.AddWithValue("@email", giangVien.Email);
             cmd.Parameters.AddWithValue("@createdAt", giangVien.CreatedAt ?? DateTime.Now);
             cmd.Parameters.AddWithValue("@updatedAt", giangVien.UpdatedAt ?? DateTime.Now);
-            cmd.Parameters.AddWithValue("@ChucVu", giangVien.ChucVu);
             cmd.Parameters.AddWithValue("@khoaId", giangVien.KhoaId);
             cmd.Parameters.AddWithValue("@status", giangVien.Status);
+            cmd.Parameters.AddWithValue("@ngaySinh", giangVien.NgaySinh );
+            cmd.Parameters.AddWithValue("@gioiTinh", giangVien.GioiTinh);
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
 
-    
+
+
         public static bool DeleteGiangVien(long id)
         {
-            string sql = $"DELETE FROM giangvien WHERE id = @id"; 
+            string sql = $"DELETE FROM giangvien WHERE id = @id";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", id);
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
 
-        
+
         public static GiangVienDTO GetGiangVienByEmail(string email)
         {
             string sql = "SELECT * FROM giangvien WHERE email = @email";
@@ -165,10 +166,10 @@ namespace ql_diemrenluyen.DAO
                 return MapToGiangVienDTO(result[0]);
             }
 
-            return null; 
+            return null;
         }
 
-        
+
         public static List<GiangVienDTO> SearchGiangVien(string searchTerm)
         {
             List<GiangVienDTO> giangViens = new List<GiangVienDTO>();
@@ -182,14 +183,15 @@ namespace ql_diemrenluyen.DAO
             {
                 GiangVienDTO giangVien = new GiangVienDTO
                 {
-                    Id = Convert.ToInt32(row[0]), 
-                    Name = Convert.ToString(row[1]), 
-                    Email = Convert.ToString(row[2]), 
-                    CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null, 
-                    UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null, 
-                    ChucVu = Convert.ToString(row[5]),
-                    KhoaId = Convert.ToString(row[6]),
-                    Status = Convert.ToInt32(row[7])
+                    Id = Convert.ToInt32(row[0]),
+                    Name = Convert.ToString(row[1]),
+                    Email = Convert.ToString(row[2]),
+                    CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
+                    UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
+                    KhoaId = Convert.ToInt64(row[5]), // Corrected type to match bigint
+                    Status = Convert.ToInt32(row[6]),
+                    NgaySinh = row[7] != null ? Convert.ToDateTime(row[7]) : (DateTime?)null,
+                    GioiTinh = Convert.ToInt32(row[8])
                 };
 
                 giangViens.Add(giangVien);
@@ -198,14 +200,14 @@ namespace ql_diemrenluyen.DAO
             return giangViens;
         }
 
-        
+
         public static List<GiangVienDTO> SearchGiangVienByChucVu(string chucVu)
         {
             List<GiangVienDTO> giangViens = new List<GiangVienDTO>();
-            string sql = "SELECT * FROM giangvien WHERE chucvu = @chucVu"; 
+            string sql = "SELECT * FROM giangvien WHERE chucvu = @chucVu";
 
             var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@chucVu", chucVu); 
+            cmd.Parameters.AddWithValue("@chucVu", chucVu);
 
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
 
@@ -216,11 +218,12 @@ namespace ql_diemrenluyen.DAO
                     Id = Convert.ToInt32(row[0]),
                     Name = Convert.ToString(row[1]),
                     Email = Convert.ToString(row[2]),
-                    CreatedAt = row[4] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
-                    UpdatedAt = row[5] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                    ChucVu = Convert.ToString(row[5]),
-                    KhoaId = Convert.ToString(row[6]),
-                    Status = Convert.ToInt32(row[7])
+                    CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
+                    UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
+                    KhoaId = Convert.ToInt64(row[5]), // Corrected type to match bigint
+                    Status = Convert.ToInt32(row[6]),
+                    NgaySinh = row[7] != null ? Convert.ToDateTime(row[7]) : (DateTime?)null,
+                    GioiTinh = Convert.ToInt32(row[8])
                 };
 
                 giangViens.Add(giangVien);
@@ -229,6 +232,38 @@ namespace ql_diemrenluyen.DAO
             return giangViens;
         }
 
+        public static List<GiangVienDTO> GetGiangVienByKhoaId(long khoaId)
+        {
+            List<GiangVienDTO> giangViens = new List<GiangVienDTO>();
+            string sql = "SELECT * FROM giangvien WHERE khoa_id = @khoaId";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@khoaId", khoaId);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            foreach (var row in result)
+            {
+                GiangVienDTO giangVien = new GiangVienDTO
+                {
+                    Id = Convert.ToInt32(row[0]),
+                    Name = Convert.ToString(row[1]),
+                    Email = Convert.ToString(row[2]),
+                    CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
+                    UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
+                    KhoaId = Convert.ToInt64(row[5]), // Corrected type to match bigint
+                    Status = Convert.ToInt32(row[6]),
+                    NgaySinh = row[7] != null ? Convert.ToDateTime(row[7]) : (DateTime?)null,
+                    GioiTinh = Convert.ToInt32(row[8])
+                };
+
+                giangViens.Add(giangVien);
+            }
+
+            return giangViens;
+        }
+
+
         private static GiangVienDTO MapToGiangVienDTO(List<object> row)
         {
             return new GiangVienDTO
@@ -236,12 +271,12 @@ namespace ql_diemrenluyen.DAO
                 Id = Convert.ToInt32(row[0]),
                 Name = Convert.ToString(row[1]),
                 Email = Convert.ToString(row[2]),
-                CreatedAt = row[4] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
-                UpdatedAt = row[5] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                ChucVu = Convert.ToString(row[5]),
-                KhoaId = Convert.ToString(row[6]),
-                Status = Convert.ToInt32(row[7])
-               
+                CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
+                UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
+                KhoaId = Convert.ToInt64(row[5]), // Corrected type to match bigint
+                Status = Convert.ToInt32(row[6]),
+                NgaySinh = row[7] != null ? Convert.ToDateTime(row[7]) : (DateTime?)null,
+                GioiTinh = Convert.ToInt32(row[8])
             };
         }
 

@@ -1,6 +1,5 @@
 ﻿using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
-using System.Collections.Generic;
 
 namespace ql_diemrenluyen.BUS
 {
@@ -32,6 +31,11 @@ namespace ql_diemrenluyen.BUS
         public static GiangVienDTO GetGiangVienById(long id)
         {
             return GiangVienDAO.GetGiangVienById(id);
+        }
+
+        public static List<GiangVienDTO> GetGiangVienByKhoaId(long khoaId)
+        {
+            return GiangVienDAO.GetGiangVienByKhoaId(khoaId);
         }
         public static List<GiangVienDTO> SearchGiangVien(string searchTerm)
         {

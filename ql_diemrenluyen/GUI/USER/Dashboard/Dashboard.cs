@@ -6,56 +6,212 @@ namespace ql_diemrenluyen.GUI.USER
 {
     public partial class Dashboard : Form
     {
-        public static string nguoidung_id = Program.nguoidung_id;
-        public static string role = Program.role;
+        //public static string nguoidung_id = "1";
+        //public static string role = 1 switch
+        //{
+        //    0 => "ADMIN",
+        //    1 => "Sinh viên",
+        //    2 => "Giảng viên",
+        //    3 => "Cố vấn",
+        //    4 => "Quản lý Khoa",
+        //    5 => "Quản lý Trường",
+        //    _ => "Unknown"
+        //};
+
+        public static string nguoidung_id = "82778917";
+        public static string role = 3 switch
+        {
+            0 => "ADMIN",
+            1 => "Sinh viên",
+            2 => "Giảng viên",
+            3 => "Cố vấn",
+            4 => "Quản lý Khoa",
+            5 => "Quản lý Trường",
+            _ => "Unknown"
+        };
+
+        //public static string nguoidung_id = Program.nguoidung_id;
+        //public static string role = Program.role switch
+        //{
+        //    0 => "ADMIN",
+        //    1 => "Sinh viên",
+        //    2 => "Giảng viên",
+        //    3 => "Cố vấn",
+        //    4 => "Quản lý Khoa",
+        //    5 => "Quản lý Trường",
+        //    _ => "Unknown"
+        //};
+
         public Dashboard()
         {
             InitializeComponent();
-            LoadStudentInfo();
+            LoadInfo();
+            LoadInfoClass();
             if (role.Equals("Sinh viên"))
             {
                 LoadDrlHocKi(1);
-                LoadDotChamDiemSinhVien(1, role);
+                LoadDotChamDiemSinhVien(int.Parse(nguoidung_id), role);
             }
             else if (role.Equals("Cố vấn"))
             {
                 LoadDrlHocKi(1);
-                LoadDotChamDiemSinhVien(1, role);
+                LoadDotChamDiemSinhVien(int.Parse(nguoidung_id), role);
             }
 
             //CustomizeDataGridView();
             //CustomizeSpecificColumns();
         }
 
-        private void LoadStudentInfo()
+        private void LoadInfo()
         {
-            try
+            if (role.Equals("Sinh viên"))
             {
-                // Lấy danh sách sinh viên từ DAO
-                // Sau này đổi thành bus
-                var student = SinhVienBUS.GetStudentById(1);
+                lbStudentInfo.Text = "Thông tin sinh viên";
+                try
+                {
+                    // Lấy danh sách sinh viên từ DAO
+                    // Sau này đổi thành bus
+                    var student = SinhVienBUS.GetStudentById(long.Parse(nguoidung_id));
 
-                lbMaSV.Text = student.Id.ToString();
-                lbEmail.Text = student.Email;
-                lbHovaTen.Text = student.Name;
-                lbNgaySinh.Text = student.NgaySinh.ToString();
-                if (student.GioiTinh == 1)
-                    lbGioiTinh.Text = "Nam";
-                else
-                    lbGioiTinh.Text = "Nữ";
+                    lbMaSV.Text = student.Id.ToString();
+                    lbEmail.Text = student.Email;
+                    lbHovaTen.Text = student.Name;
+                    lbNgaySinh.Text = student.NgaySinh.ToString();
+                    if (student.GioiTinh == 1)
+                        lbGioiTinh.Text = "Nam";
+                    else
+                        lbGioiTinh.Text = "Nữ";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tải sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else if (role.Equals("Cố vấn"))
             {
-                MessageBox.Show($"Lỗi khi tải sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lbStudentInfo.Text = "Thông tin cố vấn";
+                label2.Text = "Mã GV";
+                try
+                {
+                    // Lấy danh sách sinh viên từ DAO
+                    // Sau này đổi thành bus
+                    var giangvien = GiangVienBUS.GetGiangVienById(long.Parse(nguoidung_id));
+
+                    lbMaSV.Text = giangvien.Id.ToString();
+                    lbEmail.Text = giangvien.Email;
+                    lbHovaTen.Text = giangvien.Name;
+                    lbNgaySinh.Text = giangvien.NgaySinh.ToString();
+                    //if (giangvien. == 1)
+                    //    lbGioiTinh.Text = "Nam";
+                    //else
+                    //    lbGioiTinh.Text = "Nữ";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tải sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
+        }
+
+        private void LoadInfoClass()
+        {
+            if (role.Equals("Sinh viên"))
+            {
+                tableLayoutPanel10.RowStyles[1] = new RowStyle(SizeType.Percent, 0);
+                tableLayoutPanel10.RowStyles[0] = new RowStyle(SizeType.Percent, 100);
+                try
+                {
+                    // Lấy danh sách sinh viên từ DAO
+                    // Sau này đổi thành bus
+                    var student = LopDAO.GetLopDetailsBySinhVienId(long.Parse(nguoidung_id));
+
+                    lbLop.Text = student.TenLop;
+                    lbKhoa.Text = student.TenKhoa;
+                    lbCoVan.Text = student.CoVan;
+                    lbKhoas.Text = "K" + student.TenLop.Substring(4, 2);
+                    //lbNgaySinh.Text = student.NgaySinh.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tải lớp   : {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (role.Equals("Cố vấn"))
+            {
+                // Cập nhật tiêu đề label1
+                label1.Text = "Lớp học bạn cố vấn";
+                tableLayoutPanel10.RowStyles[0] = new RowStyle(SizeType.Percent, 0);
+                tableLayoutPanel10.RowStyles[1] = new RowStyle(SizeType.Percent, 100);
+
+                // Cấu hình các cột trong DataGridView
+                dataGridView3.AutoGenerateColumns = false;
+
+                // Đảm bảo chỉ thêm cột một lần
+                if (dataGridView3.Columns.Count == 0)
+                {
+                    // Cột số thứ tự
+                    dataGridView3.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        HeaderText = "STT",
+                        DataPropertyName = "STT",
+                        Name = "STT",
+                    });
+
+                    // Cột Tên Lớp
+                    dataGridView3.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        HeaderText = "Tên Lớp",
+                        DataPropertyName = "TenLop",
+                        Name = "TenLop"
+                    });
+
+                    // Cột Tên Khoa
+                    dataGridView3.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        HeaderText = "Tên Khoa",
+                        DataPropertyName = "TenKhoa",
+                        Name = "TenKhoa"
+                    });
+
+                    // Cột Số Lượng Sinh Viên
+                    dataGridView3.Columns.Add(new DataGridViewTextBoxColumn
+                    {
+                        HeaderText = "SL",
+                        DataPropertyName = "SoLuong",
+                        Name = "SoLuong"
+                    });
+                }
+
+                try
+                {
+                    List<LopDetailsDTO> lopDetailsList; // Khai báo biến
+
+                    // Lấy thông tin lớp học của cố vấn theo ID
+                    lopDetailsList = LopDAO.GetLopHocCuaCoVanById(long.Parse(nguoidung_id));
+
+                    // Thêm số thứ tự vào mỗi dòng dữ liệu
+                    for (int i = 0; i < lopDetailsList.Count; i++)
+                    {
+                        lopDetailsList[i].STT = i + 1; // Gán số thứ tự bắt đầu từ 1
+                    }
+
+                    // Gán nguồn dữ liệu cho DataGridView
+                    dataGridView3.DataSource = lopDetailsList;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+
         }
 
         private void LoadDotChamDiemSinhVien(int sinhVienId, string role)
         {
-            // Cấu hình các cột trong DataGridView
+            // Cấu hình các cột trong DataGridView2
             dataGridView2.AutoGenerateColumns = false;
-
-            // Đảm bảo chỉ thêm cột một lần
             if (dataGridView2.Columns.Count == 0)
             {
                 dataGridView2.Columns.Add(new DataGridViewTextBoxColumn
@@ -94,32 +250,67 @@ namespace ql_diemrenluyen.GUI.USER
                 });
             }
 
+            // Cấu hình các cột trong DataGridView4 (nếu chưa cấu hình)
+            dataGridView4.AutoGenerateColumns = false;
+            if (dataGridView4.Columns.Count == 0)
+            {
+                dataGridView4.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    HeaderText = "Thông báo",
+                    DataPropertyName = "ThongBao",
+                    Name = "ThongBao"
+                });
+            }
+
             try
             {
-                List<ThongTinDotChamDiemDTO> dotChamDiemList; // Khai báo biến
+                List<ThongTinDotChamDiemDTO> dotChamDiemList;
 
                 if (role.Equals("Sinh viên"))
                 {
                     dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaSinhVienTheoId(sinhVienId);
                 }
-                else if (role.Equals("Cố vấn")) // Giả sử bạn đang kiểm tra vai trò "Cố vấn"
+                else if (role.Equals("Cố vấn"))
                 {
                     dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaCoVanTheoId(sinhVienId);
                 }
                 else
                 {
-                    // Xử lý trường hợp vai trò không hợp lệ nếu cần
                     MessageBox.Show("Vai trò không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                dataGridView2.DataSource = dotChamDiemList; // Gán nguồn dữ liệu cho DataGridView
+                // Gán nguồn dữ liệu cho DataGridView2
+                dataGridView2.DataSource = dotChamDiemList;
+
+                // Danh sách thông báo để hiển thị trên DataGridView4
+                var thongBaoList = new List<dynamic>();
+                var now = DateTime.Now;
+
+                foreach (var dot in dotChamDiemList)
+                {
+                    var ngayBatDau = dot.NgayBatDau;
+                    var ngayKetThuc = dot.NgayKetThuc;
+
+                    if (ngayBatDau <= now.AddDays(7) && ngayBatDau > now)
+                    {
+                        thongBaoList.Add(new { ThongBao = $"Đợt {dot.DotChamDiem} sắp bắt đầu trong {Math.Ceiling((ngayBatDau - now).TotalDays)} ngày!" });
+                    }
+                    else if (ngayKetThuc <= now.AddDays(3) && ngayKetThuc > now)
+                    {
+                        thongBaoList.Add(new { ThongBao = $"Đợt {dot.DotChamDiem} sắp kết thúc trong {Math.Ceiling((ngayKetThuc - now).TotalDays)} ngày!" });
+                    }
+                }
+
+                // Gán thông báo vào DataGridView4
+                dataGridView4.DataSource = thongBaoList;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 

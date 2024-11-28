@@ -18,6 +18,12 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
         private long? lopId = null;
         private string? hockiId = null;
         private string? namhocId = null;
+
+        private double? limit = null;
+        private string? typeLimit = "SV";
+        private string? xeploai = null;
+        private string? tanggiam = null;
+
         private List<SinhVienDetailsDTO> sinhVienDetails = new List<SinhVienDetailsDTO>();
         public Thongke()
         {
@@ -35,6 +41,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             cbbLop.SelectedItem = "Chọn lớp";
             cbbXepLoai.SelectedIndex = 0;
             cbbLocSV.SelectedIndex = 0;
+            cbbTangGiam.SelectedIndex = 0;
             cbbHocKi.Visible = true;
             cbbNamHoc.Visible = true;
             cbbKhoa.Visible = false;
@@ -359,25 +366,29 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             {
                 if (this.khoaId == null || this.hockiId == "" || this.namhocId == "")
                 {
-                    dataGridView1.DataSource = null;
+                    sinhVienDetails = null;
+                    dataGridView1.DataSource = sinhVienDetails;
                     dataGridView1.Rows.Clear();
                     flowLayoutPanel2.Visible = false;
                     return;
                 }
-                dataGridView1.DataSource = SinhVienDAO.GetDanhSachSvAndDrl(khoaId: this.khoaId, hockiId: this.hockiId, namhocId: this.namhocId);
+                sinhVienDetails = SinhVienDAO.GetDanhSachSvAndDrl(khoaId: this.khoaId, hockiId: this.hockiId, namhocId: this.namhocId);
+                dataGridView1.DataSource = sinhVienDetails;
                 flowLayoutPanel2.Visible = true;
             }
             else if (typeThongKe == "Lớp")
             {
                 if (this.lopId == null || this.hockiId == "" || this.namhocId == "")
                 {
-                    dataGridView1.DataSource = null;
+                    sinhVienDetails = null;
+                    dataGridView1.DataSource = sinhVienDetails;
                     dataGridView1.Rows.Clear();
                     flowLayoutPanel2.Visible = false;
                     return;
                 }
                 flowLayoutPanel2.Visible = true;
-                dataGridView1.DataSource = SinhVienDAO.GetDanhSachSvAndDrl(lopId: this.lopId, hockiId: this.hockiId, namhocId: this.namhocId);
+                sinhVienDetails = SinhVienDAO.GetDanhSachSvAndDrl(lopId: this.lopId, hockiId: this.hockiId, namhocId: this.namhocId);
+                dataGridView1.DataSource = sinhVienDetails;
             }
         }
 
@@ -435,6 +446,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             //cbbLop.SelectedIndex = 0;
             tableLayoutPanel7.RowStyles[1] = new RowStyle(SizeType.Percent, 100);
             tableLayoutPanel7.RowStyles[0] = new RowStyle(SizeType.Percent, 0);
+            sinhVienDetails = null;
             dataGridView1.DataSource = null;
             if (cbbLop.SelectedIndex == 0)
             {
@@ -464,6 +476,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
             cbbLop.Visible = false;
             tableLayoutPanel7.RowStyles[1] = new RowStyle(SizeType.Percent, 100);
             tableLayoutPanel7.RowStyles[0] = new RowStyle(SizeType.Percent, 0);
+            sinhVienDetails = null;
             dataGridView1.DataSource = null;
             if (cbbKhoa.SelectedIndex == 0)
             {
@@ -728,14 +741,80 @@ namespace ql_diemrenluyen.GUI.ADMIN.Statistic
 
         private void button5_Click(object sender, EventArgs e)
         {
-            // Lấy danh sách sinh viên từ DAO
-            this.sinhVienDetails = SinhVienDAO.GetDanhSachSvAndDrl(khoaId: this.khoaId, hockiId: this.hockiId, namhocId: this.namhocId);
+            if (sinhVienDetails == null)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất");
+                return;
+            }
 
             // Chuyển đổi danh sách sang List<Dictionary<string, string>>
             var dictionaryList = ExcelExporter.ConvertListToDictionaryList(sinhVienDetails);
 
             // Xuất ra Excel
             ExcelExporter.ExportListToExcel(dictionaryList);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //string xeploai = null;
+            //if (cbbXepLoai.SelectedIndex != 0)
+            //    xeploai = cbbXepLoai.SelectedItem.ToString();
+            if (cbbXepLoai.SelectedIndex == 0 && textBox1.Text == "" && cbbTangGiam.SelectedIndex == 0)
+            {
+                MessageBox.Show("Thieu dieu kien loc");
+                return;
+            }
+
+
+            if (textBox1.Text != "")
+            {
+                if (typeLimit == "%")
+                {
+                    sinhVienDetails = SinhVienDAO.GetDanhSachSvAndDrl(lopId: this.lopId, khoaId: this.khoaId, hockiId: this.hockiId, namhocId: this.namhocId, limitPercent: Convert.ToDouble(textBox1.Text), sortOrder: this.tanggiam, xeploai: this.xeploai);
+                }
+                else if (typeLimit == "SV")
+                {
+                    MessageBox.Show(this.tanggiam);
+                    sinhVienDetails = SinhVienDAO.GetDanhSachSvAndDrl(lopId: this.lopId, khoaId: this.khoaId, hockiId: this.hockiId, namhocId: this.namhocId, limit: Convert.ToInt16(textBox1.Text), sortOrder: this.tanggiam, xeploai: this.xeploai);
+                }
+            }
+            else
+            {
+                sinhVienDetails = SinhVienDAO.GetDanhSachSvAndDrl(lopId: this.lopId, khoaId: this.khoaId, hockiId: this.hockiId, namhocId: this.namhocId, sortOrder: this.tanggiam, xeploai: this.xeploai);
+            }
+
+            dataGridView1.DataSource = sinhVienDetails;
+        }
+
+        private void cbbLocSV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            typeLimit = cbbLocSV.SelectedItem.ToString();
+        }
+
+        private void cbbXepLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbXepLoai.SelectedIndex != 0)
+            {
+                xeploai = cbbXepLoai.SelectedItem.ToString();
+            }
+            else
+            {
+                xeploai = null;
+            }
+        }
+
+        private void cbbTangGiam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbTangGiam.SelectedIndex != 0)
+            {
+                string temp = cbbTangGiam.SelectedItem.ToString();
+                if (temp == "Top") tanggiam = "desc";
+                else tanggiam = "asc";
+            }
+            else
+            {
+                tanggiam = null;
+            }
         }
     }
 }

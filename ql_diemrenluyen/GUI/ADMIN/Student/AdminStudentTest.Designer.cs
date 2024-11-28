@@ -32,14 +32,12 @@
             // 
             // AdminStudentTest
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             ControlBox = false;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "AdminStudentTest";
-            Text = "AdminStudentTest";
             Load += AdminStudentTest_Load;
             ResumeLayout(false);
         }

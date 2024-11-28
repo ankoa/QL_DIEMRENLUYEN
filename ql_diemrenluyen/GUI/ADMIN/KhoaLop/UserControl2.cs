@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
-using ql_diemrenluyen.BUS;
 
 namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
 {
@@ -32,10 +23,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                     dataGridLopView.Rows[rowIndex].Cells[1].Value = item.TenLop;
                     dataGridLopView.Rows[rowIndex].Cells[2].Value = item.Khoa.TenKhoa;
                     dataGridLopView.Rows[rowIndex].Cells[3].Value = item.HeDaoTao.Name;
+                    dataGridLopView.Rows[rowIndex].Cells[4].Value = item.CoVanId;
+
+                    // Xử lý tên giảng viên nếu CoVanId không null
+                    dataGridLopView.Rows[rowIndex].Cells[5].Value = item.CoVanId.HasValue
+                        ? GiangVienBUS.GetGiangVienById(item.CoVanId.Value).Name
+                        : "";
                 }
             }
-
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {

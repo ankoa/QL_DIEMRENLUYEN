@@ -46,5 +46,10 @@ namespace ql_diemrenluyen.BUS
         {
             return SinhVienDAO.DeleteStudent(id);
         }
+
+        public static List<SinhVienToExport> GetAllStudentsToExport()
+        {
+            return SinhVienDAO.GetAllStudentsToExport();
+        }
     }
 }

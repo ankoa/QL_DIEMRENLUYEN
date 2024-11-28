@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
 using System.Data;
 
@@ -60,17 +60,49 @@ namespace ql_diemrenluyen.DAO
         //    return tieuChiList;
         //}
 
+        //public static bool AddAccount(AccountDTO account)
+        //{
+        //    try
+        //    {
+        //        string sql = "INSERT INTO account (vaitro, password, remember_token, created_at, updated_at, status) " +
+        //                     "VALUES (@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
+
+        //        string hashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(account.Password, 13); // Hash password
+
+        //        using (var cmd = new MySqlCommand(sql))
+        //        {
+        //            cmd.Parameters.AddWithValue("@role", account.Role); // role là int
+        //            cmd.Parameters.AddWithValue("@password", hashedPassword);
+        //            cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken ?? (object)DBNull.Value); // Handle null
+        //            cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt ?? DateTime.Now); // Set default if null
+        //            cmd.Parameters.AddWithValue("@updatedAt", account.UpdatedAt ?? DateTime.Now); // Set default if null
+        //            cmd.Parameters.AddWithValue("@status", account.Status);
+
+        //            return DBConnection.ExecuteNonQuery(cmd) > 0; // Return true if success
+        //        }
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        return false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //    }
+        //}
+
         public static bool AddAccount(AccountDTO account)
         {
             try
             {
-                string sql = "INSERT INTO account (vaitro, password, remember_token, created_at, updated_at, status) " +
-                             "VALUES (@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
+                string sql = "INSERT INTO account (id,vaitro, password, remember_token, created_at, updated_at, status) " +
+                             "VALUES (@id,@role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
 
                 string hashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(account.Password, 13); // Hash password
 
                 using (var cmd = new MySqlCommand(sql))
                 {
+                    cmd.Parameters.AddWithValue("@id", account.Id);
                     cmd.Parameters.AddWithValue("@role", account.Role); // role là int
                     cmd.Parameters.AddWithValue("@password", hashedPassword);
                     cmd.Parameters.AddWithValue("@rememberToken", account.RememberToken ?? (object)DBNull.Value); // Handle null
@@ -102,6 +134,22 @@ namespace ql_diemrenluyen.DAO
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", account.Id);
             cmd.Parameters.AddWithValue("@role", "Sinh viên");
+            cmd.Parameters.AddWithValue("@password", account.Password);
+            cmd.Parameters.AddWithValue("@rememberToken", null);
+            cmd.Parameters.AddWithValue("@createdAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@status", 1);
+
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+        public static bool AddAccountGV(AccountDTO account)
+        {
+            string sql = $"INSERT INTO account (id, vaitro, password, remember_token, created_at, updated_at, status) " +
+                        $"VALUES (@id, @role, @password, @rememberToken, @createdAt, @updatedAt, @status)";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@id", account.Id);
+            cmd.Parameters.AddWithValue("@role", "Giảng viên");  // Thay đổi vai trò thành Giảng viên
             cmd.Parameters.AddWithValue("@password", account.Password);
             cmd.Parameters.AddWithValue("@rememberToken", null);
             cmd.Parameters.AddWithValue("@createdAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));

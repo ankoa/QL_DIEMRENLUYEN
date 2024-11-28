@@ -54,7 +54,7 @@
             label1.ImageAlign = ContentAlignment.TopCenter;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(937, 46);
+            label1.Size = new Size(819, 35);
             label1.TabIndex = 0;
             label1.Text = "Quản lý khoa, lớp và hệ học";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -67,11 +67,12 @@
             tableLayoutPanel1.Controls.Add(tabControl1, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 93F));
-            tableLayoutPanel1.Size = new Size(943, 666);
+            tableLayoutPanel1.Size = new Size(825, 500);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // tabControl1
@@ -81,22 +82,20 @@
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tabControl1.Location = new Point(3, 50);
-            tabControl1.Margin = new Padding(3, 4, 3, 4);
+            tabControl1.Location = new Point(3, 38);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(937, 612);
+            tabControl1.Size = new Size(819, 459);
             tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
             tabPage1.Controls.Add(userControl11);
             tabPage1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tabPage1.Location = new Point(4, 37);
-            tabPage1.Margin = new Padding(3, 4, 3, 4);
+            tabPage1.Location = new Point(4, 30);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3, 4, 3, 4);
-            tabPage1.Size = new Size(929, 571);
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(811, 425);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Khoa ";
             tabPage1.UseVisualStyleBackColor = true;
@@ -106,10 +105,9 @@
             // 
             userControl11.Dock = DockStyle.Fill;
             userControl11.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            userControl11.Location = new Point(3, 4);
-            userControl11.Margin = new Padding(3, 4, 3, 4);
+            userControl11.Location = new Point(3, 3);
             userControl11.Name = "userControl11";
-            userControl11.Size = new Size(923, 563);
+            userControl11.Size = new Size(805, 419);
             userControl11.TabIndex = 0;
             userControl11.Load += userControl11_Load;
             // 
@@ -117,11 +115,10 @@
             // 
             tabPage2.Controls.Add(userControl21);
             tabPage2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tabPage2.Location = new Point(4, 37);
-            tabPage2.Margin = new Padding(3, 4, 3, 4);
+            tabPage2.Location = new Point(4, 30);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3, 4, 3, 4);
-            tabPage2.Size = new Size(929, 571);
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(811, 425);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Lớp";
             tabPage2.UseVisualStyleBackColor = true;
@@ -130,19 +127,20 @@
             // 
             userControl21.Dock = DockStyle.Fill;
             userControl21.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            userControl21.Location = new Point(3, 4);
-            userControl21.Margin = new Padding(6, 8, 6, 8);
+            userControl21.Location = new Point(3, 3);
+            userControl21.Margin = new Padding(5, 6, 5, 6);
             userControl21.Name = "userControl21";
-            userControl21.Size = new Size(923, 563);
+            userControl21.Size = new Size(805, 419);
             userControl21.TabIndex = 0;
             // 
             // tabPage3
             // 
             tabPage3.Controls.Add(userControl31);
-            tabPage3.Location = new Point(4, 37);
+            tabPage3.Location = new Point(4, 30);
+            tabPage3.Margin = new Padding(3, 2, 3, 2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(192, 59);
+            tabPage3.Padding = new Padding(3, 2, 3, 2);
+            tabPage3.Size = new Size(192, 66);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Hệ học";
             tabPage3.UseVisualStyleBackColor = true;
@@ -150,19 +148,18 @@
             // userControl31
             // 
             userControl31.Dock = DockStyle.Fill;
-            userControl31.Location = new Point(3, 3);
-            userControl31.Margin = new Padding(4);
+            userControl31.Location = new Point(3, 2);
+            userControl31.Margin = new Padding(4, 3, 4, 3);
             userControl31.Name = "userControl31";
-            userControl31.Size = new Size(186, 53);
+            userControl31.Size = new Size(186, 62);
             userControl31.TabIndex = 0;
             // 
             // QuanLyKhoaLop
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(943, 666);
+            ClientSize = new Size(825, 500);
             Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "QuanLyKhoaLop";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

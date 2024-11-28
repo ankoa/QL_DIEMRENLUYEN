@@ -23,6 +23,32 @@ namespace ql_diemrenluyen.DAO
             return students;
         }
 
+        public static List<SinhVienToExport> GetAllStudentsToExport()
+        {
+            List<SinhVienToExport> students = new List<SinhVienToExport>();
+
+            // Truy vấn SQL kết nối sinhvien, lop, và khoa
+            string sql = @"
+        SELECT sv.id, sv.name, sv.ngaysinh, sv.email, sv.gioitinh, sv.created_at, sv.updated_at, sv.status, 
+               l.TenLop, k.TenKhoa
+        FROM sinhvien sv
+        INNER JOIN lop l ON sv.lop_id = l.Id
+        INNER JOIN khoa k ON l.khoa_id = k.Id";
+
+            List<List<object>> result = DBConnection.ExecuteReader(sql);
+
+            foreach (var row in result)
+            {
+                SinhVienToExport student = MapToSinhVienToExport(row);
+
+                students.Add(student);
+            }
+
+            return students;
+        }
+
+
+
         // Lấy tất cả sinh viên
         public static List<SinhVienDTO> GetAllStudentsActive(long? khoaId = null, long? lopId = null)
         {
@@ -95,93 +121,25 @@ namespace ql_diemrenluyen.DAO
             return null; // Trả về null nếu không tìm thấy sinh viên
         }
 
-        public static List<SinhVienDetailsDTO> GetDanhSachSvAndDrl(long? khoaId = null, long? lopId = null, string? hockiId = null, string? namhocId = null)
-        {
-            string sql = @"
-        SELECT sv.id, sv.name, 
-       k.tenkhoa AS khoa_ten, 
-       l.tenlop AS lop_ten, 
-       drl.diemrenluyen, drl.danhgia
-FROM sinhvien sv
-LEFT JOIN lop l ON sv.lop_id = l.id
-LEFT JOIN khoa k ON l.khoa_id = k.id
-LEFT JOIN diemrenluyensinhvien drl ON sv.id = drl.sinhvien_id
-LEFT JOIN hocky hk ON drl.hocki_id = hk.id
-WHERE 1=1
-    AND drl.status = 1
-  AND sv.status = 1
-  AND l.status = 1
-  AND k.status = 1"; // Điều kiện luôn đúng, để dễ dàng thêm điều kiện WHERE sau này
-
-            // Nếu có tham số khoaId, lopId, hockiId, namhocId thì thêm vào câu lệnh WHERE
-            if (khoaId.HasValue)
-                sql += " AND l.khoa_id = @khoaId";
-
-            if (lopId.HasValue)
-                sql += " AND sv.lop_id = @lopId";
-
-            if (!string.IsNullOrEmpty(hockiId))
-                sql += " AND drl.hocki_id = @hockiId";
-
-            if (!string.IsNullOrEmpty(namhocId))
-                sql += " AND hk.namhoc = @namhocId";
-
-            // Tạo câu lệnh MySQL và thêm tham số vào câu lệnh SQL
-            var cmd = new MySqlCommand(sql);
-
-            if (khoaId.HasValue)
-                cmd.Parameters.AddWithValue("@khoaId", khoaId.Value);
-
-            if (lopId.HasValue)
-                cmd.Parameters.AddWithValue("@lopId", lopId.Value);
-
-            if (!string.IsNullOrEmpty(hockiId))
-                cmd.Parameters.AddWithValue("@hockiId", hockiId);
-
-            if (!string.IsNullOrEmpty(namhocId))
-                cmd.Parameters.AddWithValue("@namhocId", namhocId);
-
-            // Thực thi câu lệnh SQL và lấy kết quả
-            List<List<object>> result = DBConnection.ExecuteReader(cmd);
-
-            // Nếu có kết quả trả về, ánh xạ dữ liệu vào danh sách DTO
-            List<SinhVienDetailsDTO> sinhVienDetails = new List<SinhVienDetailsDTO>();
-
-            foreach (var row in result)
-            {
-                sinhVienDetails.Add(MapToSinhVienDetailsDTO(row));
-            }
-
-            return sinhVienDetails;
-        }
-
-        //        public static List<SinhVienDetailsDTO> GetDanhSachSvAndDrl(
-        //    long? khoaId = null,
-        //    long? lopId = null,
-        //    string? hockiId = null,
-        //    string? namhocId = null,
-        //    string? sortOrder = null, // "asc" hoặc "desc"
-        //    int? limit = null,       // Số lượng giới hạn cụ thể
-        //    double? limitPercent = null // Phần trăm giới hạn
-        //)
+        //        public static List<SinhVienDetailsDTO> GetDanhSachSvAndDrl(long? khoaId = null, long? lopId = null, string? hockiId = null, string? namhocId = null)
         //        {
         //            string sql = @"
         //        SELECT sv.id, sv.name, 
-        //               k.tenkhoa AS khoa_ten, 
-        //               l.tenlop AS lop_ten, 
-        //               drl.diemrenluyen, drl.danhgia
-        //        FROM sinhvien sv
-        //        LEFT JOIN lop l ON sv.lop_id = l.id
-        //        LEFT JOIN khoa k ON l.khoa_id = k.id
-        //        LEFT JOIN diemrenluyensinhvien drl ON sv.id = drl.sinhvien_id
-        //        LEFT JOIN hocky hk ON drl.hocki_id = hk.id
-        //        WHERE 1=1
-        //          AND drl.status = 1
-        //          AND sv.status = 1
-        //          AND l.status = 1
-        //          AND k.status = 1";
+        //       k.tenkhoa AS khoa_ten, 
+        //       l.tenlop AS lop_ten, 
+        //       drl.diemrenluyen, drl.danhgia
+        //FROM sinhvien sv
+        //LEFT JOIN lop l ON sv.lop_id = l.id
+        //LEFT JOIN khoa k ON l.khoa_id = k.id
+        //LEFT JOIN diemrenluyensinhvien drl ON sv.id = drl.sinhvien_id
+        //LEFT JOIN hocky hk ON drl.hocki_id = hk.id
+        //WHERE 1=1
+        //    AND drl.status = 1
+        //  AND sv.status = 1
+        //  AND l.status = 1
+        //  AND k.status = 1"; // Điều kiện luôn đúng, để dễ dàng thêm điều kiện WHERE sau này
 
-        //            // Thêm điều kiện WHERE nếu có tham số
+        //            // Nếu có tham số khoaId, lopId, hockiId, namhocId thì thêm vào câu lệnh WHERE
         //            if (khoaId.HasValue)
         //                sql += " AND l.khoa_id = @khoaId";
 
@@ -194,15 +152,7 @@ WHERE 1=1
         //            if (!string.IsNullOrEmpty(namhocId))
         //                sql += " AND hk.namhoc = @namhocId";
 
-        //            // Thêm sắp xếp nếu có yêu cầu
-        //            if (!string.IsNullOrEmpty(sortOrder))
-        //            {
-        //                sql += sortOrder.ToLower() == "desc"
-        //                    ? " ORDER BY drl.diemrenluyen DESC"
-        //                    : " ORDER BY drl.diemrenluyen ASC";
-        //            }
-
-        //            // Tạo lệnh MySQL
+        //            // Tạo câu lệnh MySQL và thêm tham số vào câu lệnh SQL
         //            var cmd = new MySqlCommand(sql);
 
         //            if (khoaId.HasValue)
@@ -220,23 +170,7 @@ WHERE 1=1
         //            // Thực thi câu lệnh SQL và lấy kết quả
         //            List<List<object>> result = DBConnection.ExecuteReader(cmd);
 
-        //            // Tính toán số lượng kết quả cần lấy nếu có yêu cầu giới hạn
-        //            int totalRecords = result.Count;
-        //            int recordsToTake = totalRecords;
-
-        //            if (limitPercent.HasValue && limitPercent.Value > 0)
-        //            {
-        //                recordsToTake = (int)(totalRecords * (limitPercent.Value / 100));
-        //            }
-        //            else if (limit.HasValue && limit.Value > 0)
-        //            {
-        //                recordsToTake = Math.Min(limit.Value, totalRecords);
-        //            }
-
-        //            // Cắt danh sách kết quả theo giới hạn
-        //            result = result.Take(recordsToTake).ToList();
-
-        //            // Ánh xạ kết quả vào danh sách DTO
+        //            // Nếu có kết quả trả về, ánh xạ dữ liệu vào danh sách DTO
         //            List<SinhVienDetailsDTO> sinhVienDetails = new List<SinhVienDetailsDTO>();
 
         //            foreach (var row in result)
@@ -246,6 +180,106 @@ WHERE 1=1
 
         //            return sinhVienDetails;
         //        }
+
+        public static List<SinhVienDetailsDTO> GetDanhSachSvAndDrl(
+       long? khoaId = null,
+       long? lopId = null,
+       string? hockiId = null,
+       string? namhocId = null,
+       string? sortOrder = null, // "asc" hoặc "desc"
+       int? limit = null,        // Số lượng giới hạn cụ thể
+       double? limitPercent = null, // Phần trăm giới hạn
+       string? xeploai = null    // Lọc theo xếp loại
+   )
+        {
+            string sql = @"
+        SELECT sv.id, sv.name, 
+               k.tenkhoa AS khoa_ten, 
+               l.tenlop AS lop_ten, 
+               drl.diemrenluyen, drl.danhgia
+        FROM sinhvien sv
+        LEFT JOIN lop l ON sv.lop_id = l.id
+        LEFT JOIN khoa k ON l.khoa_id = k.id
+        LEFT JOIN diemrenluyensinhvien drl ON sv.id = drl.sinhvien_id
+        LEFT JOIN hocky hk ON drl.hocki_id = hk.id
+        WHERE 1=1
+          AND drl.status = 1
+          AND sv.status = 1
+          AND l.status = 1
+          AND k.status = 1";
+
+            // Thêm điều kiện WHERE nếu có tham số
+            if (khoaId.HasValue)
+                sql += " AND l.khoa_id = @khoaId";
+
+            if (lopId.HasValue)
+                sql += " AND sv.lop_id = @lopId";
+
+            if (!string.IsNullOrEmpty(hockiId))
+                sql += " AND hk.Name = @hockiId";
+
+            if (!string.IsNullOrEmpty(namhocId))
+                sql += " AND hk.namhoc = @namhocId";
+
+            if (!string.IsNullOrEmpty(xeploai))
+                sql += " AND drl.danhgia = @xeploai";
+
+            // Thêm sắp xếp nếu có yêu cầu
+            if (!string.IsNullOrEmpty(sortOrder))
+            {
+                sql += sortOrder.ToLower() == "desc"
+                    ? " ORDER BY drl.diemrenluyen DESC"
+                    : " ORDER BY drl.diemrenluyen ASC";
+            }
+
+            // Tạo lệnh MySQL
+            var cmd = new MySqlCommand(sql);
+
+            if (khoaId.HasValue)
+                cmd.Parameters.AddWithValue("@khoaId", khoaId.Value);
+
+            if (lopId.HasValue)
+                cmd.Parameters.AddWithValue("@lopId", lopId.Value);
+
+            if (!string.IsNullOrEmpty(hockiId))
+                cmd.Parameters.AddWithValue("@hockiId", hockiId);
+
+            if (!string.IsNullOrEmpty(namhocId))
+                cmd.Parameters.AddWithValue("@namhocId", namhocId);
+
+            if (!string.IsNullOrEmpty(xeploai))
+                cmd.Parameters.AddWithValue("@xeploai", xeploai);
+
+            // Thực thi câu lệnh SQL và lấy kết quả
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Tính toán số lượng kết quả cần lấy nếu có yêu cầu giới hạn
+            int totalRecords = result.Count;
+            int recordsToTake = totalRecords;
+
+            if (limitPercent.HasValue && limitPercent.Value > 0)
+            {
+                recordsToTake = (int)(totalRecords * (limitPercent.Value / 100));
+            }
+            else if (limit.HasValue && limit.Value > 0)
+            {
+                recordsToTake = Math.Min(limit.Value, totalRecords);
+            }
+
+            // Cắt danh sách kết quả theo giới hạn
+            result = result.Take(recordsToTake).ToList();
+
+            // Ánh xạ kết quả vào danh sách DTO
+            List<SinhVienDetailsDTO> sinhVienDetails = new List<SinhVienDetailsDTO>();
+
+            foreach (var row in result)
+            {
+                sinhVienDetails.Add(MapToSinhVienDetailsDTO(row));
+            }
+
+            return sinhVienDetails;
+        }
+
 
         // Inside SinhVienDAO class
 
@@ -454,6 +488,27 @@ WHERE 1=1
                 XepLoai = Convert.ToString(data[5])
             };
         }
+
+        private static SinhVienToExport MapToSinhVienToExport(List<object> row)
+        {
+            return new SinhVienToExport
+            {
+                Id = Convert.ToInt64(row[0]),
+                Name = row[1]?.ToString(),
+                NgaySinh = row[2] != null
+                    ? Convert.ToDateTime(row[2]).ToString("dd/MM/yyyy") // Chuyển thành chuỗi định dạng dd/MM/yyyy
+                    : null, // Nếu null, để giá trị là null
+                Email = row[3]?.ToString(),
+                GioiTinh = Convert.ToInt32(row[4]) == 1 ? "Nam" : "Nữ",
+                CreatedAt = row[5] != null ? Convert.ToDateTime(row[5]) : (DateTime?)null,
+                UpdatedAt = row[6] != null ? Convert.ToDateTime(row[6]) : (DateTime?)null,
+                Status = Convert.ToInt32(row[7]),
+                Lop = row[8]?.ToString(),
+                Khoa = row[9]?.ToString()
+            };
+        }
+
+
     }
 
     public class SinhVienDetailsDTO
@@ -465,4 +520,20 @@ WHERE 1=1
         public decimal DiemRenLuyen { get; set; }
         public string XepLoai { get; set; }
     }
+
+    public class SinhVienToExport
+    {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string NgaySinh { get; set; }
+        public string Email { get; set; }
+        public string GioiTinh { get; set; }
+        public string Khoa { get; set; } // Tên khoa
+        public string Lop { get; set; } // Tên lớp
+        public DateTime? CreatedAt { get; set; } // Nullable DateTime
+        public DateTime? UpdatedAt { get; set; } // Nullable DateTime
+        public int Status { get; set; }
+
+    }
+
 }

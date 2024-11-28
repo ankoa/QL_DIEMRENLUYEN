@@ -9,6 +9,10 @@ namespace ql_diemrenluyen.BUS
         {
             return LopDAO.GetAllLop();
         }
+        public static List<LopToExport> GetLopHocToExports()
+        {
+            return LopDAO.GetLopHocToExport();
+        }
         //Lấy Đối tượng lớp từ id của lớp
         public static LopDTO GetLopByID(long idLop)
         {
