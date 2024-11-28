@@ -96,6 +96,11 @@ namespace ql_diemrenluyen.BUS
             return chiTietDotChamList.Any(chiTiet =>
                 chiTiet.ThongTinDotChamDiemId == thongTinDotChamDiemId && chiTiet.Status == 1);
         }
+        public static List<ChiTietDotChamDTO> GetListChiTietDotChamByThongTinDotChamId(long thongTinDotChamDiemId)
+        {
+            return ChiTietDotChamDAO.GetListChiTietDotChamByThongTinDotChamId(thongTinDotChamDiemId);
+        }
+        
 
     }
 }

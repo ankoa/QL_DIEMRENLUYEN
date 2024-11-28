@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
 using System;
 using System.Collections.Generic;
+using CloudinaryDotNet.Core;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -179,6 +180,7 @@ namespace ql_diemrenluyen.DAO
 
             return null;  // Trả về null nếu không tìm thấy
         }
+        //lấy id ThongTinDotChamDiem
         public static long? GetThongTinDotChamDiemId(int dotChamDiemId, long sinhVienId)
         {
             string sql = @"
@@ -197,6 +199,117 @@ namespace ql_diemrenluyen.DAO
 
             // Nếu kết quả null, trả về null; nếu không, chuyển thành long
             return result != null ? Convert.ToInt64(result) : (long?)null;
+        }
+
+        public static ThongTinDotChamDTO GetThongTinDotChamDiemByDotChamDiemIdAndSinhVienId(int dotChamDiemId, long sinhVienId)
+        {
+            try
+            {
+                // Câu lệnh SQL để lấy thông tin
+                string sql = @"
+            SELECT id, dotchamdiem_id, covan_id, sinhvien_id, khoa_id, final, hoanthanh, status, ketqua, danhgia 
+            FROM thongtindotchamdiem 
+            WHERE dotchamdiem_id = @dotChamDiemId 
+              AND sinhvien_id = @sinhVienId 
+              AND hoanthanh = 1 
+              AND status = 1
+            LIMIT 1";
+
+                // Tạo MySqlCommand và thêm tham số
+                var cmd = new MySqlCommand(sql);
+                cmd.Parameters.AddWithValue("@dotChamDiemId", dotChamDiemId);
+                cmd.Parameters.AddWithValue("@sinhVienId", sinhVienId);
+
+                // Mở kết nối và thực thi truy vấn
+                List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+                // Kiểm tra nếu có dữ liệu trả về
+                if (result.Count > 0)
+                {
+                    var row = result[0];
+                    return new ThongTinDotChamDTO(
+                        id: Convert.ToInt64(row[0]),
+                        dotChamDiemId: Convert.ToInt32(row[1]),
+                        coVanId: row[2] != DBNull.Value ? (long?)Convert.ToInt64(row[2]) : null,
+                        sinhVienId: Convert.ToInt64(row[3]),
+                        khoaId: row[4] != DBNull.Value ? (long?)Convert.ToInt64(row[4]) : null,
+                        final: Convert.ToInt32(row[5]),
+                        hoanThanh: Convert.ToInt32(row[6]),
+                        status: Convert.ToInt32(row[7]),
+                        ketQua: row[8] != DBNull.Value ? (int?)Convert.ToInt32(row[8]) : null,
+                        danhGia: row[9] != DBNull.Value ? row[9].ToString() : null
+                    );
+                }
+
+                // Trả về null nếu không có dữ liệu
+                return null;
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ
+                Console.WriteLine("Error in GetThongTinDotChamDiemByDotChamDiemIdAndSinhVienId: " + ex.Message);
+                return null;
+            }
+        }
+
+        public static string GetNguoiChamById(long id)
+        {
+            string sql = @"
+        SELECT 
+            covan_id, 
+            sinhvien_id, 
+            khoa_id, 
+            final 
+        FROM 
+            thongtindotchamdiem 
+        WHERE 
+            id = @id";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            try
+            {
+                DBConnection.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        var coVanId = reader["covan_id"] as long?;
+                        var sinhVienId = reader["sinhvien_id"] as long?;
+                        var khoaId = reader["khoa_id"] as long?;
+                        var final = Convert.ToInt32(reader["final"]);
+
+                        if (sinhVienId.HasValue && !coVanId.HasValue && !khoaId.HasValue && final == 0)
+                        {
+                            return "Sinh viên";
+                        }
+                        else if (coVanId.HasValue)
+                        {
+                            return "Cố vấn";
+                        }
+                        else if (khoaId.HasValue)
+                        {
+                            return "Khoa";
+                        }
+                        else if (final == 1)
+                        {
+                            return "Trường";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                DBConnection.Close();
+            }
+
+            return null;
         }
 
 

@@ -111,6 +111,16 @@ namespace ql_diemrenluyen.BUS
 
             return thongTinDotChamDiemId;
         }
+        public static ThongTinDotChamDTO GetThongTinDotChamDiemByDotChamDiemIdAndSinhVienId(int dotChamDiemId, long sinhVienId)
+        {
+            // Gọi hàm DAO để lấy thông tin
+            return ThongTinDotChamDAO.GetThongTinDotChamDiemByDotChamDiemIdAndSinhVienId(dotChamDiemId, sinhVienId);
+        }
+        public static string GetNguoiChamById(long id)
+        {
+            return ThongTinDotChamDAO.GetNguoiChamById(id);
+        }
+
 
 
         // Xóa thông tin đợt chấm điểm

@@ -724,8 +724,88 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         public void loadDiemToTable(int hockyid, long mssv)
         {
+            // Lấy danh sách ID của các đợt chấm trong học kỳ
+            List<int> listDotChamId = DotChamDiemBUS.GetDotChamDiemIdsByHocKiId(hockyid);
 
+            // Chuẩn bị ánh xạ STT -> TieuchiDanhgiaId từ cột "STT"
+            Dictionary<string, long> sttToId = new Dictionary<string, long>();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["STT"] != null && row.Cells["STT"].Value != null)
+                {
+                    string stt = row.Cells["STT"].Value.ToString();
+                    long tieuchiId = Convert.ToInt64(row.Cells["TieuchiDanhgiaId"].Value);
+                    sttToId[stt] = tieuchiId;
+                }
+            }
+
+            // Xóa tất cả các cột điểm trước khi thêm cột mới
+            for (int i = dataGridView1.Columns.Count - 1; i >= 0; i--)
+            {
+                if (dataGridView1.Columns[i].Name.StartsWith("Điểm "))
+                {
+                    dataGridView1.Columns.RemoveAt(i);
+                }
+            }
+
+            // Duyệt qua từng đợt chấm
+            foreach (int dotChamDiemId in listDotChamId)
+            {
+                // Lấy ThongTinDotChamDiemId
+                long? thongTinDotChamDiemId = ThongTinDotChamBUS.GetThongTinDotChamDiemId(dotChamDiemId, mssv);
+                if (thongTinDotChamDiemId == null)
+                {
+                    continue; // Bỏ qua nếu không tìm thấy thông tin đợt chấm
+                }
+
+                // Lấy vai trò người chấm
+                string nguoiCham = ThongTinDotChamBUS.GetNguoiChamById(thongTinDotChamDiemId.Value);
+
+                // Tạo tên cột điểm
+                string tenCot = "";
+                switch (nguoiCham)
+                {
+                    case "Sinh viên":
+                        tenCot = "Điểm SV tự đánh giá";
+                        break;
+                    case "Cố vấn":
+                        tenCot = "Điểm CVHT";
+                        break;
+                    case "Khoa":
+                        tenCot = "Điểm khoa";
+                        break;
+                    case "Trường":
+                        tenCot = "Điểm trường";
+                        break;
+                }
+
+                // Kiểm tra xem cột đã tồn tại chưa, nếu chưa thì thêm mới
+                if (!dataGridView1.Columns.Contains(tenCot))
+                {
+                    dataGridView1.Columns.Add(tenCot, tenCot);
+                }
+
+                // Lấy danh sách các tiêu chí và điểm
+                List<ChiTietDotChamDTO> listChiTietDotCham = ChiTietDotChamBUS.GetListChiTietDotChamByThongTinDotChamId(thongTinDotChamDiemId.Value);
+
+                // Gán điểm vào đúng hàng dựa trên TieuchiDanhgiaId
+                foreach (ChiTietDotChamDTO chiTiet in listChiTietDotCham)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells["STT"] != null && row.Cells["STT"].Value != null)
+                        {
+                            long originalId = GetOriginalId(row.Cells["STT"].Value.ToString(), sttToId);
+                            if (originalId == chiTiet.TieuchiDanhgiaId)
+                            {
+                                row.Cells[tenCot].Value = chiTiet.Diem;
+                            }
+                        }
+                    }
+                }
+            }
         }
+
 
     }
 }

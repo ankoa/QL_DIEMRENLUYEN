@@ -4,7 +4,7 @@ namespace ql_diemrenluyen
     internal static class Program
     {
         public static string nguoidung_id = "1";
-        public static int role = 1;
+        public static int role = 3;
         public static string type = "";
         //public static string nguoidung_id = "1";
         //public static string role = "Sinh Viên";
@@ -18,8 +18,9 @@ namespace ql_diemrenluyen
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Dashboard());
-            Application.Run(new MenuAdmin());
+            //Application.Run(new chamdrl());
             //Application.Run(new Thongke()); // or Application.Run(new AdminStudentTest());
+            Application.Run(new MenuAdmin());
 
         }
     }

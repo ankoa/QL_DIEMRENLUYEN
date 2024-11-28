@@ -74,7 +74,7 @@ namespace ql_diemrenluyen.DAO
         }
 
         // Đóng kết nối
-        private static void Close()
+        public static void Close()
         {
             try
             {

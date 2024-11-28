@@ -115,6 +115,53 @@ namespace ql_diemrenluyen.DAO
                 }
             }
         }
+        public static List<ChiTietDotChamDTO> GetListChiTietDotChamByThongTinDotChamId(long thongTinDotChamDiemId)
+        {
+            List<ChiTietDotChamDTO> chiTietDotChams = new List<ChiTietDotChamDTO>();
+
+            string sql = @"
+        SELECT id, diem, thongtindotchamdiem_id, tieuchidanhgia_id, created_at, updated_at, status 
+        FROM chitietdotcham 
+        WHERE thongtindotchamdiem_id = @thongTinDotChamDiemId AND status = 1";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@thongTinDotChamDiemId", thongTinDotChamDiemId);
+
+            try
+            {
+                DBConnection.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ChiTietDotChamDTO chiTietDotCham = new ChiTietDotChamDTO
+                        {
+                            Id = Convert.ToInt64(reader["id"]),
+                            Diem = Convert.ToInt32(reader["diem"]),
+                            ThongTinDotChamDiemId = Convert.ToInt64(reader["thongtindotchamdiem_id"]),
+                            TieuchiDanhgiaId = Convert.ToInt64(reader["tieuchidanhgia_id"]),
+                            CreatedAt = reader["created_at"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(reader["created_at"]) : null,
+                            UpdatedAt = reader["updated_at"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(reader["updated_at"]) : null,
+                            Status = Convert.ToInt32(reader["status"])
+                        };
+
+                        chiTietDotChams.Add(chiTietDotCham);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy danh sách chi tiết đợt chấm: " + ex.Message);
+            }
+            finally
+            {
+                DBConnection.Close();
+            }
+
+            return chiTietDotChams;
+        }
+
 
 
 
