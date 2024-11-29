@@ -314,7 +314,7 @@ namespace ql_diemrenluyen.GUI.USER
                     {
                         var selectedRow = dataGridView2.Rows[e.RowIndex];
                         var dotChamDiem = (ThongTinDotChamDiemDTO)selectedRow.DataBoundItem; // Lấy đối tượng DTO từ dòng đã chọn
-                        chamdrl otpForm = new chamdrl("Chấm", 1, dotChamDiem.Id, long.Parse(nguoidung_id));
+                        chamdrl otpForm = new chamdrl("Chấm", dotChamDiem.HocKyId, dotChamDiem.Id);
 
 
                         // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại

@@ -86,7 +86,7 @@ namespace ql_diemrenluyen.DAO
                dcd.startDate AS NgayBatDau, 
                dcd.endDate AS NgayKetThuc, 
                ttdcd.hoanthanh AS HoanThanh,
-                dcd.id
+                dcd.id,hk.Id
         FROM hocky hk
         JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
         JOIN thongtindotchamdiem ttdcd ON dcd.id = ttdcd.dotchamdiem_id
@@ -111,6 +111,7 @@ namespace ql_diemrenluyen.DAO
             ThongTinDotChamDiemDTO thongTinDotChamDiem = new ThongTinDotChamDiemDTO
             {
                 Id = Convert.ToInt32(row[5]),
+                HocKyId = Convert.ToInt32(row[6]),
                 HocKy = Convert.ToString(row[0]),
                 DotChamDiem = Convert.ToString(row[1]),
                 NgayBatDau = Convert.ToDateTime(row[2]),
@@ -131,7 +132,7 @@ namespace ql_diemrenluyen.DAO
            dcd.startDate AS NgayBatDau, 
            dcd.endDate AS NgayKetThuc, 
            (SUM(CASE WHEN ttdcd.hoanthanh = 0 THEN 1 ELSE 0 END) / COUNT(ttdcd.hoanthanh)) * 100 AS HoanThanh,
-            dcd.id
+            dcd.id, hk.Id
     FROM hocky hk
     JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
     JOIN thongtindotchamdiem ttdcd ON dcd.id = ttdcd.dotchamdiem_id
@@ -154,6 +155,7 @@ AND dcd.status=1
             ThongTinDotChamDiemDTO thongTinDotChamDiem = new ThongTinDotChamDiemDTO
             {
                 Id = Convert.ToInt32(row[5]),
+                HocKyId = Convert.ToInt32(row[6]),
                 HocKy = Convert.ToString(row[0]),
                 DotChamDiem = Convert.ToString(row[1]),
                 NgayBatDau = Convert.ToDateTime(row[2]),
@@ -457,7 +459,7 @@ AND dcd.status=1
     public class ThongTinDotChamDiemDTO
     {
         public int Id { get; set; }
-        public int? HocKyId { get; set; }
+        public int HocKyId { get; set; }
         public string HocKy { get; set; }
         public string DotChamDiem { get; set; }
         public DateTime NgayBatDau { get; set; }

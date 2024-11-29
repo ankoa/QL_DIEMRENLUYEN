@@ -160,7 +160,7 @@ namespace ql_diemrenluyen.DAO
             return chiTietDotChams;
         }
 
-        public static int? GetDiem(long sinhVienID, long tieuChiDanhGiaID, int dotchamdiemID, long? coVanID = null, int? khoaID = null, int? final = null)
+        public static int? GetDiem(long sinhVienID, long tieuChiDanhGiaID, int dotchamdiemID, long? coVanID = null, long? khoaID = null, int? final = null)
         {
             string sql = "SELECT ct.diem " +
                          "FROM thongtindotchamdiem tt " +
