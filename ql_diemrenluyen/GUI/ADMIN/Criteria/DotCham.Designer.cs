@@ -54,6 +54,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
             pnTop = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
@@ -180,7 +181,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tableTK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tableTK.ColumnHeadersHeight = 70;
-            tableTK.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
+            tableTK.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, Column1 });
             tableTK.Cursor = Cursors.Hand;
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = Color.FromArgb(255, 255, 255);
@@ -271,6 +272,12 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridViewTextBoxColumn7.MinimumWidth = 6;
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Trạng thái";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
             // 
             // pnTop
             // 
@@ -455,8 +462,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel2.Paint += panel2_Paint;
             panel2.MouseClick += button1_Click;
             panel2.MouseDown += panel2_MouseDown;
-            panel2.MouseEnter += button1_MouseEnter;
-            panel2.MouseLeave += button1_MouseLeave;
             // 
             // label7
             // 
@@ -469,8 +474,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label7.Size = new Size(51, 21);
             label7.TabIndex = 36;
             label7.Text = "Reset";
-            label7.MouseEnter += button1_MouseEnter;
-            label7.MouseLeave += button1_MouseLeave;
             // 
             // pictureBox1
             // 
@@ -482,8 +485,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.MouseEnter += button1_MouseEnter;
-            pictureBox1.MouseLeave += button1_MouseLeave;
+            pictureBox1.Click += button1_Click;
             // 
             // panel4
             // 
@@ -497,9 +499,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel4.Name = "panel4";
             panel4.Size = new Size(111, 32);
             panel4.TabIndex = 7;
+            panel4.Paint += panel4_Paint;
             panel4.MouseClick += button2_Click;
-            panel4.MouseEnter += button2_MouseEnter;
-            panel4.MouseLeave += button2_MouseLeave;
             // 
             // label1
             // 
@@ -512,8 +513,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label1.Size = new Size(67, 21);
             label1.TabIndex = 36;
             label1.Text = "Refresh";
-            label1.MouseEnter += button2_MouseEnter;
-            label1.MouseLeave += button2_MouseLeave;
             // 
             // pictureBox2
             // 
@@ -525,8 +524,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
-            pictureBox2.MouseEnter += button2_MouseEnter;
-            pictureBox2.MouseLeave += button2_MouseLeave;
+            pictureBox2.Click += button2_Click;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -542,14 +540,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel3.Name = "panel3";
             panel3.Size = new Size(1154, 37);
             panel3.TabIndex = 31;
-            // 
-            // timer1
-            // 
-            timer1.Tick += timer1_Tick;
-            // 
-            // timer2
-            // 
-            timer2.Tick += timer2_Tick;
             // 
             // DotCham
             // 
@@ -630,12 +620,13 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private Panel panel5;
         private Button btnAdd;
         private ReaLTaiizor.Controls.PoisonDataGridView tableTK;
+        private TableLayoutPanel tableLayoutPanel2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private TableLayoutPanel tableLayoutPanel2;
+        private DataGridViewTextBoxColumn Column1;
     }
 }

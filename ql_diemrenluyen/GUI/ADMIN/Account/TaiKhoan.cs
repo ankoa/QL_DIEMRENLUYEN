@@ -13,7 +13,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             this.Dock = DockStyle.Fill; // Đặt Dock để chiếm toàn bộ không gian
             cbbRole.SelectedItem = "Mặc định";
             cbbStatus.SelectedItem = "Mặc định";
-            LoadAccountList();
+            //LoadAccountList();
 
             if (this.Width < 1200)
             {
@@ -47,7 +47,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         account.Id,
                         account.Password,
                         roleName,  // Hiển thị tên vai trò thay vì mã vai trò
-                        account.RememberToken,
                         account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
                         account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
                         account.Status == 1 ? "Hoạt động" : "Không hoạt động"
@@ -102,7 +101,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         account.Id,
                         account.Password,
                         roleName,  // Hiển thị tên vai trò thay vì mã số vai trò
-                        account.RememberToken,
                         account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
                         account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
                         account.Status == 1 ? "Hoạt động" : "Không hoạt động"
@@ -225,7 +223,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
                             account.Id,
                             account.Password,
                             GetRoleName(account.Role),  // Sử dụng phương thức GetRoleName để lấy tên vai trò
-                            account.RememberToken,
                             account.CreatedAt.HasValue ? account.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
                             account.UpdatedAt.HasValue ? account.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
                             account.Status == 1 ? "Hoạt động" : "Không hoạt động"
@@ -268,7 +265,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     "Quản lý Trường" => 5,
                 };
 
-                string rememberToken = selectedRow.Cells["dataGridViewTextBoxColumn6"].Value?.ToString() ?? "";
                 string status = selectedRow.Cells["dataGridViewTextBoxColumn4"].Value?.ToString() ?? "";
 
                 DateTime createdAt = DateTime.TryParse(selectedRow.Cells["dataGridViewTextBoxColumn7"].Value?.ToString(), out DateTime tempCreatedAt)
@@ -277,7 +273,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     ? tempUpdatedAt : DateTime.MinValue;
 
                 // Chuyển thông tin sang form chi tiết
-                AccountDetailsForm detailsForm = new AccountDetailsForm(id, password, role, rememberToken, createdAt, updatedAt, status, tableTK, this);
+                AccountDetailsForm detailsForm = new AccountDetailsForm(id, password, role, "", createdAt, updatedAt, status, tableTK, this);
                 detailsForm.Show();
             }
         }

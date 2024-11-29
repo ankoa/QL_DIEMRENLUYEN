@@ -1,4 +1,5 @@
 ﻿using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.GUI.ADMIN.Account
@@ -37,6 +38,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             //comboBox1.SelectedItem = status;
 
             comboBox1.Enabled = true; // Cho phép chọn trạng thái
+            comboBox1.SelectedIndex = 0;
 
 
         }
@@ -144,26 +146,54 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
                 return;
             }
 
-            // Thực hiện cập nhật tài khoản ngay khi nhấn nút Sửa
+            string status = comboBox1.SelectedItem.ToString();
+
             DotChamDiemDTO dotcham = new DotChamDiemDTO
             {
                 HocKiId = hockidto.Id,
                 Name = nguoicham,
                 EndDate = dtpUpdatedAt.Value,
                 StartDate = dtpCreatedAt.Value,
+                Status = status == "Hoạt động" ? 1 : -1
             };
 
-            // Gọi phương thức cập nhật tài khoản
-            bool result = DotChamDiemBUS.AddDotChamDiem(dotcham);
+            DotChamDiemDTO result = DotChamDiemBUS.AddDotChamDiem(dotcham);
 
-            if (result)
+
+            if (result != null)
             {
-                MessageBox.Show("Cập nhật đợt chấm thành công!");
+                bool res = false;
+                if (nguoicham == "Sinh viên")
+                {
+                    res = ThongTinDotChamDAO.AddThongTinDotChamDiemSinhVien(result.Id);
+                }
+                else if (nguoicham == "Cố vấn")
+                {
+                    res = ThongTinDotChamDAO.AddThongTinDotChamDiemCoVan(result.Id);
+                }
+                else if (nguoicham == "Khoa")
+                {
+                    res = ThongTinDotChamDAO.AddThongTinDotChamDiemKhoa(result.Id);
+                }
+                else if (nguoicham == "Trường")
+                {
+                    res = ThongTinDotChamDAO.AddThongTinDotChamDiemTruong(result.Id);
+                }
 
-                // Gọi phương thức để tải lại bảng trong TaiKhoan
-                mainForm.SearchAccountList(); // Gọi qua tên lớp
+                if (res)
+                {
+                    MessageBox.Show("Thêm đợt chấm thành công!");
 
-                this.Close(); // Đóng form sau khi cập nhật thành công
+                    // Gọi phương thức để tải lại bảng trong TaiKhoan
+                    mainForm.SearchAccountList(); // Gọi qua tên lớp
+
+                    this.Close(); // Đóng form sau khi cập nhật thành công
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật đợt chấm không thành công. Vui lòng kiểm tra lại!");
+                }
+
             }
             else
             {
@@ -177,6 +207,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

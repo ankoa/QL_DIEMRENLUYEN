@@ -34,13 +34,13 @@ namespace ql_diemrenluyen.BUS
         }
 
         // Thêm đợt chấm điểm mới
-        public static bool AddDotChamDiem(DotChamDiemDTO dotChamDiem)
+        public static DotChamDiemDTO AddDotChamDiem(DotChamDiemDTO dotChamDiem)
         {
             if (IsValidDotChamDiem(dotChamDiem))
             {
                 return DotChamDiemDAO.AddDotChamDiem(dotChamDiem);
             }
-            return false;
+            return null;
         }
 
         // Cập nhật thông tin đợt chấm điểm

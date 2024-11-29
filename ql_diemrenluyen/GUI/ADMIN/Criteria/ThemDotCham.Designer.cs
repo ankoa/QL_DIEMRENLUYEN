@@ -145,7 +145,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(90, 30);
             btnEdit.TabIndex = 15;
-            btnEdit.Text = "Chỉnh sửa";
+            btnEdit.Text = "Lưu";
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
             // 
@@ -177,6 +177,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(200, 23);
             comboBox1.TabIndex = 20;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // cbbhocki
             // 
@@ -232,7 +233,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             Controls.Add(lblPassword);
             Controls.Add(txtId);
             Controls.Add(lblId);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "ThemDotCham";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Chi tiết tài khoản";

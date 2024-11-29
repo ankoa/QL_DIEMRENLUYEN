@@ -21,7 +21,7 @@ namespace ql_diemrenluyen.GUI.USER
         ////82778917
 
         public static string nguoidung_id = "1";
-        public static string role = 3 switch
+        public static string role = 1 switch
         {
             0 => "ADMIN",
             1 => "Sinh viên",

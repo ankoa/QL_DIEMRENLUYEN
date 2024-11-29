@@ -31,20 +31,35 @@ namespace ql_diemrenluyen.DAO
             return dotChamDiems;
         }
 
-        // Thêm đợt chấm điểm mới
-        public static bool AddDotChamDiem(DotChamDiemDTO dotChamDiem)
+        // Thêm đợt chấm điểm mới và trả về thông tin đợt chấm vừa thêm
+        public static DotChamDiemDTO AddDotChamDiem(DotChamDiemDTO dotChamDiem)
         {
-            string sql = $"INSERT INTO dotchamdiem (hocki_id, startDate, endDate, name) " +
-                         $"VALUES (@hocKiId, @startDate, @endDate, @name)";
+            // Câu SQL thêm đợt chấm điểm
+            string sql = @"
+        INSERT INTO dotchamdiem (hocki_id, startDate, endDate, name,status) 
+        VALUES (@hocKiId, @startDate, @endDate, @name,@status);
+        SELECT LAST_INSERT_ID();"; // Lấy ID vừa được thêm
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@hocKiId", dotChamDiem.HocKiId);
             cmd.Parameters.AddWithValue("@startDate", dotChamDiem.StartDate);
             cmd.Parameters.AddWithValue("@endDate", dotChamDiem.EndDate);
             cmd.Parameters.AddWithValue("@name", dotChamDiem.Name);
+            cmd.Parameters.AddWithValue("@status", dotChamDiem.Status);
 
-            return DBConnection.ExecuteNonQuery(cmd) > 0;
+            // Thực thi lệnh và lấy ID vừa được thêm
+            object result = DBConnection.ExecuteScalar(cmd);
+            if (result != null && long.TryParse(result.ToString(), out long insertedId))
+            {
+                // Gán ID vào đối tượng và trả về
+                dotChamDiem.Id = Convert.ToInt32(insertedId);
+                return dotChamDiem;
+            }
+
+            // Trả về null nếu không thêm thành công
+            return null;
         }
+
 
         // Cập nhật thông tin đợt chấm điểm
         public static bool UpdateDotChamDiem(DotChamDiemDTO dotChamDiem)
@@ -222,7 +237,8 @@ AND dcd.status=1
                        hk.namhoc AS NamHoc,
                        dcd.status AS Status
                 FROM hocky hk
-                JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id";
+                JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
+                WHERE dcd.status!=0";
 
             var cmd = new MySqlCommand(sql);
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
@@ -266,7 +282,7 @@ AND dcd.status=1
                         dcd.status
                 FROM hocky hk
                 JOIN dotchamdiem dcd ON hk.Id = dcd.hocki_id
-                WHERE 1 = 1"; // Điều kiện luôn đúng
+                WHERE 1 = 1 and dcd.status!=0"; // Điều kiện luôn đúng
 
             // Khởi tạo danh sách tham số
             List<MySqlParameter> parameters = new List<MySqlParameter>();

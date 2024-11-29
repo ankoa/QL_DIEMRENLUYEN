@@ -231,6 +231,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(422, 490);
+            ControlBox = false;
             Controls.Add(btnDelete);
             Controls.Add(cmbRole);
             Controls.Add(comboBox1);
@@ -249,7 +250,7 @@
             Controls.Add(lblPassword);
             Controls.Add(txtId);
             Controls.Add(lblId);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "AccountDetailsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Chi tiết tài khoản";

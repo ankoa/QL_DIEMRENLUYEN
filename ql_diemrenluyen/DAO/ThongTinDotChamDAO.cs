@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
-using CloudinaryDotNet.Core;
 
 namespace ql_diemrenluyen.DAO
 {
@@ -62,6 +52,133 @@ namespace ql_diemrenluyen.DAO
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
+
+        // Thêm thông tin đợt chấm điểm cho tất cả sinh viên chưa được thêm vào
+        public static bool AddThongTinDotChamDiemSinhVien(long dotChamDiemId)
+        {
+            string sql = @"
+        INSERT INTO thongtindotchamdiem 
+        (dotchamdiem_id, covan_id, sinhvien_id, khoa_id, final, hoanthanh, ketqua, danhgia, status)
+        SELECT 
+            @dotChamDiemId AS dotchamdiem_id,   
+            NULL AS covan_id,                  
+            sv.id,                             
+            NULL AS khoa_id,                 
+            0 AS final,                        
+            0 AS hoanthanh,                    
+            NULL AS ketqua,                   
+            NULL AS danhgia,                    
+            1 AS status                       
+        FROM sinhvien sv
+        WHERE sv.status = 1                  
+          AND sv.id NOT IN (
+              SELECT sinhvien_id 
+              FROM thongtindotchamdiem 
+              WHERE dotchamdiem_id = @dotChamDiemId
+          );";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@dotChamDiemId", dotChamDiemId);
+
+            // Thực thi câu lệnh, trả về true nếu có ít nhất một dòng được thêm
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+
+        public static bool AddThongTinDotChamDiemCoVan(int dotChamDiemId)
+        {
+            // Câu SQL với JOIN bảng lop để lấy covan_id
+            string sql = @"
+        INSERT INTO thongtindotchamdiem 
+        (dotchamdiem_id, covan_id, sinhvien_id, khoa_id, final, hoanthanh, ketqua, danhgia, status)
+        SELECT 
+            @dotChamDiemId AS dotchamdiem_id,     
+            l.covan_id AS covan_id,              
+            sv.id AS sinhvien_id,                
+            NULL AS khoa_id,                     
+            0 AS final,                          
+            0 AS hoanthanh,                  
+            NULL AS ketqua,                      
+            NULL AS danhgia,                   
+            1 AS status                     
+        FROM sinhvien sv
+        LEFT JOIN lop l ON sv.lop_id = l.id     
+        WHERE sv.status = 1                       
+          AND sv.id NOT IN (
+            SELECT sinhvien_id 
+            FROM thongtindotchamdiem 
+            WHERE dotchamdiem_id = @dotChamDiemId 
+        );";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@dotChamDiemId", dotChamDiemId); // Thay thế tham số @dotChamDiemId
+
+            // Thực thi câu lệnh SQL
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+
+        public static bool AddThongTinDotChamDiemKhoa(int dotChamDiemId)
+        {
+            // Câu SQL với JOIN bảng lop để lấy covan_id
+            string sql = @"
+        INSERT INTO thongtindotchamdiem 
+        (dotchamdiem_id, covan_id, sinhvien_id, khoa_id, final, hoanthanh, ketqua, danhgia, status)
+        SELECT 
+            @dotChamDiemId AS dotchamdiem_id,     
+            NULL AS covan_id,              
+            sv.id AS sinhvien_id,                
+            l.khoa_id AS khoa_id,                     
+            0 AS final,                           
+            0 AS hoanthanh,                   
+            NULL AS ketqua,                       
+            NULL AS danhgia,                       
+            1 AS status                           
+        FROM sinhvien sv
+        LEFT JOIN lop l ON sv.lop_id = l.id      
+        WHERE sv.status = 1                      
+          AND sv.id NOT IN (
+            SELECT sinhvien_id 
+            FROM thongtindotchamdiem 
+            WHERE dotchamdiem_id = @dotChamDiemId  -- Kiểm tra đợt chấm điểm cụ thể để tránh trùng lặp
+        );";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@dotChamDiemId", dotChamDiemId); // Thay thế tham số @dotChamDiemId
+
+            // Thực thi câu lệnh SQL
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+
+        public static bool AddThongTinDotChamDiemTruong(long dotChamDiemId)
+        {
+            string sql = @"
+        INSERT INTO thongtindotchamdiem 
+        (dotchamdiem_id, covan_id, sinhvien_id, khoa_id, final, hoanthanh, ketqua, danhgia, status)
+        SELECT 
+            @dotChamDiemId AS dotchamdiem_id,   
+            NULL AS covan_id,                  
+            sv.id,                             
+            NULL AS khoa_id,                 
+            1  AS final,                        
+            0 AS hoanthanh,                    
+            NULL AS ketqua,                   
+            NULL AS danhgia,                    
+            1 AS status                       
+        FROM sinhvien sv
+        WHERE sv.status = 1                  
+          AND sv.id NOT IN (
+              SELECT sinhvien_id 
+              FROM thongtindotchamdiem 
+              WHERE dotchamdiem_id = @dotChamDiemId
+          );";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@dotChamDiemId", dotChamDiemId);
+
+            // Thực thi câu lệnh, trả về true nếu có ít nhất một dòng được thêm
+            return DBConnection.ExecuteNonQuery(cmd) > 0;
+        }
+
+
 
         // Cập nhật thông tin đợt chấm điểm
         //public static bool UpdateThongTinDotCham(ThongTinDotChamDTO thongTin)

@@ -171,7 +171,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
+            comboBox1.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động", "Xóa" });
             comboBox1.Location = new Point(176, 309);
             comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";
@@ -232,7 +232,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             Controls.Add(lblPassword);
             Controls.Add(txtId);
             Controls.Add(lblId);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "AddDotCham";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Chi tiết tài khoản";

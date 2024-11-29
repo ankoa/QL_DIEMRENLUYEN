@@ -55,6 +55,19 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
             // Khởi tạo PictureBox loading
             loading = Loading.CreateLoadingControl(this);
+
+            Control controlToRemove = flowLayoutPanel1.Controls.OfType<Control>()
+                               .FirstOrDefault(c => c.Text == "panel10");
+
+
+            if (controlToRemove != null)
+            {
+                flowLayoutPanel1.Controls.Remove(controlToRemove);
+                Console.WriteLine($"Đã xóa: {controlToRemove.Name}");
+            }
+
+
+
         }
         private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {

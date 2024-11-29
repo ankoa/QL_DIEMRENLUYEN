@@ -80,9 +80,9 @@
             // 
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
-            panel3.Margin = new Padding(3, 20, 3, 3);
+            panel3.Margin = new Padding(3, 15, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1419, 49);
+            panel3.Size = new Size(1242, 37);
             panel3.TabIndex = 33;
             // 
             // label1
@@ -93,8 +93,8 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(5, 2);
             label1.Name = "label1";
-            label1.Padding = new Padding(0, 0, 0, 5);
-            label1.Size = new Size(157, 34);
+            label1.Padding = new Padding(0, 0, 0, 4);
+            label1.Size = new Size(136, 24);
             label1.TabIndex = 37;
             label1.Text = "Tìm kiếm";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -102,9 +102,10 @@
             // txtSearch
             // 
             txtSearch.Cursor = Cursors.Hand;
-            txtSearch.Location = new Point(170, 5);
+            txtSearch.Location = new Point(149, 4);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(401, 27);
+            txtSearch.Size = new Size(350, 23);
             txtSearch.TabIndex = 38;
             txtSearch.Text = "Nhập ID cần tìm";
             // 
@@ -116,11 +117,12 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 71.3646545F));
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(txtSearch, 1, 0);
-            tableLayoutPanel1.Location = new Point(21, 66);
+            tableLayoutPanel1.Location = new Point(18, 50);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(576, 38);
+            tableLayoutPanel1.Size = new Size(504, 28);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label2
@@ -131,8 +133,8 @@
             label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(5, 2);
             label2.Name = "label2";
-            label2.Padding = new Padding(0, 0, 0, 5);
-            label2.Size = new Size(73, 34);
+            label2.Padding = new Padding(0, 0, 0, 4);
+            label2.Size = new Size(63, 24);
             label2.TabIndex = 37;
             label2.Text = "Quyền";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -143,9 +145,10 @@
             cbbRole.Dock = DockStyle.Fill;
             cbbRole.FormattingEnabled = true;
             cbbRole.Items.AddRange(new object[] { "Mặc định", "ADMIN", "Sinh viên", "Giảng viên", "Cố vấn học tập", "Quản lý Khoa", "Quản lý Trường" });
-            cbbRole.Location = new Point(86, 5);
+            cbbRole.Location = new Point(76, 4);
+            cbbRole.Margin = new Padding(3, 2, 3, 2);
             cbbRole.Name = "cbbRole";
-            cbbRole.Size = new Size(140, 28);
+            cbbRole.Size = new Size(121, 23);
             cbbRole.TabIndex = 35;
             // 
             // tableLayoutPanel2
@@ -156,11 +159,12 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.59144F));
             tableLayoutPanel2.Controls.Add(label2, 0, 0);
             tableLayoutPanel2.Controls.Add(cbbRole, 1, 0);
-            tableLayoutPanel2.Location = new Point(21, 125);
+            tableLayoutPanel2.Location = new Point(18, 94);
+            tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(231, 38);
+            tableLayoutPanel2.Size = new Size(202, 28);
             tableLayoutPanel2.TabIndex = 37;
             // 
             // label3
@@ -171,8 +175,8 @@
             label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(5, 2);
             label3.Name = "label3";
-            label3.Padding = new Padding(0, 0, 0, 5);
-            label3.Size = new Size(108, 34);
+            label3.Padding = new Padding(0, 0, 0, 4);
+            label3.Size = new Size(93, 24);
             label3.TabIndex = 37;
             label3.Text = "Trạng thái";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -183,16 +187,18 @@
             cbbStatus.Dock = DockStyle.Fill;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Mặc định", "Hoạt động", "Không hoạt động" });
-            cbbStatus.Location = new Point(121, 5);
+            cbbStatus.Location = new Point(106, 4);
+            cbbStatus.Margin = new Padding(3, 2, 3, 2);
             cbbStatus.Name = "cbbStatus";
-            cbbStatus.Size = new Size(202, 28);
+            cbbStatus.Size = new Size(176, 23);
             cbbStatus.TabIndex = 36;
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(620, 125);
+            btnClear.Location = new Point(542, 94);
+            btnClear.Margin = new Padding(3, 2, 3, 2);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(83, 39);
+            btnClear.Size = new Size(73, 29);
             btnClear.TabIndex = 39;
             btnClear.Text = "Reset";
             btnClear.UseVisualStyleBackColor = true;
@@ -205,11 +211,12 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.59144F));
             tableLayoutPanel3.Controls.Add(label3, 0, 0);
             tableLayoutPanel3.Controls.Add(cbbStatus, 1, 0);
-            tableLayoutPanel3.Location = new Point(269, 125);
+            tableLayoutPanel3.Location = new Point(235, 94);
+            tableLayoutPanel3.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(328, 38);
+            tableLayoutPanel3.Size = new Size(287, 28);
             tableLayoutPanel3.TabIndex = 38;
             // 
             // dataGridViewTextBoxColumn2
@@ -221,9 +228,10 @@
             // button2
             // 
             button2.Dock = DockStyle.Fill;
-            button2.Location = new Point(3, 3);
+            button2.Location = new Point(3, 2);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(100, 44);
+            button2.Size = new Size(87, 34);
             button2.TabIndex = 40;
             button2.Text = "Import";
             button2.UseVisualStyleBackColor = true;
@@ -232,33 +240,35 @@
             // 
             panel2.Controls.Add(tableLayoutPanel4);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(1169, 51);
-            panel2.Margin = new Padding(3, 50, 3, 3);
+            panel2.Location = new Point(1023, 38);
+            panel2.Margin = new Padding(3, 38, 3, 2);
             panel2.Name = "panel2";
-            panel2.Padding = new Padding(0, 50, 0, 0);
-            panel2.Size = new Size(250, 87);
+            panel2.Padding = new Padding(0, 38, 0, 0);
+            panel2.Size = new Size(219, 66);
             panel2.TabIndex = 45;
             // 
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 2;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 106F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 93F));
             tableLayoutPanel4.Controls.Add(button2, 0, 0);
             tableLayoutPanel4.Controls.Add(button3, 1, 0);
-            tableLayoutPanel4.Location = new Point(17, 15);
+            tableLayoutPanel4.Location = new Point(15, 11);
+            tableLayoutPanel4.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(212, 50);
+            tableLayoutPanel4.Size = new Size(186, 38);
             tableLayoutPanel4.TabIndex = 44;
             // 
             // button3
             // 
             button3.Dock = DockStyle.Fill;
-            button3.Location = new Point(109, 3);
+            button3.Location = new Point(96, 2);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(100, 44);
+            button3.Size = new Size(87, 34);
             button3.TabIndex = 41;
             button3.Text = "Export";
             button3.UseVisualStyleBackColor = true;
@@ -273,11 +283,11 @@
             pnTop.Controls.Add(tableLayoutPanel2);
             pnTop.Controls.Add(tableLayoutPanel1);
             pnTop.Dock = DockStyle.Top;
-            pnTop.Location = new Point(0, 20);
-            pnTop.Margin = new Padding(50, 0, 50, 0);
+            pnTop.Location = new Point(0, 15);
+            pnTop.Margin = new Padding(44, 0, 44, 0);
             pnTop.Name = "pnTop";
-            pnTop.Padding = new Padding(0, 51, 0, 51);
-            pnTop.Size = new Size(1419, 189);
+            pnTop.Padding = new Padding(0, 38, 0, 38);
+            pnTop.Size = new Size(1242, 142);
             pnTop.TabIndex = 9;
             // 
             // dataGridViewTextBoxColumn4
@@ -370,8 +380,8 @@
             tableTK.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tableTK.GridColor = Color.FromArgb(255, 255, 255);
             tableTK.HighLightPercentage = 1F;
-            tableTK.Location = new Point(21, 30);
-            tableTK.Margin = new Padding(0, 0, 0, 29);
+            tableTK.Location = new Point(18, 22);
+            tableTK.Margin = new Padding(0, 0, 0, 22);
             tableTK.MultiSelect = false;
             tableTK.Name = "tableTK";
             tableTK.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -387,7 +397,7 @@
             tableTK.RowHeadersWidth = 51;
             tableTK.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tableTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableTK.Size = new Size(1377, 628);
+            tableTK.Size = new Size(1206, 471);
             tableTK.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             tableTK.TabIndex = 7;
             // 
@@ -397,11 +407,11 @@
             pnContent.BackColor = SystemColors.ControlLightLight;
             pnContent.Controls.Add(tableTK);
             pnContent.Dock = DockStyle.Fill;
-            pnContent.Location = new Point(0, 209);
+            pnContent.Location = new Point(0, 157);
             pnContent.Margin = new Padding(0);
             pnContent.Name = "pnContent";
-            pnContent.Padding = new Padding(21, 30, 21, 0);
-            pnContent.Size = new Size(1419, 658);
+            pnContent.Padding = new Padding(18, 22, 18, 0);
+            pnContent.Size = new Size(1242, 493);
             pnContent.TabIndex = 8;
             // 
             // panel1
@@ -411,20 +421,22 @@
             panel1.Controls.Add(pnTop);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(0, 20, 0, 0);
-            panel1.Size = new Size(1419, 867);
+            panel1.Padding = new Padding(0, 15, 0, 0);
+            panel1.Size = new Size(1242, 650);
             panel1.TabIndex = 32;
             // 
             // testform
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1419, 867);
+            ClientSize = new Size(1242, 650);
             ControlBox = false;
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "testform";
             Text = "Form1";
             Load += Form1_Load;
