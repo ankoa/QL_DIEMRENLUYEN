@@ -1,4 +1,5 @@
 using MySqlX.XDevAPI.Relational;
+using ql_diemrenluyen.BUS;
 using System.Windows.Forms;
 
 namespace ql_diemrenluyen.GUI.ADMIN
@@ -21,20 +22,31 @@ namespace ql_diemrenluyen.GUI.ADMIN
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pnContent = new Panel();
             tableGV = new ReaLTaiizor.Controls.PoisonDataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
-            pnTop = new Panel();
+            Idcolumn = new DataGridViewTextBoxColumn();
+            nameColumn = new DataGridViewTextBoxColumn();
+            emailColumn = new DataGridViewTextBoxColumn();
+            chucVuColumn = new DataGridViewTextBoxColumn();
+            khoaIdColumn = new DataGridViewTextBoxColumn();
+            ngayTaoColumn = new DataGridViewTextBoxColumn();
+            ngayCapNhatColumn = new DataGridViewTextBoxColumn();
+            StatusColumn = new DataGridViewTextBoxColumn();
+            panel5 = new Panel();
+            tableLayoutPanel13 = new TableLayoutPanel();
             label3 = new Label();
             label2 = new Label();
+            label1 = new Label();
+            label5 = new Label();
             pnInput = new Panel();
             txtSearch = new TextBox();
             label1 = new Label();
@@ -42,38 +54,84 @@ namespace ql_diemrenluyen.GUI.ADMIN
             cbbRole = new ComboBox();
             btnAdd = new Button();
             panel3 = new Panel();
-            panel1.SuspendLayout();
-            pnContent.SuspendLayout();
+            panel4 = new Panel();
+            panel2 = new Panel();
+            panel6 = new Panel();
+            button5 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            tabPage = new TabPage();
+            cbStatusCTTC = new TabControl();
+            
+            tableLayoutPanel3 = new TableLayoutPanel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            tableLayoutPanel7 = new TableLayoutPanel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+
+
+            tabPage.SuspendLayout();
+            panel4.SuspendLayout();
+            tableLayoutPanel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tableGV).BeginInit();
-            pnTop.SuspendLayout();
-            pnInput.SuspendLayout();
-            SuspendLayout();
+            panel5.SuspendLayout();
+            panel6.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
+            tableLayoutPanel7.SuspendLayout();
+            cbStatusCTTC.SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(pnContent);
-            panel1.Controls.Add(pnTop);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
-            panel1.Name = "panel1";
-            panel1.Padding = new Padding(0, 12, 0, 0);
-            panel1.Size = new Size(769, 460);
-            panel1.TabIndex = 5;
-            // 
-            // pnContent
-            // 
-            pnContent.AutoScroll = true;
-            pnContent.BackColor = SystemColors.ControlLightLight;
-            pnContent.Controls.Add(tableGV);
-            pnContent.Dock = DockStyle.Fill;
-            pnContent.Location = new Point(0, 126);
-            pnContent.Margin = new Padding(0);
-            pnContent.Name = "pnContent";
-            pnContent.Padding = new Padding(12, 30, 12, 0);
-            pnContent.Size = new Size(769, 334);
-            pnContent.TabIndex = 8;
+            tabPage.Controls.Add(panel4);
+            tabPage.Controls.Add(panel5);
+            tabPage.Location = new Point(4, 29);
+            tabPage.Name = "tabPage";
+            tabPage.Padding = new Padding(3);
+            tabPage.Size = new Size(1292, 785);
+            tabPage.TabIndex = 1;
+            tabPage.Text = "Quản Lý Giảng Viên";
+            tabPage.UseVisualStyleBackColor = true;
+        
+            panel4.AutoScroll = true;
+            panel4.BackColor = SystemColors.ControlLightLight;
+            panel4.Controls.Add(tableLayoutPanel13);
+            panel4.Controls.Add(tableGV);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(3, 192);
+            panel4.Margin = new Padding(0);
+            panel4.Name = "panel4";
+            panel4.Padding = new Padding(21, 10, 21, 0);
+            panel4.Size = new Size(1286, 590);
+            panel4.TabIndex = 10;
+
+            tableLayoutPanel13.ColumnCount = 2;
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
+            tableLayoutPanel13.Controls.Add(btnAdd, 1, 0);
+            tableLayoutPanel13.Dock = DockStyle.Top;
+            tableLayoutPanel13.Location = new Point(21, 10);
+            tableLayoutPanel13.Name = "tableLayoutPanel13";
+            tableLayoutPanel13.RowCount = 1;
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.Size = new Size(1223, 70);
+            tableLayoutPanel13.TabIndex = 9;
+
+            // btnAdd
+            btnAdd.BackColor = Color.LimeGreen;
+            btnAdd.Dock = DockStyle.Right;
+            btnAdd.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = SystemColors.ControlLightLight;
+            btnAdd.Location = new Point(1124, 3);
+            btnAdd.Margin = new Padding(3, 3, 3, 15);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(96, 52);
+            btnAdd.TabIndex = 47;
+            btnAdd.Text = "Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // tableGV
             // 
@@ -89,240 +147,382 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(111, 226, 255);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tableGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tableGV.ColumnHeadersHeight = 70;
-            tableGV.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8 });
+            tableGV.Columns.AddRange(new DataGridViewColumn[] { Idcolumn, nameColumn, emailColumn, chucVuColumn, khoaIdColumn, ngayTaoColumn, ngayCapNhatColumn,StatusColumn });
+            tableGV.Cursor = Cursors.Hand;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(111, 226, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             tableGV.DefaultCellStyle = dataGridViewCellStyle2;
-            tableGV.Dock = DockStyle.Fill;
+            tableGV.Dock = DockStyle.Bottom;
             tableGV.EnableHeadersVisualStyles = false;
             tableGV.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tableGV.GridColor = Color.FromArgb(255, 255, 255);
-            tableGV.Location = new Point(12, 30);
-            tableGV.Margin = new Padding(2, 2, 2, 2);
+            tableGV.HighLightPercentage = 1F;
+            tableGV.Location = new Point(21, 80);
+            tableGV.Margin = new Padding(0, 0, 0, 29);
             tableGV.MultiSelect = false;
             tableGV.Name = "tableGV";
+            tableGV.ReadOnly = true;
             tableGV.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(111, 226, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             tableGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             tableGV.RowHeadersVisible = false;
             tableGV.RowHeadersWidth = 51;
             tableGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tableGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableGV.Size = new Size(745, 304);
-            tableGV.TabIndex = 5;
+            tableGV.Size = new Size(1223, 560);
+            tableGV.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
+            tableGV.TabIndex = 8;
             tableGV.CellDoubleClick += table_CellDoubleClick;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewTextBoxColumn1.HeaderText = "Giảng viên ID";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Idcolumn.DefaultCellStyle = dataGridViewCellStyle4;
+            Idcolumn.HeaderText = "Giảng viên ID";
+            Idcolumn.MinimumWidth = 6;
+            Idcolumn.Name = "IDColumn";
+            Idcolumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewTextBoxColumn2.HeaderText = "Tên Giảng viên";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            nameColumn.HeaderText = "Tên Giảng viên";
+            nameColumn.MinimumWidth = 6;
+            nameColumn.Name = "NameCoulmn";
+            Idcolumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewTextBoxColumn3.HeaderText = "Email";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            emailColumn.HeaderText = "Email";
+            emailColumn.MinimumWidth = 6;
+            emailColumn.Name = "emailColumn";
+            Idcolumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewTextBoxColumn4.HeaderText = "Khoa";
-            dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            chucVuColumn.HeaderText = "Chức vụ";
+            chucVuColumn.MinimumWidth = 6;
+            chucVuColumn.Name = "chucVuColumn";
+            Idcolumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewTextBoxColumn5.HeaderText = "Chức vụ";
-            dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            khoaIdColumn.HeaderText = "Chức vụ";
+            khoaIdColumn.MinimumWidth = 6;
+            khoaIdColumn.Name = "dataGridViewTextBoxColumn5";
+            Idcolumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewTextBoxColumn6.HeaderText = "Ngày tạo";
-            dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            ngayTaoColumn.HeaderText = "Ngày tạo";
+            ngayTaoColumn.MinimumWidth = 6;
+            ngayTaoColumn.Name = "ngayTaoColumn";
+            Idcolumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewTextBoxColumn7.HeaderText = "Ngày cập nhật";
-            dataGridViewTextBoxColumn7.MinimumWidth = 7;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            ngayCapNhatColumn.HeaderText = "Ngày cập nhật";
+            ngayCapNhatColumn.MinimumWidth = 7;
+            ngayCapNhatColumn.Name = "ngayCapNhatColumn";
+            Idcolumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            dataGridViewTextBoxColumn8.HeaderText = "Trạng thái";
-            dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            StatusColumn.HeaderText = "Trạng thái";
+            StatusColumn.MinimumWidth = 6;
+            StatusColumn.Name = "dataGridViewTextBoxColumn8";
+            Idcolumn.ReadOnly = true;
             // 
-            // pnTop
+            // panel5
             // 
-            pnTop.BackColor = Color.RoyalBlue;
-            pnTop.Controls.Add(label3);
-            pnTop.Controls.Add(label2);
-            pnTop.Controls.Add(pnInput);
-            pnTop.Controls.Add(cbbStatus);
-            pnTop.Controls.Add(cbbRole);
-            pnTop.Controls.Add(btnAdd);
-            pnTop.Dock = DockStyle.Top;
-            pnTop.Location = new Point(0, 12);
-            pnTop.Margin = new Padding(2, 2, 2, 2);
-            pnTop.Name = "pnTop";
-            pnTop.Padding = new Padding(0, 12, 0, 0);
-            pnTop.Size = new Size(769, 114);
-            pnTop.TabIndex = 7;
+            panel5.BackColor = Color.RoyalBlue;
+            panel5.BackgroundImageLayout = ImageLayout.None;
+            panel5.Controls.Add(button5);
+            panel5.Controls.Add(panel2);
+            panel5.Controls.Add(tableLayoutPanel3);
+            panel5.Controls.Add(tableLayoutPanel6);
+            panel5.Controls.Add(tableLayoutPanel1);
+            panel5.Dock = DockStyle.Top;
+            panel5.Location = new Point(3, 3);
+            panel5.Margin = new Padding(50, 0, 50, 0);
+            panel5.Name = "panel5";
+            panel5.Padding = new Padding(0, 51, 0, 51);
+            panel5.Size = new Size(1286, 189);
+            panel5.TabIndex = 11;
+
             // 
-            // label3
+            // panel6
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(71, 38);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(82, 28);
-            label3.TabIndex = 12;
-            label3.Text = "Chức vụ";
+            panel6.Controls.Add(tableLayoutPanel2);
+            panel6.Dock = DockStyle.Right;
+            panel6.Location = new Point(1036, 51);
+            panel6.Margin = new Padding(3, 50, 3, 3);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(0, 50, 0, 0);
+            panel6.Size = new Size(250, 87);
+            panel6.TabIndex = 45;
+            
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 106F));
+            tableLayoutPanel2.Controls.Add(button2, 0, 0);
+            tableLayoutPanel2.Controls.Add(button3, 1, 0);
+            tableLayoutPanel2.Location = new Point(17, 15);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(212, 50);
+            tableLayoutPanel2.TabIndex = 44;
+
+            // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Fill;
+            button2.Location = new Point(3, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(100, 44);
+            button2.TabIndex = 40;
+            button2.Text = "Import";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Dock = DockStyle.Fill;
+            button3.Location = new Point(109, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(100, 44);
+            button3.TabIndex = 41;
+            button3.Text = "Export";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.Lavender;
+            button5.Location = new Point(633, 63);
+            button5.Name = "button5";
+            button5.Size = new Size(83, 39);
+            button5.TabIndex = 39;
+            button5.Text = "Reset";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += btnClear_Click;
+            // 
+            // label2
+            // 
+            panel2.Controls.Add(tableLayoutPanel5);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(1036, 51);
+            panel2.Margin = new Padding(3, 50, 3, 3);
+            panel2.Name = "panel2";
+            panel2.Padding = new Padding(0, 50, 0, 0);
+            panel2.Size = new Size(250, 87);
+            panel2.TabIndex = 45;
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
+            tableLayoutPanel5.ColumnCount = 2;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.40856F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.59144F));
+            tableLayoutPanel5.Controls.Add(label2, 0, 0);
+            tableLayoutPanel5.Controls.Add(cbbStatus, 1, 0);
+            tableLayoutPanel5.Location = new Point(377, 126);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.Size = new Size(339, 38);
+            tableLayoutPanel5.TabIndex = 38;
+            
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(339, 38);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(5, 2);
             label2.Name = "label2";
-            label2.Size = new Size(98, 28);
-            label2.TabIndex = 11;
+            label2.Padding = new Padding(0, 0, 0, 5);
+            label2.Size = new Size(111, 34);
+            label2.TabIndex = 37;
             label2.Text = "Trạng thái";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // pnInput
+            // cbbStatus
             // 
-            pnInput.BackColor = Color.Transparent;
-            pnInput.Controls.Add(txtSearch);
-            pnInput.Controls.Add(label1);
-            pnInput.Location = new Point(88, 66);
-            pnInput.Margin = new Padding(2, 2, 2, 2);
-            pnInput.Name = "pnInput";
-            pnInput.Size = new Size(257, 36);
-            pnInput.TabIndex = 0;
+            cbbStatus.Cursor = Cursors.Hand;
+            cbbStatus.Dock = DockStyle.Fill;
+            cbbStatus.FormattingEnabled = true;
+            cbbStatus.Items.AddRange(new object[] { "Mặc định", "Hoạt động", "Không hoạt động" });
+            cbbStatus.Location = new Point(124, 5);
+            cbbStatus.Name = "cbbStatus";
+            cbbStatus.Size = new Size(210, 28);
+            cbbStatus.TabIndex = 36;
+            cbbStatus.SelectedIndexChanged += cbbStatus_SelectedIndexChanged;
             // 
-            // txtSearch
+            // tableLayoutPanel1
             // 
-            txtSearch.BorderStyle = BorderStyle.None;
-            txtSearch.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(104, 9);
-            txtSearch.Margin = new Padding(2, 2, 2, 2);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "Tìm kiếm giảng viên";
-            txtSearch.Size = new Size(144, 25);
-            txtSearch.TabIndex = 3;
+            tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.40856F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.59144F));
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(label3, 1, 0);
+            tableLayoutPanel1.Location = new Point(21, 66);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(350, 38);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(23, 9);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(5, 2);
             label1.Name = "label1";
-            label1.Size = new Size(88, 25);
-            label1.TabIndex = 1;
-            label1.Text = "Tìm kiếm";
+            label1.Padding = new Padding(0, 0, 0, 5);
+            label1.Size = new Size(115, 34);
+            label1.TabIndex = 37;
+            label1.Text = "Chức Vụ";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // cbbStatus
+            // txtTC
             // 
-            cbbStatus.FormattingEnabled = true;
-            cbbStatus.Items.AddRange(new object[] { "Tất cả", "Hoạt động", "Không hoạt động" });
-            cbbStatus.Location = new Point(426, 38);
-            cbbStatus.Margin = new Padding(2, 2, 2, 2);
-            cbbStatus.Name = "cbbStatus";
-            cbbStatus.Size = new Size(122, 23);
-            cbbStatus.TabIndex = 10;
-            // 
-            // cbbRole
-            // 
+            cbbRole.Cursor = Cursors.Hand;
+            cbbRole.Dock = DockStyle.Fill;
             cbbRole.FormattingEnabled = true;
-            cbbRole.Items.AddRange(new object[] { "Tất cả", "Giảng viên", "Cố vấn" });
-            cbbRole.Location = new Point(132, 38);
-            cbbRole.Margin = new Padding(2, 2, 2, 2);
-            cbbRole.Name = "cbbRole";
-            cbbRole.Size = new Size(122, 23);
-            cbbRole.TabIndex = 9;
+            cbbRole.Items.AddRange(new object[] { "Mặc định" });
+            cbbRole.Location = new Point(128, 5);
+            cbbRole.Name = "cbbCV";
+            cbbRole.Size = new Size(217, 28);
+            cbbRole.TabIndex = 35;
+            cbbRole.SelectedIndexChanged += cbbRole_SelectedIndexChanged;
+
+            
+            tableLayoutPanel7.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
+            tableLayoutPanel7.ColumnCount = 2;
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.6353474F));
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 71.3646545F));
+            tableLayoutPanel7.Controls.Add(label5, 0, 0);
+            tableLayoutPanel7.Controls.Add(txtSearch, 1, 0);
+            tableLayoutPanel7.Location = new Point(21, 66);
+            tableLayoutPanel7.Name = "tableLayoutPanel7";
+            tableLayoutPanel7.RowCount = 1;
+            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel7.Size = new Size(576, 38);
+            tableLayoutPanel7.TabIndex = 0;
             // 
-            // btnAdd
+            // label5
             // 
-            btnAdd.BackColor = Color.FromArgb(0, 140, 170);
-            btnAdd.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(583, 38);
-            btnAdd.Margin = new Padding(2, 2, 2, 2);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(88, 27);
-            btnAdd.TabIndex = 13;
-            btnAdd.Text = "Thêm";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
+            label5.AutoSize = true;
+            label5.Dock = DockStyle.Fill;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ControlLightLight;
+            label5.Location = new Point(5, 2);
+            label5.Name = "label5";
+            label5.Padding = new Padding(0, 0, 0, 5);
+            label5.Size = new Size(157, 34);
+            label5.TabIndex = 37;
+            label5.Text = "Tìm kiếm";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // panel3
+            // txtTCP
             // 
-            panel3.BackColor = Color.White;
-            panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(0, 707);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1319, 59);
-            panel3.TabIndex = 0;
-            // 
+            txtSearch.Cursor = Cursors.Hand;
+            txtSearch.Location = new Point(170, 5);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(401, 27);
+            txtSearch.TabIndex = 38;
+            txtSearch.Text = "Nhập ID,nội dung cần tìm";
+            txtSearch.TextChanged += txtSearch_TextChanged;
+
+            cbStatusCTTC.Controls.Add(tabPage);
+            cbStatusCTTC.Dock = DockStyle.Fill;
+            cbStatusCTTC.Location = new Point(50, 20);
+            cbStatusCTTC.Name = "cbStatusCTTC";
+            cbStatusCTTC.SelectedIndex = 0;
+            cbStatusCTTC.Size = new Size(1300, 818);
+            cbStatusCTTC.TabIndex = 0;
+            cbStatusCTTC.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
+            //
             // QLGiangVien
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            ClientSize = new Size(769, 460);
-            Controls.Add(panel1);
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(1400, 938);
+            ControlBox = false;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
-            Name = "QLGiangVien";
-            Text = "QLGiangVien";
-            panel1.ResumeLayout(false);
-            pnContent.ResumeLayout(false);
+            Controls.Add(cbStatusCTTC);
+            FormBorderStyle = FormBorderStyle.None;
+            Padding = new Padding(50, 20, 50, 100);
+            Name = "GiangVien";
+            Load += GiangVien_Load;
+            tabPage.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            tableLayoutPanel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tableGV).EndInit();
-            pnTop.ResumeLayout(false);
-            pnTop.PerformLayout();
-            pnInput.ResumeLayout(false);
-            pnInput.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel5.PerformLayout();
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel6.PerformLayout();
+            tableLayoutPanel7.ResumeLayout(false);
+            tableLayoutPanel7.PerformLayout();
+            cbStatusCTTC.ResumeLayout(false);
             ResumeLayout(false);
         }
+        private TabControl cbStatusCTTC;
 
         private Panel panel1;
+        private Label label5;
+        private Panel panel4;
         private Panel pnContent;
         private ReaLTaiizor.Controls.PoisonDataGridView tableGV;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private Panel pnTop;
+        private Button button5;
+        
+        private DataGridViewTextBoxColumn Idcolumn;
+        private DataGridViewTextBoxColumn nameColumn;
+        private DataGridViewTextBoxColumn emailColumn;
+        private DataGridViewTextBoxColumn chucVuColumn;
+        private DataGridViewTextBoxColumn khoaIdColumn;
+        private DataGridViewTextBoxColumn ngayTaoColumn;
+        private DataGridViewTextBoxColumn ngayCapNhatColumn;
+        private DataGridViewTextBoxColumn StatusColumn;
+        private Panel panel5;
         private Label label3;
         private Label label2;
         private Panel pnInput;
@@ -331,6 +531,19 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private ComboBox cbbStatus;
         private ComboBox cbbRole;
         private Panel panel3;
+        private TabPage tabPage;
+        private TableLayoutPanel tableLayoutPanel13;
+        private TableLayoutPanel tableLayoutPanel5;
+        private TableLayoutPanel tableLayoutPanel3;
+        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel6;
+        private TableLayoutPanel tableLayoutPanel7;
+        private TableLayoutPanel tableLayoutPanel2;
+
         private Button btnAdd; // Nút Thêm
+        private Panel panel2;
+        private Panel panel6;
+        private Button button2;
+        private Button button3;
     }
 }
