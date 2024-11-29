@@ -1,10 +1,12 @@
 using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
+using QLDiemRenLuyen;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
     public partial class QLGiangVien : Form
     {
+        private List<GiangVienDTO> listGiangVien = new List<GiangVienDTO>();
         public QLGiangVien()
         {
             InitializeComponent();
@@ -157,10 +159,16 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 long id = (long)selectedRow.Cells["IdColumn"].Value;
                 string name = selectedRow.Cells["NameColumn"].Value?.ToString() ?? "";
                 string email = selectedRow.Cells["EmailColumn"].Value?.ToString() ?? "";
+                DateTime? ngayTao = DateTime.TryParse(selectedRow.Cells["ngayTaoColumn"].Value?.ToString(), out DateTime tempCreatedAt)
+                    ? tempCreatedAt : DateTime.MinValue;
+                DateTime? ngayCapNhat = DateTime.TryParse(selectedRow.Cells["ngayCapNhatColumn"].Value?.ToString(), out DateTime tempUpdatedAt)
+                    ? tempUpdatedAt : DateTime.MinValue;
                 string chucVu = selectedRow.Cells["ChucVuColumn"].Value?.ToString() ?? "";
                 string khoaId = selectedRow.Cells["KhoaColumn"].Value?.ToString() ?? "";
                 string status = selectedRow.Cells["StatusColumn"].Value?.ToString() ?? "";
 
+                /*GiangVienDetailForm gvdtf = new GiangVienDetailForm(id, name, email, ngayTao, ngayCapNhat, chucVu, khoaId, status);
+                gvdtf.Show();*/
                 // Chuyển sang form chi tiết giảng viên (khi cần sử dụng)
                 // GiangVienDetailForm detailsForm = new GiangVienDetailForm(id, name, email, chucVu, khoaId, table, this);
                 // detailsForm.Show();
@@ -169,7 +177,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            ThemGiangVien cttcform = new ThemGiangVien(listGiangVien);
+            cttcform.Show();
         }
     }
 }
