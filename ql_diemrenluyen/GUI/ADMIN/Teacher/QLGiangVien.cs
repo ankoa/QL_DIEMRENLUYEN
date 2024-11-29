@@ -40,6 +40,39 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 MessageBox.Show("Lỗi khi khởi tạo giao diện: " + ex.Message);
             }
         }
+        private void LoadStandardsList()
+        {
+            try
+            {
+                List<GiangVienDTO> listgiangvien = GiangVienBUS.GetAllGiangVien();
+                tableGV.Rows.Clear();
+
+                foreach (var giangVien in listgiangvien)
+                {
+                    if (giangVien.KhoaId == null)
+                    {
+                        tableGV.Rows.Add(
+                                               giangVien.Id,
+                                               giangVien.Name,
+                                               giangVien.Email,
+                                               giangVien.ChucVu,
+                                               giangVien.KhoaId >0 ? giangVien.KhoaId.ToString() : null, 
+                                               giangVien.CreatedAt.HasValue ? giangVien.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
+                                               giangVien.UpdatedAt.HasValue ? giangVien.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
+                                               giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
+                                           );
+                    }
+
+                }
+
+                ApplyTableStyles(tableGV); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách tiêu chí: " + ex.Message);
+            }
+            
+        }
 
         private void GiangVien_Load(object sender, EventArgs e)
         {
@@ -102,9 +135,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
                 if (status == -1 && string.IsNullOrEmpty(search) && selectedId == null)
                 {
-                    LoadGiangVienList(tableGV);
+                    LoadStandardsList();
                     return;
                 }     
+
+                List<GiangVienDTO> listtieuchi = GiangVienBUS.SearchGiangVien(selectedId, status, search);
 
                 tableGV.Rows.Clear();
                 foreach (var giangVien in listGiangVien)
