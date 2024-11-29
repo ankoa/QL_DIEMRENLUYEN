@@ -79,7 +79,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel6.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
-            tableLayoutPanel6.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
             cbStatusCTTC.SuspendLayout();
             // 
@@ -266,11 +266,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             panel5.BackColor = Color.RoyalBlue;
             panel5.BackgroundImageLayout = ImageLayout.None;
+            panel5.Controls.Add(panel6);
             panel5.Controls.Add(button5);
-            panel5.Controls.Add(panel2);
-            panel5.Controls.Add(tableLayoutPanel3);
-            panel5.Controls.Add(tableLayoutPanel6);
+            panel5.Controls.Add(tableLayoutPanel5);
             panel5.Controls.Add(tableLayoutPanel1);
+            panel5.Controls.Add(tableLayoutPanel7);
             panel5.Dock = DockStyle.Top;
             panel5.Location = new Point(3, 3);
             panel5.Margin = new Padding(50, 0, 50, 0);
@@ -334,17 +334,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             button5.Text = "Reset";
             button5.UseVisualStyleBackColor = false;
             button5.Click += btnClear_Click;
-            // 
-            // label2
-            // 
-            panel2.Controls.Add(tableLayoutPanel5);
-            panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(1036, 51);
-            panel2.Margin = new Padding(3, 50, 3, 3);
-            panel2.Name = "panel2";
-            panel2.Padding = new Padding(0, 50, 0, 0);
-            panel2.Size = new Size(250, 87);
-            panel2.TabIndex = 45;
+        
             // 
             // tableLayoutPanel5
             // 
@@ -395,8 +385,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.40856F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.59144F));
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
-            tableLayoutPanel1.Controls.Add(label3, 1, 0);
-            tableLayoutPanel1.Location = new Point(21, 66);
+            tableLayoutPanel1.Controls.Add(cbbRole, 1, 0);
+            tableLayoutPanel1.Location = new Point(21, 125);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
@@ -498,8 +488,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
-            tableLayoutPanel6.ResumeLayout(false);
-            tableLayoutPanel6.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel7.PerformLayout();
             cbStatusCTTC.ResumeLayout(false);
