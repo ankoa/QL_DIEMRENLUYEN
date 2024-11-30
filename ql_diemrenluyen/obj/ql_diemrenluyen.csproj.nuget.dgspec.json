@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {}
+    "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {}
   },
   "projects": {
-    "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {
+    "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\ql_diemrenluyen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+        "projectUniqueName": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
         "projectName": "ql_diemrenluyen",
-        "projectPath": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\obj\\",
+        "projectPath": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+        "packagesPath": "C:\\Users\\duyli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\duyli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -110,7 +106,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

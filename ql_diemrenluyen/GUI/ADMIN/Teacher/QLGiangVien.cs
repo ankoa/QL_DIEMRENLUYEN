@@ -22,18 +22,21 @@ namespace ql_diemrenluyen.GUI.ADMIN
             {
                 this.Dock = DockStyle.Fill; // Đặt Dock để chiếm toàn bộ không gian
                 InitializePlaceholder(txtSearch, "Nhập ID, nội dung cần tìm...");
-                cbbRole.SelectedItem = "Mặc định";
+                //cbbRole.SelectedItem = "Mặc định";
                 cbbStatus.SelectedItem = "Mặc định";
 
                 // Kiểm tra bảng giảng viên trước khi tải
-                if (tableGV != null)
-                {
-                    LoadGiangVienList(tableGV);
-                }
-                else
-                {
-                    MessageBox.Show("Bảng dữ liệu giảng viên chưa được khởi tạo.");
-                }
+                //if (tableGV != null)
+                //{
+                //    LoadGiangVienList(tableGV);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Bảng dữ liệu giảng viên chưa được khởi tạo.");
+                //}
+                // Lấy danh sách giảng viên từ cơ sở dữ liệu
+                listGiangVien = GiangVienBUS.GetAllGiangVien();
+                PopulateGiangVienTable(tableGV);
             }
             catch (Exception ex)
             {
@@ -55,7 +58,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
                                                giangVien.Id,
                                                giangVien.Name,
                                                giangVien.Email,
-                                               giangVien.ChucVu,
                                                giangVien.KhoaId >0 ? giangVien.KhoaId.ToString() : null, 
                                                giangVien.CreatedAt.HasValue ? giangVien.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
                                                giangVien.UpdatedAt.HasValue ? giangVien.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
@@ -108,53 +110,107 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
         // Hàm tìm kiếm giảng viên
+        //private void SearchGiangVienList()
+        //{
+        //try
+        //{
+        //    int status = cbbStatus.SelectedItem?.ToString() == "Mặc định" ? -1 :
+        //                 (cbbStatus.SelectedItem?.ToString() == "Hoạt động" ? 1 : 0);
+
+        //    string selectedItem = cbbRole.SelectedItem?.ToString();
+
+        //    int? selectedId = null;
+        //    if (!string.IsNullOrEmpty(selectedItem) && selectedItem != "Mặc định")
+        //    {
+        //        var parts = selectedItem.Split('-');
+        //        if (parts.Length > 0)
+        //        {
+        //            selectedId = int.Parse(parts[0].Trim());
+        //        }
+        //    }
+
+        //    string search = txtSearch.Text;
+        //    if (search.Equals("Nhập ID, nội dung cần tìm..."))
+        //    {
+        //        search = null;
+        //    }
+
+        //    if (status == -1 && string.IsNullOrEmpty(search) && selectedId == null)
+        //    {
+        //        LoadStandardsList();
+        //        return;
+        //    }     
+
+        //    List<GiangVienDTO> listtieuchi = GiangVienBUS.SearchGiangVien(selectedId, status, search);
+
+        //    tableGV.Rows.Clear();
+        //    foreach (var giangVien in listGiangVien)
+        //    {
+        //        tableGV.Rows.Add(
+        //            giangVien.Id,
+        //            giangVien.Name ?? "N/A",
+        //            giangVien.Email ?? "N/A",
+        //            giangVien.KhoaId  ,
+        //            giangVien.CreatedAt?.ToString("dd/MM/yyyy") ?? "",
+        //            giangVien.UpdatedAt?.ToString("dd/MM/yyyy") ?? "",
+        //            giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
+        //        );
+        //    }
+        //    ApplyTableStyles(tableGV);
+        //}
+        //catch (Exception ex)
+        //{
+        //    MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
+        //}
+        //}
         private void SearchGiangVienList()
         {
             try
             {
-                int status = cbbStatus.SelectedItem?.ToString() == "Mặc định" ? -1 :
-                             (cbbStatus.SelectedItem?.ToString() == "Hoạt động" ? 1 : 0);
-
-                string selectedItem = cbbRole.SelectedItem?.ToString();
-
-                int? selectedId = null;
-                if (!string.IsNullOrEmpty(selectedItem) && selectedItem != "Mặc định")
+                // Lấy giá trị tìm kiếm từ TextBox
+                string search = txtSearch.Text?.Trim().ToLower();
+                if (search == "nhập id, nội dung cần tìm...")
                 {
-                    var parts = selectedItem.Split('-');
-                    if (parts.Length > 0)
-                    {
-                        selectedId = int.Parse(parts[0].Trim());
-                    }
+                    search = string.Empty;
                 }
 
-                string search = txtSearch.Text;
-                if (search.Equals("Nhập ID, nội dung cần tìm..."))
+                // Lấy giá trị lọc từ ComboBox
+                string selectedStatus = cbbStatus.SelectedItem?.ToString();
+                int? statusFilter = null; // `null` nghĩa là không lọc theo trạng thái
+                if (selectedStatus == "Hoạt động")
                 {
-                    search = null;
+                    statusFilter = 1;
+                }
+                else if (selectedStatus == "Không hoạt động")
+                {
+                    statusFilter = 0;
                 }
 
-                if (status == -1 && string.IsNullOrEmpty(search) && selectedId == null)
-                {
-                    LoadStandardsList();
-                    return;
-                }     
+                // Lọc danh sách giảng viên
+                var filteredList = listGiangVien.Where(giangVien =>
+                    (string.IsNullOrEmpty(search) ||
+                     giangVien.Id.ToString().Contains(search) ||
+                     (!string.IsNullOrEmpty(giangVien.Name) && giangVien.Name.ToLower().Contains(search)) ||
+                     (!string.IsNullOrEmpty(giangVien.Email) && giangVien.Email.ToLower().Contains(search)) ||
+                     (!string.IsNullOrEmpty(giangVien.KhoaId.ToString()) && giangVien.KhoaId.ToString().Contains(search))) &&
+                    (!statusFilter.HasValue || giangVien.Status == statusFilter.Value)
+                ).ToList();
 
-                List<GiangVienDTO> listtieuchi = GiangVienBUS.SearchGiangVien(selectedId, status, search);
-
+                // Cập nhật DataGridView
                 tableGV.Rows.Clear();
-                foreach (var giangVien in listGiangVien)
+                foreach (var giangVien in filteredList)
                 {
                     tableGV.Rows.Add(
                         giangVien.Id,
                         giangVien.Name ?? "N/A",
                         giangVien.Email ?? "N/A",
-                        giangVien.ChucVu  ,
-                        giangVien.KhoaId  ,
+                        giangVien.KhoaId,
                         giangVien.CreatedAt?.ToString("dd/MM/yyyy") ?? "",
                         giangVien.UpdatedAt?.ToString("dd/MM/yyyy") ?? "",
                         giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
                     );
                 }
+
                 ApplyTableStyles(tableGV);
             }
             catch (Exception ex)
@@ -162,6 +218,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
             }
         }
+
 
         // Hàm tái sử dụng để cập nhật bảng giảng viên
         private static void PopulateGiangVienTable(DataGridView table)
@@ -178,14 +235,16 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 table.Rows.Clear();
                 foreach (var giangVien in listGiangVien)
                 {
+                    KhoaDTO khoaName = KhoaBUS.GetKhoaByID(giangVien.KhoaId);
                     table.Rows.Add(
                         giangVien.Id,
                         giangVien.Name ?? "N/A",
                         giangVien.Email ?? "N/A",
-                        giangVien.ChucVu  ,
-                        giangVien.KhoaId  ,
-                        giangVien.CreatedAt?.ToString("dd/MM/yyyy") ?? "",
-                        giangVien.UpdatedAt?.ToString("dd/MM/yyyy") ?? "",
+                        khoaName.TenKhoa,
+                        giangVien.GioiTinh==1? "Nam" : "Nữ",
+                        giangVien.NgaySinh.ToString("dd/MM/yyyy"),
+                        //giangVien.CreatedAt?.ToString("dd/MM/yyyy") ?? "",
+                        //giangVien.UpdatedAt?.ToString("dd/MM/yyyy") ?? "",
                         giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
                     );
                 }
@@ -260,6 +319,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         {
             txtSearch.Text = "Nhập ID, nội dung cần tìm...";
             txtSearch.ForeColor = Color.Gray;
+            cbbStatus.SelectedItem = "Mặc định";
             LoadGiangVienList(tableGV);
         }
 
@@ -275,21 +335,49 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void table_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //try
+            //{
+            //    if (e.RowIndex >= 0)
+            //    {
+            //        var selectedRow = tableGV.Rows[e.RowIndex];
+
+            //        long id = Convert.ToInt64(selectedRow.Cells["Idcolumn"].Value ?? 0);
+            //        string name = selectedRow.Cells["nameColumn"].Value?.ToString() ?? "";
+            //        string email = selectedRow.Cells["emailColumn"].Value?.ToString() ?? "";
+            //        //string chucVu = selectedRow.Cells["chucVuColumn"].Value?.ToString() ?? "";
+            //        string khoaId = selectedRow.Cells["khoaColumn"].Value?.ToString() ?? "";
+            //        string gioiTinh = selectedRow.Cells["gioiTinhColumn"].Value?.ToString() ?? "";
+            //        DateTime ngaySinh = selectedRow.Cells["ngaySinhColumn"].Value is DateTime date
+            //    ? date
+            //    : DateTime.Now; // Sử dụng giá trị mặc định nếu không có ngày sinh
+            //        string status = selectedRow.Cells["StatusColumn"].Value?.ToString() ?? "";
+
+            //        // Hiển thị form chi tiết giảng viên (tùy chỉnh theo yêu cầu)
+            //        MessageBox.Show($"Chi tiết:\nTên: {name}\nEmail: {email}\nKhoa: {khoaId}\nGiới tính: {gioiTinh}\nNgày sinh: {ngaySinh}\nTrạng thái: {status}");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Lỗi khi xử lý double click: " + ex.Message);
+            //}
             try
             {
                 if (e.RowIndex >= 0)
                 {
                     var selectedRow = tableGV.Rows[e.RowIndex];
 
-                    long id = Convert.ToInt64(selectedRow.Cells["Idcolumn"].Value ?? 0);
-                    string name = selectedRow.Cells["nameColumn"].Value?.ToString() ?? "";
-                    string email = selectedRow.Cells["emailColumn"].Value?.ToString() ?? "";
-                    string chucVu = selectedRow.Cells["chucVuColumn"].Value?.ToString() ?? "";
-                    string khoaId = selectedRow.Cells["khoaIdColumn"].Value?.ToString() ?? "";
-                    string status = selectedRow.Cells["StatusColumn"].Value?.ToString() ?? "";
+                    // Lấy thông tin từ hàng được chọn
+                    long idGV = Convert.ToInt64(selectedRow.Cells["IdColumn"].Value ?? 0);
 
-                    // Hiển thị form chi tiết giảng viên (tùy chỉnh theo yêu cầu)
-                   // MessageBox.Show($"Chi tiết:\nID: {id}\nTên: {name}\nEmail: {email}\nChức vụ: {chucVu}\nKhoa: {khoaId}\nTrạng thái: {status}");
+                    // Truyền danh sách giảng viên vào form (nếu cần)
+                   // List<GiangVienDTO> danhSachGiangVien = GiangVienBUS.GetAllGiangVien();
+                    //MessageBox.Show($"Ngày sinh:");
+                    // Khởi tạo form ThemGiangVien
+                    ThemGiangVien form = new ThemGiangVien(idGV);
+                    
+                    // Hiển thị form
+                    form.Show();
+                    
                 }
             }
             catch (Exception ex)
@@ -306,13 +394,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void clearFilter()
         {
             txtSearch.Text = "Nhập ID, nội dung cần tìm...";
-            // Reset combo boxes to "Mặc định"
-
-            // Reset combo boxes to "Mặc định"
             
             cbbStatus.SelectedItem = "Mặc định";
             // Reset combo boxes to "Mặc định"
-            cbbRole.SelectedItem = "Mặc định";
+            //cbbRole.SelectedItem = "Mặc định";
             
         }
 
@@ -335,5 +420,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     break;
             }
         }
+
     }
 }

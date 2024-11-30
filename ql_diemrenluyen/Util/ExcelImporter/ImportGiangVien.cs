@@ -26,7 +26,7 @@ namespace ql_diemrenluyen.Util.ExcelImporter
             // Gọi DAO để chèn dữ liệu vào database
             foreach (var giangVien in giangVienList)
             {
-                string password = giangVien.NgaySinh?.ToString("ddMMyyyy") ?? "123456";
+                string password = giangVien.NgaySinh.ToString("ddMMyyyy") ?? "123456";
 
                 AccountDTO acc = new AccountDTO
                 {
@@ -85,9 +85,9 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                             Name = worksheet.Cells[row, 2].Text,
                             Email = worksheet.Cells[row, 3].Text,
                             NgaySinh = DateTime.Parse(worksheet.Cells[row, 4].Text),
-                            ChucVu = worksheet.Cells[row, 5].Text == "Giảng viên" ? 1 : 
-                            (worksheet.Cells[row, 5].Text == "Cố vấn" ? 0 : -1),  
-                            KhoaId = Convert.ToInt64(worksheet.Cells[row, 6].Text),
+                            //ChucVu = worksheet.Cells[row, 5].Text == "Giảng viên" ? 1 : 
+                            //(worksheet.Cells[row, 5].Text == "Cố vấn" ? 0 : -1),  
+                            KhoaId = Convert.ToInt64(worksheet.Cells[row, 5].Text),
                             Status = 1, // Mặc định là 1
                             CreatedAt = DateTime.UtcNow,
                             UpdatedAt = DateTime.UtcNow
