@@ -4,6 +4,7 @@ using ql_diemrenluyen.GUI.ADMIN.Statistic;
 using ql_diemrenluyen.GUI.ADMIN.Student;
 using ql_diemrenluyen.GUI.ADMIN.TieuChi;
 using ql_diemrenluyen.Helper;
+using QLDiemRenLuyen;
 using System.Runtime.InteropServices;
 
 namespace ql_diemrenluyen.GUI.ADMIN
@@ -56,15 +57,37 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // Khởi tạo PictureBox loading
             loading = Loading.CreateLoadingControl(this);
 
-            Control controlToRemove = flowLayoutPanel1.Controls.OfType<Control>()
-                               .FirstOrDefault(c => c.Text == "panel10");
-
-
-            if (controlToRemove != null)
+            if (Program.role == 3)
             {
-                flowLayoutPanel1.Controls.Remove(controlToRemove);
-                Console.WriteLine($"Đã xóa: {controlToRemove.Name}");
+                panel11.Visible = true;
+                panel4.Visible = true;
+                panel2.Visible = true;
+                TimKiemSinhVien tk = new TimKiemSinhVien(null, null);
             }
+            else if (Program.role == 4)
+            {
+                panel11.Visible = true;
+                panel4.Visible = true;
+                panel5.Visible = true;
+                panel9.Visible = true;
+                panel2.Visible = true;
+            }
+            else
+            {
+                panel11.Visible = true;
+                panel4.Visible = true;
+                panel5.Visible = true;
+                panel9.Visible = true;
+                panel8.Visible = true;
+                panel6.Visible = true;
+                panel3.Visible = true;
+                if (Program.role == 5)
+                {
+                    panel2.Visible = true;
+                }
+                else panel2.Visible = false;
+            }
+
 
 
 
@@ -156,28 +179,50 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void MenuAdmin_Load(object sender, EventArgs e)
         {
-            //sidebar.Width = 99;
+            // Sidebar và các thiết lập khác
             sidebar.Width = 300;
             this.MouseDown += Form_MouseDown;
             btnHomepage.BackColor = Color.LightBlue;
-            if (form_home == null)
+
+            // Kiểm tra điều kiện về role
+            if (Program.role == 0)
             {
-                form_home = new HomePage();
-                form_home.FormClosed += HomePage_FormClosed;
-                form_home.FormBorderStyle = FormBorderStyle.None;
-                form_home.ControlBox = false;
-                form_home.MdiParent = this;
-                form_home.Location = new Point(0, 0);
-                form_home.Size = this.ClientSize; // Kích thước form_home bằng kích thước vùng MDI
-                form_home.Show();
+                // Nếu role == 0, load form_taikhoan
+                if (form_taikhoan == null)
+                {
+                    form_taikhoan = new TaiKhoan(); // Giả sử form_taikhoan là TaiKhoanForm
+                    form_taikhoan.FormClosed += TaiKhoan_FormClosed;
+                    form_taikhoan.FormBorderStyle = FormBorderStyle.None;
+                    form_taikhoan.ControlBox = false;
+                    form_taikhoan.MdiParent = this;
+                    form_taikhoan.Location = new Point(0, 0);
+                    form_taikhoan.Size = this.ClientSize; // Kích thước form_taikhoan bằng kích thước vùng MDI
+                    form_taikhoan.Show();
+                }
+                else
+                {
+                    form_taikhoan.Activate();
+                }
             }
             else
             {
-                form_home.Activate();
+                // Nếu role khác 0, load form_home
+                if (form_home == null)
+                {
+                    form_home = new HomePage();
+                    form_home.FormClosed += HomePage_FormClosed;
+                    form_home.FormBorderStyle = FormBorderStyle.None;
+                    form_home.ControlBox = false;
+                    form_home.MdiParent = this;
+                    form_home.Location = new Point(0, 0);
+                    form_home.Size = this.ClientSize; // Kích thước form_home bằng kích thước vùng MDI
+                    form_home.Show();
+                }
+                else
+                {
+                    form_home.Activate();
+                }
             }
-
-
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

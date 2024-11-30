@@ -1,6 +1,6 @@
-﻿using System.Text.RegularExpressions;
-using ql_diemrenluyen.BUS;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
+using System.Text.RegularExpressions;
 
 namespace QLDiemRenLuyen
 {
@@ -149,7 +149,7 @@ namespace QLDiemRenLuyen
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             if (txtMaSV.Text.Trim().Length > 10)
 
@@ -165,7 +165,6 @@ namespace QLDiemRenLuyen
             }
 
 
-            MessageBox.Show("Tìm kiếm thành công !");
             String maSV = txtMaSV.Text.Trim();
             String hoTen = txtHoTen.Text.Trim();
             long lopID = long.Parse(cBLop.SelectedValue.ToString());
@@ -173,7 +172,6 @@ namespace QLDiemRenLuyen
             parentForm.setListStudent(SinhVienBUS.advancedSearch(maSV, hoTen, lopID, khoaID));
             this.Dispose();
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
