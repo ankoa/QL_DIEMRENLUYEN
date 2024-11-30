@@ -1,10 +1,14 @@
+using Google.Rpc;
 using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
+using QLDiemRenLuyen;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
     public partial class QLGiangVien : Form
     {
+        private List<GiangVienDTO> listGiangVien = new List<GiangVienDTO>();
+
         public QLGiangVien()
         {
             InitializeComponent();
@@ -14,18 +18,74 @@ namespace ql_diemrenluyen.GUI.ADMIN
         // Hàm khởi tạo giao diện
         private void InitializeUI()
         {
-            this.Dock = DockStyle.Fill; // Đặt Dock để chiếm toàn bộ không gian
-            cbbRole.SelectedItem = "Mặc định";
-            cbbStatus.SelectedItem = "Mặc định";
-            LoadGiangVienList(tableGV);
-
-            if (this.Width < 1200)
+            try
             {
-                pnContent.Padding = new Padding(50);
-                pnContent.Dock = DockStyle.Fill;
-            }
+                this.Dock = DockStyle.Fill; // Đặt Dock để chiếm toàn bộ không gian
+                InitializePlaceholder(txtSearch, "Nhập ID, nội dung cần tìm...");
+                cbbRole.SelectedItem = "Mặc định";
+                cbbStatus.SelectedItem = "Mặc định";
 
-            InitializePlaceholder(txtSearch, "Nhập từ khóa tìm kiếm...");
+                // Kiểm tra bảng giảng viên trước khi tải
+                if (tableGV != null)
+                {
+                    LoadGiangVienList(tableGV);
+                }
+                else
+                {
+                    MessageBox.Show("Bảng dữ liệu giảng viên chưa được khởi tạo.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi khởi tạo giao diện: " + ex.Message);
+            }
+        }
+        private void LoadStandardsList()
+        {
+            try
+            {
+                List<GiangVienDTO> listgiangvien = GiangVienBUS.GetAllGiangVien();
+                tableGV.Rows.Clear();
+
+                foreach (var giangVien in listgiangvien)
+                {
+                    if (giangVien.KhoaId == null)
+                    {
+                        tableGV.Rows.Add(
+                                               giangVien.Id,
+                                               giangVien.Name,
+                                               giangVien.Email,
+                                               giangVien.ChucVu,
+                                               giangVien.KhoaId >0 ? giangVien.KhoaId.ToString() : null, 
+                                               giangVien.CreatedAt.HasValue ? giangVien.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
+                                               giangVien.UpdatedAt.HasValue ? giangVien.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
+                                               giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
+                                           );
+                    }
+
+                }
+
+                ApplyTableStyles(tableGV); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách tiêu chí: " + ex.Message);
+            }
+            
+        }
+
+        private void GiangVien_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Dock = DockStyle.Fill; // Đảm bảo chiếm toàn bộ không gian
+                this.ControlBox = false;
+                PopulateGiangVienTable(tableGV);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu giảng viên: " + ex.Message);
+            }
         }
 
         // Hàm tải danh sách giảng viên
@@ -34,7 +94,12 @@ namespace ql_diemrenluyen.GUI.ADMIN
             try
             {
                 List<GiangVienDTO> giangViens = GiangVienBUS.GetAllGiangVien();
-                PopulateGiangVienTable(giangViens, table);
+                if (giangViens == null || giangViens.Count == 0)
+                {
+                    MessageBox.Show("Danh sách giảng viên rỗng.");
+                    return;
+                }
+                PopulateGiangVienTable(table);
             }
             catch (Exception ex)
             {
@@ -47,15 +112,50 @@ namespace ql_diemrenluyen.GUI.ADMIN
         {
             try
             {
-                string search = txtSearch.Text.Trim();
-                if (search.Equals("Nhập từ khóa tìm kiếm..."))
+                int status = cbbStatus.SelectedItem?.ToString() == "Mặc định" ? -1 :
+                             (cbbStatus.SelectedItem?.ToString() == "Hoạt động" ? 1 : 0);
+
+                string selectedItem = cbbRole.SelectedItem?.ToString();
+
+                int? selectedId = null;
+                if (!string.IsNullOrEmpty(selectedItem) && selectedItem != "Mặc định")
+                {
+                    var parts = selectedItem.Split('-');
+                    if (parts.Length > 0)
+                    {
+                        selectedId = int.Parse(parts[0].Trim());
+                    }
+                }
+
+                string search = txtSearch.Text;
+                if (search.Equals("Nhập ID, nội dung cần tìm..."))
+                {
                     search = null;
+                }
 
-                List<GiangVienDTO> giangViens = string.IsNullOrEmpty(search)
-                    ? GiangVienBUS.GetAllGiangVien()
-                    : GiangVienBUS.SearchGiangVien(search);
+                if (status == -1 && string.IsNullOrEmpty(search) && selectedId == null)
+                {
+                    LoadStandardsList();
+                    return;
+                }     
 
-                PopulateGiangVienTable(giangViens, tableGV);
+                List<GiangVienDTO> listtieuchi = GiangVienBUS.SearchGiangVien(selectedId, status, search);
+
+                tableGV.Rows.Clear();
+                foreach (var giangVien in listGiangVien)
+                {
+                    tableGV.Rows.Add(
+                        giangVien.Id,
+                        giangVien.Name ?? "N/A",
+                        giangVien.Email ?? "N/A",
+                        giangVien.ChucVu  ,
+                        giangVien.KhoaId  ,
+                        giangVien.CreatedAt?.ToString("dd/MM/yyyy") ?? "",
+                        giangVien.UpdatedAt?.ToString("dd/MM/yyyy") ?? "",
+                        giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
+                    );
+                }
+                ApplyTableStyles(tableGV);
             }
             catch (Exception ex)
             {
@@ -64,45 +164,64 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
         // Hàm tái sử dụng để cập nhật bảng giảng viên
-        private static void PopulateGiangVienTable(List<GiangVienDTO> giangViens, DataGridView table)
+        private static void PopulateGiangVienTable(DataGridView table)
         {
-            table.Rows.Clear();
-
-            foreach (var giangVien in giangViens)
+            try
             {
-                table.Rows.Add(
-                    giangVien.Id,
-                    giangVien.Name,
-                    giangVien.Email,
-                    giangVien.ChucVu,
-                    giangVien.KhoaId,
-                    giangVien.CreatedAt?.ToString("dd/MM/yyyy") ?? "",
-                    giangVien.UpdatedAt?.ToString("dd/MM/yyyy") ?? "",
-                    giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
-                );
-            }
+                List<GiangVienDTO> listGiangVien = GiangVienBUS.GetAllGiangVien();
+                if (listGiangVien == null || listGiangVien.Count == 0)
+                {
+                    MessageBox.Show("Danh sách giảng viên rỗng.");
+                    return;
+                }
 
-            ApplyTableStyles(table);
+                table.Rows.Clear();
+                foreach (var giangVien in listGiangVien)
+                {
+                    table.Rows.Add(
+                        giangVien.Id,
+                        giangVien.Name ?? "N/A",
+                        giangVien.Email ?? "N/A",
+                        giangVien.ChucVu  ,
+                        giangVien.KhoaId  ,
+                        giangVien.CreatedAt?.ToString("dd/MM/yyyy") ?? "",
+                        giangVien.UpdatedAt?.ToString("dd/MM/yyyy") ?? "",
+                        giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
+                    );
+                }
+                ApplyTableStyles(table);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật bảng giảng viên: " + ex.Message);
+            }
         }
 
         // Hàm áp dụng phong cách cho bảng giảng viên
         private static void ApplyTableStyles(DataGridView table)
         {
-            table.RowTemplate.Height = 40;
-            table.BorderStyle = BorderStyle.Fixed3D;
-            table.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-
-            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle
+            try
             {
-                Font = new Font("Segoe UI", 14, FontStyle.Bold),
-                BackColor = Color.RoyalBlue,
-                ForeColor = Color.White
-            };
+                table.RowTemplate.Height = 40;
+                table.BorderStyle = BorderStyle.Fixed3D;
+                table.CellBorderStyle = DataGridViewCellBorderStyle.Single;
 
-            table.ColumnHeadersDefaultCellStyle = headerStyle;
-            table.EnableHeadersVisualStyles = false;
-            table.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
-            table.DefaultCellStyle.SelectionForeColor = Color.Black;
+                DataGridViewCellStyle headerStyle = new DataGridViewCellStyle
+                {
+                    Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                    BackColor = Color.RoyalBlue,
+                    ForeColor = Color.White
+                };
+
+                table.ColumnHeadersDefaultCellStyle = headerStyle;
+                table.EnableHeadersVisualStyles = false;
+                table.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+                table.DefaultCellStyle.SelectionForeColor = Color.Black;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi áp dụng kiểu dáng cho bảng: " + ex.Message);
+            }
         }
 
         // Hàm khởi tạo placeholder cho TextBox
@@ -139,37 +258,82 @@ namespace ql_diemrenluyen.GUI.ADMIN
         // Sự kiện nút Clear (Xóa tìm kiếm)
         private void btnClear_Click(object sender, EventArgs e)
         {
-            // Reset các trường tìm kiếm
-            txtSearch.Text = "Nhập từ khóa tìm kiếm...";
+            txtSearch.Text = "Nhập ID, nội dung cần tìm...";
             txtSearch.ForeColor = Color.Gray;
-
-            // Reload danh sách giảng viên mặc định
             LoadGiangVienList(tableGV);
         }
 
-        // Sự kiện double click vào một hàng trong bảng giảng viên
-        private void table_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void cbbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                var selectedRow = tableGV.Rows[e.RowIndex];
-
-                long id = (long)selectedRow.Cells["IdColumn"].Value;
-                string name = selectedRow.Cells["NameColumn"].Value?.ToString() ?? "";
-                string email = selectedRow.Cells["EmailColumn"].Value?.ToString() ?? "";
-                string chucVu = selectedRow.Cells["ChucVuColumn"].Value?.ToString() ?? "";
-                string khoaId = selectedRow.Cells["KhoaColumn"].Value?.ToString() ?? "";
-                string status = selectedRow.Cells["StatusColumn"].Value?.ToString() ?? "";
-
-                // Chuyển sang form chi tiết giảng viên (khi cần sử dụng)
-                // GiangVienDetailForm detailsForm = new GiangVienDetailForm(id, name, email, chucVu, khoaId, table, this);
-                // detailsForm.Show();
-            }
+            SearchGiangVienList();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void cbbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SearchGiangVienList();
+        }
 
+        private void table_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    var selectedRow = tableGV.Rows[e.RowIndex];
+
+                    long id = Convert.ToInt64(selectedRow.Cells["Idcolumn"].Value ?? 0);
+                    string name = selectedRow.Cells["nameColumn"].Value?.ToString() ?? "";
+                    string email = selectedRow.Cells["emailColumn"].Value?.ToString() ?? "";
+                    string chucVu = selectedRow.Cells["chucVuColumn"].Value?.ToString() ?? "";
+                    string khoaId = selectedRow.Cells["khoaIdColumn"].Value?.ToString() ?? "";
+                    string status = selectedRow.Cells["StatusColumn"].Value?.ToString() ?? "";
+
+                    // Hiển thị form chi tiết giảng viên (tùy chỉnh theo yêu cầu)
+                   // MessageBox.Show($"Chi tiết:\nID: {id}\nTên: {name}\nEmail: {email}\nChức vụ: {chucVu}\nKhoa: {khoaId}\nTrạng thái: {status}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xử lý double click: " + ex.Message);
+            }
+        }
+            private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ThemGiangVien cttcform = new ThemGiangVien(listGiangVien);
+            cttcform.Show();
+        }
+
+        private void clearFilter()
+        {
+            txtSearch.Text = "Nhập ID, nội dung cần tìm...";
+            // Reset combo boxes to "Mặc định"
+
+            // Reset combo boxes to "Mặc định"
+            
+            cbbStatus.SelectedItem = "Mặc định";
+            // Reset combo boxes to "Mặc định"
+            cbbRole.SelectedItem = "Mặc định";
+            
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = cbStatusCTTC.SelectedIndex;
+
+            switch (selectedIndex)
+            {
+                case 0:
+                    clearFilter();
+                    break;
+                case 1:
+                    clearFilter();
+                    break;
+                case 2:
+                    clearFilter();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

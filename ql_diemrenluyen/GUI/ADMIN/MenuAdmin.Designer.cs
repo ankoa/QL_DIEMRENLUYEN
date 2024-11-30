@@ -90,7 +90,7 @@
             label1.ForeColor = Color.RoyalBlue;
             label1.Location = new Point(110, 28);
             label1.Name = "label1";
-            label1.Size = new Size(634, 38);
+            label1.Size = new Size(495, 30);
             label1.TabIndex = 2;
             label1.Text = "PHẦN MỀM QUẢN LÝ CHẤM ĐIỂM RÈN LUYỆN";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -358,6 +358,7 @@
             panel10.Name = "panel10";
             panel10.Size = new Size(317, 70);
             panel10.TabIndex = 7;
+            panel10.Visible = false;
             // 
             // btnBangchung
             // 

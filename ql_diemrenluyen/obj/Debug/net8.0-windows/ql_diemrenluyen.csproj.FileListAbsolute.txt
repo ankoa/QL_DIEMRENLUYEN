@@ -284,3 +284,285 @@ C:\Users\duyli\Desktop\C#\drl2\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemr
 C:\Users\duyli\Desktop\C#\drl2\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.KhoaSearch.resources
 C:\Users\duyli\Desktop\C#\drl2\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.LopSearch.resources
 C:\Users\duyli\Desktop\C#\drl2\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThemGiangVien.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Util\MailTemplate\ResetPasswordMail.html
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.exe
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.deps.json
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.runtimeconfig.json
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.pdb
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\CloudinaryDotNet.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\EPPlus.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\EPPlus.Interfaces.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\EPPlus.System.Drawing.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Api.CommonProtos.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Api.Gax.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Api.Gax.Grpc.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Apis.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Apis.Auth.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Apis.Core.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Cloud.Vision.V1.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.LongRunning.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Protobuf.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Auth.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Core.Api.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Net.Client.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Net.Common.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\HarfBuzzSharp.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\LiveCharts.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\LiveCharts.WinForms.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\MySql.Data.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\MySqlConnector.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.GLControl.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ReaLTaiizor.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.WinForms.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.HarfBuzz.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.Desktop.Common.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.WindowsForms.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Management.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ZstdSharp.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libHarfBuzzSharp.so
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libHarfBuzzSharp.so
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libHarfBuzzSharp.so
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libHarfBuzzSharp.so
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libHarfBuzzSharp.dylib
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libHarfBuzzSharp.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libHarfBuzzSharp.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libSkiaSharp.so
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libSkiaSharp.so
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libSkiaSharp.so
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libSkiaSharp.so
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libSkiaSharp.dylib
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.AssemblyReference.cache
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.BUS.AccountBUS.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AccountDetailsForm.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TaiKhoan.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.testform.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AddDotCham.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.DotCham.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.ThemDotCham.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Evidence.BangChungDetailsForm.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Evidence.QLBangChung.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.HomePage.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddHeHoc.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddKhoa.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddLop.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.HeHocSearch.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.KhoaLopTest.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.KhoaSearch.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.LopSearch.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.QuanLyKhoaLop.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateHeHoc.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateKhoa.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateLop.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl1.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl2.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl3.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.MenuAdmin.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Standards.ChuThichDetailForm.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TieuChi.QLTieuChi.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Standards.TieuChiDetailForm.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Statistic.Thongke.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Student.AdminStudentTest.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.QLSinhVien.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThongTinhSinhVien.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.TimKiemSinhVien.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.QLGiangVien.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThemGiangVien.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ChangePassword.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.CreateNewPass.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.FindEmail.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Form1.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Login.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ResetPass.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.chamdrl.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.USER.Dashboard.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.Properties.Resources.resources
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.GenerateResource.cache
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.AssemblyInfoInputs.cache
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.AssemblyInfo.cs
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.CoreCompileInputs.cache
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.sourcelink.json
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemr.8D5063E9.Up2Date
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\refint\ql_diemrenluyen.dll
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.pdb
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.genruntimeconfig.cache
+D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ref\ql_diemrenluyen.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Util\MailTemplate\ResetPasswordMail.html
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.exe
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.deps.json
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.runtimeconfig.json
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ql_diemrenluyen.pdb
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\CloudinaryDotNet.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\EPPlus.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\EPPlus.Interfaces.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\EPPlus.System.Drawing.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Api.CommonProtos.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Api.Gax.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Api.Gax.Grpc.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Apis.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Apis.Auth.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Apis.Core.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Cloud.Vision.V1.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.LongRunning.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Google.Protobuf.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Auth.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Core.Api.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Net.Client.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Grpc.Net.Common.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\HarfBuzzSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\LiveCharts.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\LiveCharts.WinForms.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\MySql.Data.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\MySqlConnector.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\OpenTK.GLControl.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ReaLTaiizor.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ScottPlot.WinForms.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.HarfBuzz.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.Desktop.Common.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\SkiaSharp.Views.WindowsForms.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Management.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\ZstdSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libHarfBuzzSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libHarfBuzzSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libHarfBuzzSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libHarfBuzzSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libHarfBuzzSharp.dylib
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libHarfBuzzSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libHarfBuzzSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libSkiaSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libSkiaSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libSkiaSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libSkiaSharp.so
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.AssemblyReference.cache
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.BUS.AccountBUS.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AccountDetailsForm.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TaiKhoan.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.testform.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.AddDotCham.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.DotCham.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Account.ThemDotCham.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Evidence.BangChungDetailsForm.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Evidence.QLBangChung.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.HomePage.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddHeHoc.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddKhoa.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.AddLop.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.HeHocSearch.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.KhoaLopTest.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.KhoaSearch.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.LopSearch.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.QuanLyKhoaLop.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateHeHoc.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateKhoa.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UpdateLop.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl1.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl2.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.KhoaLop.UserControl3.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.MenuAdmin.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Standards.ChuThichDetailForm.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.TieuChi.QLTieuChi.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Standards.TieuChiDetailForm.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Statistic.Thongke.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.Student.AdminStudentTest.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.QLSinhVien.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThongTinhSinhVien.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.TimKiemSinhVien.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.QLGiangVien.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThemGiangVien.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ChangePassword.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.CreateNewPass.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.FindEmail.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Form1.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.Login.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ResetPass.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.ADMIN.chamdrl.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GUI.USER.Dashboard.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.Properties.Resources.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.GenerateResource.cache
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.AssemblyInfoInputs.cache
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.AssemblyInfo.cs
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.csproj.CoreCompileInputs.cache
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.sourcelink.json
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemr.8D5063E9.Up2Date
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\refint\ql_diemrenluyen.dll
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.pdb
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.genruntimeconfig.cache
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ref\ql_diemrenluyen.dll

@@ -1,17 +1,7 @@
-﻿using ql_diemrenluyen.DAO;
+﻿using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
-using ql_diemrenluyen.BUS;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace ql_diemrenluyen.GUI.ADMIN
 {
@@ -27,17 +17,49 @@ namespace ql_diemrenluyen.GUI.ADMIN
         //private System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
         private System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
         long nguoiDungId = long.Parse(Program.nguoidung_id);
-
         int vaiTro = Program.role;
+        string action = "";
+        int hockiId;
+        int dotchamdiemId;
+        long covanId;
+        long khoaId;
 
-        public chamdrl()
+
+        public chamdrl(string action, int hocky, int dotchamdiem)
         {
+            //long sinhvienId, long? giangvienId = null, string action
             InitializeComponent();
+            this.action = action;
+            this.hockiId = hocky;
+            this.dotchamdiemId = dotchamdiem;
+            if (action == "Chấm")
+            {
+                btnLuu.Visible = true;
+            }
+            else if (action == "Xem")
+            {
+                btnLuu.Visible = false;
+            }
         }
 
         private void chamdrl_Load(object sender, EventArgs e)
         {
-            LoadData();
+            if (vaiTro == 1)
+            {
+                LoadData();
+                var selectedStudent = sinhvienList.FirstOrDefault(sv => sv.Id == nguoiDungId);
+
+                if (selectedStudent != null)
+                {
+                    lbTen.Text = selectedStudent.Name;
+                    lbMssv.Text = selectedStudent.Id.ToString();
+                }
+            }
+            else
+            {
+                loadCbbAndDataLabel();
+            }
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -57,7 +79,16 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void LoadData()
         {
             List<TieuChiDanhGiaDTO> tieuChiList = TieuChiDanhGiaBUS.XuatAllTieuChiDanhGia();
-            DataTable dataTable = ConvertToDataTable(tieuChiList);
+            DataTable dataTable;
+            if (this.action == "Chấm")
+            {
+                dataTable = ConvertToDataTableChamDiem(tieuChiList);
+            }
+            else
+            {
+                dataTable = ConvertToDataTableXemDiem(tieuChiList);
+            }
+
 
             dataGridView1.DataSource = dataTable; // Gán DataTable vào DataGridView
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -74,34 +105,38 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridView1.Columns["STT"].ReadOnly = true;
             dataGridView1.Columns["Nội dung tiêu chí đánh giá"].ReadOnly = true;
             dataGridView1.Columns["Điểm tối đa"].ReadOnly = true;
-            
+
             // Mặc định tất cả các cột đều không chỉnh sửa được
             foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
                 column.ReadOnly = true;
             }
 
-            // Xác định vai trò và cho phép chỉnh sửa cột phù hợp
-            switch (Program.role) // role = "1=Sinh Viên", "3=Cố vấn", "4=Khoa", "5=Trường"
+            if (this.action == "Chấm")
             {
-                case 1:
-                    dataGridView1.Columns["Điểm SV tự đánh giá"].ReadOnly = false;
-                    dataGridView1.Columns["Ghi Chú"].ReadOnly = false;
-                    break;
-                case 3:
-                    dataGridView1.Columns["Điểm CVHT"].ReadOnly = false;
-                    break;
-                case 4:
-                    dataGridView1.Columns["Điểm khoa"].ReadOnly = false;
-                    break;
-                case 5:
-                    dataGridView1.Columns["Điểm trường"].ReadOnly = false;
-                    break;
-                default:
-                    MessageBox.Show("Vai trò không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
+                // Xác định vai trò và cho phép chỉnh sửa cột phù hợp
+                switch (Program.role) // role = "1=Sinh Viên", "3=Cố vấn", "4=Khoa", "5=Trường"
+                {
+                    case 1:
+                        dataGridView1.Columns["Điểm SV tự đánh giá"].ReadOnly = false;
+                        dataGridView1.Columns["Ghi Chú"].ReadOnly = false;
+                        break;
+                    case 3:
+                        dataGridView1.Columns["Điểm CVHT"].ReadOnly = false;
+                        break;
+                    case 4:
+                        dataGridView1.Columns["Điểm khoa"].ReadOnly = false;
+                        break;
+                    case 5:
+                        dataGridView1.Columns["Điểm trường"].ReadOnly = false;
+                        break;
+                    default:
+                        MessageBox.Show("Vai trò không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
             }
-            
+
+
             dataGridView1.EditingControlShowing += dataGridView_EditingControlShowing;
             dataGridView1.CellClick += dgvTieuChi_CellClick;
             // dataGridView1.CellMouseLeave += dgvTieuChi_CellMouseLeave;
@@ -131,16 +166,61 @@ namespace ql_diemrenluyen.GUI.ADMIN
             CustomizeRowAppearance();
             //--------LOAD LỌC DANH SÁCH------------
 
+        }
 
-            for (int i = 0; i < khoaList.Count; i++)
+        private void loadCbbAndDataLabel()
+        {
+            if (vaiTro == 3)
             {
-                data1.Add(khoaList[i].TenKhoa);
+                GiangVienDTO gv = GiangVienBUS.GetGiangVienById(nguoiDungId);
+                for (int i = 0; i < khoaList.Count; i++)
+                {
+                    if (gv.KhoaId == khoaList[i].Id)
+                    {
+                        data1.Add(khoaList[i].TenKhoa);
+                        LoadLopTheoCoVan(gv.Id);
+                        break;
+                    }
 
+                }
+
+                cbKhoa.AutoCompleteCustomSource = data1;
+                cbKhoa.DataSource = data1;
+                cbKhoa.SelectedIndex = 0;
+            }
+            else if (vaiTro == 4)
+            {
+                for (int i = 0; i < khoaList.Count; i++)
+                {
+                    GiangVienDTO gv = GiangVienBUS.GetGiangVienById(nguoiDungId);
+                    if (gv.KhoaId == khoaList[i].Id)
+                    {
+                        data1.Add(khoaList[i].TenKhoa);
+                        break;
+                    }
+
+                }
+
+                cbKhoa.AutoCompleteCustomSource = data1;
+                cbKhoa.DataSource = data1;
+                cbKhoa.SelectedIndex = 0;
+                LoadLopTheoKhoa();
+            }
+            else
+            {
+                for (int i = 0; i < khoaList.Count; i++)
+                {
+                    data1.Add(khoaList[i].TenKhoa);
+
+                }
+
+                cbKhoa.AutoCompleteCustomSource = data1;
+                cbKhoa.DataSource = data1;
+                cbKhoa.SelectedIndex = -1;
             }
 
-            cbKhoa.AutoCompleteCustomSource = data1;
-            cbKhoa.DataSource = data1;
-            cbKhoa.SelectedIndex = -1;
+
+
 
             cbKhoa.SelectedIndexChanged += (s, e) =>
             {
@@ -163,6 +243,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         lbTen.Text = selectedStudent.Name;
                         lbMssv.Text = selectedStudent.Id.ToString();
                     }
+
+                    LoadData();
                 }
                 else
                 {
@@ -173,12 +255,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             LoadHocKyToComboBox();
 
             IfRoleIsSinhvien(vaiTro, nguoiDungId);
-
-
-
         }
 
-        private DataTable ConvertToDataTable(List<TieuChiDanhGiaDTO> tieuChiList)
+        private DataTable ConvertToDataTableChamDiem(List<TieuChiDanhGiaDTO> tieuChiList)
         {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("STT", typeof(string));
@@ -189,7 +268,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataTable.Columns.Add("Điểm khoa", typeof(string));
             dataTable.Columns.Add("Điểm trường", typeof(string));
             dataTable.Columns.Add("Ghi chú", typeof(string));
-            
 
             // Tạo Dictionary để theo dõi STT cha - con
             Dictionary<long, int> childCountByParent = new Dictionary<long, int>();
@@ -203,6 +281,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
                 // Lưu STT và Id vào Dictionary
                 sttToId[stt] = item.Id;
+
                 // Kiểm tra nếu có chú thích thì thêm dấu "?"
                 List<ChuThichTieuChiDTO> chuThichList = ChuThichTieuChiBUS.GetChuThichByTieuChiId(item.Id);
                 string noiDung = chuThichList.Any() ? $"{item.Name} (?)" : item.Name;
@@ -214,15 +293,167 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     int maxDiem = chuThichList.Any() ? chuThichList.Max(ct => ct.Diem) : 0;
                     diemMax = maxDiem > 0 ? maxDiem : 0; // Nếu cao nhất là âm, đặt = 0
                 }
-                
-                row["STT"] = stt;
-                row["Nội dung tiêu chí đánh giá"] = noiDung;
-                row["Điểm tối đa"] = diemMax;
-                row["Điểm SV tự đánh giá"] = string.Empty;
-                row["Điểm CVHT"] = string.Empty;
-                row["Điểm khoa"] = string.Empty;
-                row["Điểm trường"] = string.Empty;
-                row["Ghi chú"] = string.Empty;
+
+
+
+                if (vaiTro == 1)
+                {
+                    row["STT"] = stt;
+                    row["Nội dung tiêu chí đánh giá"] = noiDung;
+                    row["Điểm tối đa"] = diemMax;
+                    row["Điểm SV tự đánh giá"] = string.Empty;
+                    row["Điểm CVHT"] = string.Empty;
+                    row["Điểm khoa"] = string.Empty;
+                    row["Điểm trường"] = string.Empty;
+                    row["Ghi chú"] = string.Empty;
+                }
+                else if (vaiTro == 3)
+                {
+                    long svId = long.Parse(lbMssv.Text.ToString());
+                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
+                    row["STT"] = stt;
+                    row["Nội dung tiêu chí đánh giá"] = noiDung;
+                    row["Điểm tối đa"] = diemMax;
+                    row["Điểm SV tự đánh giá"] = diemSV.HasValue ? diemSV.Value.ToString() : string.Empty;
+                    row["Điểm CVHT"] = string.Empty;
+                    row["Điểm khoa"] = string.Empty;
+                    row["Điểm trường"] = string.Empty;
+                    row["Ghi chú"] = string.Empty;
+                }
+                else if (vaiTro == 4)
+                {
+                    long svId = long.Parse(lbMssv.Text.ToString());
+                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
+                    int? diemCV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Cố vấn"), coVanID: this.covanId);
+                    row["STT"] = stt;
+                    row["Nội dung tiêu chí đánh giá"] = noiDung;
+                    row["Điểm tối đa"] = diemMax;
+                    row["Điểm SV tự đánh giá"] = diemSV.HasValue ? diemSV.Value.ToString() : string.Empty;
+                    row["Điểm CVHT"] = diemCV.HasValue ? diemCV.Value.ToString() : string.Empty;
+                    row["Điểm khoa"] = string.Empty;
+                    row["Điểm trường"] = string.Empty;
+                    row["Ghi chú"] = string.Empty;
+                }
+                else if (vaiTro == 5)
+                {
+                    long svId = long.Parse(lbMssv.Text.ToString());
+                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
+                    int? diemCV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Cố vấn"), coVanID: this.covanId);
+                    int? diemK = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Khoa"), khoaID: this.khoaId);
+                    row["STT"] = stt;
+                    row["Nội dung tiêu chí đánh giá"] = noiDung;
+                    row["Điểm tối đa"] = diemMax;
+                    row["Điểm SV tự đánh giá"] = diemSV.HasValue ? diemSV.Value.ToString() : string.Empty;
+                    row["Điểm CVHT"] = diemCV.HasValue ? diemCV.Value.ToString() : string.Empty;
+                    row["Điểm khoa"] = diemK.HasValue ? diemK.Value.ToString() : string.Empty;
+                    row["Điểm trường"] = string.Empty;
+                    row["Ghi chú"] = string.Empty;
+                }
+
+                dataTable.Rows.Add(row);
+            }
+
+            return dataTable;
+        }
+
+        private DataTable ConvertToDataTableXemDiem(List<TieuChiDanhGiaDTO> tieuChiList)
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("STT", typeof(string));
+            dataTable.Columns.Add("Nội dung tiêu chí đánh giá", typeof(string));
+            dataTable.Columns.Add("Điểm tối đa", typeof(string));
+            dataTable.Columns.Add("Điểm SV tự đánh giá", typeof(string));
+            dataTable.Columns.Add("Điểm CVHT", typeof(string));
+            dataTable.Columns.Add("Điểm khoa", typeof(string));
+            dataTable.Columns.Add("Điểm trường", typeof(string));
+            dataTable.Columns.Add("Ghi chú", typeof(string));
+
+            // Tạo Dictionary để theo dõi STT cha - con
+            Dictionary<long, int> childCountByParent = new Dictionary<long, int>();
+            Dictionary<long, string> parentToRoman = new Dictionary<long, string>();
+
+            foreach (var item in tieuChiList)
+            {
+                DataRow row = dataTable.NewRow();
+
+                string stt = GetSTT(item.Id, item.ParentId, childCountByParent, parentToRoman);
+
+                // Lưu STT và Id vào Dictionary
+                sttToId[stt] = item.Id;
+
+                // Kiểm tra nếu có chú thích thì thêm dấu "?"
+                List<ChuThichTieuChiDTO> chuThichList = ChuThichTieuChiBUS.GetChuThichByTieuChiId(item.Id);
+                string noiDung = chuThichList.Any() ? $"{item.Name} (?)" : item.Name;
+
+                int diemMax = item.DiemMax;
+                if (diemMax == 0)
+                {
+                    // Lấy điểm cao nhất từ tập con
+                    int maxDiem = chuThichList.Any() ? chuThichList.Max(ct => ct.Diem) : 0;
+                    diemMax = maxDiem > 0 ? maxDiem : 0; // Nếu cao nhất là âm, đặt = 0
+                }
+
+                if (vaiTro == 1)
+                {
+                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: nguoiDungId, tieuChiDanhGiaID: item.Id, dotchamdiemID: dotchamdiemId);
+                    row["STT"] = stt;
+                    row["Nội dung tiêu chí đánh giá"] = noiDung;
+                    row["Điểm tối đa"] = diemMax;
+                    row["Điểm SV tự đánh giá"] = diemSV.HasValue ? diemSV.Value.ToString() : string.Empty;
+                    row["Điểm CVHT"] = string.Empty;
+                    row["Điểm khoa"] = string.Empty;
+                    row["Điểm trường"] = string.Empty;
+                    row["Ghi chú"] = string.Empty;
+                }
+                else if (vaiTro == 3)
+                {
+                    long svId = long.Parse(lbMssv.Text.ToString());
+                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
+                    int? diemCV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: dotchamdiemId, coVanID: nguoiDungId);
+                    row["STT"] = stt;
+                    row["Nội dung tiêu chí đánh giá"] = noiDung;
+                    row["Điểm tối đa"] = diemMax;
+                    row["Điểm SV tự đánh giá"] = diemSV.HasValue ? diemSV.Value.ToString() : string.Empty;
+                    row["Điểm CVHT"] = diemCV.HasValue ? diemCV.Value.ToString() : string.Empty;
+                    row["Điểm khoa"] = string.Empty;
+                    row["Điểm trường"] = string.Empty;
+                    row["Ghi chú"] = string.Empty;
+                }
+                else if (vaiTro == 4)
+                {
+                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: nguoiDungId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
+                    int? diemCV = ChiTietDotChamDAO.GetDiem(sinhVienID: nguoiDungId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Cố vấn"), coVanID: 1);
+                    int? diemK = ChiTietDotChamDAO.GetDiem(sinhVienID: nguoiDungId, tieuChiDanhGiaID: item.Id, dotchamdiemID: dotchamdiemId, khoaID: 1);
+                    row["STT"] = stt;
+                    row["Nội dung tiêu chí đánh giá"] = noiDung;
+                    row["Điểm tối đa"] = diemMax;
+                    row["Điểm SV tự đánh giá"] = diemSV.HasValue ? diemSV.Value.ToString() : string.Empty;
+                    row["Điểm CVHT"] = string.Empty;
+                    row["Điểm khoa"] = string.Empty;
+                    row["Điểm trường"] = string.Empty;
+                    row["Điểm CVHT"] = diemCV.HasValue ? diemCV.Value.ToString() : string.Empty;
+                    row["Điểm khoa"] = diemK.HasValue ? diemK.Value.ToString() : string.Empty;
+                    row["Điểm trường"] = string.Empty;
+                    row["Ghi chú"] = string.Empty;
+                }
+                else if (vaiTro == 5)
+                {
+                    int? diemT = ChiTietDotChamDAO.GetDiem(sinhVienID: nguoiDungId, tieuChiDanhGiaID: item.Id, dotchamdiemID: 2, final: 1);
+                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: nguoiDungId, tieuChiDanhGiaID: item.Id, dotchamdiemID: dotchamdiemId);
+                    int? diemCV = ChiTietDotChamDAO.GetDiem(sinhVienID: nguoiDungId, tieuChiDanhGiaID: item.Id, dotchamdiemID: 4, coVanID: 1);
+                    int? diemK = ChiTietDotChamDAO.GetDiem(sinhVienID: nguoiDungId, tieuChiDanhGiaID: item.Id, dotchamdiemID: 1, khoaID: 1);
+                    row["STT"] = stt;
+                    row["Nội dung tiêu chí đánh giá"] = noiDung;
+                    row["Điểm tối đa"] = diemMax;
+                    row["Điểm SV tự đánh giá"] = diemSV.HasValue ? diemSV.Value.ToString() : string.Empty;
+                    row["Điểm CVHT"] = string.Empty;
+                    row["Điểm khoa"] = string.Empty;
+                    row["Điểm trường"] = string.Empty;
+                    row["Điểm CVHT"] = diemCV.HasValue ? diemCV.Value.ToString() : string.Empty;
+                    row["Điểm khoa"] = diemK.HasValue ? diemK.Value.ToString() : string.Empty;
+                    row["Điểm trường"] = diemT.HasValue ? diemT.Value.ToString() : string.Empty;
+                    row["Ghi chú"] = string.Empty;
+                }
 
                 dataTable.Rows.Add(row);
             }
@@ -231,7 +462,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
 
 
-        
+
+
         private string GetSTT(long id, long? parentId, Dictionary<long, int> childCountByParent, Dictionary<long, string> parentToRoman)
         {
             if (parentId == null || parentId == 0)
@@ -289,6 +521,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     {
                         //MessageBox.Show("ddmádasdasd");
                         khoaId = khoaList[i].Id;
+                        this.khoaId = khoaId;
                         break;
                     }
                 }
@@ -299,11 +532,31 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     if (lopList[i].Khoa.Id == khoaId)
                     {
                         cbLop.Items.Add(lopList[i].TenLop);
-                        
+
                     }
                 }
             }
         }
+
+        private void LoadLopTheoCoVan(long covanId)
+        {
+            // Xóa thông tin cũ trong các ComboBox
+            cbLop.Items.Clear();
+            cbSinhvien.Items.Clear();
+            cbLop.SelectedIndex = -1;
+            cbSinhvien.SelectedIndex = -1;
+            EmptyInforLabel();
+
+            List<LopDTO> list = LopDAO.GetLopByCoVanID(covanId);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                cbLop.Items.Add(list[i].TenLop);
+            }
+
+        }
+
+
         private void LoadSinhVienTheoLop()
         {
             string tenlop = (string)cbLop.SelectedItem;
@@ -320,6 +573,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     if (lopList[i].TenLop == tenlop)
                     {
                         lopId = lopList[i].Id; // Sử dụng Id của lớp thay vì vị trí
+                        covanId = lopList[i].CoVanId ?? 0;
                         break;
                     }
                 }
@@ -457,7 +711,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         // Hiển thị ghi chú liên quan đến originalId hoặc thực hiện hành động khác
                         //ShowNotesForId(originalId, e.RowIndex, e.ColumnIndex);
 
-                         var notes = GetNotesByTieuChiId(originalId);
+                        var notes = GetNotesByTieuChiId(originalId);
                         string noteText = string.Join("\n", notes);
                         //toolTip.Show(noteText, dataGridView1,
                         //dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location,
@@ -534,7 +788,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     vaiTroString = "Vai trò không xác định"; // Xử lý nếu vai trò không hợp lệ
                     break;
             }
-            Cham(vaiTroString,nguoiDungId);
+            Cham(vaiTroString, nguoiDungId);
         }
         private void IfRoleIsSinhvien(int vaiTro, long nguoiDungId)
         {
@@ -555,18 +809,40 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 MessageBox.Show("Chưa chọn sinh viên", "Thông báo");
                 return;
             }
-            else if (cbHocKy.SelectedIndex == -1)
+
+            GiangVienDTO gv = new GiangVienDTO();
+
+            if (vaiTro == "Khoa")
             {
-                MessageBox.Show("Chưa chọn học kì", "Thông báo");
-                return;
+                gv = GiangVienBUS.GetGiangVienById(nguoiDungId);
             }
+            //else if (cbHocKy.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Chưa chọn học kì", "Thông báo");
+            //    return;
+            //}
             try
             {
-                int hockyid = Convert.ToInt32(cbHocKy.SelectedValue);
-                int iddotcham = DotChamDiemBUS.GetIdVoiHocKyVaName(hockyid, vaiTro);
+                //int hockyid = Convert.ToInt32(cbHocKy.SelectedValue);
+                int iddotcham = dotchamdiemId;
                 //MessageBox.Show("Đang gọi GetIdVoiHocKyVaName " + iddotcham);
                 // Lấy ID thông tin đợt chấm
-                object result = ThongTinDotChamBUS.GetThongTinDotChamId(Convert.ToInt64(iddotcham), vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId);
+                object result;
+                if (vaiTro == "Khoa")
+                {
+                    result = ThongTinDotChamBUS.GetThongTinDotChamId(dotchamdiemId, vaiTro, Convert.ToInt64(lbMssv.Text), gv.KhoaId);
+
+                }
+                else if (vaiTro == "Trường")
+                {
+                    result = ThongTinDotChamBUS.GetThongTinDotChamId(dotchamdiemId, vaiTro, Convert.ToInt64(lbMssv.Text), 1);
+
+                }
+                else
+                {
+                    result = ThongTinDotChamBUS.GetThongTinDotChamId(dotchamdiemId, vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId);
+
+                }
 
                 if (result == null)
                 {
@@ -574,9 +850,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     return;
                 }
 
+
+
                 long idthongtindotcham = (long)result;
                 //long idthongtindotcham = (long)ThongTinDotChamBUS.GetThongTinDotChamId(Convert.ToInt64(iddotcham), vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId);
-               // MessageBox.Show("Đang gọi idTTDC " + idthongtindotcham);
+                // MessageBox.Show("Đang gọi idTTDC " + idthongtindotcham);
                 int totalScore = 0;
                 // Kiểm tra sự tồn tại của thongTinDotChamDiemId
                 if (ChiTietDotChamBUS.IsChiTietDotChamExist(idthongtindotcham))
@@ -712,8 +990,30 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 //var ketQuaDotCham = new KetQuaDotChamDTO(0, idthongtindotcham, totalScore, danhGia, DateTime.Now, 1);
 
                 //KetQuaDotChamBUS.AddKetQuaDotCham(ketQuaDotCham);
+                if (vaiTro == "Trường")
+                {
+                    ThongTinDotChamBUS.UpdateThongTinDotCham(iddotcham, vaiTro, Convert.ToInt64(lbMssv.Text), 1, totalScore, danhGia);
+                }
+                else if (vaiTro == "Khoa")
+                {
+                    ThongTinDotChamBUS.UpdateThongTinDotCham(iddotcham, vaiTro, Convert.ToInt64(lbMssv.Text), gv.KhoaId, totalScore, danhGia);
+                }
+                else
+                {
+                    ThongTinDotChamBUS.UpdateThongTinDotCham(iddotcham, vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId, totalScore, danhGia);
+                }
 
-                ThongTinDotChamBUS.UpdateThongTinDotCham(iddotcham, vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId,totalScore,danhGia);
+                if (vaiTro == "Trường")
+                {
+                    DiemRenLuyenSinhVienDTO drl = new DiemRenLuyenSinhVienDTO
+                    {
+                        Score = totalScore,
+                        Comments = danhGia,
+                        SemesterId = this.hockiId,
+                        SinhVienId = Convert.ToInt64(lbMssv.Text)
+                    };
+                    DiemRenLuyenSinhVienDAO.AddDiemRenLuyen(drl);
+                }
 
                 MessageBox.Show("Chấm điểm thành công!", "Thông báo");
             }
@@ -806,7 +1106,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
             }
         }
 
+        private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void cbSinhvien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

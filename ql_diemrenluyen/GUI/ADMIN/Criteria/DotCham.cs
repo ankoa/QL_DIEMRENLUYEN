@@ -13,13 +13,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private bool selectStart = false;
         private bool selectEnd = false;
 
-        Color oldColor;
-        Color newColor = Color.FromArgb(0, Color.FromArgb(56, 142, 60));
-        int alpha = 0;
-
-        Color oldColor2;
-        Color newColor2 = Color.FromArgb(0, Color.FromArgb(33, 150, 243));
-        int alpha2 = 0;
         public DotCham()
         {
             InitializeComponent();
@@ -90,8 +83,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel2.Margin = new Padding(leftMarginReset, 3, 0, 0);
             panel2.BackColor = Color.FromArgb(76, 175, 80);
             panel4.BackColor = Color.FromArgb(66, 165, 245);
-            oldColor = panel2.BackColor;
-            oldColor2 = panel4.BackColor;
+            label1.Click += button2_Click;
+            label7.Click += button1_Click;
         }
 
         private void TaiKhoan_Load(object sender, EventArgs e)
@@ -101,19 +94,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             LoadDotChamDiemList();
         }
 
-        private void button1_MouseEnter(object sender, EventArgs e)
-        {
-            alpha = 0;
-            timer1.Interval = 15;
-            timer1.Start();
-        }
-
-        private void button1_MouseLeave(object sender, EventArgs e)
-        {
-            timer1.Stop();
-            panel2.BackColor = oldColor;
-            panel2.ForeColor = Color.Black;
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -147,34 +127,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             SearchAccountList();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            alpha += 17;  // change this for greater or less speed
-            panel2.BackColor = Color.FromArgb(alpha, newColor);
-            if (alpha >= 255) timer1.Stop();
-            if (panel2.BackColor.GetBrightness() < 0.3) panel2.ForeColor = Color.White;
-        }
-        private void button2_MouseEnter(object sender, EventArgs e)
-        {
-            alpha2 = 0;
-            timer2.Interval = 15;
-            timer2.Start();
-        }
-
-        private void button2_MouseLeave(object sender, EventArgs e)
-        {
-            timer2.Stop();
-            panel4.BackColor = oldColor2;
-            panel4.ForeColor = Color.Black;
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            alpha2 += 17;  // change this for greater or less speed
-            panel4.BackColor = Color.FromArgb(alpha2, newColor2);
-            if (alpha2 >= 255) timer2.Stop();
-            if (panel4.BackColor.GetBrightness() < 0.3) panel4.ForeColor = Color.White;
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -196,7 +148,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         dotChamDiem.HocKy,
                         dotChamDiem.DotChamDiem,
                         dotChamDiem.NgayBatDau.ToString("dd/MM/yyyy"),
-                        dotChamDiem.NgayKetThuc.ToString("dd/MM/yyyy")
+                        dotChamDiem.NgayKetThuc.ToString("dd/MM/yyyy"),
+                        dotChamDiem.Status == 1 ? "Hoạt động" : "Không hoạt động"
                     );
                 }
 
@@ -323,14 +276,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
                 foreach (var dotChamDiem in accounts)
                 {
-                    string statusText = dotChamDiem.Status switch
-                    {
-                        1 => "Active",
-                        0 => "Unactive",
-                        -1 => "Delete",
-                        _ => "Unknown"
-                    };
-
                     tableTK.Rows.Add(
                         dotChamDiem.Id,
                         dotChamDiem.NamHoc,
@@ -338,7 +283,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         dotChamDiem.DotChamDiem,
                         dotChamDiem.NgayBatDau.ToString("dd/MM/yyyy"),
                         dotChamDiem.NgayKetThuc.ToString("dd/MM/yyyy"),
-                        statusText
+                        dotChamDiem.Status == 1 ? "Hoạt động" : "Không hoạt động"
                     );
                 }
 
@@ -364,6 +309,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 string hocky = selectedRow.Cells["dataGridViewTextBoxColumn3"].Value?.ToString() ?? "";
                 string namhoc = selectedRow.Cells["dataGridViewTextBoxColumn5"].Value?.ToString() ?? "";
                 string nguoicham = selectedRow.Cells["dataGridViewTextBoxColumn8"].Value?.ToString() ?? "";
+                string status = selectedRow.Cells["Column1"].Value?.ToString() ?? "";
 
                 DateTime createdAt = DateTime.TryParseExact(
                     selectedRow.Cells["dataGridViewTextBoxColumn6"].Value?.ToString(),
@@ -382,7 +328,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 ) ? tempUpdatedAt : DateTime.MinValue;
 
 
-                AddDotCham detailsForm = new AddDotCham(id, hocky, namhoc, nguoicham, createdAt, updatedAt, tableTK, this);
+                AddDotCham detailsForm = new AddDotCham(id, hocky, namhoc, nguoicham, createdAt, updatedAt, status, tableTK, this);
                 detailsForm.Show();
             }
         }
@@ -501,6 +447,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label5.Margin = new Padding(leftMargin, 3, 0, 0);
             label2.Margin = new Padding(leftMargin, 3, 0, 0);
             panel2.Margin = new Padding(leftMarginReset, 3, 0, 0);
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

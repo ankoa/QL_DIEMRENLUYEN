@@ -8,7 +8,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         private long currentAccountId;
         private DotCham mainForm;
         private DataGridView table;
-        public AddDotCham(int id, string hocky, string namhoc, string nguoicham, DateTime createdAt, DateTime updatedAt, DataGridView dataGridView, DotCham tkform)
+        public AddDotCham(int id, string hocky, string namhoc, string nguoicham, DateTime createdAt, DateTime updatedAt, string status, DataGridView dataGridView, DotCham tkform)
         {
             table = dataGridView;
             mainForm = tkform;
@@ -54,6 +54,8 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
             // Lưu ID của tài khoản hiện tại để sử dụng khi cập nhật
             currentAccountId = id;
+            comboBox1.SelectedItem = status;
+
         }
 
         public bool checkDate()
@@ -113,9 +115,24 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             // Gọi phương thức cập nhật tài khoản
             bool result = DotChamDiemBUS.UpdateDotChamDiem(dotcham);
 
+            string status = comboBox1.SelectedItem.ToString();
+
+            if (status == "Hoạt động")
+            {
+                dotcham.Status = 1;
+            }
+            else if (status == "Xóa")
+            {
+                dotcham.Status = 0;
+            }
+            else
+            {
+                dotcham.Status = -1;
+            }
+
             if (result)
             {
-                MessageBox.Show("Cập nhật đợt chấm thành công!");
+                MessageBox.Show(dotcham.Status == 0 ? "Xóa đợt chấm thành công!" : "Cập nhật đợt chấm thành công!");
 
                 // Gọi phương thức để tải lại bảng trong TaiKhoan
                 mainForm.SearchAccountList(); // Gọi qua tên lớp

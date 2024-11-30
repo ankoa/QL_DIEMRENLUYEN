@@ -120,6 +120,7 @@
             cbLop.Name = "cbLop";
             cbLop.Size = new Size(202, 28);
             cbLop.TabIndex = 8;
+            cbLop.SelectedIndexChanged += cbLop_SelectedIndexChanged;
             // 
             // cbSinhvien
             // 
@@ -130,6 +131,7 @@
             cbSinhvien.Name = "cbSinhvien";
             cbSinhvien.Size = new Size(202, 28);
             cbSinhvien.TabIndex = 9;
+            cbSinhvien.SelectedIndexChanged += cbSinhvien_SelectedIndexChanged;
             // 
             // cbKhoa
             // 
@@ -312,7 +314,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(20, 135);
+            label6.Location = new Point(21, 135);
             label6.Name = "label6";
             label6.Size = new Size(82, 20);
             label6.TabIndex = 3;
@@ -321,7 +323,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(20, 100);
+            label5.Location = new Point(21, 100);
             label5.Name = "label5";
             label5.Size = new Size(90, 20);
             label5.TabIndex = 2;
@@ -330,7 +332,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(20, 65);
+            label4.Location = new Point(21, 65);
             label4.Name = "label4";
             label4.Size = new Size(54, 20);
             label4.TabIndex = 1;
@@ -339,7 +341,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(20, 33);
+            label2.Location = new Point(21, 33);
             label2.Name = "label2";
             label2.Size = new Size(82, 20);
             label2.TabIndex = 0;

@@ -33,22 +33,20 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pnContent = new Panel();
             tableTK = new ReaLTaiizor.Controls.PoisonDataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
@@ -102,7 +100,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnContent.Location = new Point(0, 157);
             pnContent.Margin = new Padding(0);
             pnContent.Name = "pnContent";
-            pnContent.Padding = new Padding(18, 22, 18, 0);
+            pnContent.Padding = new Padding(0, 22, 0, 0);
             pnContent.Size = new Size(1154, 403);
             pnContent.TabIndex = 8;
             // 
@@ -125,39 +123,39 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tableTK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tableTK.ColumnHeadersHeight = 70;
-            tableTK.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn4 });
+            tableTK.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn4 });
             tableTK.Cursor = Cursors.Hand;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(111, 226, 255);
-            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
-            tableTK.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(111, 226, 255);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            tableTK.DefaultCellStyle = dataGridViewCellStyle8;
             tableTK.Dock = DockStyle.Fill;
             tableTK.EnableHeadersVisualStyles = false;
             tableTK.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tableTK.GridColor = Color.FromArgb(255, 255, 255);
             tableTK.HighLightPercentage = 1F;
-            tableTK.Location = new Point(18, 22);
+            tableTK.Location = new Point(0, 22);
             tableTK.Margin = new Padding(0, 0, 0, 22);
             tableTK.MultiSelect = false;
             tableTK.Name = "tableTK";
             tableTK.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle10.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(111, 226, 255);
-            dataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            tableTK.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(111, 226, 255);
+            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            tableTK.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             tableTK.RowHeadersVisible = false;
             tableTK.RowHeadersWidth = 51;
             tableTK.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tableTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableTK.Size = new Size(1118, 381);
+            tableTK.Size = new Size(1154, 381);
             tableTK.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             tableTK.TabIndex = 7;
             tableTK.CellDoubleClick += tableTK_CellDoubleClick_1;
@@ -186,34 +184,26 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewTextBoxColumn6.HeaderText = "Remember Token";
-            dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewTextBoxColumn7.HeaderText = "Ngày tạo";
             dataGridViewTextBoxColumn7.MinimumWidth = 6;
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // dataGridViewTextBoxColumn8
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewTextBoxColumn8.HeaderText = "Ngày cập nhật";
             dataGridViewTextBoxColumn8.MinimumWidth = 6;
             dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewTextBoxColumn4.HeaderText = "Trạng thái";
             dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -246,6 +236,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel2.Padding = new Padding(0, 38, 0, 0);
             panel2.Size = new Size(219, 66);
             panel2.TabIndex = 45;
+            panel2.Visible = false;
             // 
             // tableLayoutPanel4
             // 
@@ -299,7 +290,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
             tableLayoutPanel3.ColumnCount = 2;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.40856F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.59144F));
@@ -319,10 +309,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(5, 2);
+            label3.Location = new Point(3, 0);
             label3.Name = "label3";
             label3.Padding = new Padding(0, 0, 0, 4);
-            label3.Size = new Size(93, 24);
+            label3.Size = new Size(95, 28);
             label3.TabIndex = 37;
             label3.Text = "Trạng thái";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -333,16 +323,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
             cbbStatus.Dock = DockStyle.Fill;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Mặc định", "Hoạt động", "Không hoạt động" });
-            cbbStatus.Location = new Point(106, 4);
+            cbbStatus.Location = new Point(104, 2);
             cbbStatus.Margin = new Padding(3, 2, 3, 2);
             cbbStatus.Name = "cbbStatus";
-            cbbStatus.Size = new Size(176, 23);
+            cbbStatus.Size = new Size(180, 23);
             cbbStatus.TabIndex = 36;
             cbbStatus.SelectedIndexChanged += cbbStatus_SelectedIndexChanged;
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.40856F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.59144F));
@@ -362,10 +351,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label2.Dock = DockStyle.Fill;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(5, 2);
+            label2.Location = new Point(3, 0);
             label2.Name = "label2";
             label2.Padding = new Padding(0, 0, 0, 4);
-            label2.Size = new Size(63, 24);
+            label2.Size = new Size(65, 28);
             label2.TabIndex = 37;
             label2.Text = "Quyền";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -377,19 +366,18 @@ namespace ql_diemrenluyen.GUI.ADMIN
             cbbRole.Dock = DockStyle.Fill;
             cbbRole.FormattingEnabled = true;
             cbbRole.Items.AddRange(new object[] { "Mặc định", "ADMIN", "Sinh viên", "Giảng viên", "Cố vấn học tập", "Quản lý Khoa", "Quản lý Trường" });
-            cbbRole.Location = new Point(76, 4);
+            cbbRole.Location = new Point(74, 2);
             cbbRole.Margin = new Padding(3, 2, 3, 2);
             cbbRole.Name = "cbbRole";
-            cbbRole.Size = new Size(121, 23);
+            cbbRole.Size = new Size(125, 23);
             cbbRole.TabIndex = 35;
             cbbRole.SelectedIndexChanged += cbbRole_SelectedIndexChanged;
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.6353474F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 71.3646545F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.0952377F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 86.90476F));
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(txtSearch, 1, 0);
             tableLayoutPanel1.Location = new Point(18, 50);
@@ -406,10 +394,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(5, 2);
+            label1.Location = new Point(3, 0);
             label1.Name = "label1";
             label1.Padding = new Padding(0, 0, 0, 4);
-            label1.Size = new Size(136, 24);
+            label1.Size = new Size(60, 28);
             label1.TabIndex = 37;
             label1.Text = "Tìm kiếm";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -417,10 +405,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // txtSearch
             // 
             txtSearch.Cursor = Cursors.Hand;
-            txtSearch.Location = new Point(149, 4);
+            txtSearch.Dock = DockStyle.Fill;
+            txtSearch.Location = new Point(69, 2);
             txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(350, 23);
+            txtSearch.Size = new Size(432, 23);
             txtSearch.TabIndex = 38;
             txtSearch.Text = "Nhập ID cần tìm";
             txtSearch.TextChanged += txtSearch_TextChanged;
@@ -499,17 +488,16 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
         private ReaLTaiizor.Controls.PoisonDataGridView tableTK;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private Button btnClear;
         private TableLayoutPanel tableLayoutPanel4;
         private Button button2;
         private Button button3;
         private Panel panel2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

@@ -33,8 +33,8 @@ namespace ql_diemrenluyen.DAO
         // Thêm điểm rèn luyện sinh viên mới
         public static bool AddDiemRenLuyen(DiemRenLuyenSinhVienDTO diemRenLuyen)
         {
-            string sql = "INSERT INTO diemrenluyensinhvien (sinhvien_id, hocki_id, diemrenluyen, danhgia) " +
-                         "VALUES (@sinhVienId, @semesterId, @score, @comments)";
+            string sql = "INSERT INTO diemrenluyensinhvien (sinhvien_id, hocki_id, diemrenluyen, danhgia,status) " +
+                         "VALUES (@sinhVienId, @semesterId, @score, @comments,1)";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@sinhVienId", diemRenLuyen.SinhVienId);
