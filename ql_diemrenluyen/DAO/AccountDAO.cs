@@ -149,7 +149,7 @@ namespace ql_diemrenluyen.DAO
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", account.Id);
-            cmd.Parameters.AddWithValue("@role", "Giảng viên");  // Thay đổi vai trò thành Giảng viên
+            cmd.Parameters.AddWithValue("@role", 2);  // Thay đổi vai trò thành Giảng viên
             cmd.Parameters.AddWithValue("@password", account.Password);
             cmd.Parameters.AddWithValue("@rememberToken", null);
             cmd.Parameters.AddWithValue("@createdAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));

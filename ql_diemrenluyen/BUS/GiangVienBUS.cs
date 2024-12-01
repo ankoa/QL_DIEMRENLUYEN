@@ -16,7 +16,10 @@ namespace ql_diemrenluyen.BUS
         {
             return GiangVienDAO.AddGiangVien(giangVien);
         }
-
+        public static long GetLastInsertedId()
+        {
+            return GiangVienDAO.GetLastInsertedId();
+        }
         // Cập nhật thông tin giảng viên
         public static bool UpdateGiangVien(GiangVienDTO giangVien)
         {
@@ -37,15 +40,15 @@ namespace ql_diemrenluyen.BUS
         {
             return GiangVienDAO.GetGiangVienByKhoaId(khoaId);
         }
-        public static List<GiangVienDTO> SearchGiangVien(string searchTerm)
+        public static List<GiangVienDTO> SearchGiangVien(int? selectedId, int status, string searchTerm)
         {
             return GiangVienDAO.SearchGiangVien(searchTerm);
         }
 
-        public static List<GiangVienDTO> SearchGiangVienByChucVu(string searchTerm)
-        {
-            return GiangVienDAO.SearchGiangVienByChucVu(searchTerm);
-        }
+        //public static List<GiangVienDTO> SearchGiangVienByChucVu(string searchTerm)
+        //{
+        //    return GiangVienDAO.SearchGiangVienByChucVu(searchTerm);
+        //}
 
     }
 }

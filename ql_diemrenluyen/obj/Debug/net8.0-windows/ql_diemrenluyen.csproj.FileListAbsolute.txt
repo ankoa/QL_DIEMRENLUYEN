@@ -566,3 +566,4 @@ C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.pdb
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ql_diemrenluyen.genruntimeconfig.cache
 C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ref\ql_diemrenluyen.dll
+C:\Users\duyli\Desktop\C#\drl2\ql_diemrenluyen\bin\Debug\net8.0-windows\GUI\ADMIN\Teacher\ThemGiangVien.cs

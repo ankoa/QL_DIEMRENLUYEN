@@ -28,185 +28,226 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label(); // Thêm label cho chức vụ
-            this.txtMaGV = new System.Windows.Forms.TextBox();
-            this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.cBGioiTinh = new System.Windows.Forms.ComboBox();
-            this.cBKhoa = new System.Windows.Forms.ComboBox();
-            this.cBChucVu = new System.Windows.Forms.ComboBox(); // Thêm ComboBox cho chức vụ
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnHuy = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã Giảng Viên:";
+            label2 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            txtHoTen = new TextBox();
+            txtEmail = new TextBox();
+            cBKhoa = new ComboBox();
+            btnThem = new Button();
+            btnHuy = new Button();
+            clbLopcovan = new CheckedListBox();
+            cbGioiTinh = new ComboBox();
+            label3 = new Label();
+            label7 = new Label();
+            dtpNgaySinh = new DateTimePicker();
+            label1 = new Label();
+            cbTrangthai = new ComboBox();
+            label8 = new Label();
+            SuspendLayout();
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Họ Tên:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Giới Tính:";
+            label2.AutoSize = true;
+            label2.Location = new Point(30, 80);
+            label2.Name = "label2";
+            label2.Size = new Size(59, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Họ Tên:";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 180);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Email:";
+            label4.AutoSize = true;
+            label4.Location = new Point(30, 130);
+            label4.Name = "label4";
+            label4.Size = new Size(49, 20);
+            label4.TabIndex = 3;
+            label4.Text = "Email:";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 230);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Khoa:";
+            label5.AutoSize = true;
+            label5.Location = new Point(30, 180);
+            label5.Name = "label5";
+            label5.Size = new Size(46, 20);
+            label5.TabIndex = 4;
+            label5.Text = "Khoa:";
             // 
-            // label6 // Thêm label cho chức vụ
+            // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 280);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Chức Vụ:";
-            // 
-            // txtMaGV
-            // 
-            this.txtMaGV.Location = new System.Drawing.Point(140, 30);
-            this.txtMaGV.Name = "txtMaGV";
-            this.txtMaGV.Size = new System.Drawing.Size(200, 27);
-            this.txtMaGV.TabIndex = 5;
-            this.txtMaGV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaGV_KeyPress);
+            label6.AutoSize = true;
+            label6.Location = new Point(30, 330);
+            label6.Name = "label6";
+            label6.Size = new Size(81, 20);
+            label6.TabIndex = 5;
+            label6.Text = "Lớp cố vấn";
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(140, 80);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(200, 27);
-            this.txtHoTen.TabIndex = 6;
+            txtHoTen.Location = new Point(140, 80);
+            txtHoTen.Name = "txtHoTen";
+            txtHoTen.Size = new Size(200, 27);
+            txtHoTen.TabIndex = 6;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(140, 180);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 27);
-            this.txtEmail.TabIndex = 7;
-            // 
-            // cBGioiTinh
-            // 
-            this.cBGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBGioiTinh.FormattingEnabled = true;
-            this.cBGioiTinh.Location = new System.Drawing.Point(140, 130);
-            this.cBGioiTinh.Name = "cBGioiTinh";
-            this.cBGioiTinh.Size = new System.Drawing.Size(200, 28);
-            this.cBGioiTinh.TabIndex = 8;
+            txtEmail.Location = new Point(140, 130);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(200, 27);
+            txtEmail.TabIndex = 7;
             // 
             // cBKhoa
             // 
-            this.cBKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBKhoa.FormattingEnabled = true;
-            this.cBKhoa.Location = new System.Drawing.Point(140, 230);
-            this.cBKhoa.Name = "cBKhoa";
-            this.cBKhoa.Size = new System.Drawing.Size(200, 28);
-            this.cBKhoa.TabIndex = 9;
-            // 
-            // cBChucVu
-            // 
-            this.cBChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBChucVu.FormattingEnabled = true;
-            this.cBChucVu.Location = new System.Drawing.Point(140, 280);
-            this.cBChucVu.Name = "cBChucVu";
-            this.cBChucVu.Size = new System.Drawing.Size(200, 28);
-            this.cBChucVu.TabIndex = 10;
+            cBKhoa.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBKhoa.FormattingEnabled = true;
+            cBKhoa.Location = new Point(140, 180);
+            cBKhoa.Name = "cBKhoa";
+            cBKhoa.Size = new Size(200, 28);
+            cBKhoa.TabIndex = 9;
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(140, 320);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(100, 30);
-            this.btnThem.TabIndex = 11;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            btnThem.Location = new Point(40, 506);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(100, 30);
+            btnThem.TabIndex = 11;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(250, 320);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(100, 30);
-            this.btnHuy.TabIndex = 12;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler((sender, e) => this.Dispose());
+            btnHuy.Location = new Point(255, 506);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(100, 30);
+            btnHuy.TabIndex = 12;
+            btnHuy.Text = "Hủy";
+            btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
+            // 
+            // clbLopcovan
+            // 
+            clbLopcovan.FormattingEnabled = true;
+            clbLopcovan.Location = new Point(140, 330);
+            clbLopcovan.Name = "clbLopcovan";
+            clbLopcovan.ScrollAlwaysVisible = true;
+            clbLopcovan.Size = new Size(200, 114);
+            clbLopcovan.TabIndex = 13;
+            // 
+            // cbGioiTinh
+            // 
+            cbGioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbGioiTinh.FormattingEnabled = true;
+            cbGioiTinh.Location = new Point(140, 230);
+            cbGioiTinh.Name = "cbGioiTinh";
+            cbGioiTinh.Size = new Size(78, 28);
+            cbGioiTinh.TabIndex = 15;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(30, 230);
+            label3.Name = "label3";
+            label3.Size = new Size(68, 20);
+            label3.TabIndex = 14;
+            label3.Text = "Giới tính:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(30, 280);
+            label7.Name = "label7";
+            label7.Size = new Size(77, 20);
+            label7.TabIndex = 16;
+            label7.Text = "Ngày sinh:";
+            // 
+            // dtpNgaySinh
+            // 
+            dtpNgaySinh.Location = new Point(135, 280);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(250, 27);
+            dtpNgaySinh.TabIndex = 17;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(106, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(174, 28);
+            label1.TabIndex = 18;
+            label1.Text = "Thêm Giảng Viên";
+            // 
+            // cbTrangthai
+            // 
+            cbTrangthai.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTrangthai.FormattingEnabled = true;
+            cbTrangthai.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
+            cbTrangthai.Location = new Point(140, 460);
+            cbTrangthai.Name = "cbTrangthai";
+            cbTrangthai.Size = new Size(159, 28);
+            cbTrangthai.TabIndex = 20;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(30, 460);
+            label8.Name = "label8";
+            label8.Size = new Size(75, 20);
+            label8.TabIndex = 19;
+            label8.Text = "Trạng thái";
             // 
             // ThemGiangVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 370);
-            this.Controls.Add(this.btnHuy);
-            this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.cBChucVu); // Thêm ComboBox chức vụ vào form
-            this.Controls.Add(this.cBKhoa);
-            this.Controls.Add(this.cBGioiTinh);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtHoTen);
-            this.Controls.Add(this.txtMaGV);
-            this.Controls.Add(this.label6); // Thêm label chức vụ
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "ThemGiangVien";
-            this.Text = "Thông Tin Giảng Viên";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(397, 593);
+            Controls.Add(cbTrangthai);
+            Controls.Add(label8);
+            Controls.Add(label1);
+            Controls.Add(dtpNgaySinh);
+            Controls.Add(label7);
+            Controls.Add(cbGioiTinh);
+            Controls.Add(label3);
+            Controls.Add(clbLopcovan);
+            Controls.Add(btnHuy);
+            Controls.Add(btnThem);
+            Controls.Add(cBKhoa);
+            Controls.Add(txtEmail);
+            Controls.Add(txtHoTen);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "ThemGiangVien";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Thông Tin Giảng Viên";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6; // Label cho chức vụ
-        private System.Windows.Forms.TextBox txtMaGV;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.ComboBox cBGioiTinh;
         private System.Windows.Forms.ComboBox cBKhoa;
-        private System.Windows.Forms.ComboBox cBChucVu; 
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnHuy;
+        private CheckedListBox clbLopcovan;
+        private ComboBox cbGioiTinh;
+        private Label label7;
+        private DateTimePicker dtpNgaySinh;
+        private Label label1;
+        private ComboBox cbTrangthai;
+        private Label label8;
     }
 }
