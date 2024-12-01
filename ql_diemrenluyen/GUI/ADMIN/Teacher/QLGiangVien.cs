@@ -36,7 +36,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 cbbFilterKhoa.SelectedIndexChanged += cbbFilterKhoa_SelectedIndexChanged;
 
                 listGiangVien = GiangVienBUS.GetAllGiangVien();
-                PopulateGiangVienTable(tableGV);
+                //PopulateGiangVienTable(tableGV);
             }
             catch (Exception ex)
             {

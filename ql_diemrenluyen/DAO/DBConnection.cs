@@ -56,6 +56,12 @@ namespace ql_diemrenluyen.DAO
         //    }
         //}
 
+        public static MySqlConnection GetConnection()
+        {
+            string connstring = $"Server={server}; Database={database}; UID={user}; Password={password}; Port=3306; Convert Zero Datetime = true";
+            return new MySqlConnection(connstring); // Trả về kết nối mà không mở ngay
+        }
+
         public static bool Open()
         {
             try

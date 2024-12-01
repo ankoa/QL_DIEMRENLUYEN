@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-{"CustomColumnOrderings":{"name":0,"file-path":1,"file-name":2,"neutral-value":3,"neutral-comment":4,"type":5},"ShowValidationErrors":true,"SelectedResourceGroups":[],"VisibleColumnKeys":["name","neutral-value"]}
-=======
-<<<<<<< HEAD
-{"CustomColumnOrderings":{"name":0,"file-path":1,"file-name":2,"neutral-value":3,"neutral-comment":4,"type":5},"ShowValidationErrors":true,"SelectedResourceGroups":["C:\\Users\\huhuh\\Downloads\\QLDiemrenluyen\\ql_diemrenluyen\\Properties\\Resources.resx"],"VisibleColumnKeys":["name","neutral-value"]}
-=======
-{"CustomColumnOrderings":{"name":0,"file-path":1,"file-name":2,"neutral-value":3,"neutral-comment":4,"type":5},"ShowValidationErrors":true,"SelectedResourceGroups":["D:\\CSharp Project\\ql_diemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Student\\QLSinhVien.resx"],"VisibleColumnKeys":["name","neutral-value"]}
->>>>>>> c4205294e7c6c26cb9cdf519981ea4da1d85f13a
->>>>>>> 1aa3d4c730c8f08e9517376f190385096857cd76
+{"CustomColumnOrderings":{"name":0,"file-path":1,"file-name":2,"neutral-value":3,"neutral-comment":4,"type":5},"ShowValidationErrors":true,"SelectedResourceGroups":["D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Chamdrl\\ThongTinBangChung.resx"],"VisibleColumnKeys":["name","neutral-value"]}

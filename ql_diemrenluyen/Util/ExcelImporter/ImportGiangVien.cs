@@ -41,7 +41,7 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                 AccountBUS.AddAccount(acc);
 
                 // Thêm giảng viên vào database
-                GiangVienBUS.AddGiangVien(giangVien);
+                GiangVienBUS.AddGiangVienByExcel(giangVien);
             }
 
             return giangVienList;
