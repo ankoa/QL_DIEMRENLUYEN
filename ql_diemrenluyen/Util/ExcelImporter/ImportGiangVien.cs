@@ -41,7 +41,7 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                 AccountBUS.AddAccount(acc);
 
                 // Thêm giảng viên vào database
-                GiangVienBUS.AddGiangVien(giangVien);
+                GiangVienBUS.AddGiangVienByExcel(giangVien);
             }
 
             return giangVienList;
@@ -72,11 +72,11 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                 {
                     try
                     {
-                        string tenKhoa = worksheet.Cells[row, 6].Text; // Cột 'Khoa'
+                        //string tenKhoa = worksheet.Cells[row, 6].Text; // Cột 'Khoa'
 
-                        // Tra cứu ID của khoa
-                        long khoaId = KhoaDAO.GetKhoaByName(tenKhoa).Id;
-                        if (khoaId == -1) throw new Exception($"Không tìm thấy khoa: {tenKhoa}");
+                        //// Tra cứu ID của khoa
+                        //long khoaId = KhoaBUS.GetKhoaByName(tenKhoa).Id;
+                        //if (khoaId == -1) throw new Exception($"Không tìm thấy khoa: {tenKhoa}");
 
                         // Tạo đối tượng GiangVienDTO
                         GiangVienDTO giangVien = new GiangVienDTO
@@ -84,10 +84,11 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                             Id = Convert.ToInt64(worksheet.Cells[row, 1].Text),
                             Name = worksheet.Cells[row, 2].Text,
                             Email = worksheet.Cells[row, 3].Text,
+                            KhoaId = Convert.ToInt64(worksheet.Cells[row, 7].Text),
                             NgaySinh = DateTime.Parse(worksheet.Cells[row, 4].Text),
-                            //ChucVu = worksheet.Cells[row, 5].Text == "Giảng viên" ? 1 : 
-                            //(worksheet.Cells[row, 5].Text == "Cố vấn" ? 0 : -1),  
-                            KhoaId = Convert.ToInt64(worksheet.Cells[row, 5].Text),
+                            GioiTinh = int.Parse(worksheet.Cells[row, 8].Text),
+
+
                             Status = 1, // Mặc định là 1
                             CreatedAt = DateTime.UtcNow,
                             UpdatedAt = DateTime.UtcNow

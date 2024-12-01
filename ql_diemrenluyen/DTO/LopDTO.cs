@@ -9,11 +9,11 @@
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int status { get; set; }
-        public int KhoaId { get; set; }
+        public long KhoaId { get; set; } //KhoaId là long bạn ơi
         public long? CoVanId { get; set; }
         public LopDTO() { }
 
-        public LopDTO(long id, string tenLop, KhoaDTO khoa, HeHocDTO heDaoTao, DateTime? createdAt, DateTime? updatedAt, int status, int KhoaId, long? coVanId)
+        public LopDTO(long id, string tenLop, KhoaDTO khoa, HeHocDTO heDaoTao, DateTime? createdAt, DateTime? updatedAt, int status, long KhoaId, long? coVanId)
         {
             this.Id = id;
             this.TenLop = tenLop;

@@ -16,6 +16,10 @@ namespace ql_diemrenluyen.BUS
         {
             return GiangVienDAO.AddGiangVien(giangVien);
         }
+        public static bool AddGiangVienByExcel(GiangVienDTO giangVien)
+        {
+            return GiangVienDAO.AddGiangVienByExcel(giangVien);
+        }
         public static long GetLastInsertedId()
         {
             return GiangVienDAO.GetLastInsertedId();

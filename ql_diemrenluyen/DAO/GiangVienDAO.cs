@@ -71,6 +71,41 @@ namespace ql_diemrenluyen.DAO
 
             return false;
         }
+        public static bool AddGiangVienByExcel(GiangVienDTO giangVien)
+        {
+
+            string sql = $"INSERT INTO giangvien (id, name, email, created_at, updated_at, khoa_id ,ngaysinh, gioitinh, status) " +
+                        $"VALUES (@id, @name, @email, @createdAt, @updatedAt, @khoaId, @ngaySinh, @gioiTinh, @status )";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@id", giangVien.Id);
+            cmd.Parameters.AddWithValue("@name", giangVien.Name);
+            cmd.Parameters.AddWithValue("@email", giangVien.Email);
+            cmd.Parameters.AddWithValue("@createdAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@khoaId", giangVien.KhoaId);
+            cmd.Parameters.AddWithValue("@ngaySinh", giangVien.NgaySinh.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@gioiTinh", giangVien.GioiTinh);
+            cmd.Parameters.AddWithValue("@status", giangVien.Status);
+
+            try
+            {
+                bool isGiangVienAdded = DBConnection.ExecuteNonQuery(cmd) > 0;
+                if (isGiangVienAdded)
+                {
+                    //long giangVienId = GetLastInsertedId();
+                    //string password = "1";
+                    //return AddAccount(giangVienId, password);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thêm giảng viên: " + ex.Message);
+            }
+
+            return false;
+        }
 
 
         // Hàm lấy ID giảng viên mới thêm vào

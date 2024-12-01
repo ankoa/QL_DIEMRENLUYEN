@@ -1,44 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Code\\QLDiemrenluyen\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\chamdrl\\chamdrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\chamdrl\\chamdrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\bus\\diemrenluyensinhvienbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\diemrenluyensinhvienbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\chamdrl\\chamdrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\chamdrl\\chamdrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\dao\\diemrenluyensinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\diemrenluyensinhviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\chamdrl\\thongtinbangchung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\chamdrl\\thongtinbangchung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\chamdrl\\thongtinbangchung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\chamdrl\\thongtinbangchung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -46,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 857,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -75,120 +38,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DiemRenLuyenSinhVienBUS.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\BUS\\DiemRenLuyenSinhVienBUS.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\DiemRenLuyenSinhVienBUS.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\BUS\\DiemRenLuyenSinhVienBUS.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\BUS\\DiemRenLuyenSinhVienBUS.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAwEEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T16:25:50.263Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "chamdrl.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Chamdrl\\chamdrl.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Chamdrl\\chamdrl.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Chamdrl\\chamdrl.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Chamdrl\\chamdrl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:54:56.098Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "chamdrl.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Chamdrl\\chamdrl.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Chamdrl\\chamdrl.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Chamdrl\\chamdrl.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Chamdrl\\chamdrl.cs",
-              "ViewState": "AgIAAF0FAAAAAAAAAAAIwCQGAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T04:53:47.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dashboard.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "ViewState": "AgIAAGABAAAAAAAAAAAIwHQBAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:06:51.978Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Dashboard.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:06:49.41Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ThongTinBangChung.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Chamdrl\\ThongTinBangChung.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Chamdrl\\ThongTinBangChung.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Chamdrl\\ThongTinBangChung.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Chamdrl\\ThongTinBangChung.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T10:49:26.194Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ThongTinBangChung.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Chamdrl\\ThongTinBangChung.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Chamdrl\\ThongTinBangChung.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Chamdrl\\ThongTinBangChung.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Chamdrl\\ThongTinBangChung.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA4wCgAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T10:22:49.395Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\Program.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\Program.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T04:53:40.421Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DiemRenLuyenSinhVienDAO.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\DiemRenLuyenSinhVienDAO.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAswIAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:56:21.614Z",
-              "EditorCaption": ""
             }
           ]
         },

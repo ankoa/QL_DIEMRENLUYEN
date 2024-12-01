@@ -571,3 +571,5 @@ C:\Users\duyli\Desktop\C#\drl2\ql_diemrenluyen\bin\Debug\net8.0-windows\GUI\ADMI
 >>>>>>> 6b6551f08d06062c6c211a1114dc4261a0b460e3
 D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\GUI\ADMIN\Teacher\ThemGiangVien.cs
 D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ImageViewerForm.resources
+C:\Users\duyli\Desktop\C#\drl2\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThongTinBangChung.resources
+>>>>>>> 2b1823f72e10cd7f944eff64016ff89fa7462c32
