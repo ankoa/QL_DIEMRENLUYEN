@@ -122,8 +122,10 @@ namespace QLDiemRenLuyen
                     clbLopcovan.SetItemChecked(index, true); // Đánh dấu lớp này đã chọn
                 }
 
+                // Lấy KhoaId đã chọn từ ComboBox
+                long selectedKhoaId = (long)cBKhoa.SelectedValue;
                 // Thêm các lớp có CoVanId == null vào CheckedListBox
-                foreach (var lop in listLop.Where(lop => lop.CoVanId == null))
+                foreach (var lop in listLop.Where(lop => lop.CoVanId == null && lop.Khoa.Id == selectedKhoaId))
                 {
                     clbLopcovan.Items.Add(lop.TenLop); // Thêm lớp vào CheckedListBox
                 }
