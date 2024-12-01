@@ -1,4 +1,4 @@
-using ql_diemrenluyen.GUI.ADMIN;
+using ql_diemrenluyen.GUI.USER;
 
 namespace ql_diemrenluyen
 {
@@ -19,8 +19,8 @@ namespace ql_diemrenluyen
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new Dashboard());
-            Application.Run(new chamdrl("Chấm", 1, 2));
+            Application.Run(new Dashboard());
+            //Application.Run(new chamdrl("Xem", 1, 4));
 
             //Application.Run(new Thongke()); // or Application.Run(new AdminStudentTest());
             //Application.Run(new ThongTinBangChung());

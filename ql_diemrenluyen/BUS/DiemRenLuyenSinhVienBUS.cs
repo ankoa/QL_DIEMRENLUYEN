@@ -35,5 +35,36 @@ namespace ql_diemrenluyen.BUS
 
             return result;
         }
+
+        // Lấy danh sách học kỳ và năm học dưới dạng Dictionary
+        public static List<Dictionary<string, string>> GetHocKyVaNamHoc()
+        {
+            List<HocKyDTO> hocKys = HocKyDAO.GetAllHocKy();
+
+            var result = new List<Dictionary<string, string>>();
+
+            // Sắp xếp theo năm học tăng dần, sau đó là học kỳ theo thứ tự tăng dần
+            var sortedHocKys = hocKys
+                .OrderBy(h => h.namhoc)  // Sắp xếp theo năm học
+                .ThenBy(h => h.Name)     // Sắp xếp theo học kỳ trong cùng năm học (giả sử h.Name là tên học kỳ có thể so sánh)
+                .ToList();
+
+            // Chuyển danh sách đã sắp xếp thành dictionary
+            foreach (var hocKy in sortedHocKys)
+            {
+                var item = new Dictionary<string, string>
+        {
+            { "Học kì", hocKy.Name },
+            { "Năm học", hocKy.namhoc.ToString() }
+        };
+
+                result.Add(item);
+            }
+
+            return result;
+        }
+
+
+
     }
 }

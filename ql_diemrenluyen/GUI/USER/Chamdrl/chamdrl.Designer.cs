@@ -107,7 +107,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.Padding = new Padding(26, 0, 26, 0);
             tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 28.965517F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 28.96552F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 39.3103447F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 31.7241383F));
             tableLayoutPanel2.Size = new Size(1161, 189);
@@ -200,6 +200,7 @@
             lbhocky.Size = new Size(47, 15);
             lbhocky.TabIndex = 17;
             lbhocky.Text = "Học kỳ:";
+            lbhocky.Visible = false;
             // 
             // cbHocKy
             // 
@@ -211,6 +212,8 @@
             cbHocKy.Name = "cbHocKy";
             cbHocKy.Size = new Size(237, 23);
             cbHocKy.TabIndex = 18;
+            cbHocKy.Visible = false;
+            cbHocKy.SelectedIndexChanged += cbHocKy_SelectedIndexChanged;
             // 
             // tableLayoutPanel3
             // 

@@ -239,23 +239,24 @@
             button2.ForeColor = Color.White;
             button2.Location = new Point(3, 3);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(75, 30);
             button2.TabIndex = 0;
             button2.Text = "Xóa";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
             button3.Anchor = AnchorStyles.Right;
-            button3.BackColor = Color.LawnGreen;
+            button3.BackColor = Color.DarkGreen;
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Black;
+            button3.ForeColor = Color.White;
             button3.Location = new Point(181, 3);
             button3.Margin = new Padding(100, 3, 3, 3);
             button3.Name = "button3";
-            button3.Size = new Size(75, 23);
+            button3.Size = new Size(75, 30);
             button3.TabIndex = 1;
             button3.Text = "Lưu";
             button3.UseVisualStyleBackColor = false;

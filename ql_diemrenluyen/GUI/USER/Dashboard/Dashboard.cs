@@ -21,7 +21,7 @@ namespace ql_diemrenluyen.GUI.USER
         ////82778917
 
         public static string nguoidung_id = "1";
-        public static string role = 1 switch
+        public static string role = 3 switch
         {
             0 => "ADMIN",
             1 => "Sinh viên",
@@ -55,7 +55,7 @@ namespace ql_diemrenluyen.GUI.USER
             }
             else if (role.Equals("Cố vấn"))
             {
-                LoadDrlHocKi(1);
+                LoadDrlHocKi2();
                 LoadDotChamDiemSinhVien(int.Parse(nguoidung_id), role);
             }
 
@@ -345,6 +345,55 @@ namespace ql_diemrenluyen.GUI.USER
             // Gán DataTable vào DataGridView
             dataGridView1.DataSource = dt;
 
+            // Xử lý sự kiện double-click trên DataGridView2
+            dataGridView1.CellDoubleClick += (sender, e) =>
+            {
+                if (e.RowIndex >= 0)  // Kiểm tra nếu đã chọn một hàng hợp lệ
+                {
+                    var selectedRow = dataGridView1.Rows[e.RowIndex];
+
+                    // Lấy dữ liệu từ cột thứ nhất và thứ hai
+                    string hocki = selectedRow.Cells[0].Value?.ToString(); // Cột đầu tiên (Index = 0)
+                    int namhoc = Convert.ToInt32(selectedRow.Cells[1].Value);
+                    chamdrl otpForm = new chamdrl("Xem", HocKyBUS.GetHocKyByNameAndYear(hocki, namhoc).Id, 2);
+
+
+                    // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
+                    //otpForm.FormClosed += (s, args) => this.Show();
+
+                    otpForm.Show();  // Hiển thị form mới
+                    //MessageBox.Show($"ID của ThongTinDotChamDiemDTO: {dotChamDiem.Id}", "Thông tin đợt chấm điểm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            };
+
+        }
+
+        private void LoadDrlHocKi2()
+        {
+            var diemRenLuyenChiTiet = DiemRenLuyenBUS.GetHocKyVaNamHoc();
+
+            // Chuyển đổi danh sách thành DataTable
+            DataTable dt = ConvertToDataTable(diemRenLuyenChiTiet);
+
+            // Gán DataTable vào DataGridView
+            dataGridView1.DataSource = dt;
+
+            // Xử lý sự kiện double-click trên DataGridView
+            dataGridView1.CellDoubleClick += (sender, e) =>
+            {
+                if (e.RowIndex >= 0)  // Kiểm tra nếu đã chọn một hàng hợp lệ
+                {
+                    var selectedRow = dataGridView1.Rows[e.RowIndex];
+
+                    // Lấy dữ liệu từ cột thứ nhất và thứ hai
+                    string hocki = selectedRow.Cells[0].Value?.ToString(); // Cột "Học kì"
+                    int namhoc = Convert.ToInt32(selectedRow.Cells[1].Value); // Cột "Năm học"
+
+                    // Mở form với thông tin học kỳ và năm học đã chọn
+                    chamdrl otpForm = new chamdrl("Xem", HocKyBUS.GetHocKyByNameAndYear(hocki, namhoc).Id, 2);
+                    otpForm.Show();  // Hiển thị form mới
+                }
+            };
         }
 
         //--------------------------------------------------------------
@@ -369,6 +418,34 @@ namespace ql_diemrenluyen.GUI.USER
                     row[key] = item[key];
                 }
                 dt.Rows.Add(row);
+            }
+
+            return dt;
+        }
+
+        // Hàm chuyển đổi List<Dictionary<string, string>> thành DataTable
+        private DataTable ConvertToDataTable(List<Dictionary<string, string>> data)
+        {
+            DataTable dt = new DataTable();
+
+            if (data.Count > 0)
+            {
+                // Thêm cột
+                foreach (var key in data[0].Keys)
+                {
+                    dt.Columns.Add(key);
+                }
+
+                // Thêm dữ liệu
+                foreach (var dictionary in data)
+                {
+                    DataRow row = dt.NewRow();
+                    foreach (var key in dictionary.Keys)
+                    {
+                        row[key] = dictionary[key];
+                    }
+                    dt.Rows.Add(row);
+                }
             }
 
             return dt;

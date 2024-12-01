@@ -99,6 +99,35 @@ namespace ql_diemrenluyen.DAO
             return diemRenLuyens;
         }
 
+        public static DiemRenLuyenSinhVienDTO GetDiemRenLuyenBySinhVienIdAndHocKiId(long sinhVienId, int hocKiId)
+        {
+            DiemRenLuyenSinhVienDTO diemRenLuyen = null;
+
+            string sql = "SELECT * FROM diemrenluyensinhvien WHERE sinhvien_id = @sinhVienId AND hocki_id = @hocKiId";
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@sinhVienId", sinhVienId);
+            cmd.Parameters.AddWithValue("@hocKiId", hocKiId);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            if (result.Count > 0) // Nếu có dữ liệu
+            {
+                var row = result[0]; // Lấy dòng đầu tiên
+
+                diemRenLuyen = new DiemRenLuyenSinhVienDTO
+                {
+                    Id = Convert.ToInt32(row[0]), // Id
+                    SinhVienId = row[1] != null ? (long?)Convert.ToInt64(row[1]) : null, // sinhvien_id
+                    SemesterId = row[2] != null ? (int?)Convert.ToInt32(row[2]) : null, // hocki_id
+                    Score = row[3] != null ? (int?)Convert.ToInt32(row[3]) : null, // diemrenluyen
+                    Comments = row[4] != null ? Convert.ToString(row[4]) : null // danhgia
+                };
+            }
+
+            return diemRenLuyen;
+        }
+
+
         // Lấy điểm rèn luyện trung bình của tất cả sinh viên
         public static double GetAverageDiemRenLuyen()
         {

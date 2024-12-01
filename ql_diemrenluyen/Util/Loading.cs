@@ -10,7 +10,6 @@
                 Size = new Size(100, 100), // Tăng kích thước ảnh loading
                 Image = Properties.Resources.Rolling_1x_1_0s_200px_200px, // Ảnh loading từ Resources
                 SizeMode = PictureBoxSizeMode.Zoom,
-                BackColor = Color.Transparent, // Nền trong suốt
                 Visible = false // Ẩn khi khởi tạo
             };
 

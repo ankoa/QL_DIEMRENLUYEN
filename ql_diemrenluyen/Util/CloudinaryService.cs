@@ -23,7 +23,7 @@ public class CloudinaryService
 
             var uploadParams = new ImageUploadParams()
             {
-                File = new FileDescription(filePath)
+                File = new FileDescription(filePath)  // Sử dụng đường dẫn file cục bộ
             };
 
             var uploadResult = _cloudinary.Upload(uploadParams);
@@ -42,6 +42,7 @@ public class CloudinaryService
             throw new Exception("Error uploading image: " + ex.Message);
         }
     }
+
 
     // Phương thức upload hình ảnh từ đối tượng Image
     public string UploadImage(Image image)
