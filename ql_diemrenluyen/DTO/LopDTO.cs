@@ -13,7 +13,7 @@
         public long? CoVanId { get; set; }
         public LopDTO() { }
 
-        public LopDTO(long id, string tenLop, KhoaDTO khoa, HeHocDTO heDaoTao, DateTime? createdAt, DateTime? updatedAt, int status, int KhoaId, long coVanId)
+        public LopDTO(long id, string tenLop, KhoaDTO khoa, HeHocDTO heDaoTao, DateTime? createdAt, DateTime? updatedAt, int status, int KhoaId, long? coVanId)
         {
             this.Id = id;
             this.TenLop = tenLop;
@@ -23,7 +23,7 @@
             this.UpdatedAt = updatedAt;
             this.status = status;
             this.KhoaId = KhoaId;
-            CoVanId = coVanId;
+            this.CoVanId = coVanId;
         }
     }
 }
