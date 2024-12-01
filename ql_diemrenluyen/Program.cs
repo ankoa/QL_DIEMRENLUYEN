@@ -5,7 +5,7 @@ namespace ql_diemrenluyen
     internal static class Program
     {
         public static string nguoidung_id = "2";
-        public static int role = 5;
+        public static int role = 0;
         public static string type = "";
         //public static string nguoidung_id = "1";
         //public static string role = "Sinh Viên";

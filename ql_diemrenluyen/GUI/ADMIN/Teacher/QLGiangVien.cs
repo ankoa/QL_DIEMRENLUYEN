@@ -1,4 +1,3 @@
-using Google.Rpc;
 using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
 using QLDiemRenLuyen;
@@ -59,6 +58,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                                                giangVien.Name,
                                                giangVien.Email,
                                                giangVien.KhoaId >0 ? giangVien.KhoaId.ToString() : null, 
+
                                                giangVien.CreatedAt.HasValue ? giangVien.CreatedAt.Value.ToString("dd/MM/yyyy") : "",
                                                giangVien.UpdatedAt.HasValue ? giangVien.UpdatedAt.Value.ToString("dd/MM/yyyy") : "",
                                                giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
@@ -67,13 +67,13 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
                 }
 
-                ApplyTableStyles(tableGV); 
+                ApplyTableStyles(tableGV);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi tải danh sách tiêu chí: " + ex.Message);
             }
-            
+
         }
 
         private void GiangVien_Load(object sender, EventArgs e)
@@ -186,6 +186,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     statusFilter = 0;
                 }
 
+//<<<<<<< HEAD
                 // Lọc danh sách giảng viên
                 var filteredList = listGiangVien.Where(giangVien =>
                     (string.IsNullOrEmpty(search) ||
@@ -195,6 +196,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
                      (!string.IsNullOrEmpty(giangVien.KhoaId.ToString()) && giangVien.KhoaId.ToString().Contains(search))) &&
                     (!statusFilter.HasValue || giangVien.Status == statusFilter.Value)
                 ).ToList();
+//=======
+//                if (status == -1 && string.IsNullOrEmpty(search) && selectedId == null)
+//                {
+//                    LoadStandardsList();
+//                    return;
+//                }
+
+//                //List<GiangVienDTO> listtieuchi = GiangVienBUS.SearchGiangVien(selectedId, status, search);
+//>>>>>>> b3098a49240731393a78523c24eeb4772ebe052c
 
                 // Cập nhật DataGridView
                 tableGV.Rows.Clear();
@@ -240,11 +250,13 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         giangVien.Id,
                         giangVien.Name ?? "N/A",
                         giangVien.Email ?? "N/A",
+
                         khoaName.TenKhoa,
                         giangVien.GioiTinh==1? "Nam" : "Nữ",
                         giangVien.NgaySinh.ToString("dd/MM/yyyy"),
                         //giangVien.CreatedAt?.ToString("dd/MM/yyyy") ?? "",
                         //giangVien.UpdatedAt?.ToString("dd/MM/yyyy") ?? "",
+
                         giangVien.Status == 1 ? "Hoạt động" : "Không hoạt động"
                     );
                 }
@@ -369,6 +381,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     // Lấy thông tin từ hàng được chọn
                     long idGV = Convert.ToInt64(selectedRow.Cells["IdColumn"].Value ?? 0);
 
+
                     // Truyền danh sách giảng viên vào form (nếu cần)
                    // List<GiangVienDTO> danhSachGiangVien = GiangVienBUS.GetAllGiangVien();
                     //MessageBox.Show($"Ngày sinh:");
@@ -378,6 +391,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     // Hiển thị form
                     form.Show();
                     
+
+                    // Hiển thị form chi tiết giảng viên (tùy chỉnh theo yêu cầu)
+                    // MessageBox.Show($"Chi tiết:\nID: {id}\nTên: {name}\nEmail: {email}\nChức vụ: {chucVu}\nKhoa: {khoaId}\nTrạng thái: {status}");
+
                 }
             }
             catch (Exception ex)
@@ -385,7 +402,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 MessageBox.Show("Lỗi khi xử lý double click: " + ex.Message);
             }
         }
-            private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             ThemGiangVien cttcform = new ThemGiangVien(listGiangVien);
             cttcform.Show();
@@ -399,6 +416,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // Reset combo boxes to "Mặc định"
             //cbbRole.SelectedItem = "Mặc định";
             
+
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)

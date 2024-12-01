@@ -90,7 +90,7 @@
             label1.ForeColor = Color.RoyalBlue;
             label1.Location = new Point(110, 28);
             label1.Name = "label1";
-            label1.Size = new Size(495, 30);
+            label1.Size = new Size(634, 38);
             label1.TabIndex = 2;
             label1.Text = "PHẦN MỀM QUẢN LÝ CHẤM ĐIỂM RÈN LUYỆN";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -112,12 +112,11 @@
             // 
             sidebar.BackColor = Color.RoyalBlue;
             sidebar.Controls.Add(flowLayoutPanel1);
-            sidebar.Controls.Add(panel7);
             sidebar.Dock = DockStyle.Left;
             sidebar.Location = new Point(0, 83);
             sidebar.Margin = new Padding(0);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(326, 756);
+            sidebar.Size = new Size(326, 807);
             sidebar.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -132,11 +131,12 @@
             flowLayoutPanel1.Controls.Add(panel6);
             flowLayoutPanel1.Controls.Add(panel10);
             flowLayoutPanel1.Controls.Add(panel11);
+            flowLayoutPanel1.Controls.Add(panel7);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(320, 682);
+            flowLayoutPanel1.Size = new Size(320, 798);
             flowLayoutPanel1.TabIndex = 8;
             // 
             // panel2
@@ -176,6 +176,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(317, 70);
             panel3.TabIndex = 4;
+            panel3.Visible = false;
             // 
             // btnUser
             // 
@@ -206,6 +207,7 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(317, 70);
             panel4.TabIndex = 5;
+            panel4.Visible = false;
             // 
             // btnStudent
             // 
@@ -236,6 +238,7 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(317, 70);
             panel5.TabIndex = 6;
+            panel5.Visible = false;
             // 
             // btnClass
             // 
@@ -266,6 +269,7 @@
             panel9.Name = "panel9";
             panel9.Size = new Size(317, 70);
             panel9.TabIndex = 7;
+            panel9.Visible = false;
             // 
             // btnGiangVien
             // 
@@ -297,6 +301,7 @@
             panel8.Name = "panel8";
             panel8.Size = new Size(317, 70);
             panel8.TabIndex = 5;
+            panel8.Visible = false;
             // 
             // btnDotCham
             // 
@@ -327,6 +332,7 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(317, 70);
             panel6.TabIndex = 6;
+            panel6.Visible = false;
             // 
             // btnTieuChi
             // 
@@ -389,6 +395,7 @@
             panel11.Name = "panel11";
             panel11.Size = new Size(317, 70);
             panel11.TabIndex = 8;
+            panel11.Visible = false;
             // 
             // btnThongke
             // 
@@ -415,9 +422,9 @@
             // 
             // panel7
             // 
+            panel7.Anchor = AnchorStyles.Bottom;
             panel7.Controls.Add(btnLogOut);
-            panel7.Dock = DockStyle.Bottom;
-            panel7.Location = new Point(3, 685);
+            panel7.Location = new Point(3, 687);
             panel7.Name = "panel7";
             panel7.Size = new Size(317, 70);
             panel7.TabIndex = 7;
@@ -426,7 +433,7 @@
             // 
             btnLogOut.BackColor = Color.RoyalBlue;
             btnLogOut.BackgroundImageLayout = ImageLayout.Zoom;
-            btnLogOut.Dock = DockStyle.Fill;
+            btnLogOut.Dock = DockStyle.Bottom;
             btnLogOut.FlatAppearance.BorderColor = Color.RoyalBlue;
             btnLogOut.FlatAppearance.BorderSize = 0;
             btnLogOut.FlatStyle = FlatStyle.Flat;
@@ -453,7 +460,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.RoyalBlue;
-            ClientSize = new Size(1600, 839);
+            ClientSize = new Size(1600, 890);
             Controls.Add(sidebar);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -502,8 +509,6 @@
         private Button btnTieuChi;
         private System.Windows.Forms.Timer sideBarTransiton;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Panel panel7;
-        private Button btnLogOut;
         private Panel panel8;
         private Button btnDotCham;
         private Label label1;
@@ -513,5 +518,7 @@
         private Button btnBangchung;
         private Panel panel11;
         private Button btnThongke;
+        private Button btnLogOut;
+        private Panel panel7;
     }
 }

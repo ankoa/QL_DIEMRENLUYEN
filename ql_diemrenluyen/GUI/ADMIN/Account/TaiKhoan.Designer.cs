@@ -66,7 +66,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             label1 = new Label();
             txtSearch = new TextBox();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            panel3 = new Panel();
             panel1.SuspendLayout();
             pnContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tableTK).BeginInit();
@@ -84,10 +83,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel1.Controls.Add(pnContent);
             panel1.Controls.Add(pnTop);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(50, 20);
+            panel1.Location = new Point(10, 10);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(0, 20, 0, 0);
-            panel1.Size = new Size(1319, 747);
+            panel1.Size = new Size(1399, 837);
             panel1.TabIndex = 5;
             // 
             // pnContent
@@ -96,11 +94,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnContent.BackColor = SystemColors.ControlLightLight;
             pnContent.Controls.Add(tableTK);
             pnContent.Dock = DockStyle.Fill;
-            pnContent.Location = new Point(0, 209);
+            pnContent.Location = new Point(0, 189);
             pnContent.Margin = new Padding(0);
             pnContent.Name = "pnContent";
             pnContent.Padding = new Padding(0, 29, 0, 0);
-            pnContent.Size = new Size(1319, 538);
+            pnContent.Size = new Size(1399, 648);
             pnContent.TabIndex = 8;
             // 
             // tableTK
@@ -154,7 +152,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableTK.RowHeadersWidth = 51;
             tableTK.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tableTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableTK.Size = new Size(1319, 509);
+            tableTK.Size = new Size(1399, 619);
             tableTK.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Custom;
             tableTK.TabIndex = 7;
             tableTK.CellDoubleClick += tableTK_CellDoubleClick_1;
@@ -217,11 +215,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             pnTop.Controls.Add(tableLayoutPanel2);
             pnTop.Controls.Add(tableLayoutPanel1);
             pnTop.Dock = DockStyle.Top;
-            pnTop.Location = new Point(0, 20);
-            pnTop.Margin = new Padding(50, 0, 50, 0);
+            pnTop.Location = new Point(0, 0);
+            pnTop.Margin = new Padding(0);
             pnTop.Name = "pnTop";
-            pnTop.Padding = new Padding(0, 51, 0, 51);
-            pnTop.Size = new Size(1319, 189);
+            pnTop.Size = new Size(1399, 189);
             pnTop.TabIndex = 9;
             pnTop.Paint += pnTop_Paint;
             // 
@@ -229,11 +226,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             panel2.Controls.Add(tableLayoutPanel4);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(1069, 51);
+            panel2.Location = new Point(1149, 0);
             panel2.Margin = new Padding(3, 51, 3, 3);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(0, 51, 0, 0);
-            panel2.Size = new Size(250, 87);
+            panel2.Size = new Size(250, 189);
             panel2.TabIndex = 45;
             panel2.Visible = false;
             // 
@@ -409,16 +406,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             dataGridViewTextBoxColumn2.Width = 125;
             // 
-            // panel3
-            // 
-            panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(50, 20);
-            panel3.Margin = new Padding(3, 20, 3, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1319, 49);
-            panel3.TabIndex = 31;
-            panel3.Paint += panel3_Paint;
-            // 
             // TaiKhoan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -428,11 +415,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1419, 867);
             ControlBox = false;
-            Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "TaiKhoan";
-            Padding = new Padding(50, 20, 50, 100);
+            Padding = new Padding(10, 10, 10, 20);
             Load += TaiKhoan_Load;
             panel1.ResumeLayout(false);
             pnContent.ResumeLayout(false);
@@ -464,7 +450,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private Panel panel1;
         private Panel pnContent;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private Panel panel3;
         private Panel pnTop;
         private Label label2;
         private Label label3;

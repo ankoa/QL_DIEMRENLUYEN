@@ -3,48 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\gui\\admin\\teacher\\themgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\teacher\\themgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\gui\\admin\\teacher\\qlgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\teacher\\qlgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\dao\\giangviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\giangviendao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\bus\\giangvienbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\giangvienbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\dto\\giangviendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dto\\giangviendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\dao\\lopdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\lopdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\gui\\admin\\teacher\\themgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\teacher\\themgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\gui\\admin\\teacher\\qlgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\gui\\admin\\teacher\\qlgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\teacher\\qlgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\account\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\util\\excelimporter\\importgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\util\\excelimporter\\importgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|c:\\users\\duyli\\desktop\\c#\\drl2\\ql_diemrenluyen\\gui\\admin\\teacher\\themgiangvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\admin\\teacher\\themgiangvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 857,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,143 +50,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LopDAO.cs",
-              "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\DAO\\LopDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\LopDAO.cs",
-              "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\DAO\\LopDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\LopDAO.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAowKgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T16:21:45.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ImportGiangVien.cs",
-              "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\Util\\ExcelImporter\\ImportGiangVien.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\Util\\ExcelImporter\\ImportGiangVien.cs",
-              "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\Util\\ExcelImporter\\ImportGiangVien.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\Util\\ExcelImporter\\ImportGiangVien.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T11:16:09.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GiangVienDTO.cs",
-              "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\DTO\\GiangVienDTO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DTO\\GiangVienDTO.cs",
-              "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\DTO\\GiangVienDTO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DTO\\GiangVienDTO.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAzwCMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T10:49:31.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TaiKhoan.cs",
-              "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
-              "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Account\\TaiKhoan.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAADwv1gAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T07:19:39.422Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ThemGiangVien.cs",
-              "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
-              "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
-              "ViewState": "AgIAABsBAAAAAAAAAAAAADcBAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:36:04.081Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ThemGiangVien.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
-              "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs [Design]",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:17:21.821Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ThemGiangVien.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.Designer.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.Designer.cs",
-              "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.Designer.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.Designer.cs",
-              "ViewState": "AgIAAN8AAAAAAAAAAAAkwOkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:16:37.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GiangVienDAO.cs",
-              "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\DAO\\GiangVienDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\GiangVienDAO.cs",
-              "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\DAO\\GiangVienDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\GiangVienDAO.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAkwHIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:11:43.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GiangVienBUS.cs",
-              "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\BUS\\GiangVienBUS.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\GiangVienBUS.cs",
-              "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\BUS\\GiangVienBUS.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\BUS\\GiangVienBUS.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAADwvyEAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:07:23.006Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "QLGiangVien.cs",
               "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
               "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
-              "ViewState": "AgIAAGkBAAAAAAAAAAD4v3cBAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAKABAAAAAAAAAAAIwJwBAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:05:30.617Z",
+              "WhenOpened": "2024-11-30T20:52:39.953Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "QLGiangVien.cs [Design]",
               "DocumentMoniker": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs",
               "ToolTip": "C:\\Users\\duyli\\Desktop\\C#\\drl2\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs [Design]",
               "RelativeToolTip": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\QLGiangVien.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T06:12:17.88Z",
+              "WhenOpened": "2024-11-30T20:52:36.082Z",
               "EditorCaption": " [Design]"
             }
           ]
