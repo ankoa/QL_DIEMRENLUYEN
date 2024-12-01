@@ -22,7 +22,9 @@ namespace ql_diemrenluyen.DAO
                     Convert.ToInt64(row[3]), // TieuchiDanhgiaId
                     row[4] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[4]) : null, // CreatedAt
                     row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null, // UpdatedAt
-                    Convert.ToInt32(row[6])  // Status
+                    Convert.ToInt32(row[6]),  // Status
+                     row[7] != DBNull.Value ? (string?)Convert.ToString(row[7]) : null,
+                    row[8] != DBNull.Value ? (string?)Convert.ToString(row[8]) : null
                 );
 
                 chiTietDotChams.Add(chiTietDotCham);
@@ -34,8 +36,8 @@ namespace ql_diemrenluyen.DAO
         // Thêm chi tiết đợt chấm mới
         public static bool AddChiTietDotCham(ChiTietDotChamDTO chiTietDotCham)
         {
-            string sql = "INSERT INTO chitietdotcham (diem, thongtindotchamdiem_id, tieuchidanhgia_id, created_at, updated_at, status) " +
-                         "VALUES (@diem, @thongTinDotChamDiemId, @tieuchiDanhgiaId, @createdAt, @updatedAt, @status)";
+            string sql = "INSERT INTO chitietdotcham (diem, thongtindotchamdiem_id, tieuchidanhgia_id, created_at, updated_at, status, imageurl, mota) " +
+                         "VALUES (@diem, @thongTinDotChamDiemId, @tieuchiDanhgiaId, @createdAt, @updatedAt, @status, @imageUrl, @moTa)";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@diem", chiTietDotCham.Diem);
@@ -44,9 +46,12 @@ namespace ql_diemrenluyen.DAO
             cmd.Parameters.AddWithValue("@createdAt", chiTietDotCham.CreatedAt);
             cmd.Parameters.AddWithValue("@updatedAt", chiTietDotCham.UpdatedAt);
             cmd.Parameters.AddWithValue("@status", chiTietDotCham.Status);
+            cmd.Parameters.AddWithValue("@imageUrl", chiTietDotCham.ImageUrl ?? (object)DBNull.Value); // Nếu null, sử dụng DBNull.Value
+            cmd.Parameters.AddWithValue("@moTa", chiTietDotCham.MoTa ?? (object)DBNull.Value); // Nếu null, sử dụng DBNull.Value
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
+
 
         // Cập nhật thông tin chi tiết đợt chấm
         public static bool UpdateChiTietDotCham(ChiTietDotChamDTO chiTietDotCham)
@@ -165,7 +170,7 @@ namespace ql_diemrenluyen.DAO
             string sql = "SELECT ct.diem " +
                          "FROM thongtindotchamdiem tt " +
                          "JOIN chitietdotcham ct ON tt.id = ct.thongtindotchamdiem_id " +
-                         "JOIN dotchamdiem d ON tt.dotchamdiem_id = d.Id " +  // Kết nối với bảng dotchamdiem
+                         "JOIN dotchamdiem d ON tt.dotchamdiem_id = d.Id " +
                          "WHERE tt.sinhvien_id = @sinhVienID ";
 
             // Thêm các điều kiện vào câu SQL nếu các tham số khác không phải NULL
@@ -207,8 +212,40 @@ namespace ql_diemrenluyen.DAO
             return null; // Trả về null nếu không tìm thấy điểm
         }
 
+        public static (string? ImageUrl, string? Mota) GetBangChung(long sinhVienID, long tieuChiDanhGiaID, int dotChamDiemID)
+        {
+            string sql = @"
+        SELECT ct.imageUrl, ct.mota
+        FROM thongtindotchamdiem tt
+        JOIN chitietdotcham ct ON tt.id = ct.thongtindotchamdiem_id
+        JOIN dotchamdiem d ON tt.dotchamdiem_id = d.Id
+        WHERE tt.sinhvien_id = @sinhVienID
+          AND tt.dotchamdiem_id = @dotChamDiemID
+          AND ct.tieuchidanhgia_id = @tieuChiDanhGiaID
+        LIMIT 1;";
 
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@sinhVienID", sinhVienID);
+            cmd.Parameters.AddWithValue("@tieuChiDanhGiaID", tieuChiDanhGiaID);
+            cmd.Parameters.AddWithValue("@dotChamDiemID", dotChamDiemID);
 
+            using (var connection = DBConnection.GetConnection()) // Giả định hàm DBConnection.GetConnection() mở một kết nối MySQL
+            {
+                connection.Open();
+                cmd.Connection = connection;
 
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string? imageUrl = reader["imageUrl"] as string;
+                        string? mota = reader["mota"] as string;
+                        return (imageUrl, mota);
+                    }
+                }
+            }
+
+            return (null, null); // Không tìm thấy dữ liệu
+        }
     }
 }
