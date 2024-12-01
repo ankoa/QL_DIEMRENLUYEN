@@ -24,5 +24,9 @@ namespace ql_diemrenluyen.DTO
             this.UpdatedAt = updatedAt;
             this.status = status;
         }
+        public override string ToString()
+        {
+            return TenKhoa; // Trả về tên khoa
+        }
     }
 }

@@ -32,32 +32,35 @@ namespace QLDiemRenLuyen
             cBKhoa.ValueMember = "Id";
             cBKhoa.DropDownStyle = ComboBoxStyle.DropDownList;
             cBKhoa.SelectedIndex = -1;
+            cBKhoa.SelectedIndexChanged += CBKhoa_SelectedIndexChanged;
+
             cbGioiTinh.Items.Add("Nam");
             cbGioiTinh.Items.Add("Nữ");
 
-            cbTrangthai.Items.Add("Hoạt động");
-            cbTrangthai.Items.Add("Không hoạt động");
+            //cbTrangthai.Items.Add("Hoạt động");
+            //cbTrangthai.Items.Add("Không hoạt động");
             cbGioiTinh.SelectedIndex = 0;
             cbTrangthai.SelectedIndex = 0;
-            try
-            {
-                // Lọc danh sách lớp có CoVanId == null
-                var danhSachLopCoVanNull = listLop.Where(lop => lop.CoVanId == null).ToList();
+            //try
+            //{
+            //    // Lọc danh sách lớp có CoVanId == null
+            //    var danhSachLopCoVanNull = listLop.Where(lop => lop.CoVanId == null).ToList();
 
-                // Xóa các mục cũ trong CheckedListBox
-                clbLopcovan.Items.Clear();
+            //    // Xóa các mục cũ trong CheckedListBox
+            //    clbLopcovan.Items.Clear();
 
-                // Thêm các lớp đã lọc vào CheckedListBox
-                foreach (var lop in danhSachLopCoVanNull)
-                {
-                    clbLopcovan.Items.Add(lop.TenLop);
-                }
-            }
+            //    // Thêm các lớp đã lọc vào CheckedListBox
+            //    foreach (var lop in danhSachLopCoVanNull)
+            //    {
+            //        clbLopcovan.Items.Add(lop.TenLop);
+            //    }
+            //}
 
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi khởi tạo danh sách lớp: " + ex.Message);
-            }
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Lỗi khi khởi tạo danh sách lớp: " + ex.Message);
+            //}
+            clbLopcovan.Items.Clear();
         }
 
         public ThemGiangVien(long idGV)
@@ -103,6 +106,7 @@ namespace QLDiemRenLuyen
             cBKhoa.ValueMember = "Id";
             cBKhoa.DropDownStyle = ComboBoxStyle.DropDownList;
             cBKhoa.SelectedValue = giangVien.KhoaId;
+            cBKhoa.Enabled = false;
 
             // Gán danh sách lớp vào CheckedListBox và đánh dấu các lớp hiện tại của giảng viên
             try
@@ -270,24 +274,7 @@ namespace QLDiemRenLuyen
                         return;
                     }
 
-                    // Duyệt qua các lớp được chọn trong CheckedListBox
-                    //foreach (var checkedItem in clbLopcovan.CheckedItems)
-                    //{
-                    //    // Tìm lớp tương ứng từ danh sách
-                    //    var danhSachLopCoVanNull = listLop.Where(lop => lop.CoVanId == null).ToList();
-                    //    LopDTO lop = danhSachLopCoVanNull.FirstOrDefault(l => l.TenLop == checkedItem.ToString());
-                    //    if (lop != null)
-                    //    {
-                    //        // Cập nhật CoVanId cho lớp
-                    //        lop.CoVanId = GiangVienId;
-                    //        bool isUpdated = LopBUS.UpdateLop(lop);
 
-                    //        if (!isUpdated)
-                    //        {
-                    //            MessageBox.Show($"Cập nhật cố vấn cho lớp {lop.TenLop} thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //        }
-                    //    }
-                    //}
 
                     for (int i = 0; i < clbLopcovan.Items.Count; i++)
                     {
@@ -319,6 +306,35 @@ namespace QLDiemRenLuyen
                 }
             }
             //this.Dispose();
+        }
+        private void CBKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cBKhoa.SelectedValue == null || !long.TryParse(cBKhoa.SelectedValue.ToString(), out long selectedKhoaId))
+                {
+                    
+                    return; // Không làm gì nếu không có khoa được chọn
+                }
+
+                // Lọc danh sách lớp theo KhoaId và CoVanId == null
+                var danhSachLopTheoKhoa = listLop
+                    .Where(lop => lop.Khoa.Id == selectedKhoaId && lop.CoVanId == null)
+                    .ToList();
+                //MessageBox.Show(selectedKhoaId.ToString() + " và " + "â");
+                // Xóa các mục cũ trong CheckedListBox
+                clbLopcovan.Items.Clear();
+
+                // Thêm các lớp đã lọc vào CheckedListBox
+                foreach (var lop in danhSachLopTheoKhoa)
+                {
+                    clbLopcovan.Items.Add(lop.TenLop);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lọc danh sách lớp: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void txtMaGV_KeyPress(object sender, KeyPressEventArgs e)

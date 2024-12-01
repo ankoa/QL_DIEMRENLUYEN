@@ -35,10 +35,13 @@ namespace ql_diemrenluyen.GUI.ADMIN
             ngaySinhColumn = new DataGridViewTextBoxColumn();
             StatusColumn = new DataGridViewTextBoxColumn();
             panel5 = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            label1 = new Label();
+            cbbFilterKhoa = new ComboBox();
             panel6 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            button2 = new Button();
-            button3 = new Button();
+            btImport = new Button();
+            btExport = new Button();
             button5 = new Button();
             tableLayoutPanel5 = new TableLayoutPanel();
             label2 = new Label();
@@ -59,6 +62,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableLayoutPanel6 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)tableGV).BeginInit();
             panel5.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             panel6.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
@@ -197,6 +201,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             panel5.BackColor = Color.RoyalBlue;
             panel5.BackgroundImageLayout = ImageLayout.None;
+            panel5.Controls.Add(tableLayoutPanel1);
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(button5);
             panel5.Controls.Add(tableLayoutPanel5);
@@ -208,6 +213,48 @@ namespace ql_diemrenluyen.GUI.ADMIN
             panel5.Padding = new Padding(0, 51, 0, 51);
             panel5.Size = new Size(1286, 189);
             panel5.TabIndex = 11;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.40856F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.59144F));
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(cbbFilterKhoa, 1, 0);
+            tableLayoutPanel1.Location = new Point(390, 126);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(339, 38);
+            tableLayoutPanel1.TabIndex = 46;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(5, 2);
+            label1.Name = "label1";
+            label1.Padding = new Padding(0, 0, 0, 5);
+            label1.Size = new Size(111, 34);
+            label1.TabIndex = 37;
+            label1.Text = "Khoa";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // cbbFilterKhoa
+            // 
+            cbbFilterKhoa.Cursor = Cursors.Hand;
+            cbbFilterKhoa.Dock = DockStyle.Fill;
+            cbbFilterKhoa.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbFilterKhoa.FormattingEnabled = true;
+            cbbFilterKhoa.Items.AddRange(new object[] { "Mặc định", "Hoạt động", "Không hoạt động" });
+            cbbFilterKhoa.Location = new Point(124, 5);
+            cbbFilterKhoa.Name = "cbbFilterKhoa";
+            cbbFilterKhoa.Size = new Size(210, 28);
+            cbbFilterKhoa.TabIndex = 36;
             // 
             // panel6
             // 
@@ -225,8 +272,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 106F));
-            tableLayoutPanel2.Controls.Add(button2, 0, 0);
-            tableLayoutPanel2.Controls.Add(button3, 1, 0);
+            tableLayoutPanel2.Controls.Add(btImport, 0, 0);
+            tableLayoutPanel2.Controls.Add(btExport, 1, 0);
             tableLayoutPanel2.Location = new Point(17, 15);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
@@ -234,25 +281,27 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableLayoutPanel2.Size = new Size(212, 50);
             tableLayoutPanel2.TabIndex = 44;
             // 
-            // button2
+            // btImport
             // 
-            button2.Dock = DockStyle.Fill;
-            button2.Location = new Point(3, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(100, 44);
-            button2.TabIndex = 40;
-            button2.Text = "Import";
-            button2.UseVisualStyleBackColor = true;
+            btImport.Dock = DockStyle.Fill;
+            btImport.Location = new Point(3, 3);
+            btImport.Name = "btImport";
+            btImport.Size = new Size(100, 44);
+            btImport.TabIndex = 40;
+            btImport.Text = "Import";
+            btImport.UseVisualStyleBackColor = true;
+            btImport.Click += btImport_Click;
             // 
-            // button3
+            // btExport
             // 
-            button3.Dock = DockStyle.Fill;
-            button3.Location = new Point(109, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(100, 44);
-            button3.TabIndex = 41;
-            button3.Text = "Export";
-            button3.UseVisualStyleBackColor = true;
+            btExport.Dock = DockStyle.Fill;
+            btExport.Location = new Point(109, 3);
+            btExport.Name = "btExport";
+            btExport.Size = new Size(100, 44);
+            btExport.TabIndex = 41;
+            btExport.Text = "Export";
+            btExport.UseVisualStyleBackColor = true;
+            btExport.Click += btExport_Click;
             // 
             // button5
             // 
@@ -277,6 +326,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel5.Size = new Size(339, 38);
             tableLayoutPanel5.TabIndex = 38;
             // 
@@ -298,6 +348,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // 
             cbbStatus.Cursor = Cursors.Hand;
             cbbStatus.Dock = DockStyle.Fill;
+            cbbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Mặc định", "Hoạt động", "Không hoạt động" });
             cbbStatus.Location = new Point(124, 5);
@@ -467,6 +518,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
             Load += GiangVien_Load;
             ((System.ComponentModel.ISupportInitialize)tableGV).EndInit();
             panel5.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             panel6.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
@@ -503,8 +556,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private Button btnAdd; // Nút Thêm
         private Panel panel2;
         private Panel panel6;
-        private Button button2;
-        private Button button3;
+        private Button btImport;
+        private Button btExport;
         private TableLayoutPanel tableLayoutPanel5;
         private Label label2;
         private ComboBox cbbStatus;
@@ -518,5 +571,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         private DataGridViewTextBoxColumn StatusColumn;
         private DataGridViewTextBoxColumn gioiTinhColumn;
         private DataGridViewTextBoxColumn ngaySinhColumn;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label label1;
+        private ComboBox cbbFilterKhoa;
     }
 }
