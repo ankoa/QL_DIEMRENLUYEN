@@ -130,14 +130,14 @@
             DashboardContainer.Controls.Add(thongTinDrlContainer, 1, 0);
             DashboardContainer.Dock = DockStyle.Fill;
             DashboardContainer.Location = new Point(0, 0);
-            DashboardContainer.Margin = new Padding(11, 13, 11, 13);
+            DashboardContainer.Margin = new Padding(10, 10, 10, 10);
             DashboardContainer.Name = "DashboardContainer";
-            DashboardContainer.Padding = new Padding(11, 13, 11, 13);
+            DashboardContainer.Padding = new Padding(10, 10, 10, 10);
             DashboardContainer.RowCount = 1;
             DashboardContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            DashboardContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            DashboardContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            DashboardContainer.Size = new Size(1322, 959);
+            DashboardContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
+            DashboardContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
+            DashboardContainer.Size = new Size(1157, 719);
             DashboardContainer.TabIndex = 0;
             DashboardContainer.Paint += DashboardContainer_Paint;
             // 
@@ -150,13 +150,13 @@
             studentContainer.Controls.Add(classInfoContainer, 0, 1);
             studentContainer.Controls.Add(studentInfoContainer, 0, 0);
             studentContainer.Dock = DockStyle.Fill;
-            studentContainer.Location = new Point(22, 26);
-            studentContainer.Margin = new Padding(11, 13, 11, 13);
+            studentContainer.Location = new Point(20, 20);
+            studentContainer.Margin = new Padding(10, 10, 10, 10);
             studentContainer.Name = "studentContainer";
             studentContainer.RowCount = 2;
             studentContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 61.2211227F));
             studentContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 38.7788773F));
-            studentContainer.Size = new Size(498, 907);
+            studentContainer.Size = new Size(434, 679);
             studentContainer.TabIndex = 0;
             // 
             // classInfoContainer
@@ -167,13 +167,13 @@
             classInfoContainer.Controls.Add(tableLayoutPanel2, 0, 0);
             classInfoContainer.Controls.Add(tableLayoutPanel10, 0, 1);
             classInfoContainer.Dock = DockStyle.Fill;
-            classInfoContainer.Location = new Point(5, 560);
-            classInfoContainer.Margin = new Padding(3, 5, 3, 4);
+            classInfoContainer.Location = new Point(5, 420);
+            classInfoContainer.Margin = new Padding(3, 4, 3, 3);
             classInfoContainer.Name = "classInfoContainer";
             classInfoContainer.RowCount = 2;
-            classInfoContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            classInfoContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             classInfoContainer.RowStyles.Add(new RowStyle());
-            classInfoContainer.Size = new Size(488, 341);
+            classInfoContainer.Size = new Size(424, 254);
             classInfoContainer.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -189,7 +189,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(488, 40);
+            tableLayoutPanel2.Size = new Size(424, 30);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -200,7 +200,7 @@
             label1.ForeColor = SystemColors.HotTrack;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(231, 40);
+            label1.Size = new Size(199, 30);
             label1.TabIndex = 0;
             label1.Text = "Thông tin lớp học";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -213,13 +213,12 @@
             tableLayoutPanel10.Controls.Add(panel4, 0, 1);
             tableLayoutPanel10.Controls.Add(tableLayoutPanel9, 0, 0);
             tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(3, 44);
-            tableLayoutPanel10.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel10.Location = new Point(3, 33);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 2;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel10.Size = new Size(482, 293);
+            tableLayoutPanel10.Size = new Size(418, 220);
             tableLayoutPanel10.TabIndex = 1;
             // 
             // panel4
@@ -227,11 +226,11 @@
             panel4.BackColor = SystemColors.ActiveCaption;
             panel4.Controls.Add(dataGridView3);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(0, 146);
+            panel4.Location = new Point(0, 110);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
-            panel4.Padding = new Padding(5, 0, 5, 20);
-            panel4.Size = new Size(482, 147);
+            panel4.Padding = new Padding(4, 0, 4, 15);
+            panel4.Size = new Size(418, 110);
             panel4.TabIndex = 3;
             // 
             // dataGridView3
@@ -265,8 +264,7 @@
             dataGridView3.Dock = DockStyle.Fill;
             dataGridView3.EnableHeadersVisualStyles = false;
             dataGridView3.GridColor = Color.LightGray;
-            dataGridView3.Location = new Point(5, 0);
-            dataGridView3.Margin = new Padding(3, 4, 3, 4);
+            dataGridView3.Location = new Point(4, 0);
             dataGridView3.MultiSelect = false;
             dataGridView3.Name = "dataGridView3";
             dataGridView3.ReadOnly = true;
@@ -282,7 +280,7 @@
             dataGridView3.RowHeadersWidth = 25;
             dataGridView3.RowTemplate.DividerHeight = 1;
             dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView3.Size = new Size(472, 127);
+            dataGridView3.Size = new Size(410, 95);
             dataGridView3.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -299,16 +297,15 @@
             tableLayoutPanel9.Controls.Add(label17, 0, 2);
             tableLayoutPanel9.Controls.Add(label18, 0, 3);
             tableLayoutPanel9.Dock = DockStyle.Fill;
-            tableLayoutPanel9.Location = new Point(3, 4);
-            tableLayoutPanel9.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel9.Location = new Point(3, 3);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
-            tableLayoutPanel9.Padding = new Padding(0, 0, 0, 11);
+            tableLayoutPanel9.Padding = new Padding(0, 0, 0, 8);
             tableLayoutPanel9.RowCount = 4;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel9.Size = new Size(476, 138);
+            tableLayoutPanel9.Size = new Size(412, 104);
             tableLayoutPanel9.TabIndex = 2;
             // 
             // lbCoVan
@@ -316,9 +313,9 @@
             lbCoVan.AutoSize = true;
             lbCoVan.Dock = DockStyle.Fill;
             lbCoVan.Font = new Font("Segoe UI", 10F);
-            lbCoVan.Location = new Point(159, 93);
+            lbCoVan.Location = new Point(138, 72);
             lbCoVan.Name = "lbCoVan";
-            lbCoVan.Size = new Size(314, 34);
+            lbCoVan.Size = new Size(271, 24);
             lbCoVan.TabIndex = 8;
             lbCoVan.Text = "label10";
             lbCoVan.TextAlign = ContentAlignment.MiddleLeft;
@@ -328,9 +325,9 @@
             lbKhoas.AutoSize = true;
             lbKhoas.Dock = DockStyle.Fill;
             lbKhoas.Font = new Font("Segoe UI", 10F);
-            lbKhoas.Location = new Point(159, 62);
+            lbKhoas.Location = new Point(138, 48);
             lbKhoas.Name = "lbKhoas";
-            lbKhoas.Size = new Size(314, 31);
+            lbKhoas.Size = new Size(271, 24);
             lbKhoas.TabIndex = 7;
             lbKhoas.Text = "label9";
             lbKhoas.TextAlign = ContentAlignment.MiddleLeft;
@@ -340,9 +337,9 @@
             lbKhoa.AutoSize = true;
             lbKhoa.Dock = DockStyle.Fill;
             lbKhoa.Font = new Font("Segoe UI", 10F);
-            lbKhoa.Location = new Point(159, 31);
+            lbKhoa.Location = new Point(138, 24);
             lbKhoa.Name = "lbKhoa";
-            lbKhoa.Size = new Size(314, 31);
+            lbKhoa.Size = new Size(271, 24);
             lbKhoa.TabIndex = 6;
             lbKhoa.Text = "label8";
             lbKhoa.TextAlign = ContentAlignment.MiddleLeft;
@@ -352,9 +349,9 @@
             lbLop.AutoSize = true;
             lbLop.Dock = DockStyle.Fill;
             lbLop.Font = new Font("Segoe UI", 10F);
-            lbLop.Location = new Point(159, 0);
+            lbLop.Location = new Point(138, 0);
             lbLop.Name = "lbLop";
-            lbLop.Size = new Size(314, 31);
+            lbLop.Size = new Size(271, 24);
             lbLop.TabIndex = 5;
             lbLop.Text = "label7";
             lbLop.TextAlign = ContentAlignment.MiddleLeft;
@@ -366,7 +363,7 @@
             label15.Font = new Font("Segoe UI", 10F);
             label15.Location = new Point(3, 0);
             label15.Name = "label15";
-            label15.Size = new Size(150, 31);
+            label15.Size = new Size(129, 24);
             label15.TabIndex = 0;
             label15.Text = "Lớp: ";
             label15.TextAlign = ContentAlignment.MiddleLeft;
@@ -376,9 +373,9 @@
             label16.AutoSize = true;
             label16.Dock = DockStyle.Fill;
             label16.Font = new Font("Segoe UI", 10F);
-            label16.Location = new Point(3, 31);
+            label16.Location = new Point(3, 24);
             label16.Name = "label16";
-            label16.Size = new Size(150, 31);
+            label16.Size = new Size(129, 24);
             label16.TabIndex = 1;
             label16.Text = "Khoa: ";
             label16.TextAlign = ContentAlignment.MiddleLeft;
@@ -388,9 +385,9 @@
             label17.AutoSize = true;
             label17.Dock = DockStyle.Fill;
             label17.Font = new Font("Segoe UI", 10F);
-            label17.Location = new Point(3, 62);
+            label17.Location = new Point(3, 48);
             label17.Name = "label17";
-            label17.Size = new Size(150, 31);
+            label17.Size = new Size(129, 24);
             label17.TabIndex = 2;
             label17.Text = "Khóa: ";
             label17.TextAlign = ContentAlignment.MiddleLeft;
@@ -400,9 +397,9 @@
             label18.AutoSize = true;
             label18.Dock = DockStyle.Fill;
             label18.Font = new Font("Segoe UI", 10F);
-            label18.Location = new Point(3, 93);
+            label18.Location = new Point(3, 72);
             label18.Name = "label18";
-            label18.Size = new Size(150, 34);
+            label18.Size = new Size(129, 24);
             label18.TabIndex = 3;
             label18.Text = "Cố vấn học tập:";
             label18.TextAlign = ContentAlignment.MiddleLeft;
@@ -415,13 +412,13 @@
             studentInfoContainer.Controls.Add(studentInfoTitleContainer, 0, 0);
             studentInfoContainer.Controls.Add(studentInfoContent, 0, 1);
             studentInfoContainer.Dock = DockStyle.Fill;
-            studentInfoContainer.Location = new Point(5, 6);
-            studentInfoContainer.Margin = new Padding(3, 4, 3, 5);
+            studentInfoContainer.Location = new Point(5, 5);
+            studentInfoContainer.Margin = new Padding(3, 3, 3, 4);
             studentInfoContainer.Name = "studentInfoContainer";
             studentInfoContainer.RowCount = 2;
-            studentInfoContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            studentInfoContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             studentInfoContainer.RowStyles.Add(new RowStyle());
-            studentInfoContainer.Size = new Size(488, 542);
+            studentInfoContainer.Size = new Size(424, 405);
             studentInfoContainer.TabIndex = 0;
             // 
             // studentInfoTitleContainer
@@ -437,7 +434,7 @@
             studentInfoTitleContainer.Name = "studentInfoTitleContainer";
             studentInfoTitleContainer.RowCount = 1;
             studentInfoTitleContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            studentInfoTitleContainer.Size = new Size(488, 40);
+            studentInfoTitleContainer.Size = new Size(424, 30);
             studentInfoTitleContainer.TabIndex = 0;
             // 
             // lbStudentInfo
@@ -448,7 +445,7 @@
             lbStudentInfo.ForeColor = SystemColors.HotTrack;
             lbStudentInfo.Location = new Point(3, 0);
             lbStudentInfo.Name = "lbStudentInfo";
-            lbStudentInfo.Size = new Size(220, 40);
+            lbStudentInfo.Size = new Size(190, 30);
             lbStudentInfo.TabIndex = 0;
             lbStudentInfo.Text = "Thông tin sinh viên";
             lbStudentInfo.TextAlign = ContentAlignment.MiddleLeft;
@@ -462,13 +459,13 @@
             studentInfoContent.Controls.Add(tableLayoutPanel1, 0, 0);
             studentInfoContent.Controls.Add(avtContainer, 1, 0);
             studentInfoContent.Dock = DockStyle.Fill;
-            studentInfoContent.Location = new Point(17, 44);
-            studentInfoContent.Margin = new Padding(17, 4, 3, 4);
+            studentInfoContent.Location = new Point(15, 33);
+            studentInfoContent.Margin = new Padding(15, 3, 3, 3);
             studentInfoContent.Name = "studentInfoContent";
             studentInfoContent.RowCount = 1;
             studentInfoContent.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             studentInfoContent.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            studentInfoContent.Size = new Size(468, 494);
+            studentInfoContent.Size = new Size(406, 370);
             studentInfoContent.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -487,17 +484,16 @@
             tableLayoutPanel1.Controls.Add(label5, 0, 3);
             tableLayoutPanel1.Controls.Add(label6, 0, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 4);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.Padding = new Padding(0, 0, 0, 11);
+            tableLayoutPanel1.Padding = new Padding(0, 0, 0, 8);
             tableLayoutPanel1.RowCount = 5;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Size = new Size(333, 486);
+            tableLayoutPanel1.Size = new Size(288, 364);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // lbEmail
@@ -505,9 +501,9 @@
             lbEmail.AutoSize = true;
             lbEmail.Dock = DockStyle.Fill;
             lbEmail.Font = new Font("Segoe UI", 10F);
-            lbEmail.Location = new Point(112, 380);
+            lbEmail.Location = new Point(97, 284);
             lbEmail.Name = "lbEmail";
-            lbEmail.Size = new Size(218, 95);
+            lbEmail.Size = new Size(188, 72);
             lbEmail.TabIndex = 9;
             lbEmail.Text = "label11";
             lbEmail.TextAlign = ContentAlignment.MiddleLeft;
@@ -517,9 +513,9 @@
             lbGioiTinh.AutoSize = true;
             lbGioiTinh.Dock = DockStyle.Fill;
             lbGioiTinh.Font = new Font("Segoe UI", 10F);
-            lbGioiTinh.Location = new Point(112, 285);
+            lbGioiTinh.Location = new Point(97, 213);
             lbGioiTinh.Name = "lbGioiTinh";
-            lbGioiTinh.Size = new Size(218, 95);
+            lbGioiTinh.Size = new Size(188, 71);
             lbGioiTinh.TabIndex = 8;
             lbGioiTinh.Text = "label10";
             lbGioiTinh.TextAlign = ContentAlignment.MiddleLeft;
@@ -529,9 +525,9 @@
             lbNgaySinh.AutoSize = true;
             lbNgaySinh.Dock = DockStyle.Fill;
             lbNgaySinh.Font = new Font("Segoe UI", 10F);
-            lbNgaySinh.Location = new Point(112, 190);
+            lbNgaySinh.Location = new Point(97, 142);
             lbNgaySinh.Name = "lbNgaySinh";
-            lbNgaySinh.Size = new Size(218, 95);
+            lbNgaySinh.Size = new Size(188, 71);
             lbNgaySinh.TabIndex = 7;
             lbNgaySinh.Text = "label9";
             lbNgaySinh.TextAlign = ContentAlignment.MiddleLeft;
@@ -541,9 +537,9 @@
             lbHovaTen.AutoSize = true;
             lbHovaTen.Dock = DockStyle.Fill;
             lbHovaTen.Font = new Font("Segoe UI", 10F);
-            lbHovaTen.Location = new Point(112, 95);
+            lbHovaTen.Location = new Point(97, 71);
             lbHovaTen.Name = "lbHovaTen";
-            lbHovaTen.Size = new Size(218, 95);
+            lbHovaTen.Size = new Size(188, 71);
             lbHovaTen.TabIndex = 6;
             lbHovaTen.Text = "label8";
             lbHovaTen.TextAlign = ContentAlignment.MiddleLeft;
@@ -553,9 +549,9 @@
             lbMaSV.AutoSize = true;
             lbMaSV.Dock = DockStyle.Fill;
             lbMaSV.Font = new Font("Segoe UI", 10F);
-            lbMaSV.Location = new Point(112, 0);
+            lbMaSV.Location = new Point(97, 0);
             lbMaSV.Name = "lbMaSV";
-            lbMaSV.Size = new Size(218, 95);
+            lbMaSV.Size = new Size(188, 71);
             lbMaSV.TabIndex = 5;
             lbMaSV.Text = "label7";
             lbMaSV.TextAlign = ContentAlignment.MiddleLeft;
@@ -567,7 +563,7 @@
             label2.Font = new Font("Segoe UI", 10F);
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(103, 95);
+            label2.Size = new Size(88, 71);
             label2.TabIndex = 0;
             label2.Text = "Mã SV:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -578,9 +574,9 @@
             label3.AutoSize = true;
             label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Segoe UI", 10F);
-            label3.Location = new Point(3, 95);
+            label3.Location = new Point(3, 71);
             label3.Name = "label3";
-            label3.Size = new Size(103, 95);
+            label3.Size = new Size(88, 71);
             label3.TabIndex = 1;
             label3.Text = "Họ và Tên:";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -590,9 +586,9 @@
             label4.AutoSize = true;
             label4.Dock = DockStyle.Fill;
             label4.Font = new Font("Segoe UI", 10F);
-            label4.Location = new Point(3, 190);
+            label4.Location = new Point(3, 142);
             label4.Name = "label4";
-            label4.Size = new Size(103, 95);
+            label4.Size = new Size(88, 71);
             label4.TabIndex = 2;
             label4.Text = "Ngày sinh:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -602,9 +598,9 @@
             label5.AutoSize = true;
             label5.Dock = DockStyle.Fill;
             label5.Font = new Font("Segoe UI", 10F);
-            label5.Location = new Point(3, 285);
+            label5.Location = new Point(3, 213);
             label5.Name = "label5";
-            label5.Size = new Size(103, 95);
+            label5.Size = new Size(88, 71);
             label5.TabIndex = 3;
             label5.Text = "Giới tính:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -614,9 +610,9 @@
             label6.AutoSize = true;
             label6.Dock = DockStyle.Fill;
             label6.Font = new Font("Segoe UI", 10F);
-            label6.Location = new Point(3, 380);
+            label6.Location = new Point(3, 284);
             label6.Name = "label6";
-            label6.Size = new Size(103, 95);
+            label6.Size = new Size(88, 72);
             label6.TabIndex = 4;
             label6.Text = "Email:";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -627,14 +623,13 @@
             avtContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             avtContainer.Controls.Add(pictureStudentAvt, 0, 1);
             avtContainer.Dock = DockStyle.Fill;
-            avtContainer.Location = new Point(342, 4);
-            avtContainer.Margin = new Padding(3, 4, 3, 4);
+            avtContainer.Location = new Point(297, 3);
             avtContainer.Name = "avtContainer";
             avtContainer.RowCount = 3;
             avtContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 17.6610985F));
             avtContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 36.7541771F));
             avtContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 45.5847244F));
-            avtContainer.Size = new Size(123, 486);
+            avtContainer.Size = new Size(106, 364);
             avtContainer.TabIndex = 2;
             avtContainer.Paint += tableLayoutPanel3_Paint;
             // 
@@ -643,10 +638,9 @@
             pictureStudentAvt.BackgroundImage = Properties.Resources._2_1;
             pictureStudentAvt.BackgroundImageLayout = ImageLayout.Zoom;
             pictureStudentAvt.Dock = DockStyle.Fill;
-            pictureStudentAvt.Location = new Point(3, 89);
-            pictureStudentAvt.Margin = new Padding(3, 4, 3, 4);
+            pictureStudentAvt.Location = new Point(3, 67);
             pictureStudentAvt.Name = "pictureStudentAvt";
-            pictureStudentAvt.Size = new Size(117, 170);
+            pictureStudentAvt.Size = new Size(100, 127);
             pictureStudentAvt.SizeMode = PictureBoxSizeMode.Zoom;
             pictureStudentAvt.TabIndex = 0;
             pictureStudentAvt.TabStop = false;
@@ -661,14 +655,14 @@
             thongTinDrlContainer.Controls.Add(tableLayoutPanel4, 0, 1);
             thongTinDrlContainer.Controls.Add(panel1, 0, 0);
             thongTinDrlContainer.Dock = DockStyle.Fill;
-            thongTinDrlContainer.Location = new Point(542, 26);
-            thongTinDrlContainer.Margin = new Padding(11, 13, 11, 13);
+            thongTinDrlContainer.Location = new Point(474, 20);
+            thongTinDrlContainer.Margin = new Padding(10, 10, 10, 10);
             thongTinDrlContainer.Name = "thongTinDrlContainer";
             thongTinDrlContainer.RowCount = 3;
             thongTinDrlContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             thongTinDrlContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             thongTinDrlContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            thongTinDrlContainer.Size = new Size(758, 907);
+            thongTinDrlContainer.Size = new Size(663, 679);
             thongTinDrlContainer.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -679,13 +673,12 @@
             tableLayoutPanel6.Controls.Add(tableLayoutPanel7, 0, 0);
             tableLayoutPanel6.Controls.Add(panel2, 0, 1);
             tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(5, 458);
-            tableLayoutPanel6.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel6.Location = new Point(5, 344);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 2;
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle());
-            tableLayoutPanel6.Size = new Size(748, 443);
+            tableLayoutPanel6.Size = new Size(653, 330);
             tableLayoutPanel6.TabIndex = 3;
             // 
             // tableLayoutPanel7
@@ -701,7 +694,7 @@
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.Size = new Size(748, 40);
+            tableLayoutPanel7.Size = new Size(653, 30);
             tableLayoutPanel7.TabIndex = 0;
             // 
             // label8
@@ -712,7 +705,7 @@
             label8.ForeColor = SystemColors.HotTrack;
             label8.Location = new Point(3, 0);
             label8.Name = "label8";
-            label8.Size = new Size(338, 40);
+            label8.Size = new Size(294, 30);
             label8.TabIndex = 0;
             label8.Text = "Điểm rèn luyện các kì";
             label8.TextAlign = ContentAlignment.MiddleLeft;
@@ -722,11 +715,11 @@
             panel2.BackColor = SystemColors.ActiveCaption;
             panel2.Controls.Add(dataGridView1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 40);
+            panel2.Location = new Point(0, 30);
             panel2.Margin = new Padding(0);
             panel2.Name = "panel2";
-            panel2.Padding = new Padding(5, 0, 5, 20);
-            panel2.Size = new Size(748, 463);
+            panel2.Padding = new Padding(4, 0, 4, 15);
+            panel2.Size = new Size(653, 347);
             panel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -760,8 +753,7 @@
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.LightGray;
-            dataGridView1.Location = new Point(5, 0);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Location = new Point(4, 0);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -777,7 +769,7 @@
             dataGridView1.RowHeadersWidth = 25;
             dataGridView1.RowTemplate.DividerHeight = 1;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(738, 443);
+            dataGridView1.Size = new Size(645, 332);
             dataGridView1.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -788,13 +780,12 @@
             tableLayoutPanel4.Controls.Add(tableLayoutPanel5, 0, 0);
             tableLayoutPanel4.Controls.Add(panel3, 0, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(5, 187);
-            tableLayoutPanel4.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel4.Location = new Point(5, 141);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(748, 261);
+            tableLayoutPanel4.Size = new Size(653, 195);
             tableLayoutPanel4.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -810,7 +801,7 @@
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Size = new Size(748, 40);
+            tableLayoutPanel5.Size = new Size(653, 30);
             tableLayoutPanel5.TabIndex = 0;
             // 
             // label7
@@ -822,7 +813,7 @@
             label7.ImageAlign = ContentAlignment.MiddleLeft;
             label7.Location = new Point(3, 0);
             label7.Name = "label7";
-            label7.Size = new Size(356, 40);
+            label7.Size = new Size(310, 30);
             label7.TabIndex = 0;
             label7.Text = "Đợt chấm điểm của bạn";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -832,11 +823,11 @@
             panel3.BackColor = SystemColors.ActiveCaption;
             panel3.Controls.Add(dataGridView2);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 40);
+            panel3.Location = new Point(0, 30);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(5, 0, 5, 20);
-            panel3.Size = new Size(748, 256);
+            panel3.Padding = new Padding(4, 0, 4, 15);
+            panel3.Size = new Size(653, 192);
             panel3.TabIndex = 2;
             // 
             // dataGridView2
@@ -870,8 +861,7 @@
             dataGridView2.Dock = DockStyle.Fill;
             dataGridView2.EnableHeadersVisualStyles = false;
             dataGridView2.GridColor = Color.LightGray;
-            dataGridView2.Location = new Point(5, 0);
-            dataGridView2.Margin = new Padding(3, 4, 3, 4);
+            dataGridView2.Location = new Point(4, 0);
             dataGridView2.MultiSelect = false;
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
@@ -887,17 +877,16 @@
             dataGridView2.RowHeadersWidth = 25;
             dataGridView2.RowTemplate.DividerHeight = 1;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(738, 236);
+            dataGridView2.Size = new Size(645, 177);
             dataGridView2.TabIndex = 0;
             // 
             // panel1
             // 
             panel1.Controls.Add(tableLayoutPanel3);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(5, 6);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(5, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(748, 171);
+            panel1.Size = new Size(653, 128);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -910,12 +899,11 @@
             tableLayoutPanel3.Controls.Add(panel5, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(0, 0);
-            tableLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(748, 171);
+            tableLayoutPanel3.Size = new Size(653, 128);
             tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel8
@@ -931,7 +919,7 @@
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 1;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel8.Size = new Size(748, 40);
+            tableLayoutPanel8.Size = new Size(653, 30);
             tableLayoutPanel8.TabIndex = 0;
             // 
             // label9
@@ -942,7 +930,7 @@
             label9.ForeColor = SystemColors.HotTrack;
             label9.Location = new Point(3, 0);
             label9.Name = "label9";
-            label9.Size = new Size(299, 40);
+            label9.Size = new Size(260, 30);
             label9.TabIndex = 0;
             label9.Text = "Nhắc nhở mới";
             label9.TextAlign = ContentAlignment.MiddleLeft;
@@ -952,11 +940,11 @@
             panel5.BackColor = SystemColors.ActiveCaption;
             panel5.Controls.Add(dataGridView4);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(0, 40);
+            panel5.Location = new Point(0, 30);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
-            panel5.Padding = new Padding(5, 0, 5, 20);
-            panel5.Size = new Size(748, 155);
+            panel5.Padding = new Padding(4, 0, 4, 15);
+            panel5.Size = new Size(653, 116);
             panel5.TabIndex = 2;
             // 
             // dataGridView4
@@ -990,8 +978,7 @@
             dataGridView4.Dock = DockStyle.Fill;
             dataGridView4.EnableHeadersVisualStyles = false;
             dataGridView4.GridColor = Color.LightGray;
-            dataGridView4.Location = new Point(5, 0);
-            dataGridView4.Margin = new Padding(3, 4, 3, 4);
+            dataGridView4.Location = new Point(4, 0);
             dataGridView4.MultiSelect = false;
             dataGridView4.Name = "dataGridView4";
             dataGridView4.ReadOnly = true;
@@ -1007,17 +994,16 @@
             dataGridView4.RowHeadersWidth = 25;
             dataGridView4.RowTemplate.DividerHeight = 1;
             dataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView4.Size = new Size(738, 135);
+            dataGridView4.Size = new Size(645, 101);
             dataGridView4.TabIndex = 0;
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(1322, 959);
+            ClientSize = new Size(1157, 719);
             Controls.Add(DashboardContainer);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Dashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";

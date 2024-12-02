@@ -1,5 +1,6 @@
 ﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DAO;
+using ql_diemrenluyen.DTO;
 using ql_diemrenluyen.GUI.ADMIN;
 using System.Data;
 
@@ -7,7 +8,20 @@ namespace ql_diemrenluyen.GUI.USER
 {
     public partial class Dashboard : Form
     {
-        //public static string nguoidung_id = "1";
+        public static string nguoidung_id = Program.nguoidung_id;
+        public static string role = Program.role switch
+        {
+            0 => "ADMIN",
+            1 => "Sinh viên",
+            2 => "Giảng viên",
+            3 => "Cố vấn",
+            4 => "Khoa",
+            5 => "Trường",
+            _ => "Unknown"
+        };
+        ////82778917
+
+        //public static string nguoidung_id = "3121410000";
         //public static string role = 1 switch
         //{
         //    0 => "ADMIN",
@@ -18,19 +32,6 @@ namespace ql_diemrenluyen.GUI.USER
         //    5 => "Quản lý Trường",
         //    _ => "Unknown"
         //};
-        ////82778917
-
-        public static string nguoidung_id = "1000000000";
-        public static string role = 3 switch
-        {
-            0 => "ADMIN",
-            1 => "Sinh viên",
-            2 => "Giảng viên",
-            3 => "Cố vấn",
-            4 => "Quản lý Khoa",
-            5 => "Quản lý Trường",
-            _ => "Unknown"
-        };
 
         //public static string nguoidung_id = Program.nguoidung_id;
         //public static string role = Program.role switch
@@ -51,14 +52,13 @@ namespace ql_diemrenluyen.GUI.USER
             if (role.Equals("Sinh viên"))
             {
                 LoadDrlHocKi(1);
-                LoadDotChamDiemSinhVien(int.Parse(nguoidung_id), role);
+
             }
-            else if (role.Equals("Cố vấn"))
+            else
             {
                 LoadDrlHocKi2();
-                LoadDotChamDiemSinhVien(int.Parse(nguoidung_id), role);
             }
-
+            LoadDotChamDiemSinhVien(long.Parse(nguoidung_id), role);
             //CustomizeDataGridView();
             //CustomizeSpecificColumns();
         }
@@ -77,42 +77,35 @@ namespace ql_diemrenluyen.GUI.USER
                     lbMaSV.Text = student.Id.ToString();
                     lbEmail.Text = student.Email;
                     lbHovaTen.Text = student.Name;
-                    lbNgaySinh.Text = student.NgaySinh.ToString();
-                    if (student.GioiTinh == 1)
-                        lbGioiTinh.Text = "Nam";
-                    else
-                        lbGioiTinh.Text = "Nữ";
+                    lbNgaySinh.Text = student.NgaySinh.ToString("dd/MM/yyyy"); // Định dạng ngày sinh
+                    lbGioiTinh.Text = student.GioiTinh == 1 ? "Nam" : "Nữ";
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Lỗi khi tải sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (role.Equals("Cố vấn"))
+            else
             {
-                lbStudentInfo.Text = "Thông tin cố vấn";
+                lbStudentInfo.Text = "Thông tin giảng viên";
                 label2.Text = "Mã GV";
                 try
                 {
-                    // Lấy danh sách sinh viên từ DAO
+                    // Lấy danh sách giảng viên từ DAO
                     // Sau này đổi thành bus
                     var giangvien = GiangVienBUS.GetGiangVienById(long.Parse(nguoidung_id));
 
                     lbMaSV.Text = giangvien.Id.ToString();
                     lbEmail.Text = giangvien.Email;
                     lbHovaTen.Text = giangvien.Name;
-                    lbNgaySinh.Text = giangvien.NgaySinh.ToString();
-                    if (giangvien.GioiTinh == 1)
-                        lbGioiTinh.Text = "Nam";
-                    else
-                        lbGioiTinh.Text = "Nữ";
+                    lbNgaySinh.Text = giangvien.NgaySinh.ToString("dd/MM/yyyy"); // Định dạng ngày sinh
+                    lbGioiTinh.Text = giangvien.GioiTinh == 1 ? "Nam" : "Nữ";
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Lỗi khi tải sinh viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Lỗi khi tải giảng viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
 
         private void LoadInfoClass()
@@ -206,10 +199,14 @@ namespace ql_diemrenluyen.GUI.USER
                 }
 
             }
-
+            else
+            {
+                studentContainer.RowStyles[0] = new RowStyle(SizeType.Percent, 100);
+                studentContainer.RowStyles[1] = new RowStyle(SizeType.Percent, 0);
+            }
         }
 
-        private void LoadDotChamDiemSinhVien(int sinhVienId, string role)
+        private void LoadDotChamDiemSinhVien(long sinhVienId, string role)
         {
             // Cấu hình các cột trong DataGridView2
             dataGridView2.AutoGenerateColumns = false;
@@ -275,6 +272,16 @@ namespace ql_diemrenluyen.GUI.USER
                 {
 
                     dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaCoVanTheoId(sinhVienId);
+                }
+                else if (role.Equals("Khoa"))
+                {
+                    GiangVienDTO gv = GiangVienBUS.GetGiangVienById(sinhVienId);
+                    dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaKhoaTheoId(gv.KhoaId);
+                }
+                else if (role.Equals("Trường"))
+                {
+
+                    dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaTruong();
                 }
                 else
                 {

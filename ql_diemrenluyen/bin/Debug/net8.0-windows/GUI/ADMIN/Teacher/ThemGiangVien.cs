@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using ql_diemrenluyen.BUS;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
+using System.Text.RegularExpressions;
 
 namespace QLDiemRenLuyen
 {
@@ -72,6 +69,7 @@ namespace QLDiemRenLuyen
 
             // Thay đổi nút "Thêm" thành "Sửa"
             btnThem.Text = "Sửa";
+            label1.Text = "Sửa giảng viên";
 
             // Lấy thông tin giảng viên
             GiangVienDTO giangVien = GiangVienBUS.GetGiangVienById(idGV);
@@ -260,7 +258,8 @@ namespace QLDiemRenLuyen
                 try
                 {
                     long GiangVienId;
-                    if (giangVienEdit == null) {
+                    if (giangVienEdit == null)
+                    {
                         // Lấy id của giảng viên vừa thêm
                         GiangVienId = GiangVienBUS.GetLastInsertedId();
                     }
@@ -268,7 +267,7 @@ namespace QLDiemRenLuyen
                     {
                         GiangVienId = giangVienEdit.Id;
                     }
-                        
+
 
                     if (GiangVienId == -1)
                     {
@@ -277,6 +276,8 @@ namespace QLDiemRenLuyen
                     }
 
 
+
+                    bool isAnyChecked = false; // Biến cờ để kiểm tra lớp được tick
 
                     for (int i = 0; i < clbLopcovan.Items.Count; i++)
                     {
@@ -287,9 +288,16 @@ namespace QLDiemRenLuyen
                         LopDTO lop = listLop.FirstOrDefault(l => l.TenLop == tenLop);
                         if (lop == null) continue; // Bỏ qua nếu không tìm thấy lớp
 
+                        // Kiểm tra lớp có được tick hay không
+                        bool isChecked = clbLopcovan.GetItemChecked(i);
+                        if (isChecked)
+                        {
+                            isAnyChecked = true; // Đánh dấu có lớp được tick
+                        }
+
                         // Nếu lớp được tick, gán CoVanId là GiangVienId
                         // Nếu không được tick, gán CoVanId là null
-                        lop.CoVanId = clbLopcovan.GetItemChecked(i) ? GiangVienId : (long?)null;
+                        lop.CoVanId = isChecked ? GiangVienId : (long?)null;
 
                         // Cập nhật lớp vào cơ sở dữ liệu
                         bool isUpdated = LopBUS.UpdateLop(lop);
@@ -299,6 +307,21 @@ namespace QLDiemRenLuyen
                             MessageBox.Show($"Cập nhật cố vấn cho lớp {lop.TenLop} thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+
+                    // Sau khi duyệt hết, kiểm tra nếu không có lớp nào được tick
+                    if (!isAnyChecked)
+                    {
+                        AccountDTO account = AccountDAO.GetAccountById(GiangVienId);
+                        account.Role = 2;
+                        AccountBUS.UpdateAccount(account);
+                    }
+                    else
+                    {
+                        AccountDTO account = AccountDAO.GetAccountById(GiangVienId);
+                        account.Role = 3;
+                        AccountBUS.UpdateAccount(account);
+                    }
+
 
                     //MessageBox.Show("Cập nhật cố vấn cho các lớp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -315,7 +338,7 @@ namespace QLDiemRenLuyen
             {
                 if (cBKhoa.SelectedValue == null || !long.TryParse(cBKhoa.SelectedValue.ToString(), out long selectedKhoaId))
                 {
-                    
+
                     return; // Không làm gì nếu không có khoa được chọn
                 }
 

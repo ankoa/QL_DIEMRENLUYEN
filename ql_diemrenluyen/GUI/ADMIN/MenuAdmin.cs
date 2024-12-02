@@ -3,6 +3,7 @@ using ql_diemrenluyen.GUI.ADMIN.KhoaLop;
 using ql_diemrenluyen.GUI.ADMIN.Statistic;
 using ql_diemrenluyen.GUI.ADMIN.Student;
 using ql_diemrenluyen.GUI.ADMIN.TieuChi;
+using ql_diemrenluyen.GUI.USER;
 using ql_diemrenluyen.Helper;
 using QLDiemRenLuyen;
 using System.Runtime.InteropServices;
@@ -11,7 +12,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 {
     public partial class MenuAdmin : Form
     {
-        HomePage form_home;
+        Dashboard form_home;
         TaiKhoan form_taikhoan;
         AdminStudentTest form_student;
         DotCham form_DotCham;
@@ -84,6 +85,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 if (Program.role == 5)
                 {
                     panel2.Visible = true;
+                    panel3.Visible = false;
                 }
                 else panel2.Visible = false;
             }
@@ -182,12 +184,13 @@ namespace ql_diemrenluyen.GUI.ADMIN
             // Sidebar và các thiết lập khác
             sidebar.Width = 300;
             this.MouseDown += Form_MouseDown;
-            btnHomepage.BackColor = Color.LightBlue;
+
 
             // Kiểm tra điều kiện về role
             if (Program.role == 0)
             {
                 // Nếu role == 0, load form_taikhoan
+                btnUser.BackColor = Color.LightBlue;
                 if (form_taikhoan == null)
                 {
                     form_taikhoan = new TaiKhoan(); // Giả sử form_taikhoan là TaiKhoanForm
@@ -207,9 +210,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
             else
             {
                 // Nếu role khác 0, load form_home
+                btnHomepage.BackColor = Color.LightBlue;
                 if (form_home == null)
                 {
-                    form_home = new HomePage();
+                    form_home = new Dashboard();
                     form_home.FormClosed += HomePage_FormClosed;
                     form_home.FormBorderStyle = FormBorderStyle.None;
                     form_home.ControlBox = false;
@@ -302,7 +306,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             btnHomepage.BackColor = Color.LightBlue;
             if (form_home == null)
             {
-                form_home = new HomePage();
+                form_home = new Dashboard();
                 form_home.FormClosed += HomePage_FormClosed;
                 form_home.FormBorderStyle = FormBorderStyle.None;
                 form_home.ControlBox = false;

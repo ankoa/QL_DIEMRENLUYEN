@@ -1,4 +1,5 @@
 ﻿using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 using System.Text.RegularExpressions;
 
@@ -171,6 +172,50 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                         value.CreatedAt = lop.CreatedAt;
                         value.UpdatedAt = DateTime.Now;
                         value.status = 1;
+                        if (lop.CoVanId == null)
+                        {
+                            if (cbbMaCV.SelectedIndex != 0)
+                            {
+                                var danhSachLopCoVan = LopBUS.getAllLop().Where(lop => lop.CoVanId == long.Parse(cbbMaCV.SelectedItem.ToString())).ToList();
+                                if (danhSachLopCoVan.Count == 0)
+                                {
+                                    AccountDTO account = AccountDAO.GetAccountById(long.Parse(cbbMaCV.SelectedItem.ToString()));
+                                    account.Role = 3;
+                                    AccountBUS.UpdateAccount(account);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (cbbMaCV.SelectedIndex > 0)
+                            {
+                                var danhSachLopCoVan = LopBUS.getAllLop().Where(lop => lop.CoVanId == this.lop.CoVanId).ToList();
+                                if (danhSachLopCoVan.Count == 0)
+                                {
+                                    AccountDTO account = AccountDAO.GetAccountById(lop.CoVanId ?? 0);
+                                    account.Role = 2;
+                                    AccountBUS.UpdateAccount(account);
+                                }
+                                danhSachLopCoVan = LopBUS.getAllLop().Where(lop => lop.CoVanId == long.Parse(cbbMaCV.SelectedItem.ToString())).ToList();
+                                if (danhSachLopCoVan.Count == 0)
+                                {
+                                    AccountDTO account = AccountDAO.GetAccountById(long.Parse(cbbMaCV.SelectedItem.ToString()));
+                                    account.Role = 3;
+                                    AccountBUS.UpdateAccount(account);
+                                }
+                            }
+                            else
+                            {
+                                var danhSachLopCoVan = LopBUS.getAllLop().Where(lop => lop.CoVanId == this.lop.CoVanId).ToList();
+                                MessageBox.Show(danhSachLopCoVan.Count.ToString());
+                                if (danhSachLopCoVan.Count - 1 == 0)
+                                {
+                                    AccountDTO account = AccountDAO.GetAccountById(this.lop.CoVanId ?? 0);
+                                    account.Role = 2;
+                                    AccountBUS.UpdateAccount(account);
+                                }
+                            }
+                        }
 
                         // Gán giá trị CoVanId, nếu không có giảng viên thì gán null
                         value.CoVanId = (cbbMaCV.SelectedIndex != 0) ? (long?)long.Parse(cbbMaCV.SelectedItem.ToString()) : null;
@@ -178,6 +223,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                         bool isUpdate = LopBUS.UpdateLop(value);
                         if (isUpdate)
                         {
+
                             MessageBox.Show("Cập nhật hệ học thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.DialogResult = DialogResult.OK;
                             this.Close();

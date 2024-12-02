@@ -431,5 +431,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
             }
         }
 
+        private void tableGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

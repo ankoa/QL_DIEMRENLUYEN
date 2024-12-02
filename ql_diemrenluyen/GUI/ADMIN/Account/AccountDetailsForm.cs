@@ -1,4 +1,5 @@
 ﻿using ql_diemrenluyen.BUS;
+using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.GUI.ADMIN.Account
@@ -10,7 +11,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         private DataGridView table;
         private long id;
         String status;
-        public AccountDetailsForm(long id, string password, int role, string rememberToken, DateTime createdAt, DateTime updatedAt, string status, DataGridView dataGridView, TaiKhoan tkform)
+        public AccountDetailsForm(long id, int role, DateTime createdAt, DateTime updatedAt, string status, DataGridView dataGridView, TaiKhoan tkform)
         {
             this.BackColor = Color.Black;
             table = dataGridView;
@@ -23,9 +24,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             txtId.Text = id.ToString();
             txtId.ReadOnly = true; // Không cho phép chỉnh sửa trường ID
 
-            txtPassword.Text = password;
-            txtRememberToken.Text = rememberToken;
-
             // Cài đặt DateTimePicker cho CreatedAt
             DateTime minValidDate = dtpCreatedAt.MinDate;
             dtpCreatedAt.Value = createdAt >= minValidDate ? createdAt : DateTime.Now;
@@ -37,19 +35,75 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             dtpUpdatedAt.Value = updatedAt >= minValidDate ? updatedAt : DateTime.Now;
             dtpUpdatedAt.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             dtpUpdatedAt.Format = DateTimePickerFormat.Custom;
+            dtpUpdatedAt.Enabled = false;
 
-            // Tạo ComboBox cho Role
-            cmbRole.Items.AddRange(new object[] {
-        "ADMIN",
-        "Sinh viên",
-        "Giảng viên",
-        "Cố vấn học tập",
-        "Quản lý Khoa",
-        "Quản lý Trường"
-    });
+            //        // Tạo ComboBox cho Role
+            //        cmbRole.Items.AddRange(new object[] {
+            //    "ADMIN",
+            //    "Sinh viên",
+            //    "Giảng viên",
+            //    "Cố vấn học tập",
+            //    "Quản lý Khoa",
+            //    "Quản lý Trường"
+            //});
 
-            // Chọn giá trị trong ComboBox dựa trên role
-            cmbRole.SelectedIndex = role;
+            //        // Chọn giá trị trong ComboBox dựa trên role
+            //        cmbRole.SelectedIndex = role;
+
+            if (role == 2)
+            {
+                // Tạo ComboBox cho Role
+                cmbRole.Items.AddRange(new object[] {
+                    "Giảng viên",
+                    "Quản lý Khoa",
+                    "Quản lý Trường"
+                });
+
+                // Chọn giá trị trong ComboBox dựa trên role
+                cmbRole.SelectedItem = "Giảng viên";
+            }
+            else if (role == 1)
+            {
+                // Tạo ComboBox cho Role
+                cmbRole.Items.AddRange(new object[] {
+                    "Sinh viên",
+                 });
+
+                // Chọn giá trị trong ComboBox dựa trên role
+                cmbRole.SelectedIndex = 0;
+            }
+            else if (role == 4 || role == 5)
+            {
+                // Tạo ComboBox cho Role
+                cmbRole.Items.AddRange(new object[] {
+                    "Giảng viên",
+                    "Quản lý Khoa",
+                    "Quản lý Trường"
+                });
+
+                // Chọn giá trị trong ComboBox dựa trên role
+                cmbRole.SelectedItem = role == 4 ? "Quản lý Khoa" : "Quản lý Trường";
+            }
+            else if (role == 3)
+            {
+                // Tạo ComboBox cho Role
+                cmbRole.Items.AddRange(new object[] {
+                    "Cố vấn học tập",
+                });
+
+                // Chọn giá trị trong ComboBox dựa trên role
+                cmbRole.SelectedIndex = 0;
+            }
+            else
+            {
+                // Tạo ComboBox cho Role
+                cmbRole.Items.AddRange(new object[] {
+                    "ADMIN",
+                });
+
+                // Chọn giá trị trong ComboBox dựa trên role
+                cmbRole.SelectedIndex = 0;
+            }
 
             // Tải trạng thái vào ComboBox
             comboBox1.SelectedItem = status;
@@ -67,17 +121,10 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPassword.Text) || cmbRole.SelectedIndex == -1 || comboBox1.SelectedItem == null)
+            if (cmbRole.SelectedIndex == -1 || comboBox1.SelectedItem == null)
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;  // Dừng lại nếu có trường nào bị rỗng
-            }
-
-            string passwordValidationMessage = AccountBUS.IsPasswordValid(txtPassword.Text);
-            if (!string.IsNullOrEmpty(passwordValidationMessage))  // Nếu có thông báo lỗi
-            {
-                MessageBox.Show(passwordValidationMessage, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;  // Dừng lại nếu mật khẩu không hợp lệ
             }
 
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn cập nhật tài khoản không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -85,20 +132,23 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             if (dialogResult == DialogResult.Yes)
             {
                 // Lấy role từ ComboBox
-                int role = cmbRole.SelectedIndex switch
+                int role = cmbRole.SelectedItem.ToString() switch
                 {
-                    0 => 0,  // "ADMIN"
-                    1 => 1,  // "Sinh viên"
-                    2 => 2,  // "Giảng viên"
-                    3 => 3,  // "Cố vấn học tập"
-                    4 => 4,  // "Quản lý Khoa"
-                    5 => 5,  // "Quản lý Trường"
+                    "ADMIN" => 0,  // "ADMIN"
+                    "Sinh viên" => 1,  // "Sinh viên"
+                    "Giảng viên" => 2,  // "Giảng viên"
+                    "Cố vấn học tập" => 3,  // "Cố vấn học tập"
+                    "Quản lý Khoa" => 4,  // "Quản lý Khoa"
+                    "Quản lý Trường" => 5,  // "Quản lý Trường"
                 };
+
+                AccountDTO accountDTO = AccountDAO.GetAccountById(currentAccountId);
+                //MessageBox.Show(accountDTO.Password);
 
                 AccountDTO account = new AccountDTO
                 {
                     Id = currentAccountId,
-                    Password = txtPassword.Text,
+                    Password = accountDTO.Password,
                     Role = role,
                     Status = comboBox1.SelectedItem.ToString() == "Hoạt động" ? 1 : 0,
                     CreatedAt = dtpCreatedAt.Value,
@@ -145,16 +195,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
         {
             base.OnPaint(e);
 
-            // Cấu hình border
-            int borderWidth = 5; // Độ dày của border
-            Color borderColor = Color.Black; // Màu của border (màu đen)
+            //// Cấu hình border
+            //int borderWidth = 0; // Độ dày của border
+            //Color borderColor = Color.Black; // Màu của border (màu đen)
 
-            // Vẽ border (viền thẳng, không bo góc)
-            using (Pen pen = new Pen(borderColor, borderWidth))
-            {
-                e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None; // Tắt làm mịn (anti-aliasing)
-                e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, this.ClientSize.Width - borderWidth, this.ClientSize.Height - borderWidth));
-            }
+            //// Vẽ border (viền thẳng, không bo góc)
+            //using (Pen pen = new Pen(borderColor, borderWidth))
+            //{
+            //    e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None; // Tắt làm mịn (anti-aliasing)
+            //    e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, this.ClientSize.Width - borderWidth, this.ClientSize.Height - borderWidth));
+            //}
         }
 
 

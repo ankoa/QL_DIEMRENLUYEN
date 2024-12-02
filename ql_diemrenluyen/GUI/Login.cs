@@ -170,31 +170,22 @@ namespace ql_diemrenluyen.GUI
                         Program.nguoidung_id = accountLogin.Id.ToString();
                         Program.role = accountLogin.Role;
                         Program.type = accountType;
-                        MessageBox.Show(accountType);
-                        if (accountLogin.Role == 0)
+                        //MessageBox.Show(accountType);
+
+                        if (accountLogin.Role == 1)
+                        {
+                            Dashboard otpForm = new Dashboard();
+
+
+                            // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
+                            //otpForm.FormClosed += (s, args) => this.Show();
+
+                            otpForm.Show();  // Hiển thị form mới
+                        }
+                        else
                         {
                             MenuAdmin otpForm = new MenuAdmin();
 
-
-
-                            // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
-                            //otpForm.FormClosed += (s, args) => this.Show();
-
-                            otpForm.Show();  // Hiển thị form mới
-                        }
-                        else if (accountLogin.Role == 1)
-                        {
-                            Dashboard otpForm = new Dashboard();
-
-
-                            // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
-                            //otpForm.FormClosed += (s, args) => this.Show();
-
-                            otpForm.Show();  // Hiển thị form mới
-                        }
-                        else if (accountLogin.Role == 3)
-                        {
-                            Dashboard otpForm = new Dashboard();
 
 
                             // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại

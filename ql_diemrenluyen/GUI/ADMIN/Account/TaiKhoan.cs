@@ -273,7 +273,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     ? tempUpdatedAt : DateTime.MinValue;
 
                 // Chuyển thông tin sang form chi tiết
-                AccountDetailsForm detailsForm = new AccountDetailsForm(id, password, role, "", createdAt, updatedAt, status, tableTK, this);
+                AccountDetailsForm detailsForm = new AccountDetailsForm(id, role, createdAt, updatedAt, status, tableTK, this);
                 detailsForm.Show();
             }
         }

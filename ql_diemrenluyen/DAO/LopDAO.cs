@@ -356,15 +356,14 @@ namespace ql_diemrenluyen.DAO
         {
             string sql = @"
         SELECT 
-            l.tenlop AS TenLop, 
-            k.tenkhoa AS TenKhoa, 
-            gv_gv.name AS GiangVien
-        FROM sinhvien sv
-        INNER JOIN lop l ON sv.lop_id = l.id
-        INNER JOIN khoa k ON l.khoa_id = k.id
-        LEFT JOIN covan_hoctap gv_ctht ON l.id = gv_ctht.lop_id
-        LEFT JOIN giangvien gv_gv ON gv_ctht.giangvien_id = gv_gv.id
-        WHERE sv.id = @sinhVienId;
+    l.tenlop AS TenLop, 
+    k.tenkhoa AS TenKhoa, 
+    gv_gv.name AS GiangVien
+FROM sinhvien sv
+INNER JOIN lop l ON sv.lop_id = l.id
+INNER JOIN khoa k ON l.khoa_id = k.id
+LEFT JOIN giangvien gv_gv ON l.covan_id = gv_gv.id
+WHERE sv.id = @sinhVienId;
     ";
 
             var cmd = new MySqlCommand(sql);

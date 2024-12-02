@@ -76,13 +76,13 @@ namespace ql_diemrenluyen.GUI.ADMIN
             {
                 btnLuu.Visible = true;
                 label6.Visible = false;
-                label7.Visible = false;
+                label5.Visible = false;
             }
             else if (action == "Xem")
             {
                 btnLuu.Visible = false;
                 label6.Visible = true;
-                label7.Visible = true;
+                label5.Visible = true;
                 //long svID = long.Parse(lbMssv.Text);
                 if (vaiTro == 1)
                 {
@@ -1589,9 +1589,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void cbHocKy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (cbHocKy.SelectedIndex != -1)
-            //    //    this.hockiId = Convert.ToInt32(cbHocKy.SelectedValue);
-            //    MessageBox.Show(cbHocKy.SelectedItem.ToString());
+            if (cbHocKy.SelectedIndex != -1)
+                this.hockiId = Convert.ToInt32(cbHocKy.SelectedValue);
         }
     }
 

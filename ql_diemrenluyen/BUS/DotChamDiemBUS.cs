@@ -104,7 +104,7 @@ namespace ql_diemrenluyen.BUS
         }
 
         // Lấy thông tin đợt chấm điểm của sinh viên theo ID
-        public static List<ThongTinDotChamDiemDTO> GetDotChamDiemCuaSinhVienTheoId(int sinhVienId)
+        public static List<ThongTinDotChamDiemDTO> GetDotChamDiemCuaSinhVienTheoId(long sinhVienId)
         {
             try
             {
@@ -127,11 +127,47 @@ namespace ql_diemrenluyen.BUS
         }
 
         // Lấy thông tin đợt chấm điểm của cố vấn theo ID
-        public static List<ThongTinDotChamDiemDTO> GetDotChamDiemCuaCoVanTheoId(int coVanId)
+        public static List<ThongTinDotChamDiemDTO> GetDotChamDiemCuaCoVanTheoId(long coVanId)
         {
             try
             {
                 var thongTinDotChamDiem = DotChamDiemDAO.GetDotChamDiemCuaCoVanTheoId(coVanId);
+                if (thongTinDotChamDiem == null) return new List<ThongTinDotChamDiemDTO>(); // Trả về danh sách rỗng
+
+                // Bọc kết quả vào danh sách
+                return new List<ThongTinDotChamDiemDTO> { thongTinDotChamDiem };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching DotChamDiem for advisor: " + ex.Message);
+                return new List<ThongTinDotChamDiemDTO>();
+            }
+        }
+
+        // Lấy thông tin đợt chấm điểm của khoa
+        public static List<ThongTinDotChamDiemDTO> GetDotChamDiemCuaKhoaTheoId(long khoaId)
+        {
+            try
+            {
+                var thongTinDotChamDiem = DotChamDiemDAO.GetDotChamDiemCuaKhoaTheoId(khoaId);
+                if (thongTinDotChamDiem == null) return new List<ThongTinDotChamDiemDTO>(); // Trả về danh sách rỗng
+
+                // Bọc kết quả vào danh sách
+                return new List<ThongTinDotChamDiemDTO> { thongTinDotChamDiem };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching DotChamDiem for advisor: " + ex.Message);
+                return new List<ThongTinDotChamDiemDTO>();
+            }
+        }
+
+        // Lấy thông tin đợt chấm điểm của trường
+        public static List<ThongTinDotChamDiemDTO> GetDotChamDiemCuaTruong()
+        {
+            try
+            {
+                var thongTinDotChamDiem = DotChamDiemDAO.GetDotChamDiemCuaTruong();
                 if (thongTinDotChamDiem == null) return new List<ThongTinDotChamDiemDTO>(); // Trả về danh sách rỗng
 
                 // Bọc kết quả vào danh sách
