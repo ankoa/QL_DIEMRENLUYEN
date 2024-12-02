@@ -23,6 +23,31 @@ namespace ql_diemrenluyen.DAO
             return students;
         }
 
+        public static List<SinhVienDTO> GetAllStudentsToChamDiem()
+        {
+            List<SinhVienDTO> students = new List<SinhVienDTO>();
+
+            // Câu lệnh SQL kết nối bảng sinhvien và thongtindotchamdiem
+            string sql = @"
+        SELECT sv.* 
+        FROM sinhvien sv
+        INNER JOIN thongtindotchamdiem ttdcd 
+        ON sv.id = ttdcd.sinhvien_id";
+
+            // Thực thi câu lệnh SQL và lấy kết quả
+            List<List<object>> result = DBConnection.ExecuteReader(sql);
+
+            // Duyệt qua từng hàng kết quả và ánh xạ vào danh sách SinhVienDTO
+            foreach (var row in result)
+            {
+                SinhVienDTO student = MapToSinhVienDTO(row);
+                students.Add(student);
+            }
+
+            return students;
+        }
+
+
         public static List<SinhVienToExport> GetAllStudentsToExport()
         {
             List<SinhVienToExport> students = new List<SinhVienToExport>();

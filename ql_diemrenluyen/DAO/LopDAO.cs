@@ -338,7 +338,7 @@ namespace ql_diemrenluyen.DAO
                     {
                         Id = Convert.ToInt64(row[0]),
                         TenLop = Convert.ToString(row[1]),
-                        CoVanId = Convert.ToInt64(row[2]),
+                        CoVanId = row[2] != DBNull.Value ? Convert.ToInt64(row[2]) : null,
                         Khoa = KhoaDAO.GetKhoaByID(Convert.ToInt64(row[3])),
                         HeDaoTao = HeHocDAO.findById(Convert.ToInt32(row[4])),
                         CreatedAt = row[5] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[5]) : null,
@@ -434,18 +434,17 @@ namespace ql_diemrenluyen.DAO
         {
             string sql = @"
            SELECT
-                l.tenlop AS TenLop,
-                k.tenkhoa AS TenKhoa,
-                he.name AS HeHocName,
-                gv.id AS MaGiangVien,
-                gv.name AS TenGiangVien
-            FROM lop l
-            LEFT JOIN giangvien gv ON l.covan_id = gv.id         
-            INNER JOIN khoa k ON gv.khoa_id = k.id             
-            LEFT JOIN sinhvien sv ON sv.lop_id = l.id            
-            LEFT JOIN hehoc he ON l.hedaotao = he.id
-            WHERE l.khoa_id = gv.khoa_id                          
-            GROUP BY l.tenlop, k.tenkhoa, he.name, gv.name;
+    l.tenlop AS TenLop,
+    k.tenkhoa AS TenKhoa,
+    he.name AS HeHocName,
+    gv.id AS MaGiangVien,
+    gv.name AS TenGiangVien
+FROM lop l
+LEFT JOIN khoa k ON l.khoa_id = k.id
+LEFT JOIN giangvien gv ON l.covan_id = gv.id   
+LEFT JOIN sinhvien sv ON sv.lop_id = l.id            
+LEFT JOIN hehoc he ON l.hedaotao = he.id
+GROUP BY l.tenlop, k.tenkhoa, he.name, gv.id, gv.name;
             ";
 
             var cmd = new MySqlCommand(sql);

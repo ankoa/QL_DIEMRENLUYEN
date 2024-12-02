@@ -65,9 +65,8 @@
             panel1.Controls.Add(tableLayoutPanel1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1469, 666);
+            panel1.Size = new Size(1679, 888);
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             // 
@@ -80,12 +79,13 @@
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 133F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1469, 666);
+            tableLayoutPanel1.Size = new Size(1679, 888);
             tableLayoutPanel1.TabIndex = 9;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -95,10 +95,9 @@
             panel2.BackColor = SystemColors.MenuHighlight;
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 2);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1463, 96);
+            panel2.Size = new Size(1673, 127);
             panel2.TabIndex = 6;
             panel2.Paint += panel2_Paint;
             // 
@@ -109,7 +108,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1463, 96);
+            label1.Size = new Size(1673, 127);
             label1.TabIndex = 6;
             label1.Text = "Quản lý sinh viên";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -124,13 +123,14 @@
             dataGridStudent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridStudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridStudent.Columns.AddRange(new DataGridViewColumn[] { maSV, Column1, gioiTinh, lop, khoa, btnXemTT, btnXoa });
-            dataGridStudent.Location = new Point(3, 162);
-            dataGridStudent.Margin = new Padding(3, 2, 3, 2);
+            dataGridStudent.Location = new Point(3, 216);
             dataGridStudent.MultiSelect = false;
             dataGridStudent.Name = "dataGridStudent";
             dataGridStudent.ReadOnly = true;
+            dataGridStudent.RowHeadersVisible = false;
             dataGridStudent.RowHeadersWidth = 51;
-            dataGridStudent.Size = new Size(1463, 502);
+            dataGridStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridStudent.Size = new Size(1673, 669);
             dataGridStudent.TabIndex = 0;
             dataGridStudent.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -190,18 +190,19 @@
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 250F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 286F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 420F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 480F));
             tableLayoutPanel2.Controls.Add(flowLayoutPanel2, 2, 0);
             tableLayoutPanel2.Controls.Add(label2, 0, 0);
             tableLayoutPanel2.Controls.Add(txtSearch, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 103);
+            tableLayoutPanel2.Location = new Point(3, 137);
+            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1463, 54);
+            tableLayoutPanel2.Size = new Size(1673, 72);
             tableLayoutPanel2.TabIndex = 10;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
@@ -213,19 +214,20 @@
             flowLayoutPanel2.Controls.Add(button3);
             flowLayoutPanel2.Controls.Add(btnThemSV);
             flowLayoutPanel2.Dock = DockStyle.Fill;
-            flowLayoutPanel2.Location = new Point(1046, 3);
+            flowLayoutPanel2.Location = new Point(1196, 4);
+            flowLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(414, 48);
+            flowLayoutPanel2.Size = new Size(474, 64);
             flowLayoutPanel2.TabIndex = 7;
             // 
             // btnSearch
             // 
             btnSearch.BackColor = SystemColors.ButtonFace;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(0, 2);
-            btnSearch.Margin = new Padding(0, 2, 3, 2);
+            btnSearch.Location = new Point(0, 3);
+            btnSearch.Margin = new Padding(0, 3, 3, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(60, 37);
+            btnSearch.Size = new Size(69, 49);
             btnSearch.TabIndex = 3;
             btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += button1_Click;
@@ -234,10 +236,9 @@
             // 
             button2.BackColor = SystemColors.ButtonFace;
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(66, 2);
-            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Location = new Point(75, 3);
             button2.Name = "button2";
-            button2.Size = new Size(60, 37);
+            button2.Size = new Size(69, 49);
             button2.TabIndex = 4;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
@@ -247,10 +248,10 @@
             buttonImport.BackColor = SystemColors.Control;
             buttonImport.Font = new Font("Segoe UI Emoji", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonImport.ForeColor = SystemColors.MenuHighlight;
-            buttonImport.Location = new Point(132, 2);
-            buttonImport.Margin = new Padding(3, 2, 3, 3);
+            buttonImport.Location = new Point(150, 3);
+            buttonImport.Margin = new Padding(3, 3, 3, 4);
             buttonImport.Name = "buttonImport";
-            buttonImport.Size = new Size(70, 37);
+            buttonImport.Size = new Size(80, 49);
             buttonImport.TabIndex = 8;
             buttonImport.Text = "Import";
             buttonImport.UseVisualStyleBackColor = false;
@@ -261,10 +262,10 @@
             button3.BackColor = SystemColors.Control;
             button3.Font = new Font("Segoe UI Emoji", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = SystemColors.MenuHighlight;
-            button3.Location = new Point(208, 2);
-            button3.Margin = new Padding(3, 2, 3, 3);
+            button3.Location = new Point(236, 3);
+            button3.Margin = new Padding(3, 3, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(70, 37);
+            button3.Size = new Size(80, 49);
             button3.TabIndex = 9;
             button3.Text = "Export";
             button3.UseVisualStyleBackColor = false;
@@ -275,10 +276,10 @@
             btnThemSV.BackColor = SystemColors.Highlight;
             btnThemSV.Font = new Font("Segoe UI Emoji", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThemSV.ForeColor = SystemColors.ControlLightLight;
-            btnThemSV.Location = new Point(284, 2);
-            btnThemSV.Margin = new Padding(3, 2, 3, 3);
+            btnThemSV.Location = new Point(322, 3);
+            btnThemSV.Margin = new Padding(3, 3, 3, 4);
             btnThemSV.Name = "btnThemSV";
-            btnThemSV.Size = new Size(125, 37);
+            btnThemSV.Size = new Size(143, 49);
             btnThemSV.TabIndex = 7;
             btnThemSV.Text = "Thêm Sinh Viên";
             btnThemSV.UseVisualStyleBackColor = false;
@@ -289,10 +290,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(3, 5);
-            label2.Margin = new Padding(3, 5, 3, 0);
+            label2.Location = new Point(3, 7);
+            label2.Margin = new Padding(3, 7, 3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(230, 32);
+            label2.Size = new Size(231, 65);
             label2.TabIndex = 5;
             label2.Text = "Danh sách sinh viên";
             label2.Click += label2_Click;
@@ -301,21 +302,20 @@
             // 
             txtSearch.Dock = DockStyle.Fill;
             txtSearch.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(250, 8);
-            txtSearch.Margin = new Padding(0, 8, 0, 3);
+            txtSearch.Location = new Point(286, 11);
+            txtSearch.Margin = new Padding(0, 11, 0, 4);
             txtSearch.MaxLength = 70;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(793, 33);
+            txtSearch.Size = new Size(907, 39);
             txtSearch.TabIndex = 8;
             // 
             // QLSinhVien
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "QLSinhVien";
-            Size = new Size(1469, 666);
+            Size = new Size(1679, 888);
             Load += QLSinhVien_Load;
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);

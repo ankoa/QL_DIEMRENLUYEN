@@ -1,5 +1,6 @@
 ﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
+using ql_diemrenluyen.Util.ExcelImporter;
 
 namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
 {
@@ -140,6 +141,40 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
         private void button2_Click(object sender, EventArgs e)
         {
             new LopSearch(this).Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Chuyển đổi danh sách sang List<Dictionary<string, string>>
+            var dictionaryList = ExcelExporter.ConvertListToDictionaryList(LopBUS.GetLopHocToExports());
+
+            // Xuất ra Excel
+            ExcelExporter.ExportListToExcel(dictionaryList);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    try
+                    {
+                        ImportLop importer = new ImportLop();
+                        var importedStudents = importer.ImportFromExcel(filePath);
+
+                        MessageBox.Show($"Import thành công {importedStudents.Count} lớp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        list = LopBUS.getAllLop();
+                        loadlist(list);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi import dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

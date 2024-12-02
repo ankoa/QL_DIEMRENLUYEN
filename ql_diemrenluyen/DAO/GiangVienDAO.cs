@@ -284,13 +284,15 @@ namespace ql_diemrenluyen.DAO
             {
                 GiangVienDTO giangVien = new GiangVienDTO
                 {
-                    Id = Convert.ToInt32(row[0]),
+                    Id = Convert.ToInt64(row[0]),
                     Name = Convert.ToString(row[1]),
                     Email = Convert.ToString(row[2]),
-                    CreatedAt = row[3] != DBNull.Value ? Convert.ToDateTime(row[3]) : (DateTime?)null,
-                    UpdatedAt = row[4] != DBNull.Value ? Convert.ToDateTime(row[4]) : (DateTime?)null,
-                    KhoaId = Convert.ToInt32(row[6]),
-                    Status = Convert.ToInt32(row[7])
+                    CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
+                    UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
+                    KhoaId = Convert.ToInt32(row[5]),
+                    NgaySinh = Convert.ToDateTime(row[6]),
+                    GioiTinh = Convert.ToInt32(row[7]),
+                    Status = Convert.ToInt32(row[8])
                 };
 
                 giangViens.Add(giangVien);
@@ -307,8 +309,8 @@ namespace ql_diemrenluyen.DAO
                 Id = Convert.ToInt32(row[0]),
                 Name = Convert.ToString(row[1]),
                 Email = Convert.ToString(row[2]),
-                CreatedAt = row[4] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
-                UpdatedAt = row[5] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
+                CreatedAt = row[3] != null ? Convert.ToDateTime(row[3]) : (DateTime?)null,
+                UpdatedAt = row[4] != null ? Convert.ToDateTime(row[4]) : (DateTime?)null,
                 KhoaId = Convert.ToInt32(row[5]),
                 NgaySinh = Convert.ToDateTime(row[6]),
                 GioiTinh = Convert.ToInt32(row[7]),

@@ -20,7 +20,7 @@ namespace ql_diemrenluyen.GUI.USER
         //};
         ////82778917
 
-        public static string nguoidung_id = "1";
+        public static string nguoidung_id = "1000000000";
         public static string role = 3 switch
         {
             0 => "ADMIN",
@@ -102,10 +102,10 @@ namespace ql_diemrenluyen.GUI.USER
                     lbEmail.Text = giangvien.Email;
                     lbHovaTen.Text = giangvien.Name;
                     lbNgaySinh.Text = giangvien.NgaySinh.ToString();
-                    //if (giangvien. == 1)
-                    //    lbGioiTinh.Text = "Nam";
-                    //else
-                    //    lbGioiTinh.Text = "Nữ";
+                    if (giangvien.GioiTinh == 1)
+                        lbGioiTinh.Text = "Nam";
+                    else
+                        lbGioiTinh.Text = "Nữ";
                 }
                 catch (Exception ex)
                 {

@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ql_diemrenluyen.BUS;
+﻿using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
+using System.Text.RegularExpressions;
 
 namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
 {
@@ -18,6 +9,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
         public AddKhoa()
         {
             InitializeComponent();
+            text_khoa.Focus();
         }
         private bool check(String value)
         {
@@ -64,11 +56,17 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                 value.TenKhoa = text_khoa.Text;
                 value.CreatedAt = DateTime.Now;
                 value.UpdatedAt = DateTime.Now;
-                value.status= 1;
+                value.status = 1;
                 bool isAdded = KhoaBUS.AddKhoa(value);
                 if (isAdded)
                 {
                     MessageBox.Show("Thêm khoa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK; // Đặt kết quả form là OK nếu thêm thành công
+                    this.Close(); // Đóng form
+                }
+                else
+                {
+                    MessageBox.Show("Thêm khoa thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK; // Đặt kết quả form là OK nếu thêm thành công
                     this.Close(); // Đóng form
                 }
@@ -80,7 +78,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
             var rs = MessageBox.Show("Bạn có chắc muốn xóa trắng ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (rs == DialogResult.OK)
             {
-                text_khoa.Text = ""; 
+                text_khoa.Text = "";
             }
         }
     }

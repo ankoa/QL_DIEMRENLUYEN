@@ -15,7 +15,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         List<KhoaDTO> khoaList = KhoaBUS.GetAllKhoa();
         List<LopDTO> lopList = LopBUS.getAllLop();
         List<HocKyDTO> hockyList = HocKyBUS.GetAllHocKy();
-        List<SinhVienDTO> sinhvienList = SinhVienBUS.GetAllStudents();
+        List<SinhVienDTO> sinhvienList = SinhVienBUS.GetAllStudentsToChamDiem();
         List<TieuChiDanhGiaDTO> tieuChiList = TieuChiDanhGiaBUS.XuatAllTieuChiDanhGia();
         private Dictionary<string, long> sttToId = new Dictionary<string, long>();
         //private System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
@@ -36,24 +36,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             this.action = action;
             this.hockiId = hocky;
             this.dotchamdiemId = dotchamdiem;
-            if (action == "Chấm")
-            {
-                btnLuu.Visible = true;
-                label6.Visible = false;
-                label7.Visible = false;
-            }
-            else if (action == "Xem")
-            {
-                btnLuu.Visible = false;
-                label6.Visible = true;
-                label7.Visible = true;
-                //long svID = long.Parse(lbMssv.Text);
-                DiemRenLuyenSinhVienDTO drl = DiemRenLuyenSinhVienDAO.GetDiemRenLuyenBySinhVienIdAndHocKiId(nguoiDungId, this.hockiId);
-                lbXepHang.Text = drl.Comments;
-                lbDiem.Text = drl.Score.ToString();
-                lbhocky.Visible = true;
-                cbHocKy.Visible = true;
-            }
+
         }
 
         private void chamdrl_Load(object sender, EventArgs e)
@@ -87,6 +70,33 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 tableLayoutPanel2.RowStyles[0].Height = 28;
                 tableLayoutPanel2.RowStyles[1].Height = 40;
                 tableLayoutPanel2.RowStyles[2].Height = 32;
+            }
+
+            if (action == "Chấm")
+            {
+                btnLuu.Visible = true;
+                label6.Visible = false;
+                label7.Visible = false;
+            }
+            else if (action == "Xem")
+            {
+                btnLuu.Visible = false;
+                label6.Visible = true;
+                label7.Visible = true;
+                //long svID = long.Parse(lbMssv.Text);
+                if (vaiTro == 1)
+                {
+                    DiemRenLuyenSinhVienDTO drl = DiemRenLuyenSinhVienDAO.GetDiemRenLuyenBySinhVienIdAndHocKiId(nguoiDungId, this.hockiId);
+                    lbXepHang.Text = drl.Comments;
+                    lbDiem.Text = drl.Score.ToString();
+                    lbXepHang.Text = drl.Comments;
+                }
+
+                lbhocky.Visible = true;
+                cbHocKy.Visible = true;
+                cbHocKy.SelectedValue = this.hockiId;
+                //cbHocKy.SelectedIndex = 1;
+                //MessageBox.Show(cbHocKy.SelectedItem.ToString());
             }
 
         }
@@ -204,7 +214,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 GiangVienDTO gv = GiangVienBUS.GetGiangVienById(nguoiDungId);
                 for (int i = 0; i < khoaList.Count; i++)
                 {
-                    if (gv.KhoaId == khoaList[i].Id)
+                    if (gv.KhoaId == khoaList[i].Id && gv.Status == 1 && khoaList[i].status == 1)
                     {
                         data1.Add(khoaList[i].TenKhoa);
                         LoadLopTheoCoVan(gv.Id);
@@ -222,9 +232,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 for (int i = 0; i < khoaList.Count; i++)
                 {
                     GiangVienDTO gv = GiangVienBUS.GetGiangVienById(nguoiDungId);
-                    if (gv.KhoaId == khoaList[i].Id)
+                    if (gv.KhoaId == khoaList[i].Id && gv.Status == 1 && khoaList[i].status == 1)
                     {
                         data1.Add(khoaList[i].TenKhoa);
+                        LoadLopTheoCoVan(gv.Id);
                         break;
                     }
 
@@ -248,9 +259,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 cbKhoa.SelectedIndex = -1;
             }
 
-
-
-
             cbKhoa.SelectedIndexChanged += (s, e) =>
             {
                 LoadLopTheoKhoa();
@@ -271,9 +279,29 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     {
                         lbTen.Text = selectedStudent.Name;
                         lbMssv.Text = selectedStudent.Id.ToString();
+                        DiemRenLuyenSinhVienDTO drl = DiemRenLuyenSinhVienDAO.GetDiemRenLuyenBySinhVienIdAndHocKiId(selectedStudent.Id, this.hockiId);
+                        if (drl != null)
+                        {
+                            lbXepHang.Text = drl.Comments;
+                            lbDiem.Text = drl.Score.ToString();
+                            lbXepHang.Text = drl.Comments;
+                        }
+                        else
+                        {
+                            lbXepHang.Text = "";
+                            lbDiem.Text = "";
+                            lbXepHang.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        lbXepHang.Text = "";
+                        lbDiem.Text = "";
+                        lbXepHang.Text = "";
                     }
 
                     LoadData();
+
                 }
                 else
                 {
@@ -910,9 +938,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 // Tìm khoaId dựa trên tên khoa
                 for (int i = 0; i < khoaList.Count; i++)
                 {
-                    if (khoaList[i].TenKhoa == tenkhoa)
+                    if (khoaList[i].TenKhoa == tenkhoa && khoaList[i].status == 1)
                     {
-                        //MessageBox.Show("ddmádasdasd");
                         khoaId = khoaList[i].Id;
                         this.khoaId = khoaId;
                         break;
@@ -921,8 +948,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 // Lọc và thêm các lớp vào ComboBox cbLop dựa trên khoaId
                 for (int i = 0; i < lopList.Count; i++)
                 {
-                    //MessageBox.Show(lopList[i].KhoaId);
-                    if (lopList[i].Khoa.Id == khoaId)
+                    if (lopList[i].Khoa.Id == khoaId && lopList[i].status == 1)
                     {
                         cbLop.Items.Add(lopList[i].TenLop);
 
@@ -1563,8 +1589,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void cbHocKy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.hockiId == null)
-                this.hockiId = Convert.ToInt32(cbHocKy.SelectedValue);
+            //if (cbHocKy.SelectedIndex != -1)
+            //    //    this.hockiId = Convert.ToInt32(cbHocKy.SelectedValue);
+            //    MessageBox.Show(cbHocKy.SelectedItem.ToString());
         }
     }
 

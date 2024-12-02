@@ -1,6 +1,5 @@
 using OfficeOpenXml;
 using ql_diemrenluyen.BUS;
-using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.Util.ExcelImporter
@@ -34,7 +33,7 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                     Password = password,
                     CreatedAt = DateTime.UtcNow,
                     UpdatedAt = DateTime.UtcNow,
-                    Role = 2, // Vai trò 2 cho giảng viên
+                    Role = 3, // Vai trò 2 cho giảng viên
                     Status = 1
                 };
 
@@ -84,11 +83,9 @@ namespace ql_diemrenluyen.Util.ExcelImporter
                             Id = Convert.ToInt64(worksheet.Cells[row, 1].Text),
                             Name = worksheet.Cells[row, 2].Text,
                             Email = worksheet.Cells[row, 3].Text,
-                            KhoaId = Convert.ToInt64(worksheet.Cells[row, 7].Text),
+                            KhoaId = Convert.ToInt64(worksheet.Cells[row, 5].Text),
                             NgaySinh = DateTime.Parse(worksheet.Cells[row, 4].Text),
-                            GioiTinh = int.Parse(worksheet.Cells[row, 8].Text),
-
-
+                            GioiTinh = int.Parse(worksheet.Cells[row, 6].Text),
                             Status = 1, // Mặc định là 1
                             CreatedAt = DateTime.UtcNow,
                             UpdatedAt = DateTime.UtcNow

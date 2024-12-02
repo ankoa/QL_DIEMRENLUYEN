@@ -573,3 +573,6 @@ D:\Code\QLDiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\GUI\ADMIN\Teache
 D:\Code\QLDiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ImageViewerForm.resources
 C:\Users\duyli\Desktop\C#\drl2\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThongTinBangChung.resources
 >>>>>>> 2b1823f72e10cd7f944eff64016ff89fa7462c32
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\bin\Debug\net8.0-windows\GUI\ADMIN\Teacher\ThemGiangVien.cs
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\QLDiemRenLuyen.ThongTinBangChung.resources
+C:\Users\huhuh\OneDrive\Máy tính\Code\Qldiemrenluyen\ql_diemrenluyen\obj\Debug\net8.0-windows\ImageViewerForm.resources

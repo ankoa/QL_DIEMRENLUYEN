@@ -20,7 +20,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         QuanLyKhoaLop form_QuanLyKhoaLop;
         QLBangChung form_QLBangChung;
         Thongke form_ThongKe;
-        private PictureBox loading;
+        public static PictureBox loading;
 
         [DllImport("user32.dll")]
         private static extern void ReleaseCapture();

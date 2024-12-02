@@ -112,8 +112,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
             dotcham.StartDate = dtpCreatedAt.Value;
             dotcham.EndDate = dtpUpdatedAt.Value;
 
-            // Gọi phương thức cập nhật tài khoản
-            bool result = DotChamDiemBUS.UpdateDotChamDiem(dotcham);
 
             string status = comboBox1.SelectedItem.ToString();
 
@@ -130,6 +128,9 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
                 dotcham.Status = -1;
             }
 
+            // Gọi phương thức cập nhật tài khoản
+            bool result = DotChamDiemBUS.UpdateDotChamDiem(dotcham);
+
             if (result)
             {
                 MessageBox.Show(dotcham.Status == 0 ? "Xóa đợt chấm thành công!" : "Cập nhật đợt chấm thành công!");
@@ -144,9 +145,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
                 MessageBox.Show("Cập nhật đợt chấm không thành công. Vui lòng kiểm tra lại!");
             }
         }
-
-
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {

@@ -1019,6 +1019,7 @@
             Controls.Add(DashboardContainer);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Dashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             DashboardContainer.ResumeLayout(false);
             studentContainer.ResumeLayout(false);

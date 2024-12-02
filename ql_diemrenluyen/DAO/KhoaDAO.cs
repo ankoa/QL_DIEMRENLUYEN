@@ -133,7 +133,7 @@ namespace ql_diemrenluyen.DAO
         // Thêm khoa mới
         public static bool AddKhoa(KhoaDTO khoa)
         {
-            string sql = "INSERT INTO khoa (id, tenkhoa, created_at, updated_at, status) VALUES (@id, s@tenKhoa, @createdAt, @updatedAt, @status)";
+            string sql = "INSERT INTO khoa (id, tenkhoa, created_at, updated_at, status) VALUES (@id, @tenKhoa, @createdAt, @updatedAt, @status)";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", khoa.Id);

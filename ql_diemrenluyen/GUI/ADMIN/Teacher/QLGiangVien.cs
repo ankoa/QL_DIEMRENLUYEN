@@ -1,5 +1,6 @@
 using ql_diemrenluyen.BUS;
 using ql_diemrenluyen.DTO;
+using ql_diemrenluyen.Helper;
 using ql_diemrenluyen.Util.ExcelImporter;
 using QLDiemRenLuyen;
 
@@ -384,8 +385,12 @@ namespace ql_diemrenluyen.GUI.ADMIN
             ExcelExporter.ExportListToExcel(dictionaryList);
         }
 
-        private void btImport_Click(object sender, EventArgs e)
+        private async void btImport_Click(object sender, EventArgs e)
         {
+            // Tạo loading animation
+            var loading = Loading.CreateLoadingControl(this);
+
+
             try
             {
                 // Hiển thị hộp thoại chọn file
@@ -397,16 +402,20 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         string filePath = openFileDialog.FileName;
+                        Helper.Loading.ShowLoading(loading);
+                        // Chạy tác vụ import trong Task để không khóa giao diện
+                        List<GiangVienDTO> importedGiangVien = await Task.Run(() =>
+                        {
+                            // Tạo đối tượng ImportGiangVien và gọi phương thức ImportFromExcel
+                            ImportGiangVien importer = new ImportGiangVien();
+                            return importer.ImportFromExcel(filePath);
+                        });
 
-                        // Tạo đối tượng ImportGiangVien và gọi phương thức ImportFromExcel
-                        ImportGiangVien importer = new ImportGiangVien();
-                        List<GiangVienDTO> importedGiangVien = importer.ImportFromExcel(filePath);
-
-                        // Cập nhật giao diện (nếu cần)
+                        // Cập nhật giao diện trên UI thread
                         MessageBox.Show($"Import thành công {importedGiangVien.Count} giảng viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Tải lại danh sách giảng viên trên giao diện
-                        listGiangVien = GiangVienBUS.GetAllGiangVien(); // Lấy danh sách giảng viên mới
+                        listGiangVien = await Task.Run(() => GiangVienBUS.GetAllGiangVien()); // Lấy danh sách giảng viên mới
                         PopulateGiangVienTable(tableGV); // Hiển thị lại bảng
                     }
                 }
@@ -414,6 +423,11 @@ namespace ql_diemrenluyen.GUI.ADMIN
             catch (Exception ex)
             {
                 MessageBox.Show($"Đã xảy ra lỗi khi import: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Ẩn loading animation
+                Helper.Loading.HideLoading(loading);
             }
         }
 

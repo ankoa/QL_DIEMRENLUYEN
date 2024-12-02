@@ -153,12 +153,15 @@ namespace ql_diemrenluyen.DAO
     JOIN thongtindotchamdiem ttdcd ON dcd.id = ttdcd.dotchamdiem_id
     WHERE ttdcd.covan_id = @coVanId 
       AND dcd.name = 'Cố vấn'
+ AND dcd.startDate <= @ngayHienTai 
+          AND dcd.endDate >= @ngayHienTai
 AND dcd.status=1
     GROUP BY hk.Name, dcd.name, dcd.startDate, dcd.endDate
     LIMIT 1"; // Giới hạn chỉ lấy 1 kết quả
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@coVanId", coVanId);
+            cmd.Parameters.AddWithValue("@ngayHienTai", ngayHienTai);
 
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
 
