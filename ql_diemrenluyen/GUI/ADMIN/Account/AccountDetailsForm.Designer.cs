@@ -50,9 +50,9 @@
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblId.Location = new Point(58, 77);
+            lblId.Location = new Point(66, 103);
             lblId.Name = "lblId";
-            lblId.Size = new Size(23, 15);
+            lblId.Size = new Size(29, 20);
             lblId.TabIndex = 0;
             lblId.Text = "ID:";
             // 
@@ -61,19 +61,20 @@
             txtId.BackColor = SystemColors.ControlLightLight;
             txtId.BorderStyle = BorderStyle.None;
             txtId.Enabled = false;
-            txtId.Location = new Point(184, 77);
+            txtId.Location = new Point(210, 103);
+            txtId.Margin = new Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(200, 16);
+            txtId.Size = new Size(229, 20);
             txtId.TabIndex = 1;
             // 
             // lblRole
             // 
             lblRole.AutoSize = true;
             lblRole.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblRole.Location = new Point(58, 122);
+            lblRole.Location = new Point(66, 163);
             lblRole.Name = "lblRole";
-            lblRole.Size = new Size(35, 15);
+            lblRole.Size = new Size(44, 20);
             lblRole.TabIndex = 4;
             lblRole.Text = "Role:";
             // 
@@ -81,9 +82,9 @@
             // 
             lblCreatedAt.AutoSize = true;
             lblCreatedAt.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblCreatedAt.Location = new Point(58, 169);
+            lblCreatedAt.Location = new Point(66, 225);
             lblCreatedAt.Name = "lblCreatedAt";
-            lblCreatedAt.Size = new Size(70, 15);
+            lblCreatedAt.Size = new Size(88, 20);
             lblCreatedAt.TabIndex = 8;
             lblCreatedAt.Text = "Created At:";
             // 
@@ -91,35 +92,37 @@
             // 
             lblUpdatedAt.AutoSize = true;
             lblUpdatedAt.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblUpdatedAt.Location = new Point(58, 215);
+            lblUpdatedAt.Location = new Point(66, 287);
             lblUpdatedAt.Name = "lblUpdatedAt";
-            lblUpdatedAt.Size = new Size(74, 15);
+            lblUpdatedAt.Size = new Size(94, 20);
             lblUpdatedAt.TabIndex = 10;
             lblUpdatedAt.Text = "Updated At:";
             // 
             // dtpUpdatedAt
             // 
             dtpUpdatedAt.Enabled = false;
-            dtpUpdatedAt.Location = new Point(184, 215);
+            dtpUpdatedAt.Location = new Point(210, 287);
+            dtpUpdatedAt.Margin = new Padding(3, 4, 3, 4);
             dtpUpdatedAt.Name = "dtpUpdatedAt";
-            dtpUpdatedAt.Size = new Size(200, 23);
+            dtpUpdatedAt.Size = new Size(228, 27);
             dtpUpdatedAt.TabIndex = 11;
             // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
             lblStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblStatus.Location = new Point(58, 257);
+            lblStatus.Location = new Point(66, 343);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(45, 15);
+            lblStatus.Size = new Size(57, 20);
             lblStatus.TabIndex = 12;
             lblStatus.Text = "Status:";
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(284, 317);
+            btnClose.Location = new Point(325, 423);
+            btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(100, 30);
+            btnClose.Size = new Size(114, 40);
             btnClose.TabIndex = 14;
             btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = true;
@@ -127,9 +130,10 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(174, 317);
+            btnEdit.Location = new Point(199, 423);
+            btnEdit.Margin = new Padding(3, 4, 3, 4);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(90, 30);
+            btnEdit.Size = new Size(103, 40);
             btnEdit.TabIndex = 15;
             btnEdit.Text = "Chỉnh sửa";
             btnEdit.UseVisualStyleBackColor = true;
@@ -139,46 +143,44 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(95, 7);
+            label2.Location = new Point(109, 9);
             label2.Name = "label2";
-            label2.Size = new Size(215, 30);
+            label2.Size = new Size(277, 38);
             label2.TabIndex = 18;
             label2.Text = "Thông tin tài khoản";
             // 
             // dtpCreatedAt
             // 
             dtpCreatedAt.Enabled = false;
-            dtpCreatedAt.Location = new Point(184, 169);
-            dtpCreatedAt.Margin = new Padding(3, 2, 3, 2);
+            dtpCreatedAt.Location = new Point(210, 225);
             dtpCreatedAt.Name = "dtpCreatedAt";
-            dtpCreatedAt.Size = new Size(200, 23);
+            dtpCreatedAt.Size = new Size(228, 27);
             dtpCreatedAt.TabIndex = 19;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
-            comboBox1.Location = new Point(184, 257);
-            comboBox1.Margin = new Padding(3, 2, 3, 2);
+            comboBox1.Location = new Point(210, 343);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(200, 23);
+            comboBox1.Size = new Size(228, 28);
             comboBox1.TabIndex = 20;
             // 
             // cmbRole
             // 
             cmbRole.FormattingEnabled = true;
-            cmbRole.Location = new Point(184, 122);
-            cmbRole.Margin = new Padding(3, 2, 3, 2);
+            cmbRole.Location = new Point(210, 163);
             cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(200, 23);
+            cmbRole.Size = new Size(228, 28);
             cmbRole.TabIndex = 21;
             cmbRole.SelectedIndexChanged += cmbRole_SelectedIndexChanged;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(58, 317);
+            btnDelete.Location = new Point(66, 423);
+            btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(100, 30);
+            btnDelete.Size = new Size(114, 40);
             btnDelete.TabIndex = 22;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
@@ -186,10 +188,10 @@
             // 
             // AccountDetailsForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(422, 394);
+            ClientSize = new Size(482, 541);
             ControlBox = false;
             Controls.Add(btnDelete);
             Controls.Add(cmbRole);
@@ -206,6 +208,7 @@
             Controls.Add(txtId);
             Controls.Add(lblId);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AccountDetailsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Chi tiết tài khoản";

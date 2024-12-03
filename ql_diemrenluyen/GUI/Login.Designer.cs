@@ -88,6 +88,7 @@
             inputUser.Size = new Size(425, 28);
             inputUser.TabIndex = 2;
             inputUser.TextChanged += textBox1_TextChanged;
+            inputUser.KeyDown += inputUser_KeyDown;
             // 
             // mySqlCommand1
             // 
@@ -162,6 +163,7 @@
             inputPass.PasswordChar = '●';
             inputPass.Size = new Size(395, 28);
             inputPass.TabIndex = 9;
+            inputPass.KeyDown += inputUser_KeyDown;
             // 
             // pictureBox4
             // 

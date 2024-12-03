@@ -246,7 +246,7 @@ WHERE
 
         public static AccountDTO Login(string username, string plainPassword)
         {
-            string sql = $"SELECT * FROM account WHERE id = @username";
+            string sql = $"SELECT * FROM account WHERE id = @username and status=1";
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@username", username);
 
