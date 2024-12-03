@@ -189,16 +189,18 @@ namespace ql_diemrenluyen.GUI
                             Form nextForm;
                             if (accountLogin.Role == 1)
                             {
-                                nextForm = new Dashboard(); // Form cho người dùng thông thường
+                                nextForm = new Dashboard();
+                                nextForm.Show(); // Form cho người dùng thông thường
+                            }
+                            else if (accountLogin.Role != 2)
+                            {
+                                nextForm = new MenuAdmin(); // Form cho admin
+                                nextForm.Show();
                             }
                             else
                             {
-                                nextForm = new MenuAdmin(); // Form cho admin
+                                MessageBox.Show("Giảng viên ko làm được gì");
                             }
-
-                            // Hiển thị form mới và đảm bảo form cũ hiện lại khi form mới đóng
-                            nextForm.FormClosed += (s, args) => this.Show();
-                            nextForm.Show(); // Hiển thị form mới
                         }
                     }));
                 }

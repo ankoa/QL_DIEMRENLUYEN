@@ -1213,22 +1213,21 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
 
                 // Tạo loading animation
-                var loading = Loading.CreateLoadingControl(this);
-                Helper.Loading.ShowLoading(loading);
+                //var loading = Loading.CreateLoadingControl(this);
+                //Helper.Loading.ShowLoading(loading);
 
                 // Chạy tác vụ nặng trong Task để không khóa giao diện
-                Task.Run(() =>
-                {
-                    Cham(vaiTroString, nguoiDungId);
+                //Task.Run(() =>
+                //{
+                Cham(vaiTroString, nguoiDungId);
 
-                    // Cập nhật giao diện phải thực hiện trên UI thread
-                    this.Invoke(new Action(() =>
-                    {
-                        Loading.HideLoading(loading); // Ẩn loading
-                    }));
-                });
+                // Cập nhật giao diện phải thực hiện trên UI thread
+                //    this.Invoke(new Action(() =>
+                //    {
+                //        Loading.HideLoading(loading); // Ẩn loading
+                //    }));
+                //});
             }
-
         }
         private void IfRoleIsSinhvien(int vaiTro, long nguoiDungId)
         {

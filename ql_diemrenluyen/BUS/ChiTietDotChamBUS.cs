@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using ql_diemrenluyen.DAO;
+﻿using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.BUS
@@ -29,22 +23,9 @@ namespace ql_diemrenluyen.BUS
         // Thêm chi tiết đợt chấm mới
         public static bool AddChiTietDotCham(ChiTietDotChamDTO chiTietDotCham)
         {
-            try
-            {
-                // Thực hiện kiểm tra logic trước khi thêm
-                if (chiTietDotCham.Diem < 0 || chiTietDotCham.Diem > 100)
-                {
-                    throw new ArgumentException("Điểm phải nằm trong khoảng từ 0 đến 100.");
-                }
 
-                return ChiTietDotChamDAO.AddChiTietDotCham(chiTietDotCham);
-            }
-            catch (Exception ex)
-            {
-                // Log lỗi và trả về false
-                Console.WriteLine("Lỗi khi thêm chi tiết đợt chấm: " + ex.Message);
-                return false;
-            }
+            return ChiTietDotChamDAO.AddChiTietDotCham(chiTietDotCham);
+
         }
 
         // Cập nhật chi tiết đợt chấm
@@ -100,7 +81,7 @@ namespace ql_diemrenluyen.BUS
         {
             return ChiTietDotChamDAO.GetListChiTietDotChamByThongTinDotChamId(thongTinDotChamDiemId);
         }
-        
+
 
     }
 }
