@@ -147,59 +147,84 @@ namespace ql_diemrenluyen.GUI
             var loading = Loading.CreateLoadingControl(this);
             Helper.Loading.ShowLoading(loading);
 
+            // Lấy thông tin người dùng từ giao diện
+            var username = inputUser.Text.Trim();
+            var password = inputPass.Text.Trim();
+
+            // Kiểm tra trường thông tin
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                Loading.HideLoading(loading); // Ẩn loading nếu người dùng chưa nhập đủ thông tin
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Chạy tác vụ nặng trong Task để không khóa giao diện
             Task.Run(() =>
             {
-                var username = inputUser.Text;
-                var password = inputPass.Text;
-                var accountLogin = AccountBUS.Login(username, password); // Không phải async
-                var (account, accountType) = AccountBUS.findAccountById(long.Parse(username));
-
-                // Cập nhật giao diện phải thực hiện trên UI thread
-                this.Invoke(new Action(() =>
+                try
                 {
-                    Loading.HideLoading(loading); // Ẩn loading
+                    // Kiểm tra đăng nhập
+                    var accountLogin = AccountBUS.Login(username, password); // Không phải async
+                    var (account, accountType) = AccountBUS.findAccountById(long.Parse(username));
 
-                    if (accountLogin == null)
+                    // Cập nhật giao diện phải thực hiện trên UI thread
+                    this.Invoke(new Action(() =>
                     {
-                        MessageBox.Show("Sai thông tin đăng nhập");
-                    }
-                    else
-                    {
-                        this.Hide();  // Ẩn form hiện tại
-                        Program.nguoidung_id = accountLogin.Id.ToString();
-                        Program.role = accountLogin.Role;
-                        Program.type = accountType;
-                        //MessageBox.Show(accountType);
+                        Loading.HideLoading(loading); // Ẩn loading
 
-                        if (accountLogin.Role == 1)
+                        if (accountLogin == null)
                         {
-                            Dashboard otpForm = new Dashboard();
-
-
-                            // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
-                            //otpForm.FormClosed += (s, args) => this.Show();
-
-                            otpForm.Show();  // Hiển thị form mới
+                            MessageBox.Show("Sai thông tin đăng nhập hoặc tài khoản đã bị đình chỉ!", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
-                            MenuAdmin otpForm = new MenuAdmin();
+                            // Đăng nhập thành công
+                            this.Hide(); // Ẩn form hiện tại
+                            Program.nguoidung_id = accountLogin.Id.ToString();
+                            Program.role = accountLogin.Role;
+                            Program.type = accountType;
 
-
-
-                            // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
-                            //otpForm.FormClosed += (s, args) => this.Show();
-
-                            otpForm.Show();  // Hiển thị form mới
+                            // Điều hướng dựa trên vai trò
+                            Form nextForm;
+                            if (accountLogin.Role == 1)
+                            {
+                                nextForm = new Dashboard();
+                                nextForm.Show(); // Form cho người dùng thông thường
+                            }
+                            else if (accountLogin.Role != 2)
+                            {
+                                nextForm = new MenuAdmin(); // Form cho admin
+                                nextForm.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Giảng viên ko làm được gì");
+                            }
                         }
-
-
-                    }
-                }));
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi trong task
+                    this.Invoke(new Action(() =>
+                    {
+                        Loading.HideLoading(loading); // Ẩn loading nếu lỗi xảy ra
+                        MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }));
+                }
             });
         }
 
+        private void inputUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick(); // Gọi sự kiện click của button1
+                e.Handled = true; // Ngăn sự kiện thêm tiếp
+                e.SuppressKeyPress = true; // Chặn âm báo Enter
+            }
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

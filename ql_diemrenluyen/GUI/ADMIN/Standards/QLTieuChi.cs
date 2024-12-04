@@ -413,7 +413,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
                     // Áp dụng định dạng bảng
                     ApplyTableStyles(tbTCP);
                 }
-               
+
+                /*else
+                {
+                    MessageBox.Show("Không tìm thấy tiêu chí nào phù hợp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }*/
             }
             catch (Exception ex)
             {

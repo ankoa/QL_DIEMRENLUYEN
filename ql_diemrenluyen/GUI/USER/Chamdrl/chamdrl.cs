@@ -1228,7 +1228,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 //    }));
                 //});
             }
-
         }
         private void IfRoleIsSinhvien(int vaiTro, long nguoiDungId)
         {

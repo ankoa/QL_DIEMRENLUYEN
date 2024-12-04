@@ -38,7 +38,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 List<AccountDTO> accounts = AccountBUS.GetAllAccounts();
                 tableTK.Rows.Clear();
 
-                foreach (var account in accounts)
+                foreach (var account in accounts.Where(acc => acc.Id != 0))
                 {
                     // Ánh xạ vai trò từ mã số thành tên vai trò
                     string roleName = GetRoleName(account.Role);  // Dùng phương thức GetRoleName để lấy tên vai trò
@@ -93,7 +93,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 List<AccountDTO> accounts = AccountBUS.GetAllAccounts();
                 table.Rows.Clear();
 
-                foreach (var account in accounts)
+                foreach (var account in accounts.Where(acc => acc.Id != 0))
                 {
                     string roleName = GetRoleName(account.Role);  // Ánh xạ mã số vai trò sang tên vai trò
 
@@ -217,7 +217,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     // Xóa các hàng cũ trong table
 
                     // Đổ dữ liệu vào bảng
-                    foreach (var account in accounts)
+                    foreach (var account in accounts.Where(acc => acc.Id != 0))
                     {
                         tableTK.Rows.Add(
                             account.Id,
