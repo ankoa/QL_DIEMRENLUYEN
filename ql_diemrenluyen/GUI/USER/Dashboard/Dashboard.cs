@@ -59,6 +59,7 @@ namespace ql_diemrenluyen.GUI.USER
                 LoadDrlHocKi2();
             }
             LoadDotChamDiemSinhVien(long.Parse(nguoidung_id), role);
+            this.Dock = DockStyle.Fill;
             //CustomizeDataGridView();
             //CustomizeSpecificColumns();
         }
