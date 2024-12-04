@@ -12,7 +12,7 @@ namespace ql_diemrenluyen.BUS
         }
 
         // Lấy thông tin điểm rèn luyện kèm tên học kỳ dưới dạng Dictionary
-        public static List<Dictionary<string, object>> GetDiemRenLuyenChiTiet(int sinhVienId)
+        public static List<Dictionary<string, object>> GetDiemRenLuyenChiTiet(long sinhVienId)
         {
             List<DiemRenLuyenSinhVienDTO> diemRenLuyens = DiemRenLuyenSinhVienDAO.GetDiemRenLuyenBySinhVienId(sinhVienId);
             List<HocKyDTO> hocKys = HocKyDAO.GetAllHocKy();

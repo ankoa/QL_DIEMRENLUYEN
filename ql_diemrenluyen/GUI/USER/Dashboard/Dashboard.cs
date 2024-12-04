@@ -51,7 +51,7 @@ namespace ql_diemrenluyen.GUI.USER
             LoadInfoClass();
             if (role.Equals("Sinh viên"))
             {
-                LoadDrlHocKi(1);
+                LoadDrlHocKi(long.Parse(Program.nguoidung_id));
 
             }
             else
@@ -230,14 +230,16 @@ namespace ql_diemrenluyen.GUI.USER
                 {
                     HeaderText = "Ngày bắt đầu",
                     DataPropertyName = "NgayBatDau",
-                    Name = "NgayBatDau"
+                    Name = "NgayBatDau",
+                    DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy" } // Định dạng ngày
                 });
 
                 dataGridView2.Columns.Add(new DataGridViewTextBoxColumn
                 {
                     HeaderText = "Ngày kết thúc",
                     DataPropertyName = "NgayKetThuc",
-                    Name = "NgayKetThuc"
+                    Name = "NgayKetThuc",
+                    DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy" } // Định dạng ngày
                 });
 
                 dataGridView2.Columns.Add(new DataGridViewTextBoxColumn
@@ -270,7 +272,6 @@ namespace ql_diemrenluyen.GUI.USER
                 }
                 else if (role.Equals("Cố vấn"))
                 {
-
                     dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaCoVanTheoId(sinhVienId);
                 }
                 else if (role.Equals("Khoa"))
@@ -280,7 +281,6 @@ namespace ql_diemrenluyen.GUI.USER
                 }
                 else if (role.Equals("Trường"))
                 {
-
                     dotChamDiemList = DotChamDiemBUS.GetDotChamDiemCuaTruong();
                 }
                 else
@@ -323,12 +323,7 @@ namespace ql_diemrenluyen.GUI.USER
                         var dotChamDiem = (ThongTinDotChamDiemDTO)selectedRow.DataBoundItem; // Lấy đối tượng DTO từ dòng đã chọn
                         chamdrl otpForm = new chamdrl("Chấm", dotChamDiem.HocKyId, dotChamDiem.Id);
 
-
-                        // Đảm bảo rằng khi form mới đóng, form hiện tại được hiển thị lại
-                        //otpForm.FormClosed += (s, args) => this.Show();
-
                         otpForm.Show();  // Hiển thị form mới
-                        //MessageBox.Show($"ID của ThongTinDotChamDiemDTO: {dotChamDiem.Id}", "Thông tin đợt chấm điểm", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 };
             }
@@ -339,10 +334,7 @@ namespace ql_diemrenluyen.GUI.USER
         }
 
 
-
-
-
-        private void LoadDrlHocKi(int sinhVienId)
+        private void LoadDrlHocKi(long sinhVienId)
         {
             var diemRenLuyenChiTiet = DiemRenLuyenBUS.GetDiemRenLuyenChiTiet(sinhVienId);
 
