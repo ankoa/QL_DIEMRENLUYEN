@@ -27,6 +27,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         int dotchamdiemId;
         long covanId;
         long khoaId;
+        private int originalValue = 0; // Biến lưu giá trị cũ của ô đang chỉnh sửa
+
 
 
         public chamdrl(string action, int hocky, int dotchamdiem)
@@ -130,6 +132,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
 
             dataGridView1.DataSource = dataTable; // Gán DataTable vào DataGridView
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.Columns["STT"].Width = 45;
 
@@ -1105,6 +1108,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         row.DefaultCellStyle.BackColor = Color.LightBlue;
                         row.DefaultCellStyle.ForeColor = Color.Black;
                         row.DefaultCellStyle.Font = new Font(dataGridView1.Font, FontStyle.Bold);
+                        row.Cells["Điểm SV tự đánh giá"].ReadOnly = true;
+                        row.Cells["Điểm CVHT"].ReadOnly = true;
+                        row.Cells["Điểm khoa"].ReadOnly = true;
+                        row.Cells["Điểm trường"].ReadOnly = true;
                     }
                 }
             }
@@ -1597,6 +1604,245 @@ namespace ql_diemrenluyen.GUI.ADMIN
             if (cbHocKy.SelectedIndex != -1)
                 this.hockiId = Convert.ToInt32(cbHocKy.SelectedValue);
         }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra xem giá trị vừa nhập có hợp lệ không
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Đảm bảo hàng và cột hợp lệ
+            {
+                var editedCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                // Kiểm tra nếu giá trị của ô chỉnh sửa là hợp lệ
+                if (editedCell.Value == null || string.IsNullOrEmpty(editedCell.Value.ToString()))
+                {
+                    return;
+                }
+
+                int editedValue;
+                // Kiểm tra nếu giá trị có thể chuyển đổi thành số nguyên
+                if (!int.TryParse(editedCell.Value.ToString(), out editedValue))
+                {
+                    return;
+                }
+
+                // Lấy giá trị của cột STT từ hàng đang được chỉnh sửa
+                string sttValue = dataGridView1.Rows[e.RowIndex].Cells["STT"].Value.ToString();
+                long id = GetOriginalId(sttValue, sttToId);
+
+                // Kiểm tra nếu STT của hàng là nguyên (không phải hàng con)
+
+
+                // Nếu là hàng chính (STT nguyên), không áp dụng các điều kiện kiểm tra điểm
+                if (sttValue != null && !int.TryParse(sttValue.ToString(), out _))
+                {
+                    // Kiểm tra giá trị của cột "Điểm tối đa" trong hàng hiện tại
+                    int maxScore = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Điểm tối đa"].Value);
+
+                    if (maxScore < 0 && editedValue > 0)
+                    {
+                        MessageBox.Show("Giá trị nhập vào trường này là điểm trừ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        editedCell.Value = string.Empty;
+                        return; // Dừng lại, không cập nhật giá trị
+                    }
+
+                    if (maxScore > 0 && editedValue < 0)
+                    {
+                        MessageBox.Show("Giá trị nhập vào trường này là điểm cộng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        editedCell.Value = string.Empty;
+                        return; // Dừng lại, không cập nhật giá trị
+                    }
+
+                    if (maxScore < 0 && editedValue < 0 && editedValue < maxScore)
+                    {
+                        MessageBox.Show("Giá trị nhập vào không được vượt quá điểm trừ tối đa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        editedCell.Value = string.Empty;
+                        return; // Dừng lại, không cập nhật giá trị
+                    }
+
+                    // Kiểm tra nếu giá trị vừa nhập lớn hơn điểm tối đa
+                    if (maxScore > 0 && editedValue > 0 && editedValue > maxScore)
+                    {
+                        MessageBox.Show("Giá trị nhập vào không được vượt quá điểm tối đa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        editedCell.Value = string.Empty;
+                        return; // Dừng lại, không cập nhật giá trị
+                    }
+                }
+
+                // Lấy hàng có STT = 1
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++) // Duyệt đến dòng cuối cùng
+                {
+                    DataGridViewRow row = dataGridView1.Rows[i]; // Lấy hàng hiện tại
+
+                    // Kiểm tra nếu ID cha trùng với giá trị ID của hàng hiện tại
+                    if (GetOriginalId(row.Cells["STT"].Value.ToString(), sttToId) == TieuChiDanhGiaBUS.GetIdTieuChiCha(id))
+                    {
+                        if (vaiTro == 1)
+                        {
+                            // Kiểm tra nếu cột "Điểm SV tự đánh giá" đã có giá trị
+                            if (row.Cells["Điểm SV tự đánh giá"].Value != null &&
+                                 !string.IsNullOrEmpty(row.Cells["Điểm SV tự đánh giá"].Value.ToString()))
+                            {
+                                // Nếu có giá trị, thực hiện phép tính: (Giá trị cũ - Giá trị cũ của cell) + Giá trị mới của cell
+                                int currentValue = Convert.ToInt32(row.Cells["Điểm SV tự đánh giá"].Value); // Giá trị hiện tại của ô
+                                int newValue = currentValue - originalValue + Convert.ToInt32(editedCell.Value); // Cập nhật giá trị mới
+                                if (newValue > Convert.ToInt32(row.Cells["Điểm tối đa"].Value))
+                                {
+                                    row.Cells["Điểm SV tự đánh giá"].Value = row.Cells["Điểm tối đa"].Value;
+                                }
+                                else
+                                    row.Cells["Điểm SV tự đánh giá"].Value = newValue;
+                            }
+                            else
+                            {
+                                // Nếu không có giá trị, gán giá trị mới vào cột
+                                row.Cells["Điểm SV tự đánh giá"].Value = editedCell.Value;
+                            }
+                            return;
+                        }
+                        else if (vaiTro == 3)
+                        {
+                            // Kiểm tra nếu cột "Điểm SV tự đánh giá" đã có giá trị
+                            if (row.Cells["Điểm CVHT"].Value != null &&
+                                 !string.IsNullOrEmpty(row.Cells["Điểm CVHT"].Value.ToString()))
+                            {
+                                // Nếu có giá trị, thực hiện phép tính: (Giá trị cũ - Giá trị cũ của cell) + Giá trị mới của cell
+                                int currentValue = Convert.ToInt32(row.Cells["Điểm CVHT"].Value); // Giá trị hiện tại của ô
+                                int newValue = currentValue - originalValue + Convert.ToInt32(editedCell.Value); // Cập nhật giá trị mới
+                                if (newValue > Convert.ToInt32(row.Cells["Điểm tối đa"].Value))
+                                {
+                                    row.Cells["Điểm CVHT"].Value = row.Cells["Điểm tối đa"].Value;
+                                }
+                                else
+                                    row.Cells["Điểm CVHT"].Value = newValue;
+                            }
+                            else
+                            {
+                                // Nếu không có giá trị, gán giá trị mới vào cột
+                                row.Cells["Điểm CVHT"].Value = editedCell.Value;
+                            }
+                            return;
+                        }
+                        else if (vaiTro == 4)
+                        {
+                            // Kiểm tra nếu cột "Điểm SV tự đánh giá" đã có giá trị
+                            if (row.Cells["Điểm khoa"].Value != null &&
+                                 !string.IsNullOrEmpty(row.Cells["Điểm khoa"].Value.ToString()))
+                            {
+                                // Nếu có giá trị, thực hiện phép tính: (Giá trị cũ - Giá trị cũ của cell) + Giá trị mới của cell
+                                int currentValue = Convert.ToInt32(row.Cells["Điểm khoa"].Value); // Giá trị hiện tại của ô
+                                int newValue = currentValue - originalValue + Convert.ToInt32(editedCell.Value); // Cập nhật giá trị mới
+                                if (newValue > Convert.ToInt32(row.Cells["Điểm tối đa"].Value))
+                                {
+                                    row.Cells["Điểm khoa"].Value = row.Cells["Điểm tối đa"].Value;
+                                }
+                                else
+                                    row.Cells["Điểm khoa"].Value = newValue;
+                            }
+                            else
+                            {
+                                // Nếu không có giá trị, gán giá trị mới vào cột
+                                row.Cells["Điểm khoa"].Value = editedCell.Value;
+                            }
+                            return;
+                        }
+                        else if (vaiTro == 5)
+                        {
+                            // Kiểm tra nếu cột "Điểm SV tự đánh giá" đã có giá trị
+                            if (row.Cells["Điểm trường"].Value != null &&
+                                 !string.IsNullOrEmpty(row.Cells["Điểm trường"].Value.ToString()))
+                            {
+                                // Nếu có giá trị, thực hiện phép tính: (Giá trị cũ - Giá trị cũ của cell) + Giá trị mới của cell
+                                int currentValue = Convert.ToInt32(row.Cells["Điểm trường"].Value); // Giá trị hiện tại của ô
+                                int newValue = currentValue - originalValue + Convert.ToInt32(editedCell.Value); // Cập nhật giá trị mới
+                                if (newValue > Convert.ToInt32(row.Cells["Điểm tối đa"].Value))
+                                {
+                                    row.Cells["Điểm trường"].Value = row.Cells["Điểm tối đa"].Value;
+                                }
+                                else
+                                    row.Cells["Điểm trường"].Value = newValue;
+                            }
+                            else
+                            {
+                                // Nếu không có giá trị, gán giá trị mới vào cột
+                                row.Cells["Điểm SV tự đánh giá"].Value = editedCell.Value;
+                            }
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            // Lưu giá trị ban đầu của ô vào biến originalValue khi bắt đầu chỉnh sửa
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                var cellValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                // Kiểm tra nếu ô có giá trị hay không
+                if (cellValue != null && !string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    // Nếu có giá trị, chuyển đổi giá trị sang int
+                    originalValue = Convert.ToInt32(cellValue);
+                }
+                else
+                {
+                    // Nếu ô rỗng, gán giá trị mặc định là 0
+                    originalValue = 0;
+                }
+            }
+        }
+
+
+
+
+
+        //private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    // Kiểm tra xem giá trị vừa nhập có hợp lệ không
+        //    if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Đảm bảo hàng và cột hợp lệ
+        //    {
+        //        var editedCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+        //        // Lấy giá trị của cột STT từ hàng đang được chỉnh sửa
+        //        string sttValue = dataGridView1.Rows[e.RowIndex].Cells["STT"].Value.ToString();
+        //        int editedValue = Convert.ToInt32(editedCell.Value);
+        //        long id = GetOriginalId(sttValue, sttToId);
+
+        //        // Hiển thị giá trị STT trong MessageBox
+        //        //MessageBox.Show($"Giá trị của cột STT trong hàng hiện tại là: {sttValue}");
+
+        //        //Lấy hàng có STT = 1
+        //        foreach (DataGridViewRow row in dataGridView1.Rows)
+        //        {
+        //            if (GetOriginalId(row.Cells["STT"].Value.ToString(), sttToId) == TieuChiDanhGiaBUS.GetIdTieuChiCha(id))
+        //            {
+        //                if (vaiTro == 1)
+        //                {
+        //                    row.Cells["Điểm SV tự đánh giá"].Value = editedCell.Value;
+        //                    return;
+        //                }
+        //                //// Lấy giá trị vừa nhập và gán vào cell "test" trong hàng có STT = 1
+        //                //if (row.Cells["test"] != null)
+        //                //{
+        //                //    row.Cells["test"].Value = editedCell.Value;
+        //                //}
+        //                //break;
+
+        //                //row["Điểm SV tự đánh giá"] = diemSV.HasValue ? diemSV.Value.ToString() : string.Empty;
+        //                //row["Điểm CVHT"] = string.Empty;
+        //                //row["Điểm khoa"] = string.Empty;
+        //                //row["Điểm trường"] = string.Empty;
+        //            }
+        //        }
+        //    }
+        //}
+
+
     }
 
     public class ImageData
