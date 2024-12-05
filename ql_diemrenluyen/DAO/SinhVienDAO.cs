@@ -29,10 +29,11 @@ namespace ql_diemrenluyen.DAO
 
             // Câu lệnh SQL kết nối bảng sinhvien và thongtindotchamdiem
             string sql = @"
-        SELECT sv.* 
-        FROM sinhvien sv
-        INNER JOIN thongtindotchamdiem ttdcd 
-        ON sv.id = ttdcd.sinhvien_id";
+      SELECT DISTINCT sv.*
+FROM sinhvien sv
+INNER JOIN thongtindotchamdiem ttdcd 
+ON sv.id = ttdcd.sinhvien_id;
+";
 
             // Thực thi câu lệnh SQL và lấy kết quả
             List<List<object>> result = DBConnection.ExecuteReader(sql);

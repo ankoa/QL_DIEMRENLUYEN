@@ -137,6 +137,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
                     MessageBox.Show("Có lỗi xảy ra");
                     return;
                 }
+                hockidto = HocKyBUS.GetHocKyByNameAndYear(hocki, namehoc);
             }
 
             string nguoicham = cbbnguoicham.SelectedItem.ToString();

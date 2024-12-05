@@ -10,7 +10,7 @@ namespace ql_diemrenluyen.DAO
         public static List<AccountDTO> GetAllAccounts()
         {
             List<AccountDTO> accounts = new List<AccountDTO>();
-            string sql = "SELECT * FROM account"; // Thay đổi câu lệnh SQL nếu cần
+            string sql = "SELECT * FROM account"; 
 
             List<List<object>> result = DBConnection.ExecuteReader(sql);
 

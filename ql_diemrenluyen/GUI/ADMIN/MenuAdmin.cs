@@ -516,6 +516,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         }
         private void btnLogOut_Click(object sender, EventArgs e) // Nút đăng xuất
         {
+            this.Close();
             Login nextForm = new Login(); // Form cho admin
             nextForm.Show();
         }

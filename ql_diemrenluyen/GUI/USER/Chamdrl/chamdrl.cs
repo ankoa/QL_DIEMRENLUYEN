@@ -978,6 +978,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void LoadSinhVienTheoLop()
         {
+            MessageBox.Show("load lop");
             string tenlop = (string)cbLop.SelectedItem;
             cbSinhvien.Items.Clear();
             cbSinhvien.SelectedIndex = -1;
@@ -996,6 +997,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         break;
                     }
                 }
+
 
                 // Lọc và thêm các sinh viên vào ComboBox cbSinhvien dựa trên lopId
                 for (int i = 0; i < sinhvienList.Count; i++)
@@ -1280,6 +1282,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 else if (vaiTro == "Cố vấn")
                 {
                     result = ThongTinDotChamBUS.GetThongTinDotChamId(dotchamdiemId, vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId);
+                    MessageBox.Show(dotchamdiemId.ToString());
+                    MessageBox.Show(vaiTro.ToString());
+                    MessageBox.Show(lbMssv.Text.ToString());
+                    MessageBox.Show(nguoiDungId.ToString());
 
                 }
                 else

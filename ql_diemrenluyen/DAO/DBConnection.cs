@@ -5,7 +5,7 @@ namespace ql_diemrenluyen.DAO
     internal class DBConnection
     {
         private static readonly string server = "localhost";
-        private static readonly string database = "ql_diemrenluyen.final";
+        private static readonly string database = "ql_diemrenluyen";
         private static readonly string user = "root";
         private static readonly string password = "";
         private static MySqlConnection conn;
