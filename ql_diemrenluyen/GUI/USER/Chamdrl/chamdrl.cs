@@ -79,12 +79,18 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 btnLuu.Visible = true;
                 label6.Visible = false;
                 label5.Visible = false;
+                button1.Visible = false;
+                if (vaiTro != 1 && vaiTro != 0)
+                {
+                    button2.Visible = true;
+                }
             }
             else if (action == "Xem")
             {
                 btnLuu.Visible = false;
                 label6.Visible = true;
                 label5.Visible = true;
+                button1.Visible = false;
                 //long svID = long.Parse(lbMssv.Text);
                 if (vaiTro == 1)
                 {
@@ -92,7 +98,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     lbXepHang.Text = drl.Comments;
                     lbDiem.Text = drl.Score.ToString();
                     lbXepHang.Text = drl.Comments;
+                    button1.Visible = true;
                 }
+
 
                 lbhocky.Visible = true;
                 cbHocKy.Visible = true;
@@ -981,7 +989,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void LoadSinhVienTheoLop()
         {
-            MessageBox.Show("load lop");
             string tenlop = (string)cbLop.SelectedItem;
             cbSinhvien.Items.Clear();
             cbSinhvien.SelectedIndex = -1;
@@ -1279,7 +1286,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 if (vaiTro == "Khoa")
                 {
                     result = ThongTinDotChamBUS.GetThongTinDotChamId(dotchamdiemId, vaiTro, Convert.ToInt64(lbMssv.Text), gv.KhoaId);
-
+                    //MessageBox.Show(dotchamdiemId.ToString());
+                    //MessageBox.Show(vaiTro.ToString());
+                    //MessageBox.Show(lbMssv.Text.ToString());
+                    //MessageBox.Show(nguoiDungId.ToString());
                 }
                 else if (vaiTro == "Trường")
                 {
@@ -1289,10 +1299,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 else if (vaiTro == "Cố vấn")
                 {
                     result = ThongTinDotChamBUS.GetThongTinDotChamId(dotchamdiemId, vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId);
-                    MessageBox.Show(dotchamdiemId.ToString());
-                    MessageBox.Show(vaiTro.ToString());
-                    MessageBox.Show(lbMssv.Text.ToString());
-                    MessageBox.Show(nguoiDungId.ToString());
+
 
                 }
                 else
@@ -1489,7 +1496,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 {
                     DiemRenLuyenSinhVienDTO drl = new DiemRenLuyenSinhVienDTO
                     {
-                        Score = totalScore,
+                        Score = totalScore < 0 ? 0 : totalScore,
                         Comments = danhGia,
                         SemesterId = this.hockiId,
                         SinhVienId = Convert.ToInt64(lbMssv.Text)
@@ -1764,7 +1771,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                             else
                             {
                                 // Nếu không có giá trị, gán giá trị mới vào cột
-                                row.Cells["Điểm SV tự đánh giá"].Value = editedCell.Value;
+                                row.Cells["Điểm trường"].Value = editedCell.Value;
                             }
                             return;
                         }
@@ -1796,6 +1803,78 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (vaiTro == 1)
+            {
+                ExcelExporter.ExportDataGridViewToExcelWithColors(dataGridView1, 7);
+            }
+            else
+            {
+                if (cbKhoa.SelectedIndex < 0 && cbLop.SelectedIndex < 0 && cbSinhvien.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Chọn thông tin để xuất");
+                    return;
+                }
+                //ExcelExporter.ExportDataGridViewToExcelWithColors(dataGridView1);
+            }
+        }
+
+        public static void CopyDataToDiemTruongColumn(DataGridView dataGridView, string diemTruongColumnName)
+        {
+            // Tìm cột "Điểm trường"
+            int diemTruongColumnIndex = -1;
+
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                if (column.HeaderText == diemTruongColumnName)
+                {
+                    diemTruongColumnIndex = column.Index;
+                    break;
+                }
+            }
+
+            // Kiểm tra nếu không tìm thấy cột "Điểm trường"
+            if (diemTruongColumnIndex == -1)
+            {
+                MessageBox.Show($"Không tìm thấy cột '{diemTruongColumnName}'!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Lấy dữ liệu từ cột bên trái và sao chép vào cột "Điểm trường"
+            for (int row = 0; row < dataGridView.Rows.Count; row++)
+            {
+                // Lấy cột bên trái cột "Điểm trường"
+                int leftColumnIndex = diemTruongColumnIndex - 1;
+
+                // Nếu cột bên trái hợp lệ (không nhỏ hơn 0)
+                if (leftColumnIndex >= 0)
+                {
+                    // Lấy giá trị từ cột bên trái
+                    var leftCellValue = dataGridView.Rows[row].Cells[leftColumnIndex].Value;
+
+                    // Gán giá trị vào cột "Điểm trường"
+                    dataGridView.Rows[row].Cells[diemTruongColumnIndex].Value = leftCellValue;
+                }
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string role = this.vaiTro switch
+            {
+                3 => "Điểm CVHT",
+                4 => "Điểm khoa",
+                5 => "Điểm trường",
+                _ => "Unknown"
+            };
+            dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged;
+            CopyDataToDiemTruongColumn(dataGridView1, role);
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+        }
+
 
 
 
