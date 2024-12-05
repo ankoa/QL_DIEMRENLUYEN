@@ -6598,9 +6598,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+      "projectUniqueName": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
       "projectName": "ql_diemrenluyen",
-      "projectPath": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
+      "projectPath": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\ql_diemrenluyen.csproj",
       "packagesPath": "C:\\Users\\huhuh\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\huhuh\\OneDrive\\Máy tính\\Code\\Qldiemrenluyen\\ql_diemrenluyen\\obj\\",
       "projectStyle": "PackageReference",

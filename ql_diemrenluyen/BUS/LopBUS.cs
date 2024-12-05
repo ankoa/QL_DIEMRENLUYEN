@@ -50,5 +50,9 @@ namespace ql_diemrenluyen.BUS
         {
             return LopDAO.GetListBySearch(value);
         }
+        public static bool AreAllClassesAssignedToAdvisor()
+        {
+            return LopDAO.AreAllClassesAssignedToAdvisor();
+        }
     }
 }
