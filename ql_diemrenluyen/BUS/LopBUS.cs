@@ -50,6 +50,7 @@ namespace ql_diemrenluyen.BUS
         {
             return LopDAO.GetListBySearch(value);
         }
+
         public static List<LopDTO> GetLopByCoVanID(long covanId)
         {
             try
@@ -90,6 +91,10 @@ namespace ql_diemrenluyen.BUS
                 Console.WriteLine("Lỗi khi lấy lớp học của cố vấn theo ID: " + ex.Message);
                 return new List<LopDetailsDTO>(); // Trả về danh sách rỗng nếu có lỗi
             }
+        }
+        public static bool AreAllClassesAssignedToAdvisor()
+        {
+            return LopDAO.AreAllClassesAssignedToAdvisor();
         }
     }
     //public class LopDetailsDTO

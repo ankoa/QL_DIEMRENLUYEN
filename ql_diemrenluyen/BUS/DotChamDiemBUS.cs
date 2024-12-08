@@ -334,7 +334,10 @@ namespace ql_diemrenluyen.BUS
             return dotChamDiemIds;
         }
 
-
+        public static bool IsDotChamDiemDangDienRa()
+        {
+            return DotChamDiemDAO.IsDotChamDiemDangDienRa();
+        }
 
 
     }

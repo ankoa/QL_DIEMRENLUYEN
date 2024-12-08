@@ -470,6 +470,14 @@ GROUP BY l.tenlop, k.tenkhoa, he.name, gv.id, gv.name;
             return lopDetailsList;
         }
 
+        public static bool AreAllClassesAssignedToAdvisor()
+        {
+            string sql = "SELECT COUNT(*) FROM lop WHERE covan_id IS NULL"; // Đếm số lớp có covan_id null
+            object result = DBConnection.ExecuteScalar(sql); // Sử dụng ExecuteScalar để lấy kết quả
+
+            // Nếu kết quả trả về là 0, tức là không có lớp nào có covan_id null, trả về true
+            return Convert.ToInt32(result) == 0;
+        }
 
 
 

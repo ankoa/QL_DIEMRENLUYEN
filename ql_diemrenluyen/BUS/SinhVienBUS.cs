@@ -11,9 +11,9 @@ namespace ql_diemrenluyen.BUS
             return SinhVienDAO.GetAllStudents();
         }
 
-        public static List<SinhVienDTO> GetAllStudentsToChamDiem()
+        public static List<SinhVienDTO> GetAllStudentsToChamDiem(string dotchamdiem)
         {
-            return SinhVienDAO.GetAllStudentsToChamDiem();
+            return SinhVienDAO.GetAllStudentsToChamDiem(dotchamdiem);
         }
 
         // Tìm kiếm sinh viên cơ bản

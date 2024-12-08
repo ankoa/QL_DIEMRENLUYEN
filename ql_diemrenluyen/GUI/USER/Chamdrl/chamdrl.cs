@@ -16,7 +16,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
         List<KhoaDTO> khoaList = KhoaBUS.GetAllKhoa();
         List<LopDTO> lopList = LopBUS.getAllLop();
         List<HocKyDTO> hockyList = HocKyBUS.GetAllHocKy();
-        List<SinhVienDTO> sinhvienList = SinhVienBUS.GetAllStudentsToChamDiem();
+        List<SinhVienDTO> sinhvienList;
         List<TieuChiDanhGiaDTO> tieuChiList = TieuChiDanhGiaBUS.XuatAllTieuChiDanhGia();
         private Dictionary<string, long> sttToId = new Dictionary<string, long>();
         //private System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
@@ -44,6 +44,19 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void chamdrl_Load(object sender, EventArgs e)
         {
+            string role = this.vaiTro switch
+            {
+                1 => "Sinh viên",
+                3 => "Cố vấn",
+                4 => "Khoa",
+                5 => "Trường",
+                _ => "Unknown"
+            };
+            sinhvienList = SinhVienBUS.GetAllStudentsToChamDiem(role);
+            if (vaiTro == 3 || vaiTro == 4)
+            {
+                cbKhoa.Enabled = false;
+            }
             if (vaiTro == 1)
             {
 
