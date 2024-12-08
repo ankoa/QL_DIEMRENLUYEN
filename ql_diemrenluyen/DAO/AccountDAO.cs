@@ -6,6 +6,18 @@ namespace ql_diemrenluyen.DAO
 {
     public class AccountDAO
     {
+        //List<AccountDTO> accounts = new List<AccountDTO>();
+        //string sql = "SELECT * FORM account";
+        //List<List<object>> result = DBConnection.ExecuteReader(sql);
+        //    foreach (var row in result)
+        //    {
+        //        AccountDTO account = new AccountDTO();
+        //account.Id = Convert.ToInt32(row[0]);
+        //        account.UpdatedAt = Convert.ToDateTime(row[1]);
+        //        account.Password = Convert.ToString(row[2]);
+        //    }
+
+        //    return accounts;
         // Lấy tất cả tài khoản
         public static List<AccountDTO> GetAllAccounts()
         {
@@ -32,7 +44,9 @@ namespace ql_diemrenluyen.DAO
 
             return accounts;
         }
-
+        //id =@id";
+        //var cmd = new MySqlCommand(sql);
+        //cmd.Parameters.AddWithValue("@id", id);
         public static AccountDTO GetAccountById(long id)
         {
             string sql = "select * from account where id= @id"; // Câu lệnh SQL
@@ -60,8 +74,8 @@ namespace ql_diemrenluyen.DAO
             return null;
         }
 
-
-
+        // string hashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(account.Password, 13);
+        //hàm add account
         public static bool AddAccount(AccountDTO account)
         {
             try
@@ -96,7 +110,7 @@ namespace ql_diemrenluyen.DAO
 
 
 
-        // Thêm tài khoản mới khi thêm sinh viên
+        //$"INSERT INTO tài khoản mới khi thêm sinh viên + $"VALUES (@id)"
         public static bool AddAccountSV(AccountDTO account)
         {
             string sql = $"INSERT INTO account (id, vaitro, password, remember_token, created_at, updated_at, status) " +
@@ -150,7 +164,7 @@ namespace ql_diemrenluyen.DAO
 
 
 
-        // Tìm kiếm tài khoản theo nhiều tiêu chí
+        // Tìm kiếm tài khoản is null  theo nhiều tiêu chí voi LIKE CONCAT('%', @search, '%')
         public static List<AccountDTO> SearchAccounts(int vaitro, int status, string search)
         {
             List<AccountDTO> accounts = new List<AccountDTO>();

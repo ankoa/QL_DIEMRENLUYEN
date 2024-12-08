@@ -1,6 +1,7 @@
 ﻿using ql_diemrenluyen.BUS;
-using ql_diemrenluyen.DAO;
+//using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
+using ql_diemrenluyen.GUI.USER;
 using ql_diemrenluyen.Helper;
 using QLDiemRenLuyen;
 using System.Data;
@@ -27,6 +28,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
         int dotchamdiemId;
         long covanId;
         long khoaId;
+        private int originalValue = 0; // Biến lưu giá trị cũ của ô đang chỉnh sửa
+
 
 
         public chamdrl(string action, int hocky, int dotchamdiem)
@@ -77,20 +80,28 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 btnLuu.Visible = true;
                 label6.Visible = false;
                 label5.Visible = false;
+                button1.Visible = false;
+                if (vaiTro != 1 && vaiTro != 0)
+                {
+                    button2.Visible = true;
+                }
             }
             else if (action == "Xem")
             {
                 btnLuu.Visible = false;
                 label6.Visible = true;
                 label5.Visible = true;
+                button1.Visible = false;
                 //long svID = long.Parse(lbMssv.Text);
                 if (vaiTro == 1)
                 {
-                    DiemRenLuyenSinhVienDTO drl = DiemRenLuyenSinhVienDAO.GetDiemRenLuyenBySinhVienIdAndHocKiId(nguoiDungId, this.hockiId);
+                    DiemRenLuyenSinhVienDTO drl = DiemRenLuyenBUS.GetDiemRenLuyenBySinhVienIdAndHocKiId(nguoiDungId, this.hockiId);
                     lbXepHang.Text = drl.Comments;
                     lbDiem.Text = drl.Score.ToString();
                     lbXepHang.Text = drl.Comments;
+                    button1.Visible = true;
                 }
+
 
                 lbhocky.Visible = true;
                 cbHocKy.Visible = true;
@@ -130,6 +141,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
 
             dataGridView1.DataSource = dataTable; // Gán DataTable vào DataGridView
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.Columns["STT"].Width = 45;
 
@@ -279,7 +291,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                     {
                         lbTen.Text = selectedStudent.Name;
                         lbMssv.Text = selectedStudent.Id.ToString();
-                        DiemRenLuyenSinhVienDTO drl = DiemRenLuyenSinhVienDAO.GetDiemRenLuyenBySinhVienIdAndHocKiId(selectedStudent.Id, this.hockiId);
+                        DiemRenLuyenSinhVienDTO drl = DiemRenLuyenBUS.GetDiemRenLuyenBySinhVienIdAndHocKiId(selectedStudent.Id, this.hockiId);
                         if (drl != null)
                         {
                             lbXepHang.Text = drl.Comments;
@@ -366,7 +378,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 else if (vaiTro == 3)
                 {
                     long svId = long.Parse(lbMssv.Text.ToString());
-                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
+                    int? diemSV = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
                     row["STT"] = stt;
                     row["Nội dung tiêu chí đánh giá"] = noiDung;
                     row["Điểm tối đa"] = diemMax;
@@ -379,8 +391,8 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 else if (vaiTro == 4)
                 {
                     long svId = long.Parse(lbMssv.Text.ToString());
-                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
-                    int? diemCV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Cố vấn"), coVanID: this.covanId);
+                    int? diemSV = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
+                    int? diemCV = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Cố vấn"), coVanID: this.covanId);
                     row["STT"] = stt;
                     row["Nội dung tiêu chí đánh giá"] = noiDung;
                     row["Điểm tối đa"] = diemMax;
@@ -393,9 +405,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 else if (vaiTro == 5)
                 {
                     long svId = long.Parse(lbMssv.Text.ToString());
-                    int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
-                    int? diemCV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Cố vấn"), coVanID: this.covanId);
-                    int? diemK = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Khoa"), khoaID: this.khoaId);
+                    int? diemSV = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
+                    int? diemCV = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Cố vấn"), coVanID: this.covanId);
+                    int? diemK = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Khoa"), khoaID: this.khoaId);
                     row["STT"] = stt;
                     row["Nội dung tiêu chí đánh giá"] = noiDung;
                     row["Điểm tối đa"] = diemMax;
@@ -460,10 +472,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 long svId = long.Parse(lbMssv.Text.ToString());
                 SinhVienDTO sv = SinhVienBUS.GetStudentById(svId);
                 LopDTO lop = LopBUS.GetLopByID(sv.LopId);
-                int? diemSV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
-                int? diemCV = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Cố vấn"), coVanID: lop.CoVanId);
-                int? diemK = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Khoa"), khoaID: lop.Khoa.Id);
-                int? diemT = ChiTietDotChamDAO.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Trường"), final: 1);
+                int? diemSV = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên"));
+                int? diemCV = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Cố vấn"), coVanID: lop.CoVanId);
+                int? diemK = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Khoa"), khoaID: lop.Khoa.Id);
+                int? diemT = ChiTietDotChamBUS.GetDiem(sinhVienID: svId, tieuChiDanhGiaID: item.Id, dotchamdiemID: DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Trường"), final: 1);
                 row["STT"] = stt;
                 row["Nội dung tiêu chí đánh giá"] = noiDung;
                 row["Điểm tối đa"] = diemMax;
@@ -747,7 +759,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 {
                     long svId = long.Parse(lbMssv.Text); // ID sinh viên
                     long id = GetOriginalId(stt, sttToId); // ID dữ liệu
-                    var (imageUrl, mota) = ChiTietDotChamDAO.GetBangChung(
+                    var (imageUrl, mota) = ChiTietDotChamBUS.GetBangChung(
                         svId,
                         id,
                         DotChamDiemBUS.GetIdVoiHocKyVaName(this.hockiId, "Sinh viên")
@@ -966,7 +978,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             cbSinhvien.SelectedIndex = -1;
             EmptyInforLabel();
 
-            List<LopDTO> list = LopDAO.GetLopByCoVanID(covanId);
+            List<LopDTO> list = LopBUS.GetLopByCoVanID(covanId);
 
             for (int i = 0; i < list.Count; i++)
             {
@@ -978,7 +990,6 @@ namespace ql_diemrenluyen.GUI.ADMIN
 
         private void LoadSinhVienTheoLop()
         {
-            MessageBox.Show("load lop");
             string tenlop = (string)cbLop.SelectedItem;
             cbSinhvien.Items.Clear();
             cbSinhvien.SelectedIndex = -1;
@@ -1105,6 +1116,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
                         row.DefaultCellStyle.BackColor = Color.LightBlue;
                         row.DefaultCellStyle.ForeColor = Color.Black;
                         row.DefaultCellStyle.Font = new Font(dataGridView1.Font, FontStyle.Bold);
+                        row.Cells["Điểm SV tự đánh giá"].ReadOnly = true;
+                        row.Cells["Điểm CVHT"].ReadOnly = true;
+                        row.Cells["Điểm khoa"].ReadOnly = true;
+                        row.Cells["Điểm trường"].ReadOnly = true;
                     }
                 }
             }
@@ -1222,6 +1237,9 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 //Task.Run(() =>
                 //{
                 Cham(vaiTroString, nguoiDungId);
+                this.Close();
+                Dashboard db = new Dashboard();
+                db.Show();
 
                 // Cập nhật giao diện phải thực hiện trên UI thread
                 //    this.Invoke(new Action(() =>
@@ -1229,6 +1247,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 //        Loading.HideLoading(loading); // Ẩn loading
                 //    }));
                 //});
+
             }
         }
         private void IfRoleIsSinhvien(int vaiTro, long nguoiDungId)
@@ -1272,7 +1291,10 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 if (vaiTro == "Khoa")
                 {
                     result = ThongTinDotChamBUS.GetThongTinDotChamId(dotchamdiemId, vaiTro, Convert.ToInt64(lbMssv.Text), gv.KhoaId);
-
+                    //MessageBox.Show(dotchamdiemId.ToString());
+                    //MessageBox.Show(vaiTro.ToString());
+                    //MessageBox.Show(lbMssv.Text.ToString());
+                    //MessageBox.Show(nguoiDungId.ToString());
                 }
                 else if (vaiTro == "Trường")
                 {
@@ -1282,10 +1304,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 else if (vaiTro == "Cố vấn")
                 {
                     result = ThongTinDotChamBUS.GetThongTinDotChamId(dotchamdiemId, vaiTro, Convert.ToInt64(lbMssv.Text), nguoiDungId);
-                    MessageBox.Show(dotchamdiemId.ToString());
-                    MessageBox.Show(vaiTro.ToString());
-                    MessageBox.Show(lbMssv.Text.ToString());
-                    MessageBox.Show(nguoiDungId.ToString());
+
 
                 }
                 else
@@ -1482,16 +1501,15 @@ namespace ql_diemrenluyen.GUI.ADMIN
                 {
                     DiemRenLuyenSinhVienDTO drl = new DiemRenLuyenSinhVienDTO
                     {
-                        Score = totalScore,
+                        Score = totalScore < 0 ? 0 : totalScore,
                         Comments = danhGia,
                         SemesterId = this.hockiId,
                         SinhVienId = Convert.ToInt64(lbMssv.Text)
                     };
-                    DiemRenLuyenSinhVienDAO.AddDiemRenLuyen(drl);
+                    DiemRenLuyenBUS.AddDiemRenLuyen(drl);
                 }
 
                 MessageBox.Show("Chấm điểm thành công!", "Thông báo");
-                this.Dispose();
             }
             catch (Exception ex)
             {
@@ -1597,6 +1615,332 @@ namespace ql_diemrenluyen.GUI.ADMIN
             if (cbHocKy.SelectedIndex != -1)
                 this.hockiId = Convert.ToInt32(cbHocKy.SelectedValue);
         }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra xem giá trị vừa nhập có hợp lệ không
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Đảm bảo hàng và cột hợp lệ
+            {
+                var editedCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                // Kiểm tra nếu giá trị của ô chỉnh sửa là hợp lệ
+                if (editedCell.Value == null || string.IsNullOrEmpty(editedCell.Value.ToString()))
+                {
+                    return;
+                }
+
+                int editedValue;
+                // Kiểm tra nếu giá trị có thể chuyển đổi thành số nguyên
+                if (!int.TryParse(editedCell.Value.ToString(), out editedValue))
+                {
+                    return;
+                }
+
+                // Lấy giá trị của cột STT từ hàng đang được chỉnh sửa
+                string sttValue = dataGridView1.Rows[e.RowIndex].Cells["STT"].Value.ToString();
+                long id = GetOriginalId(sttValue, sttToId);
+
+                // Kiểm tra nếu STT của hàng là nguyên (không phải hàng con)
+
+
+                // Nếu là hàng chính (STT nguyên), không áp dụng các điều kiện kiểm tra điểm
+                if (sttValue != null && !int.TryParse(sttValue.ToString(), out _))
+                {
+                    // Kiểm tra giá trị của cột "Điểm tối đa" trong hàng hiện tại
+                    int maxScore = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Điểm tối đa"].Value);
+
+                    if (maxScore < 0 && editedValue > 0)
+                    {
+                        MessageBox.Show("Giá trị nhập vào trường này là điểm trừ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        editedCell.Value = string.Empty;
+                        return; // Dừng lại, không cập nhật giá trị
+                    }
+
+                    if (maxScore > 0 && editedValue < 0)
+                    {
+                        MessageBox.Show("Giá trị nhập vào trường này là điểm cộng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        editedCell.Value = string.Empty;
+                        return; // Dừng lại, không cập nhật giá trị
+                    }
+
+                    if (maxScore < 0 && editedValue < 0 && editedValue < maxScore)
+                    {
+                        MessageBox.Show("Giá trị nhập vào không được vượt quá điểm trừ tối đa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        editedCell.Value = string.Empty;
+                        return; // Dừng lại, không cập nhật giá trị
+                    }
+
+                    // Kiểm tra nếu giá trị vừa nhập lớn hơn điểm tối đa
+                    if (maxScore > 0 && editedValue > 0 && editedValue > maxScore)
+                    {
+                        MessageBox.Show("Giá trị nhập vào không được vượt quá điểm tối đa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        editedCell.Value = string.Empty;
+                        return; // Dừng lại, không cập nhật giá trị
+                    }
+                }
+
+                // Lấy hàng có STT = 1
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++) // Duyệt đến dòng cuối cùng
+                {
+                    DataGridViewRow row = dataGridView1.Rows[i]; // Lấy hàng hiện tại
+
+                    // Kiểm tra nếu ID cha trùng với giá trị ID của hàng hiện tại
+                    if (GetOriginalId(row.Cells["STT"].Value.ToString(), sttToId) == TieuChiDanhGiaBUS.GetIdTieuChiCha(id))
+                    {
+                        if (vaiTro == 1)
+                        {
+                            // Kiểm tra nếu cột "Điểm SV tự đánh giá" đã có giá trị
+                            if (row.Cells["Điểm SV tự đánh giá"].Value != null &&
+                                 !string.IsNullOrEmpty(row.Cells["Điểm SV tự đánh giá"].Value.ToString()))
+                            {
+                                // Nếu có giá trị, thực hiện phép tính: (Giá trị cũ - Giá trị cũ của cell) + Giá trị mới của cell
+                                int currentValue = Convert.ToInt32(row.Cells["Điểm SV tự đánh giá"].Value); // Giá trị hiện tại của ô
+                                int newValue = currentValue - originalValue + Convert.ToInt32(editedCell.Value); // Cập nhật giá trị mới
+                                if (newValue > Convert.ToInt32(row.Cells["Điểm tối đa"].Value))
+                                {
+                                    row.Cells["Điểm SV tự đánh giá"].Value = row.Cells["Điểm tối đa"].Value;
+                                }
+                                else
+                                    row.Cells["Điểm SV tự đánh giá"].Value = newValue;
+                            }
+                            else
+                            {
+                                // Nếu không có giá trị, gán giá trị mới vào cột
+                                row.Cells["Điểm SV tự đánh giá"].Value = editedCell.Value;
+                            }
+                            return;
+                        }
+                        else if (vaiTro == 3)
+                        {
+                            // Kiểm tra nếu cột "Điểm SV tự đánh giá" đã có giá trị
+                            if (row.Cells["Điểm CVHT"].Value != null &&
+                                 !string.IsNullOrEmpty(row.Cells["Điểm CVHT"].Value.ToString()))
+                            {
+                                // Nếu có giá trị, thực hiện phép tính: (Giá trị cũ - Giá trị cũ của cell) + Giá trị mới của cell
+                                int currentValue = Convert.ToInt32(row.Cells["Điểm CVHT"].Value); // Giá trị hiện tại của ô
+                                int newValue = currentValue - originalValue + Convert.ToInt32(editedCell.Value); // Cập nhật giá trị mới
+                                if (newValue > Convert.ToInt32(row.Cells["Điểm tối đa"].Value))
+                                {
+                                    row.Cells["Điểm CVHT"].Value = row.Cells["Điểm tối đa"].Value;
+                                }
+                                else
+                                    row.Cells["Điểm CVHT"].Value = newValue;
+                            }
+                            else
+                            {
+                                // Nếu không có giá trị, gán giá trị mới vào cột
+                                row.Cells["Điểm CVHT"].Value = editedCell.Value;
+                            }
+                            return;
+                        }
+                        else if (vaiTro == 4)
+                        {
+                            // Kiểm tra nếu cột "Điểm SV tự đánh giá" đã có giá trị
+                            if (row.Cells["Điểm khoa"].Value != null &&
+                                 !string.IsNullOrEmpty(row.Cells["Điểm khoa"].Value.ToString()))
+                            {
+                                // Nếu có giá trị, thực hiện phép tính: (Giá trị cũ - Giá trị cũ của cell) + Giá trị mới của cell
+                                int currentValue = Convert.ToInt32(row.Cells["Điểm khoa"].Value); // Giá trị hiện tại của ô
+                                int newValue = currentValue - originalValue + Convert.ToInt32(editedCell.Value); // Cập nhật giá trị mới
+                                if (newValue > Convert.ToInt32(row.Cells["Điểm tối đa"].Value))
+                                {
+                                    row.Cells["Điểm khoa"].Value = row.Cells["Điểm tối đa"].Value;
+                                }
+                                else
+                                    row.Cells["Điểm khoa"].Value = newValue;
+                            }
+                            else
+                            {
+                                // Nếu không có giá trị, gán giá trị mới vào cột
+                                row.Cells["Điểm khoa"].Value = editedCell.Value;
+                            }
+                            return;
+                        }
+                        else if (vaiTro == 5)
+                        {
+                            // Kiểm tra nếu cột "Điểm SV tự đánh giá" đã có giá trị
+                            if (row.Cells["Điểm trường"].Value != null &&
+                                 !string.IsNullOrEmpty(row.Cells["Điểm trường"].Value.ToString()))
+                            {
+                                // Nếu có giá trị, thực hiện phép tính: (Giá trị cũ - Giá trị cũ của cell) + Giá trị mới của cell
+                                int currentValue = Convert.ToInt32(row.Cells["Điểm trường"].Value); // Giá trị hiện tại của ô
+                                int newValue = currentValue - originalValue + Convert.ToInt32(editedCell.Value); // Cập nhật giá trị mới
+                                if (newValue > Convert.ToInt32(row.Cells["Điểm tối đa"].Value))
+                                {
+                                    row.Cells["Điểm trường"].Value = row.Cells["Điểm tối đa"].Value;
+                                }
+                                else
+                                    row.Cells["Điểm trường"].Value = newValue;
+                            }
+                            else
+                            {
+                                // Nếu không có giá trị, gán giá trị mới vào cột
+                                row.Cells["Điểm trường"].Value = editedCell.Value;
+                            }
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            // Lưu giá trị ban đầu của ô vào biến originalValue khi bắt đầu chỉnh sửa
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                var cellValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                // Kiểm tra nếu ô có giá trị hay không
+                if (cellValue != null && !string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    // Nếu có giá trị, chuyển đổi giá trị sang int
+                    originalValue = Convert.ToInt32(cellValue);
+                }
+                else
+                {
+                    // Nếu ô rỗng, gán giá trị mặc định là 0
+                    originalValue = 0;
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (vaiTro == 1)
+            {
+                ExcelExporter.ExportDataGridViewToExcelWithColors(dataGridView1, 7);
+            }
+            else
+            {
+                if (cbKhoa.SelectedIndex < 0 && cbLop.SelectedIndex < 0 && cbSinhvien.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Chọn thông tin để xuất");
+                    return;
+                }
+                //ExcelExporter.ExportDataGridViewToExcelWithColors(dataGridView1);
+            }
+        }
+
+        public static void CopyDataToDiemTruongColumn(DataGridView dataGridView, string diemTruongColumnName)
+        {
+            // Tìm cột "Điểm trường"
+            int diemTruongColumnIndex = -1;
+
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                if (column.HeaderText == diemTruongColumnName)
+                {
+                    diemTruongColumnIndex = column.Index;
+                    break;
+                }
+            }
+
+            // Kiểm tra nếu không tìm thấy cột "Điểm trường"
+            if (diemTruongColumnIndex == -1)
+            {
+                MessageBox.Show($"Không tìm thấy cột '{diemTruongColumnName}'!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Lấy dữ liệu từ cột bên trái và sao chép vào cột "Điểm trường"
+            for (int row = 0; row < dataGridView.Rows.Count; row++)
+            {
+                // Lấy cột bên trái cột "Điểm trường"
+                int leftColumnIndex = diemTruongColumnIndex - 1;
+
+                // Nếu cột bên trái hợp lệ (không nhỏ hơn 0)
+                if (leftColumnIndex >= 0)
+                {
+                    // Lấy giá trị từ cột bên trái
+                    var leftCellValue = dataGridView.Rows[row].Cells[leftColumnIndex].Value;
+
+                    // Gán giá trị vào cột "Điểm trường"
+                    dataGridView.Rows[row].Cells[diemTruongColumnIndex].Value = leftCellValue;
+                }
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string role = this.vaiTro switch
+            {
+                3 => "Điểm CVHT",
+                4 => "Điểm khoa",
+                5 => "Điểm trường",
+                _ => "Unknown"
+            };
+            dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged;
+            CopyDataToDiemTruongColumn(dataGridView1, role);
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+        }
+
+        private void chamdrl_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+            if(Program.role == 1)
+            {
+                Dashboard db = new Dashboard();
+                db.Show();
+            }
+            else
+            {
+                MenuAdmin admin = new MenuAdmin();
+                admin.Show();
+            }
+        }
+
+
+
+
+
+
+        //private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    // Kiểm tra xem giá trị vừa nhập có hợp lệ không
+        //    if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Đảm bảo hàng và cột hợp lệ
+        //    {
+        //        var editedCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+        //        // Lấy giá trị của cột STT từ hàng đang được chỉnh sửa
+        //        string sttValue = dataGridView1.Rows[e.RowIndex].Cells["STT"].Value.ToString();
+        //        int editedValue = Convert.ToInt32(editedCell.Value);
+        //        long id = GetOriginalId(sttValue, sttToId);
+
+        //        // Hiển thị giá trị STT trong MessageBox
+        //        //MessageBox.Show($"Giá trị của cột STT trong hàng hiện tại là: {sttValue}");
+
+        //        //Lấy hàng có STT = 1
+        //        foreach (DataGridViewRow row in dataGridView1.Rows)
+        //        {
+        //            if (GetOriginalId(row.Cells["STT"].Value.ToString(), sttToId) == TieuChiDanhGiaBUS.GetIdTieuChiCha(id))
+        //            {
+        //                if (vaiTro == 1)
+        //                {
+        //                    row.Cells["Điểm SV tự đánh giá"].Value = editedCell.Value;
+        //                    return;
+        //                }
+        //                //// Lấy giá trị vừa nhập và gán vào cell "test" trong hàng có STT = 1
+        //                //if (row.Cells["test"] != null)
+        //                //{
+        //                //    row.Cells["test"].Value = editedCell.Value;
+        //                //}
+        //                //break;
+
+        //                //row["Điểm SV tự đánh giá"] = diemSV.HasValue ? diemSV.Value.ToString() : string.Empty;
+        //                //row["Điểm CVHT"] = string.Empty;
+        //                //row["Điểm khoa"] = string.Empty;
+        //                //row["Điểm trường"] = string.Empty;
+        //            }
+        //        }
+        //    }
+        //}
+
+
     }
 
     public class ImageData

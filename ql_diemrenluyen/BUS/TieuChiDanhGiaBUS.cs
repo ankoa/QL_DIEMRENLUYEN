@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using ql_diemrenluyen.DAO;
+﻿using ql_diemrenluyen.DAO;
 using ql_diemrenluyen.DTO;
 
 namespace ql_diemrenluyen.BUS
@@ -112,5 +110,11 @@ namespace ql_diemrenluyen.BUS
                 return new List<ChuThichTieuChiDTO>();
             }
         }
+
+        public static long? GetIdTieuChiCha(long tieuchiId)
+        {
+            return TieuChiDanhGiaDAO.GetIdTieuChiCha(tieuchiId);
+        }
+
     }
 }

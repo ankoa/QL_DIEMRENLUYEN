@@ -44,6 +44,8 @@
             tableLayoutPanel3 = new TableLayoutPanel();
             dataGridView1 = new DataGridView();
             groupBox1 = new GroupBox();
+            button2 = new Button();
+            button1 = new Button();
             lbXepHang = new Label();
             lbDiem = new Label();
             lbMssv = new Label();
@@ -249,9 +251,12 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(923, 601);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellBeginEdit += dataGridView1_CellBeginEdit;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(lbXepHang);
             groupBox1.Controls.Add(lbDiem);
             groupBox1.Controls.Add(lbMssv);
@@ -268,6 +273,29 @@
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin sinh viên";
+            // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Bottom;
+            button2.Location = new Point(3, 454);
+            button2.Name = "button2";
+            button2.Size = new Size(387, 48);
+            button2.TabIndex = 10;
+            button2.Text = "Duyệt nhanh";
+            button2.UseVisualStyleBackColor = true;
+            button2.Visible = false;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Dock = DockStyle.Bottom;
+            button1.Location = new Point(3, 502);
+            button1.Name = "button1";
+            button1.Size = new Size(387, 48);
+            button1.TabIndex = 9;
+            button1.Text = "Xuất excel";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // lbXepHang
             // 
@@ -362,6 +390,7 @@
             Name = "chamdrl";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            FormClosed += chamdrl_FormClosed;
             Load += chamdrl_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
@@ -399,5 +428,7 @@
         private Label lbTen;
         private Label lbhocky;
         private ComboBox cbHocKy;
+        private Button button1;
+        private Button button2;
     }
 }

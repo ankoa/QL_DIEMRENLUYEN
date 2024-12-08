@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ql_diemrenluyen.DTO;
-using System;
-using System.Collections.Generic;
 using System.Data;
 
 namespace ql_diemrenluyen.DAO
@@ -34,8 +32,33 @@ namespace ql_diemrenluyen.DAO
             return tieuChiList;
         }
 
+        public static long? GetIdTieuChiCha(long tieuchiId)
+        {
+            string sql = "SELECT parent_id FROM tieuchidanhgia WHERE id = @tieuchiId";
 
-        // Thêm tiêu chí đánh giá mới
+            // Tạo MySqlCommand và thêm tham số
+            using (var cmd = new MySqlCommand(sql))
+            {
+                cmd.Parameters.AddWithValue("@tieuchiId", tieuchiId);
+
+                // Sử dụng ExecuteReader để lấy dữ liệu
+                var result = DBConnection.ExecuteReader(cmd);
+
+                // Kiểm tra kết quả trả về
+                if (result.Count > 0 && result[0].Count > 0)
+                {
+                    var parentId = result[0][0];
+                    return parentId != DBNull.Value ? Convert.ToInt64(parentId) : (long?)null;
+                }
+            }
+
+            // Trả về null nếu không có kết quả
+            return null;
+        }
+
+
+
+        // "INSERT INTO()" + ""VALUES ()"tiêu chí đánh giá mới
         public static bool AddTieuChiDanhGia(TieuChiDanhGiaDTO tieuChi)
         {
             string sql = "INSERT INTO tieuchidanhgia (name, diem_max, parent_id, created_at, updated_at, status) " +
@@ -47,16 +70,16 @@ namespace ql_diemrenluyen.DAO
             cmd.Parameters.AddWithValue("@parentId", tieuChi.ParentId);
             cmd.Parameters.AddWithValue("@createdAt", tieuChi.CreatedAt);
             cmd.Parameters.AddWithValue("@updatedAt", tieuChi.UpdatedAt);
-            cmd.Parameters.AddWithValue("@status", tieuChi.status); 
+            cmd.Parameters.AddWithValue("@status", tieuChi.status);
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
 
-        // Cập nhật thông tin tiêu chí đánh giá
+        // UPDATE tieuchidanhgia SET Cập nhật thông tin tiêu chí đánh giá
         public static bool UpdateTieuChiDanhGia(TieuChiDanhGiaDTO tieuChi)
         {
             string sql = "UPDATE tieuchidanhgia SET name = @name, diem_max = @diemMax, parent_id = @parentId, " +
-                         "created_at = @createdAt, updated_at = @updatedAt, status = @status WHERE id = @id"; 
+                         "created_at = @createdAt, updated_at = @updatedAt, status = @status WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", tieuChi.Id);
@@ -65,7 +88,7 @@ namespace ql_diemrenluyen.DAO
             cmd.Parameters.AddWithValue("@parentId", tieuChi.ParentId);
             cmd.Parameters.AddWithValue("@createdAt", tieuChi.CreatedAt);
             cmd.Parameters.AddWithValue("@updatedAt", tieuChi.UpdatedAt);
-            cmd.Parameters.AddWithValue("@status", tieuChi.status); 
+            cmd.Parameters.AddWithValue("@status", tieuChi.status);
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
@@ -73,18 +96,18 @@ namespace ql_diemrenluyen.DAO
         // Xóa tiêu chí đánh giá
         public static bool DeleteTieuChiDanhGia(long id)
         {
-            string sql = "UPDATE tieuchidanhgia SET status = 0 WHERE id = @id"; 
+            string sql = "UPDATE tieuchidanhgia SET status = 0 WHERE id = @id";
 
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@id", id);
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
+        //search TC  IS NULL  LIKE CONCAT('%', @search, '%')
         public static List<TieuChiDanhGiaDTO> SearchTieuChiDanhGia(int? parentId, int status, string search)
         {
             List<TieuChiDanhGiaDTO> tieuChiList = new List<TieuChiDanhGiaDTO>();
 
-            // Câu truy vấn SQL: bỏ qua các tiêu chí có parent_id là NULL và áp dụng các điều kiện lọc
             string sql = @"
 SELECT * FROM tieuchidanhgia
 WHERE

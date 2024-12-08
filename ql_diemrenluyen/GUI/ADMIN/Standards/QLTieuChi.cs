@@ -89,6 +89,7 @@ namespace ql_diemrenluyen.GUI.ADMIN.TieuChi
                 }
             };
         }
+        // tableTC.Rows.Add
         private void LoadStandardsList()
         {
             try

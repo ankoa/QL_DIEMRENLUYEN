@@ -323,7 +323,8 @@ namespace ql_diemrenluyen.GUI.USER
                         var selectedRow = dataGridView2.Rows[e.RowIndex];
                         var dotChamDiem = (ThongTinDotChamDiemDTO)selectedRow.DataBoundItem; // Lấy đối tượng DTO từ dòng đã chọn
                         chamdrl otpForm = new chamdrl("Chấm", dotChamDiem.HocKyId, dotChamDiem.Id);
-
+                        if(Program.role==1)
+                        this.Close();
                         otpForm.Show();  // Hiển thị form mới
                     }
                 };
