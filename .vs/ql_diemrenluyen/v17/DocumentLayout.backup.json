@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\Code\\QLDiemrenluyen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\bus\\dotchamdiembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\dotchamdiembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\dao\\dotchamdiemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\dotchamdiemdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\gui\\user\\dashboard\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\dao\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\dao\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\bus\\dotchamdiembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|solutionrelative:ql_diemrenluyen\\bus\\dotchamdiembus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{337BB673-97CB-4BB3-9ADD-9793CA5EE27D}|ql_diemrenluyen\\ql_diemrenluyen.csproj|d:\\code\\qldiemrenluyen\\ql_diemrenluyen\\gui\\admin\\teacher\\themgiangvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,6 +79,57 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DotChamDiemDAO.cs",
+              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAG8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T02:05:34.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dashboard.cs",
+              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAQwFMBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T02:01:24.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dashboard.cs [Design]",
+              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs",
+              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs [Design]",
+              "RelativeToolTip": "ql_diemrenluyen\\GUI\\USER\\Dashboard\\Dashboard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T02:01:08.42Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DBConnection.cs",
+              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DBConnection.cs",
+              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\DBConnection.cs",
+              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DBConnection.cs",
+              "RelativeToolTip": "ql_diemrenluyen\\DAO\\DBConnection.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAAEQAAAB2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T01:59:11.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DotChamDiemBUS.cs",
               "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\BUS\\DotChamDiemBUS.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\BUS\\DotChamDiemBUS.cs",
@@ -79,20 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DotChamDiemDAO.cs",
-              "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
-              "RelativeDocumentMoniker": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
-              "ToolTip": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
-              "RelativeToolTip": "ql_diemrenluyen\\DAO\\DotChamDiemDAO.cs",
-              "ViewState": "AgIAAA0CAAAAAAAAAAA9wDECAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T01:42:40.177Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ThemGiangVien.cs",
               "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
@@ -105,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ThemGiangVien.cs [Design]",
               "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\Teacher\\ThemGiangVien.cs",
@@ -116,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "UpdateLop.cs",
               "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\KhoaLop\\UpdateLop.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\KhoaLop\\UpdateLop.cs",
@@ -129,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "UpdateLop.cs [Design]",
               "DocumentMoniker": "D:\\Code\\QLDiemrenluyen\\ql_diemrenluyen\\GUI\\ADMIN\\KhoaLop\\UpdateLop.cs",
               "RelativeDocumentMoniker": "ql_diemrenluyen\\GUI\\ADMIN\\KhoaLop\\UpdateLop.cs",

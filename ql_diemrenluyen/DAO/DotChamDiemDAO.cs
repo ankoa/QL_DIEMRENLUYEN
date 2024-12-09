@@ -115,7 +115,6 @@ namespace ql_diemrenluyen.DAO
             var cmd = new MySqlCommand(sql);
             cmd.Parameters.AddWithValue("@sinhVienId", sinhVienId);
             cmd.Parameters.AddWithValue("@ngayHienTai", ngayHienTai); // Gán ngày hiện tại theo giờ VN
-            MessageBox.Show(ngayHienTai.ToLongDateString());
 
             List<List<object>> result = DBConnection.ExecuteReader(cmd);
 

@@ -318,16 +318,26 @@ namespace ql_diemrenluyen.GUI.USER
                 // Xử lý sự kiện double-click trên DataGridView2
                 dataGridView2.CellDoubleClick += (sender, e) =>
                 {
-                    if (e.RowIndex >= 0)  // Kiểm tra nếu đã chọn một hàng hợp lệ
+                    if (e.RowIndex >= 0) // Kiểm tra nếu đã chọn một hàng hợp lệ
                     {
                         var selectedRow = dataGridView2.Rows[e.RowIndex];
                         var dotChamDiem = (ThongTinDotChamDiemDTO)selectedRow.DataBoundItem; // Lấy đối tượng DTO từ dòng đã chọn
+
+                        // Kiểm tra giá trị cột HoanThanh
+                        if (dotChamDiem.HoanThanh == "Hoàn thành")
+                        {
+                            MessageBox.Show("Đợt chấm điểm này đã hoàn thành. Không thể thao tác thêm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Mở form mới nếu chưa hoàn thành
                         chamdrl otpForm = new chamdrl("Chấm", dotChamDiem.HocKyId, dotChamDiem.Id);
-                        if(Program.role==1)
-                        this.Close();
-                        otpForm.Show();  // Hiển thị form mới
+                        if (Program.role == 1)
+                            this.Close();
+                        otpForm.Show(); // Hiển thị form mới
                     }
                 };
+
             }
             catch (Exception ex)
             {
