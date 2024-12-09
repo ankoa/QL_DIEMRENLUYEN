@@ -58,6 +58,11 @@ namespace QLDiemRenLuyen
             //    MessageBox.Show("Lỗi khi khởi tạo danh sách lớp: " + ex.Message);
             //}
             clbLopcovan.Items.Clear();
+            if (DotChamDiemBUS.IsDotChamDiemDangDienRaHoacSapDienRa())
+            {
+                clbLopcovan.Enabled = false;
+            }
+
         }
 
         public ThemGiangVien(long idGV)
@@ -106,6 +111,8 @@ namespace QLDiemRenLuyen
             cBKhoa.SelectedValue = giangVien.KhoaId;
             cBKhoa.Enabled = false;
 
+
+
             // Gán danh sách lớp vào CheckedListBox và đánh dấu các lớp hiện tại của giảng viên
             try
             {
@@ -131,6 +138,11 @@ namespace QLDiemRenLuyen
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi khởi tạo danh sách lớp: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (DotChamDiemBUS.IsDotChamDiemDangDienRaHoacSapDienRa())
+            {
+                clbLopcovan.Enabled = false;
             }
 
         }

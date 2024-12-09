@@ -121,20 +121,30 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                     // Thêm giảng viên vào ComboBox
                     foreach (var giangvien in giangvien_list)
                     {
-                        cbbMaCV.Items.Add(giangvien.Id);      // Thêm ID vào cbbMaCV
-                        cbbTenCV.Items.Add(giangvien.Name); // Thêm tên vào cbbTenCV
+                        AccountDTO acc = AccountBUS.GetAccountById(giangvien.Id);
+                        {
+                            if (acc != null)
+                            {
+                                if (acc.Role == 2 || acc.Role == 3)
+                                {
+                                    cbbMaCV.Items.Add(giangvien.Id);      // Thêm ID vào cbbMaCV
+                                    cbbTenCV.Items.Add(giangvien.Name); // Thêm tên vào cbbTenCV
+                                }
+                            }
+
+                        }
                     }
                 }
+                else
+                {
+                    giangvien_list = null;
+                }
+
+
+
+                //// Reset trạng thái ComboBox
+
             }
-            else
-            {
-                giangvien_list = null;
-            }
-
-
-
-            //// Reset trạng thái ComboBox
-
         }
 
 
@@ -172,6 +182,16 @@ namespace ql_diemrenluyen.GUI.ADMIN.KhoaLop
                         value.CreatedAt = lop.CreatedAt;
                         value.UpdatedAt = DateTime.Now;
                         value.status = 1;
+
+                        if (lop.CoVanId != long.Parse(cbbMaCV.SelectedItem.ToString()))
+                        {
+                            if (DotChamDiemBUS.IsDotChamDiemDangDienRaHoacSapDienRa())
+                            {
+                                MessageBox.Show("Có đợt chấm, không được thay đổi cố vấn");
+                                return;
+                            }
+                        }
+
                         if (lop.CoVanId == null)
                         {
                             if (cbbMaCV.SelectedIndex != 0)

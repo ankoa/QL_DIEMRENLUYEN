@@ -133,6 +133,7 @@
             // 
             // clbLopcovan
             // 
+            clbLopcovan.Enabled = false;
             clbLopcovan.FormattingEnabled = true;
             clbLopcovan.Location = new Point(122, 248);
             clbLopcovan.Margin = new Padding(3, 2, 3, 2);

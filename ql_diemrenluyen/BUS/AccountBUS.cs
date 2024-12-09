@@ -167,5 +167,11 @@ namespace ql_diemrenluyen.BUS
             return string.Empty; // Trả về một chuỗi rỗng nghĩa là mật khẩu hợp lệ
         }
 
+        public static AccountDTO GetAccountById(long id)
+        {
+            return AccountDAO.GetAccountById(id);
+        }
+
+
     }
 }
