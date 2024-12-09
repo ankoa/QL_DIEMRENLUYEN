@@ -58,7 +58,7 @@ namespace ql_diemrenluyen.DAO
 
 
 
-        // Thêm tiêu chí đánh giá mới
+        // "INSERT INTO()" + ""VALUES ()"tiêu chí đánh giá mới
         public static bool AddTieuChiDanhGia(TieuChiDanhGiaDTO tieuChi)
         {
             string sql = "INSERT INTO tieuchidanhgia (name, diem_max, parent_id, created_at, updated_at, status) " +
@@ -75,7 +75,7 @@ namespace ql_diemrenluyen.DAO
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
 
-        // Cập nhật thông tin tiêu chí đánh giá
+        // UPDATE tieuchidanhgia SET Cập nhật thông tin tiêu chí đánh giá
         public static bool UpdateTieuChiDanhGia(TieuChiDanhGiaDTO tieuChi)
         {
             string sql = "UPDATE tieuchidanhgia SET name = @name, diem_max = @diemMax, parent_id = @parentId, " +
@@ -103,11 +103,11 @@ namespace ql_diemrenluyen.DAO
 
             return DBConnection.ExecuteNonQuery(cmd) > 0;
         }
+        //search TC  IS NULL  LIKE CONCAT('%', @search, '%')
         public static List<TieuChiDanhGiaDTO> SearchTieuChiDanhGia(int? parentId, int status, string search)
         {
             List<TieuChiDanhGiaDTO> tieuChiList = new List<TieuChiDanhGiaDTO>();
 
-            // Câu truy vấn SQL: bỏ qua các tiêu chí có parent_id là NULL và áp dụng các điều kiện lọc
             string sql = @"
 SELECT * FROM tieuchidanhgia
 WHERE

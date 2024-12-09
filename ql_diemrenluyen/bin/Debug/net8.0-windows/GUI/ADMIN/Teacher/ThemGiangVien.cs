@@ -233,26 +233,8 @@ namespace QLDiemRenLuyen
                 GioiTinh = GioiTinh,
                 Status = Trangthai
             };
-            //MessageBox.Show(giangVienAction.Name + giangVienAction.Email + giangVienAction.NgaySinh +"Khoa id:" + giangVienAction.KhoaId + "Giới tính: "+ giangVienAction.GioiTinh);
             Boolean status;
-            //status = GiangVienBUS.AddGiangVien(giangVienAction);
-            //status = GiangVienBUS.UpdateGiangVien(giangVienAction);
-            //if (giangVienEdit == null)
-            //{
-            //    status = GiangVienBUS.AddGiangVien(giangVienAction);
-            //    AccountDTO accountDTO = new AccountDTO
-            //    {
-            //        Id = giangVienAction.Id,
-            //        //Password = "1" // Đặt mật khẩu mặc định
-            //    };
-            //    AccountBUS.AddAccountGV(accountDTO);
-            //}
-            //else
-            //{
-            //    status = GiangVienBUS.UpdateGiangVien(giangVienAction);
-            //}
 
-            //MessageBox.Show(status ? "Thêm giảng viên thành công!" : "Thêm giảng viên không thành công!");
             if (giangVienEdit == null) // Nếu giảng viên chưa được chỉnh sửa (thêm mới)
             {
                 status = GiangVienBUS.AddGiangVien(giangVienAction);
@@ -263,7 +245,7 @@ namespace QLDiemRenLuyen
                 giangVienAction.Id = giangVienEdit.Id;  // Sửa giảng viên đã có
                 //MessageBox.Show(giangVienAction.Id.ToString());
                 status = GiangVienBUS.UpdateGiangVien(giangVienAction);
-                MessageBox.Show(status ? "Sửa giảng viên thành công!" : "Sửa giảng viên không thành công!");
+                MessageBox.Show(status ? "Sửa thông tin giảng viên thành công!" : "Sửa thông tin giảng viên không thành công!");
             }
             if (status)
             {

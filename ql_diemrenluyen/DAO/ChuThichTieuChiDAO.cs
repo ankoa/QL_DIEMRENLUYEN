@@ -118,6 +118,9 @@ namespace ql_diemrenluyen.DAO
 
             return chuThichList;
         }
+        //hàm  thêm CT $"INSERT INTO" + $"VALUES ()" CHÚ THÍCH 
+
+
         public static bool AddChuThichTieuChi(ChuThichTieuChiDTO chuThich)
         {
             try
@@ -195,7 +198,7 @@ namespace ql_diemrenluyen.DAO
             }
         }
 
-
+        //hàm search IS NULL name LIKE CONCAT('%', @search, '%')
         public static List<ChuThichTieuChiDTO> SearchChuThich(int? tieuchidanhgia_id, int status, string search)
         {
             List<ChuThichTieuChiDTO> chuThichList = new List<ChuThichTieuChiDTO>();

@@ -188,5 +188,86 @@ public class ExcelExporter
         }
     }
 
+    public static void ExportDataGridViewToExcelWithColors(DataGridView dataGridView, int columnLimit = -1)
+    {
+        using (var saveFileDialog = new SaveFileDialog())
+        {
+            saveFileDialog.Filter = "Excel Files|*.xlsx";
+            saveFileDialog.Title = "Lưu file Excel";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // Thiết lập LicenseContext
+                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+                    using (var package = new ExcelPackage())
+                    {
+                        // Tạo worksheet
+                        var worksheet = package.Workbook.Worksheets.Add("DataGridView Data");
+
+                        // Giới hạn số lượng cột được xuất (nếu columnLimit > 0)
+                        int maxColumns = columnLimit > 0 && columnLimit <= dataGridView.Columns.Count
+                            ? columnLimit
+                            : dataGridView.Columns.Count;
+
+                        // Ghi tiêu đề cột và áp dụng màu
+                        for (int col = 0; col < maxColumns; col++)
+                        {
+                            var headerCell = dataGridView.Columns[col].HeaderCell;
+
+                            // Ghi tiêu đề cột
+                            worksheet.Cells[1, col + 1].Value = headerCell.Value;
+
+                            // Đặt màu nền tiêu đề
+                            worksheet.Cells[1, col + 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                            worksheet.Cells[1, col + 1].Style.Fill.BackgroundColor.SetColor(headerCell.Style.BackColor.IsEmpty ? Color.White : headerCell.Style.BackColor);
+                            worksheet.Cells[1, col + 1].Style.Font.Bold = true;
+                            worksheet.Cells[1, col + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                            // Thêm viền
+                            worksheet.Cells[1, col + 1].Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                        }
+
+                        // Ghi dữ liệu từng dòng từ DataGridView
+                        for (int row = 0; row < dataGridView.Rows.Count; row++)
+                        {
+                            for (int col = 0; col < maxColumns; col++)
+                            {
+                                var cell = dataGridView.Rows[row].Cells[col];
+                                var cellValue = cell.Value != null ? cell.Value.ToString() : string.Empty;
+
+                                // Ghi giá trị ô
+                                worksheet.Cells[row + 2, col + 1].Value = cellValue;
+
+                                // Đặt màu nền của ô
+                                worksheet.Cells[row + 2, col + 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                worksheet.Cells[row + 2, col + 1].Style.Fill.BackgroundColor.SetColor(cell.Style.BackColor.IsEmpty ? Color.White : cell.Style.BackColor);
+
+                                // Đặt màu chữ
+                                worksheet.Cells[row + 2, col + 1].Style.Font.Color.SetColor(cell.Style.ForeColor.IsEmpty ? Color.Black : cell.Style.ForeColor);
+
+                                // Thêm viền
+                                worksheet.Cells[row + 2, col + 1].Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                            }
+                        }
+
+                        // Tự động điều chỉnh cột
+                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                        // Lưu file Excel
+                        File.WriteAllBytes(saveFileDialog.FileName, package.GetAsByteArray());
+                        MessageBox.Show("Xuất Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Đã xảy ra lỗi khi xuất Excel: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+    }
+
 
 }

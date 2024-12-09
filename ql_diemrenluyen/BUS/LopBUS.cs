@@ -50,5 +50,61 @@ namespace ql_diemrenluyen.BUS
         {
             return LopDAO.GetListBySearch(value);
         }
+
+        public static List<LopDTO> GetLopByCoVanID(long covanId)
+        {
+            try
+            {
+                return LopDAO.GetLopByCoVanID(covanId);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi (log lỗi hoặc thông báo người dùng)
+                Console.WriteLine("Lỗi khi lấy danh sách lớp theo cố vấn ID: " + ex.Message);
+                return new List<LopDTO>();
+            }
+        }
+        public static LopDetailsDTO GetLopDetailsBySinhVienId(long sinhVienId)
+        {
+            try
+            {
+                // Gọi phương thức DAO để lấy dữ liệu
+                return LopDAO.GetLopDetailsBySinhVienId(sinhVienId);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi (log lỗi hoặc thông báo người dùng)
+                Console.WriteLine("Lỗi khi lấy chi tiết lớp theo sinh viên ID: " + ex.Message);
+                return null;
+            }
+        }
+        public static List<LopDetailsDTO> GetLopHocCuaCoVanById(long covanId)
+        {
+            try
+            {
+                // Gọi phương thức từ DAO để thực hiện truy vấn cơ sở dữ liệu
+                return LopDAO.GetLopHocCuaCoVanById(covanId);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi (log lỗi hoặc thông báo người dùng)
+                Console.WriteLine("Lỗi khi lấy lớp học của cố vấn theo ID: " + ex.Message);
+                return new List<LopDetailsDTO>(); // Trả về danh sách rỗng nếu có lỗi
+            }
+        }
+        public static bool AreAllClassesAssignedToAdvisor()
+        {
+            return LopDAO.AreAllClassesAssignedToAdvisor();
+        }
     }
+    //public class LopDetailsDTO
+    //{
+    //    public int? STT { get; set; }
+    //    public long LopId { get; set; }
+    //    public string TenLop { get; set; }
+    //    public string TenKhoa { get; set; }
+    //    public string CoVan { get; set; }
+    //    public int? SoLuong { get; set; }
+    //}
+
 }

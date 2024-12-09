@@ -191,6 +191,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             {
                 // Nếu role == 0, load form_taikhoan
                 btnUser.BackColor = Color.LightBlue;
+                ClearMdiForms();
                 if (form_taikhoan == null)
                 {
                     form_taikhoan = new TaiKhoan(); // Giả sử form_taikhoan là TaiKhoanForm
@@ -211,6 +212,7 @@ namespace ql_diemrenluyen.GUI.ADMIN
             {
                 // Nếu role khác 0, load form_home
                 btnHomepage.BackColor = Color.LightBlue;
+                ClearMdiForms();
                 if (form_home == null)
                 {
                     form_home = new Dashboard();

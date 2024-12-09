@@ -158,8 +158,19 @@ namespace ql_diemrenluyen.GUI.ADMIN.Account
                 Status = status == "Hoạt động" ? 1 : -1
             };
 
-            DotChamDiemDTO result = DotChamDiemBUS.AddDotChamDiem(dotcham);
 
+
+            if (nguoicham == "Cố vấn")
+            {
+                if (!LopBUS.AreAllClassesAssignedToAdvisor())
+                {
+                    MessageBox.Show("Có lớp chưa có cố vấn, hãy thử lại");
+                    this.Close();
+                    return;
+                }
+            }
+
+            DotChamDiemDTO result = DotChamDiemBUS.AddDotChamDiem(dotcham);
 
             if (result != null)
             {

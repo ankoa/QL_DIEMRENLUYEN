@@ -480,6 +480,32 @@ AND dcd.status=1
             return dotChamDiems;
         }
 
+        public static bool IsDotChamDiemDangDienRaHoacSapDienRa()
+        {
+            // Lấy thời gian hiện tại tại Việt Nam (UTC+7)
+            DateTime currentTimeInVietnam = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "SE Asia Standard Time");
+
+            string sql = @"
+SELECT dcd.id
+FROM dotchamdiem dcd
+JOIN hocky hk ON dcd.hocki_id = hk.id
+WHERE (
+    (dcd.startDate <= @currentTime AND dcd.endDate >= @currentTime)  -- Đợt chấm điểm đang diễn ra
+    OR
+    (dcd.startDate > @currentTime)  -- Đợt chấm điểm sắp diễn ra
+)";
+
+            var cmd = new MySqlCommand(sql);
+            cmd.Parameters.AddWithValue("@currentTime", currentTimeInVietnam);
+
+            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+
+            // Kiểm tra nếu có kết quả, tức là có đợt chấm điểm đang diễn ra hoặc sắp diễn ra
+            return result.Count > 0;
+        }
+
+
+
         public static int? GetIdVoiHocKyVaName(int hocKiId, string name)
         {
             string sql = "SELECT Id FROM dotchamdiem WHERE hocki_id = @hocKiId AND name = @name LIMIT 1";
@@ -515,25 +541,25 @@ AND dcd.status=1
             return dotChamDiemIds;
         }
 
-        public static bool IsDotChamDiemDangDienRaHoacSapDienRa()
-        {
-            // Lấy thời gian hiện tại tại Việt Nam (UTC+7)
-            DateTime currentTimeInVietnam = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "SE Asia Standard Time");
-            string sql = @"
-SELECT dcd.id
-FROM dotchamdiem dcd
-JOIN hocky hk ON dcd.hocki_id = hk.id
-WHERE (
-    (dcd.startDate <= @currentTime AND dcd.endDate >= @currentTime)  -- Đợt chấm điểm đang diễn ra
-    OR
-    (dcd.startDate > @currentTime)  -- Đợt chấm điểm sắp diễn ra
-) and dcd.status=1";
-            var cmd = new MySqlCommand(sql);
-            cmd.Parameters.AddWithValue("@currentTime", currentTimeInVietnam);
-            List<List<object>> result = DBConnection.ExecuteReader(cmd);
-            // Kiểm tra nếu có kết quả, tức là có đợt chấm điểm đang diễn ra hoặc sắp diễn ra
-            return result.Count > 0;
-        }
+        //        public static bool IsDotChamDiemDangDienRaHoacSapDienRa()
+        //        {
+        //            // Lấy thời gian hiện tại tại Việt Nam (UTC+7)
+        //            DateTime currentTimeInVietnam = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "SE Asia Standard Time");
+        //            string sql = @"
+        //SELECT dcd.id
+        //FROM dotchamdiem dcd
+        //JOIN hocky hk ON dcd.hocki_id = hk.id
+        //WHERE (
+        //    (dcd.startDate <= @currentTime AND dcd.endDate >= @currentTime)  -- Đợt chấm điểm đang diễn ra
+        //    OR
+        //    (dcd.startDate > @currentTime)  -- Đợt chấm điểm sắp diễn ra
+        //) and dcd.status=1";
+        //            var cmd = new MySqlCommand(sql);
+        //            cmd.Parameters.AddWithValue("@currentTime", currentTimeInVietnam);
+        //            List<List<object>> result = DBConnection.ExecuteReader(cmd);
+        //            // Kiểm tra nếu có kết quả, tức là có đợt chấm điểm đang diễn ra hoặc sắp diễn ra
+        //            return result.Count > 0;
+        //        }
 
 
 

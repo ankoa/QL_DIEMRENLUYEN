@@ -82,7 +82,35 @@ namespace ql_diemrenluyen.BUS
             return ChiTietDotChamDAO.GetListChiTietDotChamByThongTinDotChamId(thongTinDotChamDiemId);
         }
 
+       
+        public static int? GetDiem(long sinhVienID, long tieuChiDanhGiaID, int dotchamdiemID, long? coVanID = null, long? khoaID = null, int? final = null)
+        {
+            try
+            {
+                return ChiTietDotChamDAO.GetDiem(sinhVienID, tieuChiDanhGiaID, dotchamdiemID, coVanID, khoaID, final);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi (log lỗi hoặc thông báo người dùng)
+                Console.WriteLine("Lỗi khi lấy điểm: " + ex.Message);
+                return null;
+            }
+        }
 
+        // Lấy thông tin bằng chứng của sinh viên
+        public static (string? ImageUrl, string? Mota) GetBangChung(long sinhVienID, long tieuChiDanhGiaID, int dotChamDiemID)
+        {
+            try
+            {
+                return ChiTietDotChamDAO.GetBangChung(sinhVienID, tieuChiDanhGiaID, dotChamDiemID);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi (log lỗi hoặc thông báo người dùng)
+                Console.WriteLine("Lỗi khi lấy bằng chứng: " + ex.Message);
+                return (null, null);
+            }
+        }
     }
 }
 

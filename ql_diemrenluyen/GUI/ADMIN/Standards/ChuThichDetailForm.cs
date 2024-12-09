@@ -41,14 +41,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
             txtNoiDung.Text = text;
             txtMaxPoint.Text = maxpoint + "";
 
-            // Cài đặt DateTimePicker cho CreatedAt
             DateTime minValidDate = dtpCreatedAt.MinDate;
             dtpCreatedAt.Value = createdAt >= minValidDate ? createdAt : DateTime.Now;
             dtpCreatedAt.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             dtpCreatedAt.Format = DateTimePickerFormat.Custom;
-            dtpCreatedAt.Enabled = false; // Không cho phép chỉnh sửa CreatedAt
-
-            // Cài đặt DateTimePicker cho UpdatedAt
+            dtpCreatedAt.Enabled = false; 
             dtpUpdatedAt.Value = updatedAt >= minValidDate ? updatedAt : DateTime.Now;
             dtpUpdatedAt.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             dtpUpdatedAt.Format = DateTimePickerFormat.Custom;
@@ -69,23 +66,11 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
                     }
                 }
             }
-
-
-
-
-
-
-            // Tải trạng thái vào ComboBox
             cbbStatus.SelectedItem = status;
             cbbStatus.Enabled = true; // Cho phép chọn trạng thái
-
             currentAccountId = id;
-
-            // Hiển thị thông báo cảnh báo về trạng thái Tiêu Chí
             //MessageBox.Show($"Trạng thái Tiêu Chí: {status}", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            // Điều chỉnh trạng thái của nút Delete
-            btnDelete.Enabled = status == "Hoạt động"; // Nếu Tiêu Chí không phải "Hoạt động", cho phép xóa
+            btnDelete.Enabled = status == "Hoạt động"; 
         }
 
         public ChuThichDetailForm(DataGridView dataGridView, QLTieuChi tieuChiForm)
@@ -135,7 +120,6 @@ namespace ql_diemrenluyen.GUI.ADMIN.Standards
                 MessageBox.Show("Điểm phải là số nguyên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Kiểm tra nếu có chọn ParentId từ combobox
             if (cbbParentID.SelectedIndex != -1)
             {
                 string selectedItem = cbbParentID.SelectedItem.ToString();
